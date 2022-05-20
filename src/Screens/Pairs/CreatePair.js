@@ -4,7 +4,7 @@ import {TextField} from '../../Components/common/inputs/TextField';
 import {comp} from '../../Styles/Blocks';
 import {connect} from 'react-redux';
 import {setPair} from '../../Redux/Pairs/pairsActions';
-import {usePairs} from '../../Providers/PairsProvider';
+import {usePairs} from '../../Providers/Pairs/PairsProvider';
 import {PAIRS_INITIAL_STATE} from '../../Redux/Pairs/initialState';
 
 const CreatePair = ({navigation, pair, setPairStore}) => {

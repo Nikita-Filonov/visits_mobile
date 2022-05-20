@@ -18,8 +18,6 @@ export const DrawerHeader = ({navigation}) => {
   const {user, onLogout} = useAuth();
   const {name} = useRoute();
 
-  useEffect(() => console.log(name), [name]);
-
   const logout = async () =>
     setConfirmModal({
       action: async () => await onLogout(),
@@ -58,7 +56,7 @@ export const DrawerHeader = ({navigation}) => {
           iconName={'calendar-check-outline'}
           iconType={'material-community'}
           onPress={navigate('Pairs')}
-          selected={true}
+          selected={name === 'Pairs'}
         />
         <DrawerItem
           title={'Группы'}

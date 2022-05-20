@@ -4,7 +4,7 @@ import {CustomFab} from '../../Components/common/CustomFab';
 import {connect} from 'react-redux';
 import {ReduxStore} from '../../Models/Store';
 import {FlatList, RefreshControl} from 'react-native';
-import {usePairs} from '../../Providers/PairsProvider';
+import {usePairs} from '../../Providers/Pairs/PairsProvider';
 import {Spinner} from '../../Components/common/Spinner';
 import PairItem from '../../Components/Items/Pairs/PairItem';
 import {ListSeparator} from '../../Components/common/ListSeparator';

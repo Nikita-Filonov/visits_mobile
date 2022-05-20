@@ -7,4 +7,6 @@ export const PAIRS_INITIAL_STATE = {
     editMode: false,
   },
   pairs: [],
+  userPairs: [],
+  userPair: {},
 };

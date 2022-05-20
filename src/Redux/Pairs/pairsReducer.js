@@ -1,5 +1,5 @@
 import {PAIRS_INITIAL_STATE} from './initialState';
-import {SET_PAIR, SET_PAIRS} from './actionTypes';
+import {SET_PAIR, SET_PAIRS, SET_USER_PAIRS} from './actionTypes';
 
 export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
   switch (action.type) {
@@ -11,6 +11,8 @@ export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
     }
     case SET_PAIR:
       return {...state, pair: action.payload};
+    case SET_USER_PAIRS:
+      return {...state, userPairs: action.payload};
     default:
       return state;
   }
