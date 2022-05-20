@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {CustomText} from '../../components/common/CustomText';
 import {comp} from '../../Styles/Blocks';
 import {DataGrid} from '../../components/common/DataGrid/DataGrid';
-import {usePremiums} from '../../providers/PremiumsProvider';
+import {usePremiums} from '../../Providers/PremiumsProvider';
 import {PremiumAccessesColumns} from '../../utils/grids/PremiumAccessesColumns';
 import {RefreshControl, ScrollView} from 'react-native';
 import {Spinner} from '../../components/common/Spinner';

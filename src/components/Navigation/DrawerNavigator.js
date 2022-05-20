@@ -10,8 +10,8 @@ import {PremiumsStack} from './stacks/PremiumsStack';
 import {ProfileStack} from './stacks/ProfileStack';
 import {SettingsStack} from './stacks/SettingsStack';
 import {Notifications} from '../../Screens/notifications/Notifications';
-import {NotificationsProvider} from '../../providers/NotificationProvider';
-import {GroupsProvider} from '../../providers/groups/GroupsProvider';
+import {NotificationsProvider} from '../../Providers/NotificationProvider';
+import {GroupsProvider} from '../../Providers/Groups/GroupsProvider';
 import {HelpScreen} from '../../Screens/help/HelpScreen';
 
 const Drawer = createDrawerNavigator();

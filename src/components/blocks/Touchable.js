@@ -2,7 +2,7 @@ import React from 'react';
 import {TouchableNativeFeedback, View} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {touchable} from '../../Styles/Blocks';
-import {useThemes} from '../../providers/ThemeProvider';
+import {useThemes} from '../../Providers/ThemeProvider';
 
 export const Touchable = ({name, type, action, disabled, color, size}) => {
   const {theme} = useThemes();

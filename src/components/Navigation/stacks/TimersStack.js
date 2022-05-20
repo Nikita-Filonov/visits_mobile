@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {STACK_OPTIONS} from '../../../utils/Constants';
 import Timers from '../../../Screens/timers/Timers';
-import {TimersProvider} from '../../../providers/timers/TimersProvider';
+import {TimersProvider} from '../../../Providers/timers/TimersProvider';
 import CreateTimer from '../../../Screens/timers/CreateTimer';
 
 const Stack = createStackNavigator();

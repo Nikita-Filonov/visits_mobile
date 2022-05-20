@@ -1,8 +1,8 @@
 import React, {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {useAuth} from '../../../providers/AuthProvider';
-import {useThemes} from '../../../providers/ThemeProvider';
-import {useAlerts} from '../../../providers/AlertsProvider';
+import {useAuth} from '../../../Providers/AuthProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
+import {useAlerts} from '../../../Providers/AlertsProvider';
 import {post} from '../../../utils/Api/Fetch';
 import {CLIENTS} from '../../../utils/Constants';
 import {Touchable} from '../Touchable';

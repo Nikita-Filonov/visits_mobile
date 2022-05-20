@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import {CustomMenu} from '../../common/menus/CustomMenu';
 import {CustomMenuItem} from '../../common/menus/CustomMenuItem';
-import {useThemes} from '../../../providers/ThemeProvider';
-import {useSettings} from '../../../providers/SettingsProvider';
-import {useAlerts} from '../../../providers/AlertsProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
+import {useSettings} from '../../../Providers/SettingsProvider';
+import {useAlerts} from '../../../Providers/AlertsProvider';
 import {setComment} from '../../../Redux/Settings/settingsActions';
 import {navigate} from '../../Navigation/RootNavigation';
 

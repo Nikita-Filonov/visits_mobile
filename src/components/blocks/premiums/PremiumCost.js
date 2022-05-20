@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {View} from 'react-native';
 import {Icon} from 'react-native-elements';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 import {CustomText} from '../../common/CustomText';
 import {comp} from '../../../Styles/Blocks';
 import {PremiumsStyles} from '../../../Styles/Screens';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {comp} from '../../Styles/Blocks';
 import {ActivityIndicator, View} from 'react-native';
-import {useThemes} from '../../providers/ThemeProvider';
+import {useThemes} from '../../Providers/ThemeProvider';
 
 export const Spinner = ({size = 30}) => {
   const {theme} = useThemes();

@@ -1,11 +1,11 @@
 import React, {useMemo, useState} from 'react';
 import {connect} from 'react-redux';
-import {useSettings} from '../../../providers/SettingsProvider';
+import {useSettings} from '../../../Providers/SettingsProvider';
 import {useTranslation} from 'react-i18next';
 import {navigate} from '../../Navigation/RootNavigation';
 import {CustomMenu} from '../../common/menus/CustomMenu';
 import {CustomMenuItem} from '../../common/menus/CustomMenuItem';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 import {setGroup} from '../../../Redux/Groups/groupsActions';
 
 const GroupMenu = ({group, setGroup}) => {

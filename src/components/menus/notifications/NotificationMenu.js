@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {CustomMenu} from '../../common/menus/CustomMenu';
 import {CustomMenuItem} from '../../common/menus/CustomMenuItem';
-import {useNotifications} from '../../../providers/NotificationProvider';
-import {useAlerts} from '../../../providers/AlertsProvider';
+import {useNotifications} from '../../../Providers/NotificationProvider';
+import {useAlerts} from '../../../Providers/AlertsProvider';
 import {connect} from 'react-redux';
 import {setTimer} from '../../../Redux/Timers/timersActions';
 import {navigate} from '../../Navigation/RootNavigation';
-import {useGroups} from '../../../providers/groups/GroupsProvider';
+import {useGroups} from '../../../Providers/Groups/GroupsProvider';
 
 const NotificationMenu = ({notification, setTimer}) => {
   const {t} = useTranslation();

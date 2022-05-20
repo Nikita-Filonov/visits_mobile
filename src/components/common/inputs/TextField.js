@@ -1,24 +1,24 @@
 import React from 'react';
 import {HelperText, TextInput} from 'react-native-paper';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 
 export const TextField = ({
-                            value,
-                            onChangeText,
-                            label,
-                            style,
-                            right,
-                            left,
-                            editable,
-                            placeholder,
-                            error,
-                            secure,
-                            multiline,
-                            maxLength,
-                            render,
-                            keyboardType,
-                            helpTextType = 'error',
-                          }) => {
+  value,
+  onChangeText,
+  label,
+  style,
+  right,
+  left,
+  editable,
+  placeholder,
+  error,
+  secure,
+  multiline,
+  maxLength,
+  render,
+  keyboardType,
+  helpTextType = 'error',
+}) => {
   const {theme, inputTheme} = useThemes();
 
   return (
@@ -45,12 +45,15 @@ export const TextField = ({
         theme={inputTheme}
         error={Boolean(error) && helpTextType === 'error'}
       />
-      {Boolean(error) && <HelperText
-        type={helpTextType}
-        style={{color: helpTextType === 'error' ? theme.colors.error : theme.text}}
-      >
-        {error}
-      </HelperText>}
+      {Boolean(error) && (
+        <HelperText
+          type={helpTextType}
+          style={{
+            color: helpTextType === 'error' ? theme.colors.error : theme.text,
+          }}>
+          {error}
+        </HelperText>
+      )}
     </React.Fragment>
   );
 };

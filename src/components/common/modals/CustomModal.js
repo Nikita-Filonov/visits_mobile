@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import Modal from 'react-native-modal';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 import {DefaultModalStyles} from '../../../Styles/Modals';
 
 export const CustomChoiceModal = ({children, modal, setModal}) => {

@@ -1,12 +1,12 @@
 import React, {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {USER_PREMIUM_STATUSES} from '../../../utils/Constants';
-import {usePremiums} from '../../../providers/PremiumsProvider';
+import {usePremiums} from '../../../Providers/PremiumsProvider';
 import {View} from 'react-native';
 import {comp} from '../../../Styles/Blocks';
 import {PremiumIsActive} from '../premiums/PremiumIsActive';
 import {CustomButton} from '../../common/CustomButton';
-import {useAlerts} from '../../../providers/AlertsProvider';
+import {useAlerts} from '../../../Providers/AlertsProvider';
 
 export const UserPremiumActions = ({item, isBefore}) => {
   const {t} = useTranslation();

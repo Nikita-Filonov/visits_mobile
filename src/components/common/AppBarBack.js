@@ -1,7 +1,7 @@
 import React from 'react';
 import {Icon} from 'react-native-elements';
 import {Appbar} from 'react-native-paper';
-import {useThemes} from '../../providers/ThemeProvider';
+import {useThemes} from '../../Providers/ThemeProvider';
 import {goBack} from '../Navigation/RootNavigation';
 
 export const AppBarBack = ({header = true, onBack}) => {

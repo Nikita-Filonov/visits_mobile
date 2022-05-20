@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {usePremiums} from '../../../providers/PremiumsProvider';
+import {usePremiums} from '../../../Providers/PremiumsProvider';
 import {CustomText} from '../../common/CustomText';
 import {comp} from '../../../Styles/Blocks';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 import {HorizontalDivider} from '../../common/HorizontalDivider';
 import {PremiumAdvantages} from '../../blocks/premiums/PremiumAdvantages';
 import {PremiumCost} from '../../blocks/premiums/PremiumCost';

@@ -3,9 +3,9 @@ import {post} from '../../../utils/Api/Fetch';
 import {CLIENTS, GROUP_SETTING_INTERVAL} from '../../../utils/Constants';
 import {useTranslation} from 'react-i18next';
 import {Touchable} from '../Touchable';
-import {useThemes} from '../../../providers/ThemeProvider';
-import {useAlerts} from '../../../providers/AlertsProvider';
-import {useAuth} from '../../../providers/AuthProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
+import {useAlerts} from '../../../Providers/AlertsProvider';
+import {useAuth} from '../../../Providers/AuthProvider';
 
 export const TelegramUserSyncStatus = () => {
   const {t} = useTranslation();

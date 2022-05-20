@@ -4,7 +4,7 @@ import {FullScreenModalConfirmLayout} from '../../Layouts/FullScreenModalConfirm
 import {useTranslation} from 'react-i18next';
 import {CustomText} from '../../common/CustomText';
 import {TextField} from '../../common/inputs/TextField';
-import {useAlerts} from '../../../providers/AlertsProvider';
+import {useAlerts} from '../../../Providers/AlertsProvider';
 import {comp} from '../../../Styles/Blocks';
 import {post} from '../../../utils/Api/Fetch';
 

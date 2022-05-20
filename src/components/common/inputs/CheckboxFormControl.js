@@ -3,7 +3,7 @@ import {comp} from '../../../Styles/Blocks';
 import {Checkbox} from 'react-native-paper';
 import {CustomText} from '../CustomText';
 import {TouchableOpacity} from 'react-native';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 
 export const CheckboxFormControl = ({onPress, checked, style, label}) => {
   const {theme} = useThemes();

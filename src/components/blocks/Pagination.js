@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import {FlatList, Text, TouchableOpacity, View} from 'react-native';
 import {pagination} from '../../Styles/Blocks';
 import {Touchable} from './Touchable';
-import {useThemes} from '../../providers/ThemeProvider';
+import {useThemes} from '../../Providers/ThemeProvider';
 
 const Page = ({number, page, setPage}) => {
   const {theme} = useThemes();

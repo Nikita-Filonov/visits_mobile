@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useAuth} from '../../providers/AuthProvider';
+import {useAuth} from '../../Providers/AuthProvider';
 import {useTranslation} from 'react-i18next';
 import {GroupSettingsItem} from '../../components/blocks/groups/settings/GroupSettingsItem';
 import {DrawerLayout} from '../../components/Layouts/DrawerLayout';

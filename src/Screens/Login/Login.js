@@ -3,7 +3,7 @@ import {Linking, ScrollView, View} from 'react-native';
 import {comp} from '../../Styles/Blocks';
 import {baseUrl} from '../../utils/Links';
 import {LPStyles} from '../../Styles/Screens';
-import {useAuth} from '../../providers/AuthProvider';
+import {useAuth} from '../../Providers/AuthProvider';
 import {GoogleAuth} from '../../components/blocks/GoogleAuth';
 import {CustomText} from '../../components/common/CustomText';
 import {TextField} from '../../components/common/inputs/TextField';

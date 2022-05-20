@@ -2,7 +2,7 @@ import React from 'react';
 import BottomSheet from 'reanimated-bottom-sheet';
 import {DefaultBottomSheetStyles} from '../../Styles/Sheets';
 import {View} from 'react-native';
-import {useThemes} from '../../providers/ThemeProvider';
+import {useThemes} from '../../Providers/ThemeProvider';
 
 export const CustomBottomSheet = React.forwardRef(
   ({children, snapPoints}, ref) => {

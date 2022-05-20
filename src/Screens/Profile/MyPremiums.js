@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {BackLayout} from '../../components/Layouts/BackLayout';
 import {useTranslation} from 'react-i18next';
-import {usePremiums} from '../../providers/PremiumsProvider';
+import {usePremiums} from '../../Providers/PremiumsProvider';
 import {Spinner} from '../../components/common/Spinner';
 import {UserPremium} from '../../components/items/profile/UserPremium';
 import {FlatList, RefreshControl} from 'react-native';

@@ -1,14 +1,14 @@
 import React from 'react';
 import {CustomChoiceModal} from '../../common/modals/CustomModal';
 import {FlatList} from 'react-native';
-import {useSettings} from '../../../providers/SettingsProvider';
+import {useSettings} from '../../../Providers/SettingsProvider';
 import {Comment} from '../../items/timers/Comment';
 import {Divider} from 'react-native-paper';
 
 export const SelectCommentModal = ({modal, setModal, setComment}) => {
   const {settings} = useSettings();
 
-  const onComment = (comment) => {
+  const onComment = comment => {
     setComment(comment);
     setModal(false);
   };
@@ -16,9 +16,9 @@ export const SelectCommentModal = ({modal, setModal, setComment}) => {
   return (
     <CustomChoiceModal modal={modal} setModal={setModal}>
       <FlatList
-        ItemSeparatorComponent={() => <Divider/>}
+        ItemSeparatorComponent={() => <Divider />}
         data={settings?.comments || []}
-        renderItem={({item}) => <Comment item={item} onComment={onComment}/>}
+        renderItem={({item}) => <Comment item={item} onComment={onComment} />}
         keyExtractor={(_, index) => index.toString()}
       />
     </CustomChoiceModal>

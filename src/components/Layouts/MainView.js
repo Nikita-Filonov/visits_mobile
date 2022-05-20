@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {StatusBar, View} from 'react-native';
-import {useThemes} from '../../providers/ThemeProvider';
+import {useThemes} from '../../Providers/ThemeProvider';
 import {comp} from '../../Styles/Blocks';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 

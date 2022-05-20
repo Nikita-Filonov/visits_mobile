@@ -1,20 +1,20 @@
 import React from 'react';
 import {Button} from 'react-native-elements';
-import {useThemes} from '../../providers/ThemeProvider';
+import {useThemes} from '../../Providers/ThemeProvider';
 import {View} from 'react-native';
 
 export const CustomButton = ({
-                               icon,
-                               title,
-                               type = 'solid',
-                               loading,
-                               onPress,
-                               upper = true,
-                               buttonStyle,
-                               containerStyle,
-                               color = 'inherit',
-                               disabled,
-                             }) => {
+  icon,
+  title,
+  type = 'solid',
+  loading,
+  onPress,
+  upper = true,
+  buttonStyle,
+  containerStyle,
+  color = 'inherit',
+  disabled,
+}) => {
   const {theme} = useThemes();
   const buttonTemplates = {
     outline: {
@@ -54,7 +54,11 @@ export const CustomButton = ({
       title={upper ? title?.toUpperCase() : title}
       loadingProps={{color: theme.text}}
       onPress={onPress}
-      buttonStyle={[{borderRadius: 4}, buttonStyle, buttonTemplates[type].buttonStyle]}
+      buttonStyle={[
+        {borderRadius: 4},
+        buttonStyle,
+        buttonTemplates[type].buttonStyle,
+      ]}
       containerStyle={containerStyle}
       titleStyle={[buttonTemplates[type].titleStyle]}
       disabledStyle={[buttonTemplates[type].buttonStyle]}

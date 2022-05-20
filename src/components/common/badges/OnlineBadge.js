@@ -2,7 +2,7 @@ import React from 'react';
 import {Badge, Icon} from 'react-native-elements';
 import {member} from '../../../Styles/Items';
 import {View} from 'react-native';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 
 export const OnlineBadge = ({online, style, size}) => {
   const {theme} = useThemes();

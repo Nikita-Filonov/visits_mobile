@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 import {DataGridStyles} from '../../../Styles/Blocks';
 
 export const DataGridFooter = () => {

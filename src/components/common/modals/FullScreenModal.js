@@ -1,6 +1,6 @@
 import React from 'react';
 import {Modal, View} from 'react-native';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 import {DefaultModalStyles} from '../../../Styles/Modals';
 
 export const FullScreenModal = ({children, modal, setModal, onClose}) => {

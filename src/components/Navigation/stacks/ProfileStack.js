@@ -1,14 +1,14 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {STACK_OPTIONS} from '../../../utils/Constants';
-import {PremiumsProvider} from '../../../providers/PremiumsProvider';
+import {PremiumsProvider} from '../../../Providers/PremiumsProvider';
 import {ProfileSettings} from '../../../Screens/Profile/ProfileSettings';
 import {Profile} from '../../../Screens/Profile/Profile';
 import {MyPremiums} from '../../../Screens/Profile/MyPremiums';
 import {PremiumAccesses} from '../../../Screens/Profile/PremiumAccesses';
 import {TelegramProfile} from '../../../Screens/Profile/TelegramProfile';
 import {VkProfile} from '../../../Screens/Profile/VkProfile';
-import {useAuth} from '../../../providers/AuthProvider';
+import {useAuth} from '../../../Providers/AuthProvider';
 import {ChangePassword} from '../../../Screens/Profile/ChangePassword';
 
 const Stack = createStackNavigator();

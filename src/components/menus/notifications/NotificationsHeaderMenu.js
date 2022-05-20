@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {CustomMenu} from '../../common/menus/CustomMenu';
 import {CustomMenuItem} from '../../common/menus/CustomMenuItem';
-import {useNotifications} from '../../../providers/NotificationProvider';
+import {useNotifications} from '../../../Providers/NotificationProvider';
 
 export const NotificationsHeaderMenu = () => {
   const {t} = useTranslation();

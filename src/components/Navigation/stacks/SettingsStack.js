@@ -5,7 +5,7 @@ import {Settings} from '../../../Screens/settings/Settings';
 import {MonstersSettings} from '../../../Screens/settings/monsters/MonstersSettings';
 import CreateMonster from '../../../Screens/settings/monsters/CreateMonster';
 import {ChooseMonsters} from '../../../Screens/settings/monsters/ChooseMonsters';
-import {PremiumsProvider} from '../../../providers/PremiumsProvider';
+import {PremiumsProvider} from '../../../Providers/PremiumsProvider';
 import {SoundsSettings} from '../../../Screens/settings/SoundsSettings';
 import {NotificationsSettings} from '../../../Screens/settings/notifications/NotificationsSettings';
 import {NotificationsTemplatesSettings} from '../../../Screens/settings/notifications/NotificationsTemplatesSettings';

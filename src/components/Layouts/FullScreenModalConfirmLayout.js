@@ -1,7 +1,7 @@
 import React from 'react';
 import {MainView} from './MainView';
 import {Appbar} from 'react-native-paper';
-import {useThemes} from '../../providers/ThemeProvider';
+import {useThemes} from '../../Providers/ThemeProvider';
 import {ActivityIndicator, View} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {AppBar} from '../common/AppBar';

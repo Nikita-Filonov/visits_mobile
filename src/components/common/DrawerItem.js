@@ -1,7 +1,7 @@
 import React from 'react';
 import {Icon} from 'react-native-elements';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {useThemes} from '../../providers/ThemeProvider';
+import {useThemes} from '../../Providers/ThemeProvider';
 import {DrawerItemStyles} from '../../Styles/Blocks';
 
 export const DrawerItem = ({

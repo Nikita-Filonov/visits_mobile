@@ -6,7 +6,7 @@ import {
 import {useTranslation} from 'react-i18next';
 import {CustomText} from '../../common/CustomText';
 import {Icon} from 'react-native-elements';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 import {Linking, View} from 'react-native';
 import {comp} from '../../../Styles/Blocks';
 import {Touchable} from '../Touchable';

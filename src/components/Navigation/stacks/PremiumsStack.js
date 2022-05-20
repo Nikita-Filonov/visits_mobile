@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {STACK_OPTIONS} from '../../../utils/Constants';
 import {Premiums} from '../../../Screens/premiums/Premiums';
-import {PremiumsProvider} from '../../../providers/PremiumsProvider';
+import {PremiumsProvider} from '../../../Providers/PremiumsProvider';
 import {PremiumsInfo} from '../../../Screens/premiums/PremiumsInfo';
 
 const Stack = createStackNavigator();

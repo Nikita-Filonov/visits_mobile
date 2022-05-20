@@ -1,11 +1,11 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {View} from 'react-native';
-import {useAlerts} from '../../../providers/AlertsProvider';
+import {useAlerts} from '../../../Providers/AlertsProvider';
 import {Touchable} from '../Touchable';
 import {comp} from '../../../Styles/Blocks';
 import {CustomText} from '../../common/CustomText';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 import {PremiumsStyles} from '../../../Styles/Screens';
 
 export const PremiumAllowedDisableTimes = ({

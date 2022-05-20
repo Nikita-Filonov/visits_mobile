@@ -1,6 +1,6 @@
 import React from 'react';
 import {Appbar} from 'react-native-paper';
-import {useThemes} from '../../providers/ThemeProvider';
+import {useThemes} from '../../Providers/ThemeProvider';
 import {View} from 'react-native';
 
 export const AppBar = ({children, header = true}) => {
@@ -8,11 +8,17 @@ export const AppBar = ({children, header = true}) => {
 
   return (
     <React.Fragment>
-      <Appbar.Header style={[{backgroundColor: header ? theme.header.background: theme.background}]}>
+      <Appbar.Header
+        style={[
+          {
+            backgroundColor: header
+              ? theme.header.background
+              : theme.background,
+          },
+        ]}>
         {children}
       </Appbar.Header>
-      <View style={{height: 10}}/>
+      <View style={{height: 10}} />
     </React.Fragment>
-
   );
 };

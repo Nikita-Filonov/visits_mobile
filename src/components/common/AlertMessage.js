@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import {Text, View} from 'react-native';
 import {Icon} from 'react-native-elements';
-import {useThemes} from '../../providers/ThemeProvider';
+import {useThemes} from '../../Providers/ThemeProvider';
 import {AlertMessageStyles} from '../../Styles/Blocks';
 
 const LEVEL_COLORS = {

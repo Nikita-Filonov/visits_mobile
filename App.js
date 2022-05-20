@@ -8,7 +8,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Loader} from './src/components/blocks/Loader';
-import {useAuth} from './src/providers/AuthProvider';
+import {useAuth} from './src/Providers/AuthProvider';
 import {LoginStack} from './src/components/Navigation/stacks/LoginStack';
 import {STACK_OPTIONS} from './src/utils/Constants';
 import {navigationRef} from './src/components/Navigation/RootNavigation';

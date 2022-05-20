@@ -9,10 +9,10 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import {Provider as PaperProvider} from 'react-native-paper';
 import reducer from './src/Redux/reducers';
-import {AlertProvider} from './src/providers/AlertsProvider';
-import {AuthProvider} from './src/providers/AuthProvider';
-import {SettingsProvider} from './src/providers/SettingsProvider';
-import {ThemeProvider} from './src/providers/ThemeProvider';
+import {AlertProvider} from './src/Providers/AlertsProvider';
+import {AuthProvider} from './src/Providers/AuthProvider';
+import {SettingsProvider} from './src/Providers/SettingsProvider';
+import {ThemeProvider} from './src/Providers/ThemeProvider';
 
 const store = createStore(reducer);
 

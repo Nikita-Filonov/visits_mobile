@@ -2,11 +2,11 @@ import React, {forwardRef, useState} from 'react';
 import {connect} from 'react-redux';
 import {CustomMenu} from '../../../common/menus/CustomMenu';
 import {CustomMenuItem} from '../../../common/menus/CustomMenuItem';
-import {useThemes} from '../../../../providers/ThemeProvider';
+import {useThemes} from '../../../../Providers/ThemeProvider';
 import {useTranslation} from 'react-i18next';
 import {navigate} from '../../../Navigation/RootNavigation';
-import {useAlerts} from '../../../../providers/AlertsProvider';
-import {useGroupTimers} from '../../../../providers/groups/GroupTimersProvider';
+import {useAlerts} from '../../../../Providers/AlertsProvider';
+import {useGroupTimers} from '../../../../Providers/Groups/GroupTimersProvider';
 import {setGroupTimer} from '../../../../Redux/GroupTimers/groupTimersActions';
 
 const GroupTimerMenu = forwardRef(({timer, group, setGroupTimer}, ref) => {

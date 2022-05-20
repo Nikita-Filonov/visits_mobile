@@ -1,7 +1,7 @@
 import React from 'react';
 import {comp} from '../../Styles/Blocks';
 import {FAB} from 'react-native-paper';
-import {useThemes} from '../../providers/ThemeProvider';
+import {useThemes} from '../../Providers/ThemeProvider';
 
 export const CustomFab = ({onPress, withoutWrapper = false}) => {
   const {theme} = useThemes();

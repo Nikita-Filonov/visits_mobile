@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import {ScrollView} from 'react-native';
-import {useAlerts} from '../../providers/AlertsProvider';
-import {useAuth} from '../../providers/AuthProvider';
+import {useAlerts} from '../../Providers/AlertsProvider';
+import {useAuth} from '../../Providers/AuthProvider';
 import {useTranslation} from 'react-i18next';
 import {
   validateEmail,

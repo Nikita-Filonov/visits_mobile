@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {BackLayout} from '../../components/Layouts/BackLayout';
-import {useAuth} from '../../providers/AuthProvider';
-import {useAlerts} from '../../providers/AlertsProvider';
+import {useAuth} from '../../Providers/AuthProvider';
+import {useAlerts} from '../../Providers/AlertsProvider';
 import {Trans, useTranslation} from 'react-i18next';
 import {CustomText} from '../../components/common/CustomText';
 import {post} from '../../utils/Api/Fetch';

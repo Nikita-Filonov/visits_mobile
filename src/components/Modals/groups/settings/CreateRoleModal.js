@@ -9,7 +9,7 @@ import {
   setCreateRoleModal,
   setRole,
 } from '../../../../Redux/Groups/groupsActions';
-import {useGroups} from '../../../../providers/groups/GroupsProvider';
+import {useGroups} from '../../../../Providers/Groups/GroupsProvider';
 import {GROUPS_INITIAL_STATE} from '../../../../Redux/Groups/initialState';
 import {useTranslation} from 'react-i18next';
 import {CustomText} from '../../../common/CustomText';

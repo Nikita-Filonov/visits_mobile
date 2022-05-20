@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import {CustomText} from '../CustomText';
 import {comp, DataGridStyles} from '../../../Styles/Blocks';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 
 export const DataGridHeader = ({columns}) => {
   const {theme} = useThemes();

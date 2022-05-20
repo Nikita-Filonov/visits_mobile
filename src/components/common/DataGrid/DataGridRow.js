@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 import {View} from 'react-native';
 import {CustomText} from '../CustomText';
 import {comp, DataGridStyles} from '../../../Styles/Blocks';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 
 const DataGidCell = value => (
   <CustomText style={comp.smallText}>{value}</CustomText>

@@ -1,13 +1,13 @@
 import React, {forwardRef, useState} from 'react';
-import {useAlerts} from '../../../providers/AlertsProvider';
+import {useAlerts} from '../../../Providers/AlertsProvider';
 import {connect} from 'react-redux';
-import {useTimers} from '../../../providers/timers/TimersProvider';
+import {useTimers} from '../../../Providers/timers/TimersProvider';
 import {useTranslation} from 'react-i18next';
 import {navigate} from '../../Navigation/RootNavigation';
 import {setTimer} from '../../../Redux/Timers/timersActions';
 import {CustomMenu} from '../../common/menus/CustomMenu';
 import {CustomMenuItem} from '../../common/menus/CustomMenuItem';
-import {useThemes} from '../../../providers/ThemeProvider';
+import {useThemes} from '../../../Providers/ThemeProvider';
 
 const TimerMenu = forwardRef(({timer, navigation, setTimer}, ref) => {
   const {theme} = useThemes();

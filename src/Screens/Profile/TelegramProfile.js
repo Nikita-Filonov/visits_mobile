@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Linking} from 'react-native';
 import {comp} from '../../Styles/Blocks';
-import {useAuth} from '../../providers/AuthProvider';
+import {useAuth} from '../../Providers/AuthProvider';
 import {useTranslation} from 'react-i18next';
 import {TELEGRAM_BOT} from '../../utils/Constants';
 import {ConfirmLayout} from '../../components/Layouts/ConfirmLayout';

@@ -1,6 +1,6 @@
 import React, {useMemo, useState} from 'react';
 import {FlatList} from 'react-native';
-import {useGroups} from '../../../../providers/groups/GroupsProvider';
+import {useGroups} from '../../../../Providers/Groups/GroupsProvider';
 import {comp} from '../../../../Styles/Blocks';
 import {validateEmail} from '../../../../utils/Utils';
 import {Touchable} from '../../../blocks/Touchable';
