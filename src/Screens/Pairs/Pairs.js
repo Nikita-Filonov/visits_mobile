@@ -1,6 +1,6 @@
 import React from 'react';
 import {DrawerLayout} from '../../Components/Layouts/DrawerLayout';
-import {CustomFab} from '../../Components/common/CustomFab';
+import {CustomFab} from '../../Components/common/Fabs/CustomFab';
 import {connect} from 'react-redux';
 import {ReduxStore} from '../../Models/Store';
 import {FlatList, RefreshControl} from 'react-native';
