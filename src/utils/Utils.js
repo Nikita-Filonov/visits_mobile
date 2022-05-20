@@ -1,42 +1,12 @@
 import moment from 'moment';
-import {useEffect, useMemo, useState} from 'react';
-import Sound from 'react-native-sound';
 import {NativeModules, Platform} from 'react-native';
 import {LOCALE_BACKUP, STACK_OPTIONS, SUPPORTED_LOCALES} from './Constants';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
-export const SetAudio = (url, volume) => {
-  const audio = useMemo(() => new Sound(url), [url]);
-  const [playing, setPlaying] = useState(false);
-
-  const toggle = () => setPlaying(!playing);
-
-  useEffect(() => {
-      audio.volume = volume;
-      audio.muted = false;
-      playing ? play() : pause();
-    },
-    [playing],
-  );
-
-  const play = () => {
-    audio.play();
-    setTimeout(() => setPlaying(false), audio.getDuration() * 1000);
-  };
-
-  const pause = () => {
-    audio.pause();
-    setPlaying(false);
-  };
-
-
-  return [playing, toggle];
-};
-
 export function convertTime(min) {
-  const h = min / 60 | 0,
+  const h = (min / 60) | 0,
     m = min % 60 | 0;
   return `${(h < 10) ? '0' + h : h}:${(m < 10) ? '0' + m : m}`;
 }

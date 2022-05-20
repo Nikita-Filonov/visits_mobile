@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import 'moment/locale/ru';
 import 'moment/locale/en-au';
+import {View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {enableScreens} from 'react-native-screens';
 import {NavigationContainer} from '@react-navigation/native';
@@ -11,9 +12,7 @@ import {useAuth} from './src/providers/AuthProvider';
 import {LoginStack} from './src/components/navigation/stacks/LoginStack';
 import {STACK_OPTIONS} from './src/utils/Constants';
 import {navigationRef} from './src/components/navigation/RootNavigation';
-import {DrawerNavigator} from './src/components/navigation/DrawerNavigator';
 import {setupDefaultGroup, setupReduxStore} from './src/redux/setup';
-import {setupNotifications} from './src/utils/Setup';
 
 enableScreens();
 
@@ -31,26 +30,27 @@ export const App = ({store}) => {
   const onLoadApp = async () => {
     await setupDefaultGroup(store);
     await setupReduxStore(store);
-    await setupNotifications();
     setLoader(false);
   };
 
   return (
     <NavigationContainer ref={navigationRef}>
-      {loader
-        ? <Loader/>
-        : <Stack.Navigator initialRouteName={'Welcome'}>
-          {token
-            ? <Drawer.Screen name="Timers" options={STACK_OPTIONS}>
-              {props => <DrawerNavigator store={store} {...props}/>}
-            </Drawer.Screen>
-            : <Stack.Screen name="Welcome" options={STACK_OPTIONS}>
-              {props => <LoginStack {...props}/>}
+      {loader ? (
+        <Loader />
+      ) : (
+        <Stack.Navigator initialRouteName={'Welcome'}>
+          {token ? (
+            <View />
+          ) : (
+            // ? <Drawer.Screen name="Timers" options={STACK_OPTIONS}>
+            //   {props => <DrawerNavigator store={store} {...props}/>}
+            // </Drawer.Screen>
+            <Stack.Screen name="Welcome" options={STACK_OPTIONS}>
+              {props => <LoginStack {...props} />}
             </Stack.Screen>
-          }
+          )}
         </Stack.Navigator>
-      }
+      )}
     </NavigationContainer>
   );
 };
-

@@ -4,14 +4,12 @@ import * as Animatable from 'react-native-animatable';
 import {loader} from '../../styles/Blocks';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
-
 export const Loader = () => {
-
   useEffect(() => {
     (async () => {
       StatusBar.setBarStyle('default');
-      StatusBar.setBackgroundColor('#1976D2');
-      await changeNavigationBarColor('#1976D2');
+      StatusBar.setBackgroundColor('#6CE990');
+      await changeNavigationBarColor('#6CE990');
     })();
   }, []);
 
@@ -19,18 +17,10 @@ export const Loader = () => {
     <View style={loader.container}>
       <Animatable.Text
         style={loader.text}
-        animation="fadeInLeftBig"
+        animation="zoomIn"
         direction="alternate"
         iterationCount={1}>
-        RQ
-      </Animatable.Text>
-      <View style={loader.separator}/>
-      <Animatable.Text
-        style={loader.text}
-        animation="fadeInRightBig"
-        direction="alternate"
-        iterationCount={1}>
-        TIMER
+        Visits
       </Animatable.Text>
     </View>
   );

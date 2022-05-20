@@ -73,7 +73,6 @@ export const comp = StyleSheet.create({
   },
 });
 
-
 export const drawer = StyleSheet.create({
   itemText: {
     color: 'white',
@@ -95,7 +94,6 @@ export const drawer = StyleSheet.create({
   },
 });
 
-
 export const touchable = StyleSheet.create({
   container: {
     overflow: 'hidden',
@@ -108,7 +106,6 @@ export const touchable = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
 
 // Empty List styles
 export const ListEmptyStyles = StyleSheet.create({
@@ -137,12 +134,11 @@ export const ListEmptyStyles = StyleSheet.create({
   },
 });
 
-
 export const loader = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#4169E1',
+    backgroundColor: '#6CE990',
     flexDirection: 'row',
     justifyContent: 'center',
   },
@@ -203,7 +199,6 @@ export const UTCStyles = StyleSheet.create({
   },
 });
 
-
 export const pagination = StyleSheet.create({
   page: {
     width: 30,
@@ -233,7 +228,6 @@ export const pagination = StyleSheet.create({
   },
 });
 
-
 export const AlertMessageStyles = StyleSheet.create({
   container: {
     width: '100%',
@@ -250,7 +244,6 @@ export const AlertMessageStyles = StyleSheet.create({
     flexWrap: 'wrap',
   },
 });
-
 
 export const DrawerItemStyles = StyleSheet.create({
   container: {
@@ -304,7 +297,6 @@ export const DrawerHeaderStyles = StyleSheet.create({
     marginBottom: 10,
   },
 });
-
 
 export const GroupSectionHeaderStyles = StyleSheet.create({
   container: {
