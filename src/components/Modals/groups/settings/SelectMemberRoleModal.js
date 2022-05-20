@@ -3,7 +3,7 @@ import {CustomChoiceModal} from '../../../common/modals/CustomModal';
 import {connect} from 'react-redux';
 import {FlatList} from 'react-native';
 import {setMember} from '../../../../Redux/Groups/groupsActions';
-import {Role} from '../../../items/groups/settings/Role';
+import {Role} from '../../../Items/groups/settings/Role';
 
 const SelectMemberRoleModal = ({modal, setModal, group, member, setMember}) => {
   const onRole = role => {

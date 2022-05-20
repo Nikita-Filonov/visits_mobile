@@ -3,7 +3,7 @@ import {BackLayout} from '../../components/Layouts/BackLayout';
 import {useTranslation} from 'react-i18next';
 import {usePremiums} from '../../Providers/PremiumsProvider';
 import {Spinner} from '../../components/common/Spinner';
-import {UserPremium} from '../../components/items/profile/UserPremium';
+import {UserPremium} from '../../components/Items/profile/UserPremium';
 import {FlatList, RefreshControl} from 'react-native';
 import {ListSeparator} from '../../components/common/ListSeparator';
 

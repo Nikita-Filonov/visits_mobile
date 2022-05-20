@@ -16,7 +16,7 @@ import {CustomText} from '../../../common/CustomText';
 import {AlertMessage} from '../../../common/AlertMessage';
 import {ListSeparator} from '../../../common/ListSeparator';
 import {GROUP_SCOPES} from '../../../../utils/Constants';
-import RolePermission from '../../../items/groups/settings/RolePermission';
+import RolePermission from '../../../Items/groups/settings/RolePermission';
 import {RoleSectionHeader} from '../../../blocks/groups/settings/RoleSectionHeader';
 
 const CreateRoleModal = ({

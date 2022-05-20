@@ -4,7 +4,7 @@ import {useGroups} from '../../../../Providers/groups/GroupsProvider';
 import {comp} from '../../../../Styles/Blocks';
 import {validateEmail} from '../../../../utils/Utils';
 import {Touchable} from '../../../blocks/Touchable';
-import Mail from '../../../items/groups/Mail';
+import Mail from '../../../Items/groups/Mail';
 import {FullScreenModal} from '../../../common/modals/FullScreenModal';
 import {FullScreenModalConfirmLayout} from '../../../Layouts/FullScreenModalConfirmLayout';
 import {useTranslation} from 'react-i18next';

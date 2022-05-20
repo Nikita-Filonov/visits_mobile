@@ -7,7 +7,7 @@ import {View} from 'react-native';
 import {comp} from '../../../Styles/Blocks';
 import {CustomText} from '../../common/CustomText';
 import {FlatList} from 'react-native-gesture-handler';
-import {DefaultGroupItem} from '../../items/groups/DefaultGroupItem';
+import {DefaultGroupItem} from '../../Items/groups/DefaultGroupItem';
 import {ListSeparator} from '../../common/ListSeparator';
 import AsyncStorage from '@react-native-community/async-storage';
 import {DEFAULT_GROUP_BACKUP} from '../../../utils/Constants';

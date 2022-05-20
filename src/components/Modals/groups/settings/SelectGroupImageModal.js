@@ -5,7 +5,7 @@ import {Appbar} from 'react-native-paper';
 import {Icon} from 'react-native-elements';
 import {connect} from 'react-redux';
 import {useAuth} from '../../../../Providers/AuthProvider';
-import {GroupImage} from '../../../items/groups/GroupImage';
+import {GroupImage} from '../../../Items/groups/GroupImage';
 import * as ImagePicker from 'react-native-image-picker';
 import {useAlerts} from '../../../../Providers/AlertsProvider';
 import {FullScreenModal} from '../../../common/modals/FullScreenModal';

@@ -25,6 +25,7 @@ const PairsProvider = ({children}) => {
     <PairsContext.Provider
       value={{
         load,
+        getPairs,
       }}>
       {children}
     </PairsContext.Provider>

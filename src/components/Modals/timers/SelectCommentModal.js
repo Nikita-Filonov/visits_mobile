@@ -2,7 +2,7 @@ import React from 'react';
 import {CustomChoiceModal} from '../../common/modals/CustomModal';
 import {FlatList} from 'react-native';
 import {useSettings} from '../../../Providers/SettingsProvider';
-import {Comment} from '../../items/timers/Comment';
+import {Comment} from '../../Items/timers/Comment';
 import {Divider} from 'react-native-paper';
 
 export const SelectCommentModal = ({modal, setModal, setComment}) => {
