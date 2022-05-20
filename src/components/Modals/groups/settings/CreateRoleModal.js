@@ -8,9 +8,9 @@ import {connect} from 'react-redux';
 import {
   setCreateRoleModal,
   setRole,
-} from '../../../../redux/Groups/groupsActions';
+} from '../../../../Redux/Groups/groupsActions';
 import {useGroups} from '../../../../providers/groups/GroupsProvider';
-import {GROUPS_INITIAL_STATE} from '../../../../redux/Groups/initialState';
+import {GROUPS_INITIAL_STATE} from '../../../../Redux/Groups/initialState';
 import {useTranslation} from 'react-i18next';
 import {CustomText} from '../../../common/CustomText';
 import {AlertMessage} from '../../../common/AlertMessage';

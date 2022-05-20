@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {
   setCreateMemberModal,
   setMember,
-} from '../../../../redux/Groups/groupsActions';
+} from '../../../../Redux/Groups/groupsActions';
 import {FullScreenModal} from '../../../common/modals/FullScreenModal';
 import {FullScreenModalConfirmLayout} from '../../../Layouts/FullScreenModalConfirmLayout';
 import {useTranslation} from 'react-i18next';
@@ -14,7 +14,7 @@ import {TextField} from '../../../common/inputs/TextField';
 import SelectMemberRoleModal from './SelectMemberRoleModal';
 import {Touchable} from '../../../blocks/Touchable';
 import {TextInput} from 'react-native-paper';
-import {GROUPS_INITIAL_STATE} from '../../../../redux/Groups/initialState';
+import {GROUPS_INITIAL_STATE} from '../../../../Redux/Groups/initialState';
 
 const InviteMemberModal = ({
   createMemberModal,

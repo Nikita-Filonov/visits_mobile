@@ -6,7 +6,7 @@ import {CustomMenuItem} from '../../common/menus/CustomMenuItem';
 import {useThemes} from '../../../providers/ThemeProvider';
 import {useSettings} from '../../../providers/SettingsProvider';
 import {useAlerts} from '../../../providers/AlertsProvider';
-import {setMonster} from '../../../redux/Settings/settingsActions';
+import {setMonster} from '../../../Redux/Settings/settingsActions';
 import {convertTime} from '../../../utils/Utils';
 import {navigate} from '../../Navigation/RootNavigation';
 

@@ -12,7 +12,7 @@ import {useAuth} from './src/providers/AuthProvider';
 import {LoginStack} from './src/components/Navigation/stacks/LoginStack';
 import {STACK_OPTIONS} from './src/utils/Constants';
 import {navigationRef} from './src/components/Navigation/RootNavigation';
-import {setupDefaultGroup, setupReduxStore} from './src/redux/setup';
+import {setupDefaultGroup, setupReduxStore} from './src/Redux/setup';
 
 enableScreens();
 

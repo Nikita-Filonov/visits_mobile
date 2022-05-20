@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {FullScreenModal} from '../../common/modals/FullScreenModal';
 import {FullScreenModalConfirmLayout} from '../../Layouts/FullScreenModalConfirmLayout';
 import {connect} from 'react-redux';
-import {setDefaultGroupModal} from '../../../redux/Groups/groupsActions';
+import {setDefaultGroupModal} from '../../../Redux/Groups/groupsActions';
 import {View} from 'react-native';
 import {comp} from '../../../Styles/Blocks';
 import {CustomText} from '../../common/CustomText';

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import {CustomMenu} from '../../common/menus/CustomMenu';
 import {CustomMenuItem} from '../../common/menus/CustomMenuItem';
-import {setDefaultGroupModal} from '../../../redux/Groups/groupsActions';
+import {setDefaultGroupModal} from '../../../Redux/Groups/groupsActions';
 
 const GroupsHeaderMenu = ({setDefaultGroupModal}) => {
   const {t} = useTranslation();

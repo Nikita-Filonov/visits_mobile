@@ -9,7 +9,7 @@ import {
   setCreateMemberModal,
   setGroup,
   setMember,
-} from '../../../../redux/Groups/groupsActions';
+} from '../../../../Redux/Groups/groupsActions';
 import {useGroupPermissions} from '../../../../providers/groups/GroupPermissionsProvider';
 import {MEMBER} from '../../../../utils/permissions/Groups';
 

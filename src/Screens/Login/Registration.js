@@ -11,7 +11,7 @@ import {useTranslation} from 'react-i18next';
 import {PasswordTextField} from '../../components/common/inputs/PasswordTextField';
 import {BackLayout} from '../../components/Layouts/BackLayout';
 import {connect} from 'react-redux';
-import {setUser} from '../../redux/Users/usersActions';
+import {setUser} from '../../Redux/Users/usersActions';
 
 const Registration = ({navigation, setUser}) => {
   const {t} = useTranslation();

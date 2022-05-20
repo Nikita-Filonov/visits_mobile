@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {useTimers} from '../../../providers/timers/TimersProvider';
 import {useTranslation} from 'react-i18next';
 import {navigate} from '../../Navigation/RootNavigation';
-import {setTimer} from '../../../redux/Timers/timersActions';
+import {setTimer} from '../../../Redux/Timers/timersActions';
 import {CustomMenu} from '../../common/menus/CustomMenu';
 import {CustomMenuItem} from '../../common/menus/CustomMenuItem';
 import {useThemes} from '../../../providers/ThemeProvider';

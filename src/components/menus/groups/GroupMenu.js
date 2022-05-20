@@ -6,7 +6,7 @@ import {navigate} from '../../Navigation/RootNavigation';
 import {CustomMenu} from '../../common/menus/CustomMenu';
 import {CustomMenuItem} from '../../common/menus/CustomMenuItem';
 import {useThemes} from '../../../providers/ThemeProvider';
-import {setGroup} from '../../../redux/Groups/groupsActions';
+import {setGroup} from '../../../Redux/Groups/groupsActions';
 
 const GroupMenu = ({group, setGroup}) => {
   const {theme} = useThemes();

@@ -4,8 +4,8 @@ import {useTranslation} from 'react-i18next';
 import {CustomMenu} from '../../../common/menus/CustomMenu';
 import {CustomMenuItem} from '../../../common/menus/CustomMenuItem';
 import {navigate} from '../../../Navigation/RootNavigation';
-import {setCreateMemberModal} from '../../../../redux/Groups/groupsActions';
-import {setGroupTimersCommentShown} from '../../../../redux/GroupTimers/groupTimersActions';
+import {setCreateMemberModal} from '../../../../Redux/Groups/groupsActions';
+import {setGroupTimersCommentShown} from '../../../../Redux/GroupTimers/groupTimersActions';
 import {useAlerts} from '../../../../providers/AlertsProvider';
 
 const GroupTimersHeaderMenu = props => {

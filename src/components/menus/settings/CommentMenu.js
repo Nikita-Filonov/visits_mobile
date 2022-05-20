@@ -6,7 +6,7 @@ import {CustomMenuItem} from '../../common/menus/CustomMenuItem';
 import {useThemes} from '../../../providers/ThemeProvider';
 import {useSettings} from '../../../providers/SettingsProvider';
 import {useAlerts} from '../../../providers/AlertsProvider';
-import {setComment} from '../../../redux/Settings/settingsActions';
+import {setComment} from '../../../Redux/Settings/settingsActions';
 import {navigate} from '../../Navigation/RootNavigation';
 
 const CommentMenu = ({comment, setComment}) => {

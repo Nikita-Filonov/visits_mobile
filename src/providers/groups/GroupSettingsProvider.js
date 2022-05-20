@@ -4,7 +4,7 @@ import {SUPPORTED_ACTIONS, useAlerts} from '../AlertsProvider';
 import {
   SET_GROUP_MONSTERS,
   SET_GROUP_SETTINGS,
-} from '../../redux/Groups/actionTypes';
+} from '../../Redux/Groups/actionTypes';
 import {useAuth} from '../AuthProvider';
 import {get, patch} from '../../utils/Api/Fetch';
 import {useTranslation} from 'react-i18next';

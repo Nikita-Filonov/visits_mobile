@@ -8,7 +8,7 @@ import {
   SET_GROUP,
   SET_GROUPS,
   UPDATE_GROUP,
-} from '../../redux/Groups/actionTypes';
+} from '../../Redux/Groups/actionTypes';
 import {get, patch, post, remove} from '../../utils/Api/Fetch';
 import {GROUP_BACKUP} from '../../utils/Constants';
 import AsyncStorage from '@react-native-community/async-storage';

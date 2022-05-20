@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {CustomMenu} from '../../common/menus/CustomMenu';
 import {navigate} from '../../Navigation/RootNavigation';
 import {CustomMenuItem} from '../../common/menus/CustomMenuItem';
-import {setTimersCommentShown} from '../../../redux/Timers/timersActions';
+import {setTimersCommentShown} from '../../../Redux/Timers/timersActions';
 
 const TimersHeaderMenu = ({sortRef, commentShown, setTimersCommentShown}) => {
   const {t} = useTranslation();

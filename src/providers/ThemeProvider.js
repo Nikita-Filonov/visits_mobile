@@ -1,7 +1,6 @@
 import React, {useContext, useMemo} from 'react';
 import {useSelector} from 'react-redux';
-import {SET_THEME} from '../redux/Settings/actionTypes';
-
+import {SET_THEME} from '../Redux/Settings/actionTypes';
 
 const ThemeStyles = {
   default: {
@@ -66,22 +65,29 @@ const ThemeContext = React.createContext(null);
 
 const ThemeProvider = ({children, store}) => {
   const themeSettings = useSelector(state => state.settings.theme);
-  const theme = useMemo(() => ThemeStyles[themeSettings.themeMode], [themeSettings.themeMode]);
+  const theme = useMemo(
+    () => ThemeStyles[themeSettings.themeMode],
+    [themeSettings.themeMode],
+  );
 
-  const inputTheme = useMemo(() => ({
-    colors: {
-      primary: theme?.button?.primary,
-      underlineColor: 'transparent',
-      text: theme.text,
-      placeholder: theme.text,
-    },
-  }), [theme]);
+  const inputTheme = useMemo(
+    () => ({
+      colors: {
+        primary: theme?.button?.primary,
+        underlineColor: 'transparent',
+        text: theme.text,
+        placeholder: theme.text,
+      },
+    }),
+    [theme],
+  );
 
-
-  const changeTheme = async (themeMode) => store.dispatch({type: SET_THEME, payload: {...themeSettings, themeMode}});
+  const changeTheme = async themeMode =>
+    store.dispatch({type: SET_THEME, payload: {...themeSettings, themeMode}});
 
   return (
-    <ThemeContext.Provider value={{theme, ThemeStyles, inputTheme, changeTheme}}>
+    <ThemeContext.Provider
+      value={{theme, ThemeStyles, inputTheme, changeTheme}}>
       {children}
     </ThemeContext.Provider>
   );

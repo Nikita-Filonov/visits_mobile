@@ -5,7 +5,7 @@ import {CustomMenuItem} from '../../common/menus/CustomMenuItem';
 import {useNotifications} from '../../../providers/NotificationProvider';
 import {useAlerts} from '../../../providers/AlertsProvider';
 import {connect} from 'react-redux';
-import {setTimer} from '../../../redux/Timers/timersActions';
+import {setTimer} from '../../../Redux/Timers/timersActions';
 import {navigate} from '../../Navigation/RootNavigation';
 import {useGroups} from '../../../providers/groups/GroupsProvider';
 

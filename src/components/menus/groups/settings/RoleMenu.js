@@ -8,7 +8,7 @@ import {useAlerts} from '../../../../providers/AlertsProvider';
 import {
   setCreateRoleModal,
   setRole,
-} from '../../../../redux/Groups/groupsActions';
+} from '../../../../Redux/Groups/groupsActions';
 import {useGroupPermissions} from '../../../../providers/groups/GroupPermissionsProvider';
 import {ROLE} from '../../../../utils/permissions/Groups';
 
