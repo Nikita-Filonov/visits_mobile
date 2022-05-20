@@ -9,9 +9,9 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Loader} from './src/components/blocks/Loader';
 import {useAuth} from './src/providers/AuthProvider';
-import {LoginStack} from './src/components/navigation/stacks/LoginStack';
+import {LoginStack} from './src/components/Navigation/stacks/LoginStack';
 import {STACK_OPTIONS} from './src/utils/Constants';
-import {navigationRef} from './src/components/navigation/RootNavigation';
+import {navigationRef} from './src/components/Navigation/RootNavigation';
 import {setupDefaultGroup, setupReduxStore} from './src/redux/setup';
 
 enableScreens();

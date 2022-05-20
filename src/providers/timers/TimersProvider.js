@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {useAuth} from '../AuthProvider';
-import {get, patch, post, remove} from '../../utils/api/Fetch';
+import {get, patch, post, remove} from '../../utils/Api/Fetch';
 import {SUPPORTED_ACTIONS, useAlerts} from '../AlertsProvider';
 import {TIMERS_SORT_BACKUP} from '../../utils/Constants';
 import {useTranslation} from 'react-i18next';
@@ -25,46 +25,61 @@ const TimersProvider = ({children}) => {
   useEffect(() => {
     (async () => {
       const order = await AsyncStorage.getItem(TIMERS_SORT_BACKUP);
-      token && await getTimers(order);
+      token && (await getTimers(order));
     })();
   }, [token]);
 
   const getTimers = async () => {
-    const {error, json} = await get(timersSort ? eventsApi + `?order=${timersSort}` : eventsApi);
+    const {error, json} = await get(
+      timersSort ? eventsApi + `?order=${timersSort}` : eventsApi,
+    );
     !error && setTimers(json);
     setLoad(false);
   };
 
-  const createEvent = async (payload) => {
+  const createEvent = async payload => {
     setRequest(true);
     const {error, json} = await post(eventsApi, payload);
     !error && setTimers([...timers, json]);
-    setAlert(error ? json : successTemplate(TIMER, SUPPORTED_ACTIONS.create_male));
+    setAlert(
+      error ? json : successTemplate(TIMER, SUPPORTED_ACTIONS.create_male),
+    );
     setRequest(false);
   };
 
-  const deleteEvent = async (eventId) => {
+  const deleteEvent = async eventId => {
     setTimers(timers.filter(event => event.id !== eventId));
     const {error, json} = await remove(eventsApi + `${eventId}/`);
-    setAlert(error ? json : successTemplate(TIMER, SUPPORTED_ACTIONS.delete_male));
+    setAlert(
+      error ? json : successTemplate(TIMER, SUPPORTED_ACTIONS.delete_male),
+    );
   };
 
   const updateEvent = async (eventId, payload) => {
     setRequest(true);
     const {error, json} = await patch(eventsApi + `${eventId}/`, payload);
-    !error && setTimers(events => [...events.map(event => event.id === eventId ? json : event)]);
-    setAlert(error ? json : successTemplate(TIMER, SUPPORTED_ACTIONS.update_male));
+    !error &&
+      setTimers(events => [
+        ...events.map(event => (event.id === eventId ? json : event)),
+      ]);
+    setAlert(
+      error ? json : successTemplate(TIMER, SUPPORTED_ACTIONS.update_male),
+    );
     setRequest(false);
   };
 
-  const deleteTimers = async (timersIds) => {
+  const deleteTimers = async timersIds => {
     setTimers(timers.filter(timer => !timersIds.includes(timer.id)));
     const {error, json} = await remove(eventsApi, {timers: timersIds});
     setAlert(error ? json : successTemplate(TIMERS, SUPPORTED_ACTIONS.delete));
   };
 
   const updateEvents = async (timers, payload) => {
-    const {error, json} = await patch(eventsApi, {timers, order: timersSort, ...payload});
+    const {error, json} = await patch(eventsApi, {
+      timers,
+      order: timersSort,
+      ...payload,
+    });
     !error && setTimers(json);
     setAlert(error ? json : successTemplate(TIMERS, SUPPORTED_ACTIONS.update));
   };
@@ -81,8 +96,7 @@ const TimersProvider = ({children}) => {
         deleteTimers,
         updateEvent,
         updateEvents,
-      }}
-    >
+      }}>
       {children}
     </TimersContext.Provider>
   );

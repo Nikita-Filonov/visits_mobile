@@ -2,9 +2,18 @@ import React, {useState} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {SelectModal} from '../modals/SelectModal';
 import {TextField} from './TextField';
-import {comp} from '../../../styles/Blocks';
+import {comp} from '../../../Styles/Blocks';
 
-export const SelectTextField = ({value, item, setItem, choices, renderItem, label, right, left}) => {
+export const SelectTextField = ({
+  value,
+  item,
+  setItem,
+  choices,
+  renderItem,
+  label,
+  right,
+  left,
+}) => {
   const [modal, setModal] = useState(false);
 
   const onSelect = () => setModal(true);

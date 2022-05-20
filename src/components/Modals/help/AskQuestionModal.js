@@ -5,8 +5,8 @@ import {useTranslation} from 'react-i18next';
 import {CustomText} from '../../common/CustomText';
 import {TextField} from '../../common/inputs/TextField';
 import {useAlerts} from '../../../providers/AlertsProvider';
-import {comp} from '../../../styles/Blocks';
-import {post} from '../../../utils/api/Fetch';
+import {comp} from '../../../Styles/Blocks';
+import {post} from '../../../utils/Api/Fetch';
 
 export const AskQuestionModal = ({modal, setModal}) => {
   const {t} = useTranslation();

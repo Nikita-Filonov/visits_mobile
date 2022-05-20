@@ -1,10 +1,15 @@
 import React from 'react';
 import {TextField} from './TextField';
 import {useTranslation} from 'react-i18next';
-import {comp} from '../../../styles/Blocks';
+import {comp} from '../../../Styles/Blocks';
 import {normalizeNotify} from '../../../utils/Utils';
 
-export const NotificationTextField = ({count, client, onChangeText, helpText}) => {
+export const NotificationTextField = ({
+  count,
+  client,
+  onChangeText,
+  helpText,
+}) => {
   const {t} = useTranslation();
 
   return (
@@ -14,7 +19,10 @@ export const NotificationTextField = ({count, client, onChangeText, helpText}) =
       onChangeText={text => onChangeText(normalizeNotify(text))}
       keyboardType={'numeric'}
       maxLength={2}
-      label={t('groups.settings.notificationsIntegrations.notifyInputLabel', {count, client})}
+      label={t('groups.settings.notificationsIntegrations.notifyInputLabel', {
+        count,
+        client,
+      })}
       helpTextType={'info'}
       error={helpText}
     />

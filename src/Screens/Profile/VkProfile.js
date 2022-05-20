@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Linking} from 'react-native';
-import {comp} from '../../styles/Blocks';
+import {comp} from '../../Styles/Blocks';
 import {useAuth} from '../../providers/AuthProvider';
 import {Trans, useTranslation} from 'react-i18next';
 import {VK_GROUP_DIALOG} from '../../utils/Constants';

@@ -1,7 +1,7 @@
 import React, {useMemo, useState} from 'react';
 import {ScrollView, TouchableOpacity} from 'react-native';
 import {useGroups} from '../../../../providers/groups/GroupsProvider';
-import {comp} from '../../../../styles/Blocks';
+import {comp} from '../../../../Styles/Blocks';
 import {connect} from 'react-redux';
 import {
   setCreateMemberModal,

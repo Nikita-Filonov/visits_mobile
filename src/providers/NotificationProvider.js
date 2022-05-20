@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {SUPPORTED_ACTIONS, useAlerts} from './AlertsProvider';
 import {useTranslation} from 'react-i18next';
-import {get, remove} from '../utils/api/Fetch';
+import {get, remove} from '../utils/Api/Fetch';
 
 const NotificationsContext = React.createContext(null);
 
@@ -37,10 +37,13 @@ const NotificationsProvider = ({children}) => {
     await remove(notificationsApi);
   };
 
-  const deleteNotification = async (notificationId) => {
+  const deleteNotification = async notificationId => {
     const {error, json} = await remove(notificationsApi + `${notificationId}/`);
-    setAlert(error ? json : successTemplate(NOTIFICATION, SUPPORTED_ACTIONS.delete_it));
-    !error && setNotifications(notifications.filter(n => n.id !== notificationId));
+    setAlert(
+      error ? json : successTemplate(NOTIFICATION, SUPPORTED_ACTIONS.delete_it),
+    );
+    !error &&
+      setNotifications(notifications.filter(n => n.id !== notificationId));
   };
 
   return (
@@ -53,8 +56,7 @@ const NotificationsProvider = ({children}) => {
         clearNotifications,
         deleteNotification,
         getNotificationsUnread,
-      }}
-    >
+      }}>
       {children}
     </NotificationsContext.Provider>
   );
@@ -63,7 +65,9 @@ const NotificationsProvider = ({children}) => {
 const useNotifications = () => {
   const event = useContext(NotificationsContext);
   if (event == null) {
-    throw new Error('useNotifications() called outside of a NotificationsProvider?');
+    throw new Error(
+      'useNotifications() called outside of a NotificationsProvider?',
+    );
   }
   return event;
 };

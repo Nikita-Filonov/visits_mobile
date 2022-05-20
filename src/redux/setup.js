@@ -13,7 +13,7 @@ import {
   SET_GROUP_TIMERS_SORT,
 } from './GroupTimers/actionTypes';
 import {SET_TIMERS_COMMENT_SHOWN, SET_TIMERS_SORT} from './Timers/actionTypes';
-import {get} from '../utils/api/Fetch';
+import {get} from '../utils/Api/Fetch';
 import {SET_GROUP} from './Groups/actionTypes';
 import {navigate} from '../components/Navigation/RootNavigation';
 import {TIMERS_INITIAL_STATE} from './Timers/initialState';

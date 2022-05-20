@@ -1,5 +1,5 @@
 import React from 'react';
-import {comp} from '../../../styles/Blocks';
+import {comp} from '../../../Styles/Blocks';
 import {Checkbox} from 'react-native-paper';
 import {CustomText} from '../CustomText';
 import {TouchableOpacity} from 'react-native';

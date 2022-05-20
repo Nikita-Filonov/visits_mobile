@@ -2,8 +2,13 @@ import React, {useCallback, useContext, useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import {SUPPORTED_ACTIONS, useAlerts} from './AlertsProvider';
 import {GoogleSignin} from '@react-native-community/google-signin';
-import {DEFAULT_USER, GOOGLE_SIGN_IN_CONFIG, GROUP_BACKUP, TOKEN_BACKUP} from '../utils/Constants';
-import {get, patch, post} from '../utils/api/Fetch';
+import {
+  DEFAULT_USER,
+  GOOGLE_SIGN_IN_CONFIG,
+  GROUP_BACKUP,
+  TOKEN_BACKUP,
+} from '../utils/Constants';
+import {get, patch, post} from '../utils/Api/Fetch';
 import {useTranslation} from 'react-i18next';
 
 const AuthContext = React.createContext(null);
@@ -23,28 +28,33 @@ const AuthProvider = ({children}) => {
     (async () => {
       const storedToken = await AsyncStorage.getItem(TOKEN_BACKUP);
       setToken(storedToken);
-      token && await getUser();
+      token && (await getUser());
       GoogleSignin.configure(GOOGLE_SIGN_IN_CONFIG);
     })();
   }, [token]);
 
   const getUser = async (isLazy: boolean = false) => {
     const {error, json, code} = await get(userApi);
-    code === 401 && await onLogout();
-    (!error && !isLazy) && setUser(json);
+    code === 401 && (await onLogout());
+    !error && !isLazy && setUser(json);
     return {error, json};
   };
 
-  const updateUser = useCallback(async (payload) => {
-    setRequest(true);
-    const {error, json} = await patch(userApi, payload);
-    !error && setUser(json);
-    setAlert(error ? json : successTemplate(USER, SUPPORTED_ACTIONS.update_male));
-    setRequest(false);
-    return {error, json};
-  }, [token]);
+  const updateUser = useCallback(
+    async payload => {
+      setRequest(true);
+      const {error, json} = await patch(userApi, payload);
+      !error && setUser(json);
+      setAlert(
+        error ? json : successTemplate(USER, SUPPORTED_ACTIONS.update_male),
+      );
+      setRequest(false);
+      return {error, json};
+    },
+    [token],
+  );
 
-  const changePassword = async (payload) => {
+  const changePassword = async payload => {
     setRequest(true);
     const {error, json} = await post('api/v1/change-password/', payload);
     if (!error) {
@@ -63,7 +73,7 @@ const AuthProvider = ({children}) => {
     await AsyncStorage.removeItem(GROUP_BACKUP);
   };
 
-  const onLogin = async (token) => {
+  const onLogin = async token => {
     setToken(token);
     await AsyncStorage.setItem(TOKEN_BACKUP, token);
   };
@@ -81,8 +91,7 @@ const AuthProvider = ({children}) => {
         getUser,
         updateUser,
         changePassword,
-      }}
-    >
+      }}>
       {children}
     </AuthContext.Provider>
   );

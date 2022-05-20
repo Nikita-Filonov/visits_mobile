@@ -5,9 +5,17 @@ import {useThemes} from '../../providers/ThemeProvider';
 import {ActivityIndicator, View} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {AppBar} from '../common/AppBar';
-import {comp} from '../../styles/Blocks';
+import {comp} from '../../Styles/Blocks';
 
-export const FullScreenModalConfirmLayout = ({children, title, loading, onConfirm, onClose, actions, disabled}) => {
+export const FullScreenModalConfirmLayout = ({
+  children,
+  title,
+  loading,
+  onConfirm,
+  onClose,
+  actions,
+  disabled,
+}) => {
   const {theme} = useThemes();
 
   return (
@@ -16,23 +24,32 @@ export const FullScreenModalConfirmLayout = ({children, title, loading, onConfir
         <Appbar.Action
           onPress={onClose}
           animated={false}
-          icon={() => <Icon name={'close'} type={'material-community'} color={'#FFFFFF'}/>}
+          icon={() => (
+            <Icon
+              name={'close'}
+              type={'material-community'}
+              color={'#FFFFFF'}
+            />
+          )}
         />
-        <Appbar.Content title={title}/>
+        <Appbar.Content title={title} />
         {actions && actions.map((a, index) => <View key={index}>{a}</View>)}
-        {onConfirm && <Appbar.Action
-          disabled={disabled}
-          onPress={onConfirm}
-          animated={false}
-          icon={() => loading
-            ? <ActivityIndicator color={theme.text}/>
-            : <Icon name={'check'} type={'feather'} color={'#FFFFFF'}/>
-          }
-        />}
+        {onConfirm && (
+          <Appbar.Action
+            disabled={disabled}
+            onPress={onConfirm}
+            animated={false}
+            icon={() =>
+              loading ? (
+                <ActivityIndicator color={theme.text} />
+              ) : (
+                <Icon name={'check'} type={'feather'} color={'#FFFFFF'} />
+              )
+            }
+          />
+        )}
       </AppBar>
-      <View style={[comp.viewContainer, comp.flex]}>
-        {children}
-      </View>
+      <View style={[comp.viewContainer, comp.flex]}>{children}</View>
     </MainView>
   );
 };

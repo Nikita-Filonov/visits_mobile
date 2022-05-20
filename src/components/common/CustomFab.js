@@ -1,5 +1,5 @@
 import React from 'react';
-import {comp} from '../../styles/Blocks';
+import {comp} from '../../Styles/Blocks';
 import {FAB} from 'react-native-paper';
 import {useThemes} from '../../providers/ThemeProvider';
 
@@ -8,7 +8,13 @@ export const CustomFab = ({onPress, withoutWrapper = false}) => {
 
   return (
     <FAB
-      style={[comp.fab, {backgroundColor: theme.button.primary, marginRight: withoutWrapper ? 16 : 0}]}
+      style={[
+        comp.fab,
+        {
+          backgroundColor: theme.button.primary,
+          marginRight: withoutWrapper ? 16 : 0,
+        },
+      ]}
       icon="plus"
       color={'white'}
       onPress={onPress}

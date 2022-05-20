@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {ScrollView, View} from 'react-native';
-import {comp} from '../../styles/Blocks';
-import {LPStyles} from '../../styles/Screens';
+import {comp} from '../../Styles/Blocks';
+import {LPStyles} from '../../Styles/Screens';
 import {GoogleAuth} from '../../components/blocks/GoogleAuth';
-import {post} from '../../utils/api/Fetch';
+import {post} from '../../utils/Api/Fetch';
 import {CustomText} from '../../components/common/CustomText';
 import {CustomButton} from '../../components/common/CustomButton';
 import {TextField} from '../../components/common/inputs/TextField';

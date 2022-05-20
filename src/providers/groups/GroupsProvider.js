@@ -2,8 +2,14 @@ import React, {useContext, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {SUPPORTED_ACTIONS, useAlerts} from '../AlertsProvider';
 import {useAuth} from '../AuthProvider';
-import {CREATE_GROUP, DELETE_GROUPS, SET_GROUP, SET_GROUPS, UPDATE_GROUP} from '../../redux/Groups/actionTypes';
-import {get, patch, post, remove} from '../../utils/api/Fetch';
+import {
+  CREATE_GROUP,
+  DELETE_GROUPS,
+  SET_GROUP,
+  SET_GROUPS,
+  UPDATE_GROUP,
+} from '../../redux/Groups/actionTypes';
+import {get, patch, post, remove} from '../../utils/Api/Fetch';
 import {GROUP_BACKUP} from '../../utils/Constants';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -22,7 +28,7 @@ const GroupsProvider = ({children, store}) => {
   const MEMBER = t('components.alerts.instances.member');
 
   useEffect(() => {
-    (async () => token && await getGroups())();
+    (async () => token && (await getGroups()))();
   }, [token]);
 
   const updateGroupState = (payload, groupId) => {
@@ -37,7 +43,7 @@ const GroupsProvider = ({children, store}) => {
     setLoad(false);
   };
 
-  const getGroup = async (groupId) => {
+  const getGroup = async groupId => {
     setLoad(true);
     const {error, json} = await get(groupsApi + `${groupId}/`);
     !error && updateGroupState(json, groupId);
@@ -45,47 +51,67 @@ const GroupsProvider = ({children, store}) => {
     setLoad(false);
   };
 
-  const createGroup = async (payload) => {
+  const createGroup = async payload => {
     setRequest(true);
     const {error, json} = await post(groupsApi, payload);
     !error && store.dispatch({type: CREATE_GROUP, payload: json});
-    setAlert(error ? json : successTemplate(GROUP, SUPPORTED_ACTIONS.create_female));
+    setAlert(
+      error ? json : successTemplate(GROUP, SUPPORTED_ACTIONS.create_female),
+    );
     setRequest(false);
   };
 
   const updateGroup = async (groupId, payload) => {
     setRequest(true);
     const {error, json} = await patch(groupsApi + `${groupId}/`, payload);
-    setAlert(error ? json : successTemplate(GROUP, SUPPORTED_ACTIONS.update_female));
+    setAlert(
+      error ? json : successTemplate(GROUP, SUPPORTED_ACTIONS.update_female),
+    );
     !error && updateGroupState(json, groupId);
     setRequest(false);
   };
 
-  const deleteGroup = async (groupId) => {
+  const deleteGroup = async groupId => {
     const {error, json} = await remove(groupsApi + `${groupId}/`);
-    setAlert(error ? json : successTemplate(GROUP, SUPPORTED_ACTIONS.delete_female));
+    setAlert(
+      error ? json : successTemplate(GROUP, SUPPORTED_ACTIONS.delete_female),
+    );
     !error && store.dispatch({type: DELETE_GROUPS, payload: [groupId]});
-    !error && await AsyncStorage.removeItem(GROUP_BACKUP);
+    !error && (await AsyncStorage.removeItem(GROUP_BACKUP));
   };
 
   const inviteMember = async (groupId, payload) => {
     setRequest(true);
-    const {error, json} = await post(groupsApi + `${groupId}/members/`, payload);
-    setAlert(error ? json : successTemplate(MEMBER, SUPPORTED_ACTIONS.invited_male));
+    const {error, json} = await post(
+      groupsApi + `${groupId}/members/`,
+      payload,
+    );
+    setAlert(
+      error ? json : successTemplate(MEMBER, SUPPORTED_ACTIONS.invited_male),
+    );
     !error && updateGroupState(json, groupId);
     setRequest(false);
   };
 
   const removeMember = async (groupId, memberId) => {
-    const {error, json} = await remove(groupsApi + `${groupId}/members/${memberId}/`);
-    setAlert(error ? json : successTemplate(MEMBER, SUPPORTED_ACTIONS.delete_male));
+    const {error, json} = await remove(
+      groupsApi + `${groupId}/members/${memberId}/`,
+    );
+    setAlert(
+      error ? json : successTemplate(MEMBER, SUPPORTED_ACTIONS.delete_male),
+    );
     !error && updateGroupState(json, groupId);
   };
 
   const updateMember = async (groupId, memberId, payload) => {
     setRequest(true);
-    const {error, json} = await patch(groupsApi + `${groupId}/members/${memberId}/`, payload);
-    setAlert(error ? json : successTemplate(MEMBER, SUPPORTED_ACTIONS.update_male));
+    const {error, json} = await patch(
+      groupsApi + `${groupId}/members/${memberId}/`,
+      payload,
+    );
+    setAlert(
+      error ? json : successTemplate(MEMBER, SUPPORTED_ACTIONS.update_male),
+    );
     !error && updateGroupState(json, groupId);
     setRequest(false);
   };
@@ -101,23 +127,34 @@ const GroupsProvider = ({children, store}) => {
     setRequest(true);
     const {error, json} = await post(groupsApi + `${groupId}/roles/`, payload);
     !error && updateGroupState(json, groupId);
-    setAlert(error ? json : successTemplate(ROLE, SUPPORTED_ACTIONS.create_female));
+    setAlert(
+      error ? json : successTemplate(ROLE, SUPPORTED_ACTIONS.create_female),
+    );
     setRequest(false);
   };
 
   const updateRole = async (groupId, roleId, payload) => {
     setRequest(true);
-    const {error, json} = await patch(groupsApi + `${groupId}/roles/${roleId}/`, payload);
+    const {error, json} = await patch(
+      groupsApi + `${groupId}/roles/${roleId}/`,
+      payload,
+    );
     !error && updateGroupState(json, groupId);
-    setAlert(error ? json : successTemplate(ROLE, SUPPORTED_ACTIONS.update_female));
+    setAlert(
+      error ? json : successTemplate(ROLE, SUPPORTED_ACTIONS.update_female),
+    );
     setRequest(false);
   };
 
   const deleteRole = async (groupId, roleId) => {
     setRequest(true);
-    const {error, json} = await remove(groupsApi + `${groupId}/roles/${roleId}/`);
+    const {error, json} = await remove(
+      groupsApi + `${groupId}/roles/${roleId}/`,
+    );
     !error && updateGroupState(json, groupId);
-    setAlert(error ? json : successTemplate(ROLE, SUPPORTED_ACTIONS.delete_female));
+    setAlert(
+      error ? json : successTemplate(ROLE, SUPPORTED_ACTIONS.delete_female),
+    );
     setRequest(false);
   };
 
@@ -137,8 +174,7 @@ const GroupsProvider = ({children, store}) => {
         updateRole,
         deleteRole,
         mailInvitation,
-      }}
-    >
+      }}>
       {children}
     </GroupsContext.Provider>
   );

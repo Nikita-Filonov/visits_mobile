@@ -2,7 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import {View} from 'react-native';
 import {Touchable} from './Touchable';
-import {comp, UTCStyles} from '../../styles/Blocks';
+import {comp, UTCStyles} from '../../Styles/Blocks';
 import {CustomText} from '../common/CustomText';
 
 export const UnderTimerComment = ({item, store, onDropComment}) => {
@@ -10,16 +10,19 @@ export const UnderTimerComment = ({item, store, onDropComment}) => {
 
   return (
     <React.Fragment>
-      {(item?.comment && commentShown)
-        ? <View style={UTCStyles.container}>
+      {item?.comment && commentShown ? (
+        <View style={UTCStyles.container}>
           <CustomText style={UTCStyles.text}>{item?.comment}</CustomText>
-          <View style={comp.flex}/>
+          <View style={comp.flex} />
           <View style={UTCStyles.close}>
-            <Touchable name={'close'} type={'antdesign'} action={onDropComment}/>
+            <Touchable
+              name={'close'}
+              type={'antdesign'}
+              action={onDropComment}
+            />
           </View>
         </View>
-        : null
-      }
+      ) : null}
     </React.Fragment>
   );
 };

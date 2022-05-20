@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {SUPPORTED_ACTIONS, useAlerts} from './AlertsProvider';
-import {get, patch, post, remove} from '../utils/api/Fetch';
+import {get, patch, post, remove} from '../utils/Api/Fetch';
 import {DEFAULT_USER_SETTINGS} from '../utils/Constants';
 import {safeLocale} from '../utils/Utils';
 import {useTranslation} from 'react-i18next';
@@ -22,7 +22,7 @@ const SettingsProvider = ({children, store}) => {
   const MONSTERS = t('components.alerts.instances.monsters');
 
   useEffect(() => {
-    (async () => token && await getSettings())();
+    (async () => token && (await getSettings()))();
   }, [token]);
 
   useEffect(() => {
@@ -41,7 +41,15 @@ const SettingsProvider = ({children, store}) => {
     setRequest(true);
     const {error, json} = await patch(settingsApi, payload);
     !error && setSettings(json);
-    !isLazy && setAlert(error ? json : successTemplate(t('components.alerts.instances.settings'), SUPPORTED_ACTIONS.update));
+    !isLazy &&
+      setAlert(
+        error
+          ? json
+          : successTemplate(
+              t('components.alerts.instances.settings'),
+              SUPPORTED_ACTIONS.update,
+            ),
+      );
     setRequest(false);
   };
 
@@ -52,39 +60,52 @@ const SettingsProvider = ({children, store}) => {
     setSoundsLoad(false);
   };
 
-  const createMonster = async (payload) => {
+  const createMonster = async payload => {
     setRequest(true);
     const {error, json} = await post('api/v1/monsters/', payload);
-    !error && setSettings({...settings, monsters: [json, ...settings.monsters]});
-    setAlert(error ? json : successTemplate(MONSTER, SUPPORTED_ACTIONS.create_male));
+    !error &&
+      setSettings({...settings, monsters: [json, ...settings.monsters]});
+    setAlert(
+      error ? json : successTemplate(MONSTER, SUPPORTED_ACTIONS.create_male),
+    );
     setRequest(false);
   };
 
-  const deleteMonster = async (monsterId) => {
+  const deleteMonster = async monsterId => {
     const {error, json} = await remove(`api/v1/monsters/${monsterId}/`);
-    !error && setSettings({
-      ...settings,
-      monsters: settings.monsters.filter(monster => monster.id !== monsterId),
-    });
-    setAlert(error ? json : successTemplate(MONSTER, SUPPORTED_ACTIONS.delete_male));
+    !error &&
+      setSettings({
+        ...settings,
+        monsters: settings.monsters.filter(monster => monster.id !== monsterId),
+      });
+    setAlert(
+      error ? json : successTemplate(MONSTER, SUPPORTED_ACTIONS.delete_male),
+    );
   };
 
   const updateMonster = async (monsterId, payload) => {
     setRequest(true);
     const {error, json} = await patch(`api/v1/monsters/${monsterId}/`, payload);
-    !error && setSettings({
-      ...settings,
-      monsters: settings.monsters.map(monster => monster.id === monsterId ? json : monster),
-    });
-    setAlert(error ? json : successTemplate(MONSTER, SUPPORTED_ACTIONS.update_male));
+    !error &&
+      setSettings({
+        ...settings,
+        monsters: settings.monsters.map(monster =>
+          monster.id === monsterId ? json : monster,
+        ),
+      });
+    setAlert(
+      error ? json : successTemplate(MONSTER, SUPPORTED_ACTIONS.update_male),
+    );
     setRequest(false);
   };
 
-  const importMonsters = async (payload) => {
+  const importMonsters = async payload => {
     setRequest(true);
     const {error, json} = await post('api/v1/monsters/import/', payload);
     !error && setSettings(json);
-    setAlert(error ? json : successTemplate(MONSTERS, SUPPORTED_ACTIONS.import));
+    setAlert(
+      error ? json : successTemplate(MONSTERS, SUPPORTED_ACTIONS.import),
+    );
     setRequest(false);
   };
 
@@ -101,8 +122,7 @@ const SettingsProvider = ({children, store}) => {
         deleteMonster,
         updateMonster,
         importMonsters,
-      }}
-    >
+      }}>
       {children}
     </SettingsContext.Provider>
   );

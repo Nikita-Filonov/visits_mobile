@@ -1,26 +1,40 @@
 import React from 'react';
 import {Image, View} from 'react-native';
 import {baseUrl} from '../../utils/Links';
-import {ListEmptyStyles} from '../../styles/Blocks';
+import {ListEmptyStyles} from '../../Styles/Blocks';
 import {useTranslation} from 'react-i18next';
 import {CustomText} from '../common/CustomText';
 
-export const EmptyList = ({text, description = null, entities = null, search = null}) => {
+export const EmptyList = ({
+  text,
+  description = null,
+  entities = null,
+  search = null,
+}) => {
   const {t} = useTranslation();
 
   return (
     <View style={ListEmptyStyles.container}>
       <Image
-        source={{uri: baseUrl + 'static/images/empty_list.png', cache: 'force-cache'}}
+        source={{
+          uri: baseUrl + 'static/images/empty_list.png',
+          cache: 'force-cache',
+        }}
         style={ListEmptyStyles.image}
       />
       <View style={ListEmptyStyles.textWrapper}>
         <CustomText style={ListEmptyStyles.title}>
-          {(entities?.length === 0 && search?.length > 0) ? t('components.emptyLists.emptySearch.text') : text}
+          {entities?.length === 0 && search?.length > 0
+            ? t('components.emptyLists.emptySearch.text')
+            : text}
         </CustomText>
-        {(description || entities) && <CustomText style={ListEmptyStyles.subtitle}>
-          {(entities?.length === 0 && search?.length > 0) ? t('components.emptyLists.emptySearch.description') : description}
-        </CustomText>}
+        {(description || entities) && (
+          <CustomText style={ListEmptyStyles.subtitle}>
+            {entities?.length === 0 && search?.length > 0
+              ? t('components.emptyLists.emptySearch.description')
+              : description}
+          </CustomText>
+        )}
       </View>
     </View>
   );

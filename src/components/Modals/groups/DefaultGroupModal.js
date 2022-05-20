@@ -4,7 +4,7 @@ import {FullScreenModalConfirmLayout} from '../../Layouts/FullScreenModalConfirm
 import {connect} from 'react-redux';
 import {setDefaultGroupModal} from '../../../redux/Groups/groupsActions';
 import {View} from 'react-native';
-import {comp} from '../../../styles/Blocks';
+import {comp} from '../../../Styles/Blocks';
 import {CustomText} from '../../common/CustomText';
 import {FlatList} from 'react-native-gesture-handler';
 import {DefaultGroupItem} from '../../items/groups/DefaultGroupItem';

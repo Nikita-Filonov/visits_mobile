@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {View} from 'react-native';
-import {comp, DrawerHeaderStyles} from '../../styles/Blocks';
+import {comp, DrawerHeaderStyles} from '../../Styles/Blocks';
 import {Divider} from 'react-native-elements';
 import {useAuth} from '../../providers/AuthProvider';
 import {useAlerts} from '../../providers/AlertsProvider';
@@ -11,7 +11,6 @@ import {DrawerItem} from '../common/DrawerItem';
 import {useTranslation} from 'react-i18next';
 import {Badge} from 'react-native-paper';
 import {CustomText} from '../common/CustomText';
-
 
 export const DrawerHeader = ({navigation}) => {
   const {t} = useTranslation();
@@ -24,17 +23,21 @@ export const DrawerHeader = ({navigation}) => {
   useEffect(() => {
     (async () => {
       await getNotificationsUnread();
-      notificationsRef.current = setInterval(async () => await getNotificationsUnread(), 20000);
+      notificationsRef.current = setInterval(
+        async () => await getNotificationsUnread(),
+        20000,
+      );
     })();
     return () => clearInterval(notificationsRef.current);
   }, []);
 
-  const logout = async () => setConfirmModal({
-    action: async () => await onLogout(),
-    content: t('components.drawer.logoutModal'),
-  });
+  const logout = async () =>
+    setConfirmModal({
+      action: async () => await onLogout(),
+      content: t('components.drawer.logoutModal'),
+    });
 
-  const navigate = (screen) => (_) => {
+  const navigate = screen => _ => {
     navigation.navigate(screen);
     navigation.closeDrawer();
   };
@@ -42,21 +45,25 @@ export const DrawerHeader = ({navigation}) => {
   return (
     <View style={[comp.container, {backgroundColor: theme.background}]}>
       <View style={[comp.viewContainer, DrawerHeaderStyles.imageContainer]}>
-        <View style={comp.flex}/>
+        <View style={comp.flex} />
         <Touchable
-          action={async () => await changeTheme(theme.dark ? 'default' : 'dark')}
+          action={async () =>
+            await changeTheme(theme.dark ? 'default' : 'dark')
+          }
           type={'feather'}
           name={theme.dark ? 'sun' : 'moon'}
         />
       </View>
       <View style={[comp.viewContainer, DrawerHeaderStyles.usernameContainer]}>
         <CustomText style={[comp.normalText, {fontFamily: 'Roboto-Medium'}]}>
-          {t('components.navbar.accountMenu.welcome', {username: user?.username})}
+          {t('components.navbar.accountMenu.welcome', {
+            username: user?.username,
+          })}
         </CustomText>
         <CustomText>{user?.email}</CustomText>
       </View>
       <View>
-        <Divider style={DrawerHeaderStyles.divider}/>
+        <Divider style={DrawerHeaderStyles.divider} />
         <DrawerItem
           title={t('components.drawer.timers')}
           iconName={'timer-outline'}
@@ -87,7 +94,13 @@ export const DrawerHeader = ({navigation}) => {
           iconName={'notifications-none'}
           iconType={'material'}
           onPress={navigate('Notifications')}
-          badge={unread ? <Badge style={{backgroundColor: theme.button.primary}}>+{unread}</Badge> : null}
+          badge={
+            unread ? (
+              <Badge style={{backgroundColor: theme.button.primary}}>
+                +{unread}
+              </Badge>
+            ) : null
+          }
         />
         <DrawerItem
           title={t('components.drawer.help')}
@@ -95,7 +108,7 @@ export const DrawerHeader = ({navigation}) => {
           iconType={'material-community'}
           onPress={navigate('Help')}
         />
-        <Divider/>
+        <Divider />
         <DrawerItem
           title={t('components.drawer.settings')}
           iconName={'settings'}
@@ -112,4 +125,3 @@ export const DrawerHeader = ({navigation}) => {
     </View>
   );
 };
-

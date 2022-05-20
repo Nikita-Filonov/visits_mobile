@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {get, patch, post} from '../utils/api/Fetch';
+import {get, patch, post} from '../utils/Api/Fetch';
 import {SUPPORTED_ACTIONS, useAlerts} from './AlertsProvider';
 import {useAuth} from './AuthProvider';
 import {useTranslation} from 'react-i18next';
@@ -11,7 +11,9 @@ const PremiumsProvider = ({children}) => {
   const {token} = useAuth();
   const {t} = useTranslation();
   const {setAlert, successTemplate} = useAlerts();
-  const [userPremium, setUserPremium]: Array<Object<{ action: string, limit: number }>> = useState([]);
+  const [userPremium, setUserPremium]: Array<
+    Object<{action: string, limit: number}>,
+  > = useState([]);
   const [userPremiums, setUserPremiums] = useState([]);
   const [premiums, setPremiums] = useState([]);
   const [load, setLoad] = useState(true);
@@ -19,10 +21,11 @@ const PremiumsProvider = ({children}) => {
   const PREMIUM = t('components.alerts.instances.premium');
 
   useEffect(() => {
-    (async () => token && await getUserPremium())();
+    (async () => token && (await getUserPremium()))();
   }, [token, userPremiums]);
 
-  const updateUserPremium = async (json) => setUserPremiums(userPremiums.map(p => p.id === json?.id ? json : p));
+  const updateUserPremium = async json =>
+    setUserPremiums(userPremiums.map(p => (p.id === json?.id ? json : p)));
 
   const getPremiums = async () => {
     setLoad(true);
@@ -45,7 +48,7 @@ const PremiumsProvider = ({children}) => {
     setLoad(false);
   };
 
-  const createPremiumBill = async (payload) => {
+  const createPremiumBill = async payload => {
     const {error, json} = await post('api/v1/premiums/billing/bill/', payload);
     error && setAlert(json);
     if (!error) {
@@ -55,7 +58,10 @@ const PremiumsProvider = ({children}) => {
   };
 
   const extendUserPremium = async (userPremiumId, payload) => {
-    const {error, json} = await patch(`api/v1/user-premiums/${userPremiumId}/extend/`, payload);
+    const {error, json} = await patch(
+      `api/v1/user-premiums/${userPremiumId}/extend/`,
+      payload,
+    );
     error && setAlert(json);
     if (!error) {
       await Linking.openURL(json?.payUrl);
@@ -63,16 +69,24 @@ const PremiumsProvider = ({children}) => {
     }
   };
 
-  const disableUserPremiumTemporarily = async (userPremiumId) => {
-    const {error, json} = await patch(`api/v1/user-premiums/${userPremiumId}/disable-temporarily/`);
-    setAlert(error ? json : successTemplate(PREMIUM, SUPPORTED_ACTIONS.disable_male));
-    !error && await updateUserPremium(json);
+  const disableUserPremiumTemporarily = async userPremiumId => {
+    const {error, json} = await patch(
+      `api/v1/user-premiums/${userPremiumId}/disable-temporarily/`,
+    );
+    setAlert(
+      error ? json : successTemplate(PREMIUM, SUPPORTED_ACTIONS.disable_male),
+    );
+    !error && (await updateUserPremium(json));
   };
 
-  const enableUserPremiumTemporarily = async (userPremiumId) => {
-    const {error, json} = await patch(`api/v1/user-premiums/${userPremiumId}/enable-temporarily/`);
-    setAlert(error ? json : successTemplate(PREMIUM, SUPPORTED_ACTIONS.enable_male));
-    !error && await updateUserPremium(json);
+  const enableUserPremiumTemporarily = async userPremiumId => {
+    const {error, json} = await patch(
+      `api/v1/user-premiums/${userPremiumId}/enable-temporarily/`,
+    );
+    setAlert(
+      error ? json : successTemplate(PREMIUM, SUPPORTED_ACTIONS.enable_male),
+    );
+    !error && (await updateUserPremium(json));
   };
 
   return (
@@ -89,8 +103,7 @@ const PremiumsProvider = ({children}) => {
         extendUserPremium,
         disableUserPremiumTemporarily,
         enableUserPremiumTemporarily,
-      }}
-    >
+      }}>
       {children}
     </PremiumsContext.Provider>
   );

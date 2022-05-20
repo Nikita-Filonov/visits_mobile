@@ -4,10 +4,10 @@ import {GoogleSignin} from '@react-native-community/google-signin';
 import {baseUrl} from '../../utils/Links';
 import {useAuth} from '../../providers/AuthProvider';
 import {useAlerts} from '../../providers/AlertsProvider';
-import {GAStyles} from '../../styles/Blocks';
+import {GAStyles} from '../../Styles/Blocks';
 import {useTranslation} from 'react-i18next';
 import {CustomText} from '../common/CustomText';
-import {post} from '../../utils/api/Fetch';
+import {post} from '../../utils/Api/Fetch';
 
 export const GoogleAuth = ({navigation, setRequest}) => {
   const {t} = useTranslation();
@@ -39,8 +39,7 @@ export const GoogleAuth = ({navigation, setRequest}) => {
       <View style={GAStyles.container}>
         <TouchableNativeFeedback
           onPress={googleLogin}
-          background={TouchableNativeFeedback.Ripple('black', true)}
-        >
+          background={TouchableNativeFeedback.Ripple('black', true)}>
           <View style={GAStyles.wrapper}>
             <Image
               source={{uri: baseUrl + 'static/images/google.png'}}

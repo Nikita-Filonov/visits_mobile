@@ -1,8 +1,8 @@
 import React from 'react';
 import {Image, View} from 'react-native';
-import {comp} from '../../styles/Blocks';
+import {comp} from '../../Styles/Blocks';
 import {baseUrl} from '../../utils/Links';
-import {WStyles} from '../../styles/Screens';
+import {WStyles} from '../../Styles/Screens';
 import {MainView} from '../../components/Layouts/MainView';
 import {CustomButton} from '../../components/common/CustomButton';
 import {CustomText} from '../../components/common/CustomText';

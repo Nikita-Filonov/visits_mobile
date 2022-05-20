@@ -3,14 +3,14 @@ import {View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {usePremiums} from '../../../providers/PremiumsProvider';
 import {CustomText} from '../../common/CustomText';
-import {comp} from '../../../styles/Blocks';
+import {comp} from '../../../Styles/Blocks';
 import {useThemes} from '../../../providers/ThemeProvider';
 import {HorizontalDivider} from '../../common/HorizontalDivider';
 import {PremiumAdvantages} from '../../blocks/premiums/PremiumAdvantages';
 import {PremiumCost} from '../../blocks/premiums/PremiumCost';
 import {PremiumAllowedDisableTimes} from '../../blocks/premiums/PremiumAllowedDisableTimes';
 import {CustomButton} from '../../common/CustomButton';
-import {PremiumsStyles} from '../../../styles/Screens';
+import {PremiumsStyles} from '../../../Styles/Screens';
 
 export const Premium = ({item}) => {
   const {t} = useTranslation();
@@ -24,17 +24,23 @@ export const Premium = ({item}) => {
     setRequest(false);
   };
 
-
   return (
-    <View style={[{backgroundColor: theme.listItem}, PremiumsStyles.cardContainer]}>
-      <CustomText style={comp.titleText}>{item[`name_${t('code')}`]}</CustomText>
-      <HorizontalDivider/>
-      <CustomText style={comp.normalText}>{t('premiums.premium.advantages')}</CustomText>
-      <PremiumAdvantages scopes={item?.scopes}/>
-      <HorizontalDivider/>
-      <PremiumCost cost={item?.cost} duration={item?.duration}/>
-      <HorizontalDivider/>
-      <PremiumAllowedDisableTimes allowedDisableTimes={item?.allowed_disable_times}/>
+    <View
+      style={[{backgroundColor: theme.listItem}, PremiumsStyles.cardContainer]}>
+      <CustomText style={comp.titleText}>
+        {item[`name_${t('code')}`]}
+      </CustomText>
+      <HorizontalDivider />
+      <CustomText style={comp.normalText}>
+        {t('premiums.premium.advantages')}
+      </CustomText>
+      <PremiumAdvantages scopes={item?.scopes} />
+      <HorizontalDivider />
+      <PremiumCost cost={item?.cost} duration={item?.duration} />
+      <HorizontalDivider />
+      <PremiumAllowedDisableTimes
+        allowedDisableTimes={item?.allowed_disable_times}
+      />
       <View style={comp.rowContainer}>
         <CustomButton
           type={'clear'}
@@ -43,7 +49,7 @@ export const Premium = ({item}) => {
           onPress={onInclude}
           loading={request}
         />
-        <View style={comp.flex}/>
+        <View style={comp.flex} />
       </View>
     </View>
   );

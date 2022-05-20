@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {StatusBar, View} from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import {loader} from '../../styles/Blocks';
+import {loader} from '../../Styles/Blocks';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 export const Loader = () => {

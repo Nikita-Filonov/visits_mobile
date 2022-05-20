@@ -1,1 +1,1 @@
-export const baseUrl = 'https://rq-timer.com/';
+export const baseUrl = 'https://api-visits.herokuapp.com/';

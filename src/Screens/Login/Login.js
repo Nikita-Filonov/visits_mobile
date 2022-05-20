@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Linking, ScrollView, View} from 'react-native';
-import {comp} from '../../styles/Blocks';
+import {comp} from '../../Styles/Blocks';
 import {baseUrl} from '../../utils/Links';
-import {LPStyles} from '../../styles/Screens';
+import {LPStyles} from '../../Styles/Screens';
 import {useAuth} from '../../providers/AuthProvider';
 import {GoogleAuth} from '../../components/blocks/GoogleAuth';
 import {CustomText} from '../../components/common/CustomText';
@@ -10,7 +10,7 @@ import {TextField} from '../../components/common/inputs/TextField';
 import {useTranslation} from 'react-i18next';
 import {PasswordTextField} from '../../components/common/inputs/PasswordTextField';
 import {CustomButton} from '../../components/common/CustomButton';
-import {post} from '../../utils/api/Fetch';
+import {post} from '../../utils/Api/Fetch';
 import {AlertMessage} from '../../components/common/AlertMessage';
 import {BackLayout} from '../../components/Layouts/BackLayout';
 

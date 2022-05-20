@@ -2,7 +2,7 @@ import React from 'react';
 import {BackLayout} from '../../components/Layouts/BackLayout';
 import {useTranslation} from 'react-i18next';
 import {CustomText} from '../../components/common/CustomText';
-import {comp} from '../../styles/Blocks';
+import {comp} from '../../Styles/Blocks';
 import {DataGrid} from '../../components/common/DataGrid/DataGrid';
 import {usePremiums} from '../../providers/PremiumsProvider';
 import {PremiumAccessesColumns} from '../../utils/grids/PremiumAccessesColumns';

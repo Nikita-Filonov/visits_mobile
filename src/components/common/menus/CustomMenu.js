@@ -1,10 +1,16 @@
 import React from 'react';
-import {comp} from '../../../styles/Blocks';
+import {comp} from '../../../Styles/Blocks';
 import {Touchable} from '../../blocks/Touchable';
 import {Menu} from 'react-native-paper';
 import {useThemes} from '../../../providers/ThemeProvider';
 
-export const CustomMenu = ({children, menu, setMenu, anchor, color = '#FFFFFF'}) => {
+export const CustomMenu = ({
+  children,
+  menu,
+  setMenu,
+  anchor,
+  color = '#FFFFFF',
+}) => {
   const {theme} = useThemes();
 
   const onOpen = () => setMenu(true);
@@ -15,8 +21,16 @@ export const CustomMenu = ({children, menu, setMenu, anchor, color = '#FFFFFF'})
       visible={menu}
       onDismiss={onDismiss}
       contentStyle={[{backgroundColor: theme.listItem}, comp.image]}
-      anchor={anchor || <Touchable action={onOpen} name={'dots-vertical'} type={'material-community'} color={color}/>}
-    >
+      anchor={
+        anchor || (
+          <Touchable
+            action={onOpen}
+            name={'dots-vertical'}
+            type={'material-community'}
+            color={color}
+          />
+        )
+      }>
       {children}
     </Menu>
   );

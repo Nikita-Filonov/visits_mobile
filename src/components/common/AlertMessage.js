@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import {Text, View} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {useThemes} from '../../providers/ThemeProvider';
-import {AlertMessageStyles} from '../../styles/Blocks';
+import {AlertMessageStyles} from '../../Styles/Blocks';
 
 const LEVEL_COLORS = {
   dark: {
@@ -56,15 +56,25 @@ const LEVEL_COLORS = {
 export const AlertMessage = ({message, level = 'success', style, action}) => {
   const {theme} = useThemes();
 
-  const colors = useMemo(() => theme.dark ? LEVEL_COLORS.dark : LEVEL_COLORS.default, [theme.dark]);
+  const colors = useMemo(
+    () => (theme.dark ? LEVEL_COLORS.dark : LEVEL_COLORS.default),
+    [theme.dark],
+  );
 
   return (
-    <View style={[
-      AlertMessageStyles.container,
-      {backgroundColor: colors.background[level], ...style}]
-    }>
-      <Icon name={LEVEL_COLORS.icons[level]} type={'material-community'} color={colors.icon[level]}/>
-      <Text style={[AlertMessageStyles.message, {color: colors.text[level]}]}>{message}</Text>
+    <View
+      style={[
+        AlertMessageStyles.container,
+        {backgroundColor: colors.background[level], ...style},
+      ]}>
+      <Icon
+        name={LEVEL_COLORS.icons[level]}
+        type={'material-community'}
+        color={colors.icon[level]}
+      />
+      <Text style={[AlertMessageStyles.message, {color: colors.text[level]}]}>
+        {message}
+      </Text>
       {action}
     </View>
   );

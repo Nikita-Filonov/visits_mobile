@@ -1,7 +1,7 @@
 import React, {useCallback, useMemo} from 'react';
 import {FullScreenModalConfirmLayout} from '../../../Layouts/FullScreenModalConfirmLayout';
 import {ScrollView, SectionList} from 'react-native';
-import {comp} from '../../../../styles/Blocks';
+import {comp} from '../../../../Styles/Blocks';
 import {TextField} from '../../../common/inputs/TextField';
 import {FullScreenModal} from '../../../common/modals/FullScreenModal';
 import {connect} from 'react-redux';

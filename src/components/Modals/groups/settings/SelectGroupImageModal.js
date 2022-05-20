@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, View} from 'react-native';
-import {SIStyles} from '../../../../styles/Modals';
+import {SIStyles} from '../../../../Styles/Modals';
 import {Appbar} from 'react-native-paper';
 import {Icon} from 'react-native-elements';
 import {connect} from 'react-redux';
@@ -10,7 +10,7 @@ import * as ImagePicker from 'react-native-image-picker';
 import {useAlerts} from '../../../../providers/AlertsProvider';
 import {FullScreenModal} from '../../../common/modals/FullScreenModal';
 import {useTranslation} from 'react-i18next';
-import {get} from '../../../../utils/api/Fetch';
+import {get} from '../../../../utils/Api/Fetch';
 import {FullScreenModalConfirmLayout} from '../../../Layouts/FullScreenModalConfirmLayout';
 import {baseUrl} from '../../../../utils/Links';
 import {MAX_FILE_SIZE} from '../../../../utils/Constants';

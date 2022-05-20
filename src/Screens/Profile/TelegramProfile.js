@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Linking} from 'react-native';
-import {comp} from '../../styles/Blocks';
+import {comp} from '../../Styles/Blocks';
 import {useAuth} from '../../providers/AuthProvider';
 import {useTranslation} from 'react-i18next';
 import {TELEGRAM_BOT} from '../../utils/Constants';

@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import {FlatList, Text, TouchableOpacity, View} from 'react-native';
-import {pagination} from '../../styles/Blocks';
+import {pagination} from '../../Styles/Blocks';
 import {Touchable} from './Touchable';
 import {useThemes} from '../../providers/ThemeProvider';
 
@@ -10,11 +10,14 @@ const Page = ({number, page, setPage}) => {
   return (
     <TouchableOpacity
       onPress={() => setPage(number)}
-      style={[pagination.page, {
-        backgroundColor: page === number ? theme.listItemSelected : theme.background,
-        borderColor: theme.text,
-      }]}
-    >
+      style={[
+        pagination.page,
+        {
+          backgroundColor:
+            page === number ? theme.listItemSelected : theme.background,
+          borderColor: theme.text,
+        },
+      ]}>
       <Text style={{color: theme.text}}>{number}</Text>
     </TouchableOpacity>
   );
@@ -41,7 +44,7 @@ export const Pagination = ({count, page, setPage}) => {
         disabled={page === 1}
         action={onFirstIndex}
       />
-      <View style={pagination.arrowsSeparator}/>
+      <View style={pagination.arrowsSeparator} />
       <FlatList
         contentContainerStyle={pagination.listContainer}
         ref={paginationRef}
@@ -49,13 +52,13 @@ export const Pagination = ({count, page, setPage}) => {
         style={pagination.list}
         horizontal={true}
         data={new Array(count)}
-        ItemSeparatorComponent={() => <View style={pagination.itemSeparator}/>}
-        renderItem={({_, index}) =>
-          <Page page={page} number={index + 1} setPage={setPage}/>
-        }
+        ItemSeparatorComponent={() => <View style={pagination.itemSeparator} />}
+        renderItem={({_, index}) => (
+          <Page page={page} number={index + 1} setPage={setPage} />
+        )}
         keyExtractor={(item, index) => `${index}`}
       />
-      <View style={pagination.arrowsSeparator}/>
+      <View style={pagination.arrowsSeparator} />
       <Touchable
         name={'chevron-right'}
         type={'feather'}

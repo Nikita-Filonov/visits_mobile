@@ -10,7 +10,7 @@ import {
 } from '../../utils/Utils';
 import {ConfirmLayout} from '../../components/Layouts/ConfirmLayout';
 import {TextField} from '../../components/common/inputs/TextField';
-import {comp} from '../../styles/Blocks';
+import {comp} from '../../Styles/Blocks';
 import {TelegramTextField} from '../../components/common/inputs/TelegramTextField';
 import {TelegramUserSyncStatus} from '../../components/blocks/profile/TelegramUserSyncStatus';
 import {VkUserSyncStatus} from '../../components/blocks/profile/VkUserSyncStatus';
