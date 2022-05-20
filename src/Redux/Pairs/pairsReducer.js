@@ -11,8 +11,13 @@ export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
     }
     case SET_PAIR:
       return {...state, pair: action.payload};
-    case SET_USER_PAIRS:
+    case SET_USER_PAIRS: {
+      if (action.payload?.id) {
+        return {...state, userPairs: [...state.userPairs, action.payload]};
+      }
+
       return {...state, userPairs: action.payload};
+    }
     default:
       return state;
   }

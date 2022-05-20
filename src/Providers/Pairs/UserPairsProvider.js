@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {get} from '../../utils/Api/Fetch';
+import {get, post} from '../../utils/Api/Fetch';
 import {store} from '../../../index';
 import {SET_USER_PAIRS} from '../../Redux/Pairs/actionTypes';
 
@@ -16,12 +16,22 @@ const UserPairsProvider = ({children}) => {
     setLoad(false);
   };
 
+  const createUserPair = async (pairId: number, email: string): boolean => {
+    setRequest(true);
+    const {error, json} = await post('api/v1/user-pairs', {pairId, email});
+    !error && store.dispatch({type: SET_USER_PAIRS, payload: json});
+    setRequest(false);
+
+    return error;
+  };
+
   return (
     <UserPairsContext.Provider
       value={{
         load,
         request,
         getUserPairs,
+        createUserPair,
       }}>
       {children}
     </UserPairsContext.Provider>

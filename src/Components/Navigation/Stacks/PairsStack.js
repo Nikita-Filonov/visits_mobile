@@ -6,7 +6,7 @@ import CreatePair from '../../../Screens/Pairs/CreatePair';
 import ViewPair from '../../../Screens/Pairs/ViewPair';
 import {PairsProvider} from '../../../Providers/Pairs/PairsProvider';
 import {UserPairsProvider} from '../../../Providers/Pairs/UserPairsProvider';
-import {CreateUserPair} from '../../../Screens/Pairs/CreateUserPair';
+import CreateUserPair from '../../../Screens/Pairs/CreateUserPair';
 
 const Stack = createStackNavigator();
 
