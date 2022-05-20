@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
-import {Linking, ScrollView, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {comp} from '../../Styles/Blocks';
-import {baseUrl} from '../../utils/Links';
 import {LPStyles} from '../../Styles/Screens';
 import {useAuth} from '../../Providers/AuthProvider';
-import {GoogleAuth} from '../../components/blocks/GoogleAuth';
 import {CustomText} from '../../components/common/CustomText';
 import {TextField} from '../../components/common/inputs/TextField';
 import {useTranslation} from 'react-i18next';
@@ -40,7 +38,7 @@ export const Login = ({navigation}) => {
       navigation={navigation}
       header={false}>
       <ScrollView>
-        <CustomText style={LPStyles.title}>RQ Timer</CustomText>
+        <CustomText style={LPStyles.title}>Visits</CustomText>
         {alert?.message && <AlertMessage {...alert} style={LPStyles.alert} />}
         <TextField
           value={email}
@@ -53,17 +51,6 @@ export const Login = ({navigation}) => {
           value={password}
           onChangeText={setPassword}
           label={t('login.password')}
-        />
-        <CustomButton
-          containerStyle={comp.input}
-          upper={false}
-          type={'clear'}
-          onPress={async () =>
-            await Linking.openURL(baseUrl + 'reset_password/')
-          }
-          buttonStyle={{alignSelf: 'flex-end'}}
-          title={t('login.forgotPassword')}
-          color={'primary'}
         />
         <CustomButton
           loading={request}
@@ -83,7 +70,6 @@ export const Login = ({navigation}) => {
             color={'primary'}
           />
         </View>
-        <GoogleAuth navigation={navigation} setRequest={setRequest} />
       </ScrollView>
     </BackLayout>
   );

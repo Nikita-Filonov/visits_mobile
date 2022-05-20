@@ -1,5 +1,12 @@
 import {CardStyleInterpolators} from '@react-navigation/stack';
-import {EVENT, EVENT_HISTORY, GROUP, GROUP_SETTINGS, MEMBER, ROLE} from './permissions/Groups';
+import {
+  EVENT,
+  EVENT_HISTORY,
+  GROUP,
+  GROUP_SETTINGS,
+  MEMBER,
+  ROLE,
+} from './permissions/Groups';
 import {
   EVENT_NOTIFICATIONS_SCOPES,
   EVENT_SCOPES,
@@ -31,28 +38,25 @@ export const DEFAULT_GROUP_BACKUP = 'defaultGroup';
 export const TIMERS_COMMENT_SHOWN_BACKUP = 'timersCommentShown';
 export const GROUP_TIMERS_COMMENT_SHOWN_BACKUP = 'groupTimersCommentShown';
 
-
 export const SUPPORTED_LOCALES = {
   ru: 'ru-RU',
   en: 'en-US',
 };
 export const LOCALE_IMAGES = {
   [SUPPORTED_LOCALES.ru]: baseUrl + 'static/images/Flag_of_Russia.png',
-  [SUPPORTED_LOCALES.en]: baseUrl + 'static/images/Flag_of_the_United_Kingdom.png',
+  [SUPPORTED_LOCALES.en]:
+    baseUrl + 'static/images/Flag_of_the_United_Kingdom.png',
 };
-
 
 export const STACK_OPTIONS = {
   headerShown: false,
   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
 };
 
-
 export const DATETIME_TIMER_FORMAT = 'DD.MM в HH:mm:ss';
 export const PICKER_TIME_FORMAT = 'HH:mm:ss';
 export const PICKER_DATE_FORMAT = 'DD/MM/YYYY';
 export const PICKER_DATETIME_FORMAT = 'DD/MM/YYYY HH:mm:ss';
-
 
 export const DEFAULT_USER_SETTINGS = {
   monsters: [],
@@ -93,26 +97,49 @@ export const INSTANCES = [
   'TimerHistory',
 ];
 
-
 export const DISABLE_SWIPE = {
   timers: ['CreateTimer'],
   groups: [
-    'GroupSettings', 'CreateGroup', 'GroupTimers', 'ImportTimers', 'TimerHistory', 'GroupHistory',
-    'CreateGroupTimer', 'GroupSettingsGeneral', 'GroupSettingsMembers', 'GroupSettingsRoles',
-    'GroupSettingsNotifications', 'GroupSettingsNotificationTemplate', 'GroupSettingsNotificationFormatters',
+    'GroupSettings',
+    'CreateGroup',
+    'GroupTimers',
+    'ImportTimers',
+    'TimerHistory',
+    'GroupHistory',
+    'CreateGroupTimer',
+    'GroupSettingsGeneral',
+    'GroupSettingsMembers',
+    'GroupSettingsRoles',
+    'GroupSettingsNotifications',
+    'GroupSettingsNotificationTemplate',
+    'GroupSettingsNotificationFormatters',
   ],
   premiums: ['PremiumsInfo'],
-  profile: ['MyPremiums', 'PremiumAccesses', 'Profile', 'TelegramProfile', 'VkProfile', 'ChangePassword'],
+  profile: [
+    'MyPremiums',
+    'PremiumAccesses',
+    'Profile',
+    'TelegramProfile',
+    'VkProfile',
+    'ChangePassword',
+  ],
   setting: [
-    'CommentsSettings', 'MonstersSettings', 'LanguageSettings', 'NotificationsSettings', 'SoundsSettings',
-    'NotificationsFormattersSettings', 'NotificationsTemplatesSettings',
+    'CommentsSettings',
+    'MonstersSettings',
+    'LanguageSettings',
+    'NotificationsSettings',
+    'SoundsSettings',
+    'NotificationsFormattersSettings',
+    'NotificationsTemplatesSettings',
   ],
 };
 
-
 export const GROUP_SCOPES = [
   {
-    section: {label: 'Group', icon: {name: 'card-text-outline', type: 'material-community'}},
+    section: {
+      label: 'Group',
+      icon: {name: 'card-text-outline', type: 'material-community'},
+    },
     data: [
       {label: 'View', scope: GROUP.view},
       {label: 'Create', scope: GROUP.create},
@@ -130,7 +157,10 @@ export const GROUP_SCOPES = [
     ],
   },
   {
-    section: {label: 'Member', icon: {name: 'account-supervisor-outline', type: 'material-community'}},
+    section: {
+      label: 'Member',
+      icon: {name: 'account-supervisor-outline', type: 'material-community'},
+    },
     data: [
       {label: 'View', scope: MEMBER.view},
       {label: 'Create', scope: MEMBER.create},
@@ -139,7 +169,10 @@ export const GROUP_SCOPES = [
     ],
   },
   {
-    section: {label: 'Role', icon: {name: 'table-column', type: 'material-community'}},
+    section: {
+      label: 'Role',
+      icon: {name: 'table-column', type: 'material-community'},
+    },
     data: [
       {label: 'View', scope: ROLE.view},
       {label: 'Create', scope: ROLE.create},
@@ -148,7 +181,10 @@ export const GROUP_SCOPES = [
     ],
   },
   {
-    section: {label: 'GroupSettings', icon: {name: 'view-dashboard-outline', type: 'material-community'}},
+    section: {
+      label: 'GroupSettings',
+      icon: {name: 'view-dashboard-outline', type: 'material-community'},
+    },
     data: [
       {label: 'View', scope: GROUP_SETTINGS.view},
       {label: 'Create', scope: GROUP_SETTINGS.create},
@@ -157,7 +193,10 @@ export const GROUP_SCOPES = [
     ],
   },
   {
-    section: {label: 'TimerHistory', icon: {name: 'comment-multiple-outline', type: 'material-community'}},
+    section: {
+      label: 'TimerHistory',
+      icon: {name: 'comment-multiple-outline', type: 'material-community'},
+    },
     data: [
       {label: 'View', scope: EVENT_HISTORY.view},
       {label: 'Create', scope: EVENT_HISTORY.create},
@@ -166,7 +205,6 @@ export const GROUP_SCOPES = [
     ],
   },
 ];
-
 
 export const CLIENTS = {
   TELEGRAM: 'Telegram',
@@ -177,8 +215,8 @@ export const CLIENTS = {
 
 export const TELEGRAM_BOT = 'https://t.me/rq_timer_bot';
 export const VK_GROUP_DIALOG = 'https://vk.com/im?sel=-205253159';
-export const DATETIME_FORMATTERS_DOC = 'https://docs.google.com/document/d/1B1DeRSR8bQs4Y7DFPW3hLp2rZdhhvSHgmfMPMamMclU/edit?usp=sharing';
-
+export const DATETIME_FORMATTERS_DOC =
+  'https://docs.google.com/document/d/1B1DeRSR8bQs4Y7DFPW3hLp2rZdhhvSHgmfMPMamMclU/edit?usp=sharing';
 
 export const TIMERS_SORT = [
   {
@@ -199,22 +237,21 @@ export const TIMERS_SORT = [
   },
 ];
 
-
 export const PREMIUMS_SCOPES = [
-  {'action': MONSTER_SCOPES.create, 'limit': true},
-  {'action': GROUPS_SCOPES.create, 'limit': true},
-  {'action': GROUPS_SCOPES.imageChange, 'limit': null},
-  {'action': GROUP_NOTIFICATIONS_SCOPES.telegramNotifications, 'limit': null},
-  {'action': GROUP_NOTIFICATIONS_SCOPES.discordNotifications, 'limit': null},
-  {'action': EVENT_SCOPES.create, 'limit': true},
-  {'action': GROUP_EVENT_SCOPES.create, 'limit': true},
-  {'action': GROUP_MEMBER_SCOPES.create, 'limit': true},
-  {'action': TIMER_HISTORY_SCOPES.view, 'limit': null},
-  {'action': TIMER_HISTORY_SCOPES.restore, 'limit': null},
-  {'action': GROUP_ROLES_SCOPES.change, 'limit': null},
-  {'action': EVENT_NOTIFICATIONS_SCOPES.telegramNotifications, 'limit': null},
-  {'action': EVENT_NOTIFICATIONS_SCOPES.vkNotifications, 'limit': null},
-  {'action': EVENT_NOTIFICATIONS_SCOPES.mobileNotifications, 'limit': null},
+  {action: MONSTER_SCOPES.create, limit: true},
+  {action: GROUPS_SCOPES.create, limit: true},
+  {action: GROUPS_SCOPES.imageChange, limit: null},
+  {action: GROUP_NOTIFICATIONS_SCOPES.telegramNotifications, limit: null},
+  {action: GROUP_NOTIFICATIONS_SCOPES.discordNotifications, limit: null},
+  {action: EVENT_SCOPES.create, limit: true},
+  {action: GROUP_EVENT_SCOPES.create, limit: true},
+  {action: GROUP_MEMBER_SCOPES.create, limit: true},
+  {action: TIMER_HISTORY_SCOPES.view, limit: null},
+  {action: TIMER_HISTORY_SCOPES.restore, limit: null},
+  {action: GROUP_ROLES_SCOPES.change, limit: null},
+  {action: EVENT_NOTIFICATIONS_SCOPES.telegramNotifications, limit: null},
+  {action: EVENT_NOTIFICATIONS_SCOPES.vkNotifications, limit: null},
+  {action: EVENT_NOTIFICATIONS_SCOPES.mobileNotifications, limit: null},
 ];
 
 export const USER_PREMIUM_STATUSES = {
@@ -229,14 +266,46 @@ export const USER_PREMIUM_STATUSES = {
 };
 
 export const USER_PREMIUM_STATUS_ICONS = {
-  [USER_PREMIUM_STATUSES.WAITING]: {name: 'sync', type: 'material', color: 'info'},
-  [USER_PREMIUM_STATUSES.PAID]: {name: 'check', type: 'material-community', color: 'success'},
-  [USER_PREMIUM_STATUSES.ACTIVE]: {name: 'check', type: 'material-community', color: 'success'},
-  [USER_PREMIUM_STATUSES.REJECTED]: {name: 'close', type: 'material-community', color: 'error'},
-  [USER_PREMIUM_STATUSES.EXPIRED]: {name: 'close', type: 'material-community', color: 'warning'},
-  [USER_PREMIUM_STATUSES.DISABLED]: {name: 'close', type: 'material-community', color: 'error'},
-  [USER_PREMIUM_STATUSES.DISABLED_TEMPORARILY]: {name: 'do-not-disturb', type: 'material', color: 'inherit'},
-  [USER_PREMIUM_STATUSES.WAITING_FOR_EXTEND]: {name: 'sync', type: 'material', color: 'info'},
+  [USER_PREMIUM_STATUSES.WAITING]: {
+    name: 'sync',
+    type: 'material',
+    color: 'info',
+  },
+  [USER_PREMIUM_STATUSES.PAID]: {
+    name: 'check',
+    type: 'material-community',
+    color: 'success',
+  },
+  [USER_PREMIUM_STATUSES.ACTIVE]: {
+    name: 'check',
+    type: 'material-community',
+    color: 'success',
+  },
+  [USER_PREMIUM_STATUSES.REJECTED]: {
+    name: 'close',
+    type: 'material-community',
+    color: 'error',
+  },
+  [USER_PREMIUM_STATUSES.EXPIRED]: {
+    name: 'close',
+    type: 'material-community',
+    color: 'warning',
+  },
+  [USER_PREMIUM_STATUSES.DISABLED]: {
+    name: 'close',
+    type: 'material-community',
+    color: 'error',
+  },
+  [USER_PREMIUM_STATUSES.DISABLED_TEMPORARILY]: {
+    name: 'do-not-disturb',
+    type: 'material',
+    color: 'inherit',
+  },
+  [USER_PREMIUM_STATUSES.WAITING_FOR_EXTEND]: {
+    name: 'sync',
+    type: 'material',
+    color: 'info',
+  },
 };
 
 export const GAME_PROVIDERS = [{code: 'royal_quest', name: 'Royal Quest'}];
@@ -246,8 +315,4 @@ export const DEFAULT_THEME_SETTINGS = {
   snackbar: {
     show: true,
   },
-};
-
-export const GOOGLE_SIGN_IN_CONFIG = {
-  webClientId: '422840835835-mjcta1a19qn03l6dudlj2amla8uclgr8.apps.googleusercontent.com',
 };

@@ -2,12 +2,7 @@ import React, {useCallback, useContext, useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import {SUPPORTED_ACTIONS, useAlerts} from './AlertsProvider';
 import {GoogleSignin} from '@react-native-community/google-signin';
-import {
-  DEFAULT_USER,
-  GOOGLE_SIGN_IN_CONFIG,
-  GROUP_BACKUP,
-  TOKEN_BACKUP,
-} from '../utils/Constants';
+import {DEFAULT_USER, GROUP_BACKUP, TOKEN_BACKUP} from '../utils/Constants';
 import {get, patch, post} from '../utils/Api/Fetch';
 import {useTranslation} from 'react-i18next';
 
@@ -29,7 +24,6 @@ const AuthProvider = ({children}) => {
       const storedToken = await AsyncStorage.getItem(TOKEN_BACKUP);
       setToken(storedToken);
       token && (await getUser());
-      GoogleSignin.configure(GOOGLE_SIGN_IN_CONFIG);
     })();
   }, [token]);
 

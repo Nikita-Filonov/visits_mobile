@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {ScrollView, View} from 'react-native';
 import {comp} from '../../Styles/Blocks';
 import {LPStyles} from '../../Styles/Screens';
-import {GoogleAuth} from '../../components/blocks/GoogleAuth';
 import {post} from '../../utils/Api/Fetch';
 import {CustomText} from '../../components/common/CustomText';
 import {CustomButton} from '../../components/common/CustomButton';
@@ -41,7 +40,7 @@ const Registration = ({navigation, setUser}) => {
       navigation={navigation}
       header={false}>
       <ScrollView>
-        <CustomText style={LPStyles.title}>RQ Timer</CustomText>
+        <CustomText style={LPStyles.title}>Visits</CustomText>
         <TextField
           value={username}
           onChangeText={setUsername}
@@ -89,7 +88,6 @@ const Registration = ({navigation, setUser}) => {
             color={'primary'}
           />
         </View>
-        <GoogleAuth navigation={navigation} setRequest={setRequest} />
       </ScrollView>
     </BackLayout>
   );

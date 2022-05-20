@@ -1,7 +1,6 @@
 import 'react-native-gesture-handler';
 import 'moment/locale/ru';
 import 'moment/locale/en-au';
-import {View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {enableScreens} from 'react-native-screens';
 import {NavigationContainer} from '@react-navigation/native';
@@ -9,10 +8,11 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Loader} from './src/components/blocks/Loader';
 import {useAuth} from './src/Providers/AuthProvider';
-import {LoginStack} from './src/components/Navigation/stacks/LoginStack';
+import {LoginStack} from './src/components/Navigation/Stacks/LoginStack';
 import {STACK_OPTIONS} from './src/utils/Constants';
 import {navigationRef} from './src/components/Navigation/RootNavigation';
-import {setupDefaultGroup, setupReduxStore} from './src/Redux/setup';
+import {setupDefaultGroup, setupReduxStore} from './src/Redux/Setup';
+import {DrawerNavigator} from './src/components/Navigation/DrawerNavigator';
 
 enableScreens();
 
@@ -40,11 +40,10 @@ export const App = ({store}) => {
       ) : (
         <Stack.Navigator initialRouteName={'Welcome'}>
           {token ? (
-            <View />
+            <Drawer.Screen name="Pairs" options={STACK_OPTIONS}>
+              {props => <DrawerNavigator store={store} {...props} />}
+            </Drawer.Screen>
           ) : (
-            // ? <Drawer.Screen name="Timers" options={STACK_OPTIONS}>
-            //   {props => <DrawerNavigator store={store} {...props}/>}
-            // </Drawer.Screen>
             <Stack.Screen name="Welcome" options={STACK_OPTIONS}>
               {props => <LoginStack {...props} />}
             </Stack.Screen>
