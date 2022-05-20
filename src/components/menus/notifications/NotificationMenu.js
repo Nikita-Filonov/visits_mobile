@@ -7,7 +7,7 @@ import {useAlerts} from '../../../Providers/AlertsProvider';
 import {connect} from 'react-redux';
 import {setTimer} from '../../../Redux/Timers/timersActions';
 import {navigate} from '../../Navigation/RootNavigation';
-import {useGroups} from '../../../Providers/Groups/GroupsProvider';
+import {useGroups} from '../../../Providers/groups/GroupsProvider';
 
 const NotificationMenu = ({notification, setTimer}) => {
   const {t} = useTranslation();

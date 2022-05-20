@@ -3,14 +3,14 @@ import {connect} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import {CustomMenu} from '../../../common/menus/CustomMenu';
 import {CustomMenuItem} from '../../../common/menus/CustomMenuItem';
-import {useGroups} from '../../../../Providers/Groups/GroupsProvider';
+import {useGroups} from '../../../../Providers/groups/GroupsProvider';
 import {useAlerts} from '../../../../Providers/AlertsProvider';
 import {
   setCreateMemberModal,
   setGroup,
   setMember,
 } from '../../../../Redux/Groups/groupsActions';
-import {useGroupPermissions} from '../../../../Providers/Groups/GroupPermissionsProvider';
+import {useGroupPermissions} from '../../../../Providers/groups/GroupPermissionsProvider';
 import {MEMBER} from '../../../../utils/permissions/Groups';
 
 const MemberMenu = ({member, group, setMember, setCreateMemberModal}) => {

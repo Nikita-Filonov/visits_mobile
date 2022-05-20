@@ -6,7 +6,7 @@ import {useThemes} from '../../../../Providers/ThemeProvider';
 import {useTranslation} from 'react-i18next';
 import {navigate} from '../../../Navigation/RootNavigation';
 import {useAlerts} from '../../../../Providers/AlertsProvider';
-import {useGroupTimers} from '../../../../Providers/Groups/GroupTimersProvider';
+import {useGroupTimers} from '../../../../Providers/groups/GroupTimersProvider';
 import {setGroupTimer} from '../../../../Redux/GroupTimers/groupTimersActions';
 
 const GroupTimerMenu = forwardRef(({timer, group, setGroupTimer}, ref) => {

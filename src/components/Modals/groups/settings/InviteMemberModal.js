@@ -1,6 +1,6 @@
 import React, {useMemo, useState} from 'react';
 import {ScrollView, TouchableOpacity} from 'react-native';
-import {useGroups} from '../../../../Providers/Groups/GroupsProvider';
+import {useGroups} from '../../../../Providers/groups/GroupsProvider';
 import {comp} from '../../../../Styles/Blocks';
 import {connect} from 'react-redux';
 import {

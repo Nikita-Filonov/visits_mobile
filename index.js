@@ -8,7 +8,7 @@ import {name as appName} from './app.json';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import {Provider as PaperProvider} from 'react-native-paper';
-import reducer from './src/Redux/reducers';
+import reducer from './src/Redux/Reducers';
 import {AlertProvider} from './src/Providers/AlertsProvider';
 import {AuthProvider} from './src/Providers/AuthProvider';
 import {SettingsProvider} from './src/Providers/SettingsProvider';
