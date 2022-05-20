@@ -3,12 +3,12 @@ import {ScrollView, View} from 'react-native';
 import {comp} from '../../Styles/Blocks';
 import {LPStyles} from '../../Styles/Screens';
 import {post} from '../../utils/Api/Fetch';
-import {CustomText} from '../../components/common/CustomText';
-import {CustomButton} from '../../components/common/CustomButton';
-import {TextField} from '../../components/common/inputs/TextField';
+import {CustomText} from '../../Components/common/CustomText';
+import {CustomButton} from '../../Components/common/CustomButton';
+import {TextField} from '../../Components/common/inputs/TextField';
 import {useTranslation} from 'react-i18next';
-import {PasswordTextField} from '../../components/common/inputs/PasswordTextField';
-import {BackLayout} from '../../components/Layouts/BackLayout';
+import {PasswordTextField} from '../../Components/common/inputs/PasswordTextField';
+import {BackLayout} from '../../Components/Layouts/BackLayout';
 import {connect} from 'react-redux';
 import {setUser} from '../../Redux/Users/usersActions';
 

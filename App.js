@@ -6,13 +6,13 @@ import {enableScreens} from 'react-native-screens';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Loader} from './src/components/blocks/Loader';
+import {Loader} from './src/Components/blocks/Loader';
 import {useAuth} from './src/Providers/AuthProvider';
-import {LoginStack} from './src/components/Navigation/Stacks/LoginStack';
+import {LoginStack} from './src/Components/Navigation/Stacks/LoginStack';
 import {STACK_OPTIONS} from './src/utils/Constants';
-import {navigationRef} from './src/components/Navigation/RootNavigation';
+import {navigationRef} from './src/Components/Navigation/RootNavigation';
 import {setupDefaultGroup, setupReduxStore} from './src/Redux/Setup';
-import {DrawerNavigator} from './src/components/Navigation/DrawerNavigator';
+import {DrawerNavigator} from './src/Components/Navigation/DrawerNavigator';
 
 enableScreens();
 

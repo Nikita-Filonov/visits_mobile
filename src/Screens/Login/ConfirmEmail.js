@@ -1,13 +1,13 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {BackLayout} from '../../components/Layouts/BackLayout';
+import {BackLayout} from '../../Components/Layouts/BackLayout';
 import {useAuth} from '../../Providers/AuthProvider';
 import {useAlerts} from '../../Providers/AlertsProvider';
 import {Trans, useTranslation} from 'react-i18next';
-import {CustomText} from '../../components/common/CustomText';
+import {CustomText} from '../../Components/common/CustomText';
 import {post} from '../../utils/Api/Fetch';
 import {comp} from '../../Styles/Blocks';
-import {CustomButton} from '../../components/common/CustomButton';
-import {TextField} from '../../components/common/inputs/TextField';
+import {CustomButton} from '../../Components/common/CustomButton';
+import {TextField} from '../../Components/common/inputs/TextField';
 import {connect} from 'react-redux';
 
 const WAIT_SECONDS = 30;

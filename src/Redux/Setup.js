@@ -10,7 +10,7 @@ import {
 } from '../utils/Constants';
 import {get} from '../utils/Api/Fetch';
 import {SET_GROUP} from './Groups/actionTypes';
-import {navigate} from '../components/Navigation/RootNavigation';
+import {navigate} from '../Components/Navigation/RootNavigation';
 import {SET_THEME} from './Settings/actionTypes';
 
 export const setupDefaultGroup = async store => {

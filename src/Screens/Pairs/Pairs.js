@@ -1,13 +1,13 @@
 import React from 'react';
-import {DrawerLayout} from '../../components/Layouts/DrawerLayout';
-import {CustomFab} from '../../components/common/CustomFab';
+import {DrawerLayout} from '../../Components/Layouts/DrawerLayout';
+import {CustomFab} from '../../Components/common/CustomFab';
 import {connect} from 'react-redux';
 import {ReduxStore} from '../../Models/Store';
 import {FlatList, RefreshControl} from 'react-native';
 import {usePairs} from '../../Providers/PairsProvider';
-import {Spinner} from '../../components/common/Spinner';
-import {PairItem} from '../../components/Items/Pairs/PairItem';
-import {ListSeparator} from '../../components/common/ListSeparator';
+import {Spinner} from '../../Components/common/Spinner';
+import {PairItem} from '../../Components/Items/Pairs/PairItem';
+import {ListSeparator} from '../../Components/common/ListSeparator';
 
 const Pairs = ({navigation, pairs}) => {
   const {load, getPairs} = usePairs();

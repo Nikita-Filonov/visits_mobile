@@ -4,11 +4,11 @@ import {comp} from '../../Styles/Blocks';
 import {useAuth} from '../../Providers/AuthProvider';
 import {Trans, useTranslation} from 'react-i18next';
 import {VK_GROUP_DIALOG} from '../../utils/Constants';
-import {ConfirmLayout} from '../../components/Layouts/ConfirmLayout';
+import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
 import {validateVkId} from '../../utils/Utils';
-import {CustomText} from '../../components/common/CustomText';
-import {TextField} from '../../components/common/inputs/TextField';
-import {Link} from '../../components/common/Link';
+import {CustomText} from '../../Components/common/CustomText';
+import {TextField} from '../../Components/common/inputs/TextField';
+import {Link} from '../../Components/common/Link';
 
 export const VkProfile = ({navigation}) => {
   const {t} = useTranslation();

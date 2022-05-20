@@ -8,12 +8,12 @@ import {
   validateTelegramUsername,
   validateVkId,
 } from '../../utils/Utils';
-import {ConfirmLayout} from '../../components/Layouts/ConfirmLayout';
-import {TextField} from '../../components/common/inputs/TextField';
+import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
+import {TextField} from '../../Components/common/inputs/TextField';
 import {comp} from '../../Styles/Blocks';
-import {TelegramTextField} from '../../components/common/inputs/TelegramTextField';
-import {TelegramUserSyncStatus} from '../../components/blocks/profile/TelegramUserSyncStatus';
-import {VkUserSyncStatus} from '../../components/blocks/profile/VkUserSyncStatus';
+import {TelegramTextField} from '../../Components/common/inputs/TelegramTextField';
+import {TelegramUserSyncStatus} from '../../Components/blocks/profile/TelegramUserSyncStatus';
+import {VkUserSyncStatus} from '../../Components/blocks/profile/VkUserSyncStatus';
 
 export const Profile = () => {
   const {t} = useTranslation();

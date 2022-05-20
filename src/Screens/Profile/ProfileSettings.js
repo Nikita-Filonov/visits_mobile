@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useAuth} from '../../Providers/AuthProvider';
 import {useTranslation} from 'react-i18next';
-import {GroupSettingsItem} from '../../components/blocks/groups/settings/GroupSettingsItem';
-import {DrawerLayout} from '../../components/Layouts/DrawerLayout';
+import {GroupSettingsItem} from '../../Components/blocks/groups/settings/GroupSettingsItem';
+import {DrawerLayout} from '../../Components/Layouts/DrawerLayout';
 import {AdMobInterstitial} from 'react-native-admob';
 
 export const ProfileSettings = ({navigation}) => {

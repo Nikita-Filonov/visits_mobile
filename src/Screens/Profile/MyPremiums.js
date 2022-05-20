@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
-import {BackLayout} from '../../components/Layouts/BackLayout';
+import {BackLayout} from '../../Components/Layouts/BackLayout';
 import {useTranslation} from 'react-i18next';
 import {usePremiums} from '../../Providers/PremiumsProvider';
-import {Spinner} from '../../components/common/Spinner';
-import {UserPremium} from '../../components/Items/profile/UserPremium';
+import {Spinner} from '../../Components/common/Spinner';
+import {UserPremium} from '../../Components/Items/profile/UserPremium';
 import {FlatList, RefreshControl} from 'react-native';
-import {ListSeparator} from '../../components/common/ListSeparator';
+import {ListSeparator} from '../../Components/common/ListSeparator';
 
 export const MyPremiums = () => {
   const {t} = useTranslation();

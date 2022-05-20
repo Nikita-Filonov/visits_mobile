@@ -3,16 +3,16 @@ import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
 import {TextField} from '../../Components/Common/Inputs/TextField';
 import {comp} from '../../Styles/Blocks';
 import {connect} from 'react-redux';
-import {useCharacters} from '../../Providers/Character/CharactersProvider';
-import {setCharacter} from '../../Redux/Characters/charactersActions';
-import {CHARACTERS_INITIAL_STATE} from '../../Redux/Characters/initialState';
+import {setPair} from '../../Redux/Pairs/pairsActions';
+import {usePairs} from '../../Providers/PairsProvider';
+import {PAIRS_INITIAL_STATE} from '../../Redux/Pairs/initialState';
 
-const CreateCharacter = ({navigation, character, setCharacter}) => {
-  const {request, createCharacter, updateCharacter} = useCharacters();
+const CreatePair = ({navigation, character, setPairStore}) => {
+  const {request, createCharacter, updateCharacter} = usePairs();
 
   const onBack = () => {
     navigation.goBack();
-    setCharacter(CHARACTERS_INITIAL_STATE.character);
+    setPairStore(PAIRS_INITIAL_STATE.pair);
   };
 
   const onCreate = async () =>
@@ -25,7 +25,7 @@ const CreateCharacter = ({navigation, character, setCharacter}) => {
 
   return (
     <ConfirmLayout
-      title={character.editMode ? 'Изменить персонажа' : 'Новый персонаж'}
+      title={character.editMode ? 'Изменить пару' : 'Новый пара'}
       loading={request}
       onBack={onBack}
       onConfirm={character.editMode ? onUpdate : onCreate}>
@@ -33,11 +33,11 @@ const CreateCharacter = ({navigation, character, setCharacter}) => {
         label={'Имя персонажа'}
         style={comp.input}
         value={character.username}
-        onChangeText={username => setCharacter({...character, username})}
+        onChangeText={username => setPairStore({...character, username})}
       />
     </ConfirmLayout>
   );
 };
 
-const getState = state => ({character: state.characters.character});
-export default connect(getState, {setCharacter})(CreateCharacter);
+const getState = state => ({character: state.pairs.character});
+export default connect(getState, {setPairStore: setPair})(CreatePair);

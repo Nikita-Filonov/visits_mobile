@@ -4,10 +4,10 @@ import {comp} from '../../Styles/Blocks';
 import {useAuth} from '../../Providers/AuthProvider';
 import {useTranslation} from 'react-i18next';
 import {TELEGRAM_BOT} from '../../utils/Constants';
-import {ConfirmLayout} from '../../components/Layouts/ConfirmLayout';
+import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
 import {validateTelegramUsername} from '../../utils/Utils';
-import {CustomText} from '../../components/common/CustomText';
-import {TextField} from '../../components/common/inputs/TextField';
+import {CustomText} from '../../Components/common/CustomText';
+import {TextField} from '../../Components/common/inputs/TextField';
 
 export const TelegramProfile = ({navigation}) => {
   const {t} = useTranslation();

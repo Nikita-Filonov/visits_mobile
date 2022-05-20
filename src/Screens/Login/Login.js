@@ -3,14 +3,14 @@ import {ScrollView, View} from 'react-native';
 import {comp} from '../../Styles/Blocks';
 import {LPStyles} from '../../Styles/Screens';
 import {useAuth} from '../../Providers/AuthProvider';
-import {CustomText} from '../../components/common/CustomText';
-import {TextField} from '../../components/common/inputs/TextField';
+import {CustomText} from '../../Components/common/CustomText';
+import {TextField} from '../../Components/common/inputs/TextField';
 import {useTranslation} from 'react-i18next';
-import {PasswordTextField} from '../../components/common/inputs/PasswordTextField';
-import {CustomButton} from '../../components/common/CustomButton';
+import {PasswordTextField} from '../../Components/common/inputs/PasswordTextField';
+import {CustomButton} from '../../Components/common/CustomButton';
 import {post} from '../../utils/Api/Fetch';
-import {AlertMessage} from '../../components/common/AlertMessage';
-import {BackLayout} from '../../components/Layouts/BackLayout';
+import {AlertMessage} from '../../Components/common/AlertMessage';
+import {BackLayout} from '../../Components/Layouts/BackLayout';
 
 export const Login = ({navigation}) => {
   const {t} = useTranslation();

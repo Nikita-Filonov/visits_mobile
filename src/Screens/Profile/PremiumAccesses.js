@@ -1,13 +1,13 @@
 import React from 'react';
-import {BackLayout} from '../../components/Layouts/BackLayout';
+import {BackLayout} from '../../Components/Layouts/BackLayout';
 import {useTranslation} from 'react-i18next';
-import {CustomText} from '../../components/common/CustomText';
+import {CustomText} from '../../Components/common/CustomText';
 import {comp} from '../../Styles/Blocks';
-import {DataGrid} from '../../components/common/DataGrid/DataGrid';
+import {DataGrid} from '../../Components/common/DataGrid/DataGrid';
 import {usePremiums} from '../../Providers/PremiumsProvider';
 import {PremiumAccessesColumns} from '../../utils/grids/PremiumAccessesColumns';
 import {RefreshControl, ScrollView} from 'react-native';
-import {Spinner} from '../../components/common/Spinner';
+import {Spinner} from '../../Components/common/Spinner';
 
 export const PremiumAccesses = () => {
   const {t} = useTranslation();
