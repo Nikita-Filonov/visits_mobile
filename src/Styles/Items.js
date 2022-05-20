@@ -76,7 +76,6 @@ export const timer = StyleSheet.create({
   },
 });
 
-
 export const history = StyleSheet.create({
   container: {
     borderRadius: 5,
@@ -120,7 +119,6 @@ export const history = StyleSheet.create({
   },
 });
 
-
 export const help = StyleSheet.create({
   title: {
     color: 'black',
@@ -148,7 +146,6 @@ export const member = StyleSheet.create({
   },
 });
 
-
 export const MonsterStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -161,5 +158,31 @@ export const MonsterStyles = StyleSheet.create({
     width: 30,
     height: 30,
     marginRight: 15,
+  },
+});
+
+export const PairItemStyle = StyleSheet.create({
+  container: {
+    paddingVertical: 15,
+    borderRadius: 3,
+    paddingHorizontal: 10,
+    elevation: 1.5,
+  },
+  wrapper: {
+    flexDirection: 'row',
+  },
+  timeWrapper: {
+    marginRight: 8,
+  },
+  nameWrapper: {
+    marginLeft: 8,
+  },
+  divider: {
+    height: '100%',
+    width: 4,
+    borderRadius: 2,
+  },
+  title: {
+    fontSize: 17,
   },
 });
