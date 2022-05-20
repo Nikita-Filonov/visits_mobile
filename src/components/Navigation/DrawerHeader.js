@@ -1,35 +1,20 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 import {View} from 'react-native';
 import {comp, DrawerHeaderStyles} from '../../Styles/Blocks';
 import {Divider} from 'react-native-elements';
 import {useAuth} from '../../Providers/AuthProvider';
 import {useAlerts} from '../../Providers/AlertsProvider';
-import {useNotifications} from '../../Providers/NotificationProvider';
 import {Touchable} from '../blocks/Touchable';
 import {useThemes} from '../../Providers/ThemeProvider';
 import {DrawerItem} from '../common/DrawerItem';
 import {useTranslation} from 'react-i18next';
-import {Badge} from 'react-native-paper';
 import {CustomText} from '../common/CustomText';
 
 export const DrawerHeader = ({navigation}) => {
   const {t} = useTranslation();
   const {theme, changeTheme} = useThemes();
-  const notificationsRef = useRef(null);
   const {setConfirmModal} = useAlerts();
   const {user, onLogout} = useAuth();
-  const {getNotificationsUnread, unread} = useNotifications();
-
-  useEffect(() => {
-    (async () => {
-      await getNotificationsUnread();
-      notificationsRef.current = setInterval(
-        async () => await getNotificationsUnread(),
-        20000,
-      );
-    })();
-    return () => clearInterval(notificationsRef.current);
-  }, []);
 
   const logout = async () =>
     setConfirmModal({
@@ -65,56 +50,24 @@ export const DrawerHeader = ({navigation}) => {
       <View>
         <Divider style={DrawerHeaderStyles.divider} />
         <DrawerItem
-          title={t('components.drawer.timers')}
-          iconName={'timer-outline'}
+          title={'Пары'}
+          iconName={'calendar-check-outline'}
           iconType={'material-community'}
-          onPress={navigate('Timers')}
+          onPress={navigate('Pairs')}
         />
         <DrawerItem
-          title={t('components.drawer.groups')}
+          title={'Группы'}
           iconName={'people-outline'}
           iconType={'material'}
           onPress={navigate('Groups')}
         />
         <DrawerItem
-          color={'#FFA726'}
-          title={t('components.drawer.premiums')}
-          iconName={'credit-card-outline'}
+          title={'Мой QR-код'}
+          iconName={'qrcode-scan'}
           iconType={'material-community'}
-          onPress={navigate('Premiums')}
-        />
-        <DrawerItem
-          title={t('components.drawer.profile')}
-          iconName={'account-circle'}
-          iconType={'material-community'}
-          onPress={navigate('ProfileSettings')}
-        />
-        <DrawerItem
-          title={t('components.drawer.notifications')}
-          iconName={'notifications-none'}
-          iconType={'material'}
-          onPress={navigate('Notifications')}
-          badge={
-            unread ? (
-              <Badge style={{backgroundColor: theme.button.primary}}>
-                +{unread}
-              </Badge>
-            ) : null
-          }
-        />
-        <DrawerItem
-          title={t('components.drawer.help')}
-          iconName={'help-circle-outline'}
-          iconType={'material-community'}
-          onPress={navigate('Help')}
+          onPress={navigate('QRCode')}
         />
         <Divider />
-        <DrawerItem
-          title={t('components.drawer.settings')}
-          iconName={'settings'}
-          iconType={'material'}
-          onPress={navigate('Settings')}
-        />
         <DrawerItem
           title={t('components.drawer.logout')}
           iconName={'logout'}

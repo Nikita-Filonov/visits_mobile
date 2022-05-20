@@ -9,7 +9,7 @@ import {useTranslation} from 'react-i18next';
 const AuthContext = React.createContext(null);
 
 const AuthProvider = ({children}) => {
-  const userApi = 'api/v1/user/';
+  const userApi = 'api/v1/user';
   const {setAlert, successTemplate} = useAlerts();
   const {t} = useTranslation();
   const [token, setToken] = useState(null);
@@ -28,7 +28,7 @@ const AuthProvider = ({children}) => {
   }, [token]);
 
   const getUser = async (isLazy: boolean = false) => {
-    const {error, json, code} = await get(userApi);
+    const {error, json, code} = await get(`${userApi}/me/`);
     code === 401 && (await onLogout());
     !error && !isLazy && setUser(json);
     return {error, json};

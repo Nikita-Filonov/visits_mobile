@@ -21,7 +21,7 @@ export const DrawerLayout = ({
           animated={false}
           icon={() => <Icon name={'menu'} type={'feather'} color={'white'} />}
         />
-        <Appbar.Content title={title} />
+        <Appbar.Content title={title} color={'white'} />
         {menu}
       </AppBar>
       <View style={wrapper ? [comp.viewContainer, comp.flex] : []}>

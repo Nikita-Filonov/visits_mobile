@@ -20,7 +20,7 @@ const ThemeStyles = {
       error: '#DB2F2F',
     },
     header: {
-      background: '#1976D2',
+      background: '#42C467',
     },
     colors: {
       primary: '#0288D1',

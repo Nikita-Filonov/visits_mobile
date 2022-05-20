@@ -1,6 +1,6 @@
 import React from 'react';
-import {View} from 'react-native';
+import {DrawerLayout} from '../../components/Layouts/DrawerLayout';
 
-export const Pairs = () => {
-  return <View />;
+export const Pairs = ({navigation}) => {
+  return <DrawerLayout title={'Пары'} navigation={navigation} />;
 };

@@ -2,7 +2,6 @@ import React from 'react';
 import {MainView} from './MainView';
 import {Appbar} from 'react-native-paper';
 import {AppBarBack} from '../common/AppBarBack';
-import {useThemes} from '../../Providers/ThemeProvider';
 import {ActivityIndicator, View} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {AppBar} from '../common/AppBar';
@@ -17,8 +16,6 @@ export const ConfirmLayout = ({
   actions,
   disabled,
 }) => {
-  const {theme} = useThemes();
-
   return (
     <MainView>
       <AppBar>

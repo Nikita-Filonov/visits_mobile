@@ -8,8 +8,8 @@ export const Loader = () => {
   useEffect(() => {
     (async () => {
       StatusBar.setBarStyle('default');
-      StatusBar.setBackgroundColor('#6CE990');
-      await changeNavigationBarColor('#6CE990');
+      StatusBar.setBackgroundColor('#42C467');
+      await changeNavigationBarColor('#42C467');
     })();
   }, []);
 

@@ -22,12 +22,12 @@ export const Login = ({navigation}) => {
 
   const login = async () => {
     setRequest(true);
-    const {json, code} = await post('api/v1/login/', {email, password}, false);
+    const {json, code} = await post('api/v1/token/', {email, password}, false);
     code === 401 && setAlert(t('login.authError'));
 
     if (json?.token) {
       await onLogin(json.token);
-      navigation.navigate('Timers');
+      navigation.navigate('Pairs');
     }
     setRequest(false);
   };
