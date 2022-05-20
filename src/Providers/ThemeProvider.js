@@ -16,7 +16,7 @@ const ThemeStyles = {
     disabled: '#B0B0B0',
     button: {
       inherit: '#646464',
-      primary: '#1976D2',
+      primary: '#42C467',
       error: '#DB2F2F',
     },
     header: {

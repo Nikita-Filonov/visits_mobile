@@ -14,7 +14,7 @@ import {AuthProvider} from './src/Providers/AuthProvider';
 import {SettingsProvider} from './src/Providers/SettingsProvider';
 import {ThemeProvider} from './src/Providers/ThemeProvider';
 
-const store = createStore(reducer);
+export const store = createStore(reducer);
 
 const Root = () => (
   <Provider store={store}>

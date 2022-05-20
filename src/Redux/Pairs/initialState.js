@@ -1,8 +1,9 @@
 export const PAIRS_INITIAL_STATE = {
-  character: {
+  pair: {
     name: '',
     room: '',
     startAt: null,
     endAt: null,
   },
+  pairs: [],
 };
