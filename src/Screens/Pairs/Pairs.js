@@ -6,7 +6,7 @@ import {ReduxStore} from '../../Models/Store';
 import {FlatList, RefreshControl} from 'react-native';
 import {usePairs} from '../../Providers/PairsProvider';
 import {Spinner} from '../../Components/common/Spinner';
-import {PairItem} from '../../Components/Items/Pairs/PairItem';
+import PairItem from '../../Components/Items/Pairs/PairItem';
 import {ListSeparator} from '../../Components/common/ListSeparator';
 
 const Pairs = ({navigation, pairs}) => {

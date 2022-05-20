@@ -2,8 +2,9 @@ import React, {useContext, useEffect, useState} from 'react';
 import {get, post} from '../utils/Api/Fetch';
 import {useAuth} from './AuthProvider';
 import {store} from '../../index';
-import {SET_PAIRS} from '../Redux/Pairs/actionTypes';
+import {SET_PAIR, SET_PAIRS} from '../Redux/Pairs/actionTypes';
 import type {Pair} from '../Models/Pairs';
+import {navigate} from '../Components/Navigation/RootNavigation';
 
 const PairsContext = React.createContext(null);
 
@@ -28,7 +29,8 @@ const PairsProvider = ({children}) => {
     const {error, json} = await post('api/v1/pairs/', pair);
     if (!error) {
       store.dispatch({type: SET_PAIRS, payload: json});
-      // navigate('PairView', {isCreation: true});
+      store.dispatch({type: SET_PAIR, payload: json});
+      navigate('ViewPair', {isCreation: true});
     }
     setRequest(false);
   };

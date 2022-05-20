@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {STACK_OPTIONS} from '../../../utils/Constants';
 import Pairs from '../../../Screens/Pairs/Pairs';
 import CreatePair from '../../../Screens/Pairs/CreatePair';
+import ViewPair from '../../../Screens/Pairs/ViewPair';
 import {PairsProvider} from '../../../Providers/PairsProvider';
 
 const Stack = createStackNavigator();
@@ -16,6 +17,9 @@ export const PairsStack = () => {
         </Stack.Screen>
         <Stack.Screen name="CreatePair" options={STACK_OPTIONS}>
           {props => <CreatePair {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="ViewPair" options={STACK_OPTIONS}>
+          {props => <ViewPair {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </PairsProvider>

@@ -1,15 +1,24 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import {CustomText} from '../../common/CustomText';
 import {useThemes} from '../../../Providers/ThemeProvider';
 import {formatPairTime} from '../../../utils/Helpers/Formatters';
 import {PairItemStyle} from '../../../Styles/Items';
+import {navigate} from '../../Navigation/RootNavigation';
+import {connect} from 'react-redux';
+import {setPair} from '../../../Redux/Pairs/pairsActions';
 
-export const PairItem = ({pair}) => {
+const PairItem = ({pair, setPairStore}) => {
   const {theme} = useThemes();
+
+  const onView = useCallback(async () => {
+    setPairStore(pair);
+    navigate('ViewPair', {isCreation: false});
+  }, [pair, setPairStore]);
 
   return (
     <TouchableOpacity
+      onPress={onView}
       style={[{backgroundColor: theme.listItem}, PairItemStyle.container]}>
       <View style={PairItemStyle.wrapper}>
         <View style={PairItemStyle.timeWrapper}>
@@ -32,3 +41,5 @@ export const PairItem = ({pair}) => {
     </TouchableOpacity>
   );
 };
+
+export default connect(null, {setPairStore: setPair})(PairItem);

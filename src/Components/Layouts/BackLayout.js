@@ -18,7 +18,7 @@ export const BackLayout = ({
     <MainView header={header}>
       <AppBar header={header}>
         <AppBarBack navigation={navigation} header={header} />
-        <Appbar.Content title={title} />
+        <Appbar.Content title={title} color={'#FFFFFF'} />
         {actions && actions.map((a, index) => <View key={index}>{a}</View>)}
       </AppBar>
       <View style={wrapper ? [comp.viewContainer, comp.flex] : []}>
