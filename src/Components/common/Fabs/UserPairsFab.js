@@ -23,12 +23,14 @@ export const UserPairsFab = () => {
       color={'#FFFFFF'}
       actions={[
         {
-          icon: () => <Icon name={'import-export'} type={'material'} />,
+          icon: () => <Icon name={'people-outline'} type={'material'} />,
           onPress: onCreateUserPairGroup,
           label: 'Выбрать из груп',
         },
         {
-          icon: () => <Icon name={'import-export'} type={'material'} />,
+          icon: () => (
+            <Icon name={'email-outline'} type={'material-community'} />
+          ),
           onPress: onCreateUserPair,
           label: 'Добавить по почте',
         },

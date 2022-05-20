@@ -6,6 +6,7 @@ import CreatePair from '../../../Screens/Pairs/CreatePair';
 import ViewPair from '../../../Screens/Pairs/ViewPair';
 import {PairsProvider} from '../../../Providers/Pairs/PairsProvider';
 import {UserPairsProvider} from '../../../Providers/Pairs/UserPairsProvider';
+import {CreateUserPair} from '../../../Screens/Pairs/CreateUserPair';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,13 @@ export const PairsStack = () => {
           {props => (
             <UserPairsProvider>
               <ViewPair {...props} />
+            </UserPairsProvider>
+          )}
+        </Stack.Screen>
+        <Stack.Screen name="CreateUserPair" options={STACK_OPTIONS}>
+          {props => (
+            <UserPairsProvider>
+              <CreateUserPair {...props} />
             </UserPairsProvider>
           )}
         </Stack.Screen>
