@@ -20,7 +20,7 @@ export const ConfirmLayout = ({
     <MainView>
       <AppBar>
         <AppBarBack onBack={onBack} />
-        <Appbar.Content title={title} />
+        <Appbar.Content title={title} color={'#FFFFFF'} />
         {actions && actions.map((a, index) => <View key={index}>{a}</View>)}
         <Appbar.Action
           disabled={disabled}

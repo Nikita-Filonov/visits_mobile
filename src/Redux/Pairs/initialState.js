@@ -4,6 +4,7 @@ export const PAIRS_INITIAL_STATE = {
     room: '',
     startAt: null,
     endAt: null,
+    editMode: false,
   },
   pairs: [],
 };

@@ -3,8 +3,12 @@ import {SET_PAIR, SET_PAIRS} from './actionTypes';
 
 export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
   switch (action.type) {
-    case SET_PAIRS:
+    case SET_PAIRS: {
+      if (action.payload?.id) {
+        return {...state, pairs: [...state.pairs, action.payload]};
+      }
       return {...state, pairs: action.payload};
+    }
     case SET_PAIR:
       return {...state, pair: action.payload};
     default:

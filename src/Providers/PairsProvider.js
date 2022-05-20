@@ -1,14 +1,16 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {get} from '../utils/Api/Fetch';
+import {get, post} from '../utils/Api/Fetch';
 import {useAuth} from './AuthProvider';
 import {store} from '../../index';
 import {SET_PAIRS} from '../Redux/Pairs/actionTypes';
+import type {Pair} from '../Models/Pairs';
 
 const PairsContext = React.createContext(null);
 
 const PairsProvider = ({children}) => {
   const {token} = useAuth();
   const [load, setLoad] = useState(true);
+  const [request, setRequest] = useState(false);
 
   useEffect(() => {
     (async () => token && (await getPairs()))();
@@ -21,11 +23,23 @@ const PairsProvider = ({children}) => {
     setLoad(false);
   };
 
+  const createPair = async (pair: Pair) => {
+    setRequest(true);
+    const {error, json} = await post('api/v1/pairs/', pair);
+    if (!error) {
+      store.dispatch({type: SET_PAIRS, payload: json});
+      // navigate('PairView', {isCreation: true});
+    }
+    setRequest(false);
+  };
+
   return (
     <PairsContext.Provider
       value={{
         load,
+        request,
         getPairs,
+        createPair,
       }}>
       {children}
     </PairsContext.Provider>
