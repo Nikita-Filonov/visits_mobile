@@ -13,6 +13,7 @@ export const BackLayout = ({
   header,
   actions,
   wrapper = true,
+  fab = null,
 }) => {
   return (
     <MainView header={header}>
@@ -24,6 +25,7 @@ export const BackLayout = ({
       <View style={wrapper ? [comp.viewContainer, comp.flex] : []}>
         {children}
       </View>
+      {fab}
     </MainView>
   );
 };

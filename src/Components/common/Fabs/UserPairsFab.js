@@ -3,6 +3,7 @@ import {FAB} from 'react-native-paper';
 import {Icon} from 'react-native-elements';
 import {useThemes} from '../../../Providers/ThemeProvider';
 import {navigate} from '../../Navigation/RootNavigation';
+import {comp} from '../../../Styles/Blocks';
 
 export const UserPairsFab = () => {
   const {theme} = useThemes();
@@ -15,6 +16,7 @@ export const UserPairsFab = () => {
 
   return (
     <FAB.Group
+      style={[comp.fab, {paddingRight: 16}]}
       fabStyle={{backgroundColor: theme.button.primary}}
       open={open}
       icon={open ? 'close' : 'plus'}
