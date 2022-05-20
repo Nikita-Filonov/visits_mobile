@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import {comp, DrawerHeaderStyles} from '../../Styles/Blocks';
 import {Divider} from 'react-native-elements';
@@ -9,12 +9,16 @@ import {useThemes} from '../../Providers/ThemeProvider';
 import {DrawerItem} from '../common/DrawerItem';
 import {useTranslation} from 'react-i18next';
 import {CustomText} from '../common/CustomText';
+import {useRoute} from '@react-navigation/native';
 
 export const DrawerHeader = ({navigation}) => {
   const {t} = useTranslation();
   const {theme, changeTheme} = useThemes();
   const {setConfirmModal} = useAlerts();
   const {user, onLogout} = useAuth();
+  const {name} = useRoute();
+
+  useEffect(() => console.log(name), [name]);
 
   const logout = async () =>
     setConfirmModal({
@@ -54,6 +58,7 @@ export const DrawerHeader = ({navigation}) => {
           iconName={'calendar-check-outline'}
           iconType={'material-community'}
           onPress={navigate('Pairs')}
+          selected={true}
         />
         <DrawerItem
           title={'Группы'}

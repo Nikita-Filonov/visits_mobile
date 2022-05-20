@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {Icon} from 'react-native-elements';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {useThemes} from '../../Providers/ThemeProvider';
@@ -11,11 +11,19 @@ export const DrawerItem = ({
   onPress,
   badge = null,
   color = null,
+  selected = false,
 }) => {
   const {theme} = useThemes();
 
+  const selectedColor = useMemo(
+    () => (selected ? (theme.dark ? theme.listItem : '#C1FFD3') : null),
+    [selected, theme.dark, theme.listItem],
+  );
+
   return (
-    <TouchableOpacity style={[DrawerItemStyles.container]} onPress={onPress}>
+    <TouchableOpacity
+      style={[{backgroundColor: selectedColor}, DrawerItemStyles.container]}
+      onPress={onPress}>
       <Icon
         style={DrawerItemStyles.icon}
         name={iconName}
