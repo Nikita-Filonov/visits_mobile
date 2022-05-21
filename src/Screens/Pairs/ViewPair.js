@@ -9,8 +9,9 @@ import {ListSeparator} from '../../Components/common/ListSeparator';
 import {Spinner} from '../../Components/common/Spinner';
 import {Appbar} from 'react-native-paper';
 import {getCurrentPairDate} from '../../utils/Helpers/Formatters';
+import {getCameraPermissions} from '../../utils/Helpers/Permissions';
 
-const ViewPair = ({pair, userPairs}) => {
+const ViewPair = ({navigation, pair, userPairs}) => {
   const {load, getUserPairs} = useUserPairs();
   const [checkUsersMode, setCheckUsersMode] = useState(false);
 
@@ -21,6 +22,12 @@ const ViewPair = ({pair, userPairs}) => {
   const onRefresh = async () => await getUserPairs(pair?.id);
 
   const onCheckUsersMode = () => setCheckUsersMode(!checkUsersMode);
+  const onScanStudentQRcCode = async () => {
+    const granted = await getCameraPermissions();
+    if (granted) {
+      navigation.navigate('ScanStudentQRCode');
+    }
+  };
 
   return (
     <BackLayout
@@ -45,7 +52,11 @@ const ViewPair = ({pair, userPairs}) => {
                 color={'#FFFFFF'}
                 onPress={onCheckUsersMode}
               />,
-              <Appbar.Action icon="qrcode-scan" color={'#FFFFFF'} />,
+              <Appbar.Action
+                icon="qrcode-scan"
+                color={'#FFFFFF'}
+                onPress={onScanStudentQRcCode}
+              />,
             ]
       }>
       {load ? (

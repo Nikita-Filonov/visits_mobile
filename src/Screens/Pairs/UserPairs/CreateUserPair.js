@@ -1,10 +1,10 @@
 import React, {useMemo, useState} from 'react';
-import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
-import {TextField} from '../../Components/common/inputs/TextField';
-import {comp} from '../../Styles/Blocks';
-import {useUserPairs} from '../../Providers/Pairs/UserPairsProvider';
+import {ConfirmLayout} from '../../../Components/Layouts/ConfirmLayout';
+import {TextField} from '../../../Components/common/inputs/TextField';
+import {comp} from '../../../Styles/Blocks';
+import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 import {connect} from 'react-redux';
-import {validateEmail} from '../../utils/Utils';
+import {validateEmail} from '../../../utils/Utils';
 
 const CreateUserPair = ({navigation, pair}) => {
   const {request, createUserPair} = useUserPairs();

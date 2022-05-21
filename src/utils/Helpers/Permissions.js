@@ -5,5 +5,5 @@ export const getCameraPermissions = async () => {
     PermissionsAndroid.PERMISSIONS.CAMERA,
   );
 
-  return granted !== PermissionsAndroid.RESULTS.GRANTED;
+  return granted === PermissionsAndroid.RESULTS.GRANTED;
 };
