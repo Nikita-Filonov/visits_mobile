@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {connect} from 'react-redux';
 import {BackLayout} from '../../Components/Layouts/BackLayout';
 import {useUserPairs} from '../../Providers/Pairs/UserPairsProvider';
@@ -10,8 +10,11 @@ import {Spinner} from '../../Components/common/Spinner';
 import {Appbar} from 'react-native-paper';
 import {getCurrentPairDate} from '../../utils/Helpers/Formatters';
 import {getCameraPermissions} from '../../utils/Helpers/Permissions';
+import {UserPairBottomSheet} from '../../Components/common/BottomSheets/UserPairBottomSheet';
+import {setUserPair} from '../../Redux/Pairs/pairsActions';
 
-const ViewPair = ({navigation, pair, userPairs}) => {
+const ViewPair = ({navigation, pair, userPairs, setUserPairStore}) => {
+  const userPairRef = useRef(null);
   const {load, getUserPairs} = useUserPairs();
   const [checkUsersMode, setCheckUsersMode] = useState(false);
 
@@ -27,6 +30,10 @@ const ViewPair = ({navigation, pair, userPairs}) => {
     if (granted) {
       navigation.navigate('ScanStudentQRCode');
     }
+  };
+  const openUserSheet = () => async userPair => {
+    setUserPairStore(userPair);
+    userPairRef.current.snapTo(0);
   };
 
   return (
@@ -68,12 +75,17 @@ const ViewPair = ({navigation, pair, userPairs}) => {
             <RefreshControl refreshing={false} onRefresh={onRefresh} />
           }
           renderItem={({item}) => (
-            <UserPairItem userPair={item} checkUsersMode={checkUsersMode} />
+            <UserPairItem
+              userPair={item}
+              checkUsersMode={checkUsersMode}
+              openUserSheet={openUserSheet}
+            />
           )}
           ItemSeparatorComponent={ListSeparator}
           keyExtractor={(_, index) => index.toString()}
         />
       )}
+      <UserPairBottomSheet ref={userPairRef} />
     </BackLayout>
   );
 };
@@ -82,4 +94,4 @@ const getState = state => ({
   pair: state.pairs.pair,
   userPairs: state.pairs.userPairs,
 });
-export default connect(getState, null)(ViewPair);
+export default connect(getState, {setUserPairStore: setUserPair})(ViewPair);

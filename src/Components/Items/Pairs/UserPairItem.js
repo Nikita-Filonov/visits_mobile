@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import {CustomText} from '../../common/CustomText';
 import {PairItemStyle, UserPairItemStyles} from '../../../Styles/Items';
 import {useThemes} from '../../../Providers/ThemeProvider';
@@ -7,11 +7,12 @@ import {CustomCheckbox} from '../../common/inputs/CustomCheckbox';
 import {comp} from '../../../Styles/Blocks';
 import {VisitState} from '../../blocks/Pairs/VisitState';
 
-export const UserPairItem = ({userPair, checkUsersMode}) => {
+export const UserPairItem = ({userPair, checkUsersMode, openUserSheet}) => {
   const {theme} = useThemes();
 
   return (
-    <View
+    <TouchableOpacity
+      onPress={openUserSheet(userPair)}
       style={[
         {backgroundColor: theme.listItem},
         PairItemStyle.container,
@@ -27,6 +28,6 @@ export const UserPairItem = ({userPair, checkUsersMode}) => {
       <View style={comp.flex} />
       <VisitState visit={userPair?.visit} />
       {checkUsersMode && <CustomCheckbox checked={true} />}
-    </View>
+    </TouchableOpacity>
   );
 };
