@@ -1,19 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {PermissionsAndroid, SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
 import {BarcodeFormat, useScanBarcodes} from 'vision-camera-code-scanner';
+import {getCameraPermissions} from '../../../utils/Helpers/Permissions';
 
 export const QRCodeScanner = () => {
   const [hasPermission, setHasPermission] = useState(true);
   const devices = useCameraDevices();
-  const device = devices.back;
 
   useEffect(() => {
     (async () => {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.CAMERA,
-      );
-      console.log(granted, device);
+      const granted = await getCameraPermissions();
+      setHasPermission(granted);
     })();
   }, []);
 
@@ -25,11 +23,11 @@ export const QRCodeScanner = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {device != null && (
+      {device != null && hasPermission && (
         <Camera
           fps={30}
           style={StyleSheet.absoluteFill}
-          device={device}
+          device={devices.back}
           isActive={true}
           frameProcessor={frameProcessor}
           frameProcessorFps={5}
