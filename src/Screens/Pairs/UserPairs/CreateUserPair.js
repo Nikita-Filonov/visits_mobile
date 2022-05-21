@@ -13,7 +13,7 @@ const CreateUserPair = ({navigation, pair}) => {
   const onCreate = async () =>
     !(await createUserPair(pair.id, email)) && navigation.goBack();
 
-  const isEmailValid = useMemo(() => validateEmail(email), [email]);
+  const isEmailValid = useMemo(() => !validateEmail(email), [email]);
 
   return (
     <ConfirmLayout

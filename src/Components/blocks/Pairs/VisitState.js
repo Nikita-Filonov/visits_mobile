@@ -19,7 +19,7 @@ export const VISIT_STATES_COLORS = {
 };
 
 type Props = {
-  visit: Visit,
+  visit?: Visit,
 };
 
 export const VisitState = (props: Props) => {
@@ -28,16 +28,16 @@ export const VisitState = (props: Props) => {
 
   const state = useMemo(
     () =>
-      props.visit.state
+      props?.visit?.state
         ? t(`pairs.visits.state_${props.visit.state}`)
         : 'Не был отмечен',
-    [props.visit.state],
+    [props?.visit?.state],
   );
 
   return (
     <CustomText
       style={
-        props.visit.state
+        props?.visit?.state
           ? {color: VISIT_STATES_COLORS[theme?.mode][props.visit.state]}
           : null
       }>
