@@ -9,6 +9,7 @@ import {ListSeparator} from '../../Components/common/ListSeparator';
 import {Spinner} from '../../Components/common/Spinner';
 import {Appbar} from 'react-native-paper';
 import {getCurrentPairDate} from '../../utils/Helpers/Formatters';
+import {QRCodeScanner} from '../../Components/common/QRCodeScanner/QRCodeScanner';
 
 const ViewPair = ({pair, userPairs}) => {
   const {load, getUserPairs} = useUserPairs();
@@ -48,21 +49,22 @@ const ViewPair = ({pair, userPairs}) => {
               <Appbar.Action icon="qrcode-scan" color={'#FFFFFF'} />,
             ]
       }>
-      {load ? (
-        <Spinner />
-      ) : (
-        <FlatList
-          data={userPairs}
-          refreshControl={
-            <RefreshControl refreshing={false} onRefresh={onRefresh} />
-          }
-          renderItem={({item}) => (
-            <UserPairItem userPair={item} checkUsersMode={checkUsersMode} />
-          )}
-          ItemSeparatorComponent={ListSeparator}
-          keyExtractor={(_, index) => index.toString()}
-        />
-      )}
+      {/*{load ? (*/}
+      {/*  <Spinner />*/}
+      {/*) : (*/}
+      {/*  <FlatList*/}
+      {/*    data={userPairs}*/}
+      {/*    refreshControl={*/}
+      {/*      <RefreshControl refreshing={false} onRefresh={onRefresh} />*/}
+      {/*    }*/}
+      {/*    renderItem={({item}) => (*/}
+      {/*      <UserPairItem userPair={item} checkUsersMode={checkUsersMode} />*/}
+      {/*    )}*/}
+      {/*    ItemSeparatorComponent={ListSeparator}*/}
+      {/*    keyExtractor={(_, index) => index.toString()}*/}
+      {/*  />*/}
+      {/*)}*/}
+      <QRCodeScanner />
     </BackLayout>
   );
 };

@@ -16,4 +16,7 @@
 -keepclassmembers class ** {
     @org.greenrobot.eventbus.Subscribe <methods>;
 }
+-keep class com.swmansion.reanimated.** { *; }
+-keep class com.facebook.react.turbomodule.** { *; }
+-keep class com.dynamsoft.dbr.** { *; }
 -keep enum org.greenrobot.eventbus.ThreadMode { *; }
