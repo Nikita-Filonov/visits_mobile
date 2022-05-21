@@ -347,3 +347,28 @@ export const DataGridStyles = StyleSheet.create({
     borderBottomRightRadius: 5,
   },
 });
+
+export const QRCodeScannerStyles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: '100%',
+  },
+  wrapper: {
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 18,
+    color: '#FFFFFF',
+  },
+  target: {
+    marginTop: 5,
+    width: 220,
+    height: 220,
+    borderRadius: 7,
+    borderColor: '#FFFFFF',
+    borderWidth: 5,
+  },
+});

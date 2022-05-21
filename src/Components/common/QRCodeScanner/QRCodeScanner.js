@@ -4,6 +4,7 @@ import {Camera, useCameraDevices} from 'react-native-vision-camera';
 import {BarcodeFormat, useScanBarcodes} from 'vision-camera-code-scanner';
 import {getCameraPermissions} from '../../../utils/Helpers/Permissions';
 import {CustomText} from '../CustomText';
+import {QRCodeScannerStyles} from '../../../Styles/Blocks';
 
 export const QRCodeScanner = ({setValue}) => {
   const [hasPermission, setHasPermission] = useState(true);
@@ -24,15 +25,9 @@ export const QRCodeScanner = ({setValue}) => {
   useEffect(() => setValue(barcodes), [barcodes]);
 
   return (
-    <SafeAreaView style={{width: '100%', height: '100%'}}>
+    <SafeAreaView style={QRCodeScannerStyles.container}>
       {device != null && hasPermission && (
-        <View
-          style={{
-            width: '100%',
-            height: '100%',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
+        <View style={QRCodeScannerStyles.wrapper}>
           <Camera
             fps={30}
             style={StyleSheet.absoluteFill}
@@ -43,19 +38,10 @@ export const QRCodeScanner = ({setValue}) => {
             photo={true}
             orientation="portrait"
           />
-          <CustomText style={{fontSize: 18, color: '#FFFFFF'}}>
+          <CustomText style={QRCodeScannerStyles.title}>
             Отсканируйте QR-код
           </CustomText>
-          <View
-            style={{
-              marginTop: 5,
-              width: 220,
-              height: 220,
-              borderRadius: 7,
-              borderColor: '#FFFFFF',
-              borderWidth: 5,
-            }}
-          />
+          <View style={QRCodeScannerStyles.target} />
         </View>
       )}
     </SafeAreaView>
