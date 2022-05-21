@@ -1,7 +1,11 @@
 import React, {useContext, useState} from 'react';
 import {get, post} from '../../utils/Api/Fetch';
 import {store} from '../../../index';
-import {SET_USER_PAIRS} from '../../Redux/Pairs/actionTypes';
+import {
+  SET_USER_PAIR_VISIT,
+  SET_USER_PAIRS,
+} from '../../Redux/Pairs/actionTypes';
+import {Visit} from '../../Models/Visits';
 
 const UserPairsContext = React.createContext(null);
 
@@ -28,6 +32,13 @@ const UserPairsProvider = ({children}) => {
     return error;
   };
 
+  const createVisit = async (payload: Visit) => {
+    setRequest(true);
+    const {error, json} = await post('api/v1/visits', payload);
+    !error && store.dispatch({type: SET_USER_PAIR_VISIT, payload: json});
+    setRequest(false);
+  };
+
   return (
     <UserPairsContext.Provider
       value={{
@@ -35,6 +46,7 @@ const UserPairsProvider = ({children}) => {
         request,
         getUserPairs,
         createUserPair,
+        createVisit,
       }}>
       {children}
     </UserPairsContext.Provider>

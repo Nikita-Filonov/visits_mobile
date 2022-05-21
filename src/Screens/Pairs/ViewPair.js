@@ -10,7 +10,7 @@ import {Spinner} from '../../Components/common/Spinner';
 import {Appbar} from 'react-native-paper';
 import {getCurrentPairDate} from '../../utils/Helpers/Formatters';
 import {getCameraPermissions} from '../../utils/Helpers/Permissions';
-import {UserPairBottomSheet} from '../../Components/common/BottomSheets/UserPairBottomSheet';
+import UserPairBottomSheet from '../../Components/common/BottomSheets/UserPairBottomSheet';
 import {setUserPair} from '../../Redux/Pairs/pairsActions';
 
 const ViewPair = ({navigation, pair, userPairs, setUserPairStore}) => {
@@ -31,7 +31,7 @@ const ViewPair = ({navigation, pair, userPairs, setUserPairStore}) => {
       navigation.navigate('ScanStudentQRCode');
     }
   };
-  const openUserSheet = () => async userPair => {
+  const openUserSheet = userPair => async () => {
     setUserPairStore(userPair);
     userPairRef.current.snapTo(0);
   };

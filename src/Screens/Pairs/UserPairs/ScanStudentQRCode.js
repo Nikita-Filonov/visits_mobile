@@ -5,12 +5,12 @@ import {useNavigation} from '@react-navigation/native';
 import {connect} from 'react-redux';
 import {VISIT_STATES} from '../../../utils/Constants';
 import {parseStudentQRCode} from '../../../utils/Helpers/Validators';
-import {useVisits} from '../../../Providers/Pairs/VisitsProvider';
+import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 
 const ScanStudentQRCode = ({navigation, pair}) => {
   const {setAlert} = useAlerts();
   const {isFocused} = useNavigation();
-  const {request, createVisit} = useVisits();
+  const {request, createVisit} = useUserPairs();
   const [qrCodes, setRQCodes] = useState([]);
 
   const createStudentVisit = async (qrCodesFromVision: Array) => {

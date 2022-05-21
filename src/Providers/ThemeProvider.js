@@ -18,6 +18,7 @@ export const ThemeStyles = {
       inherit: '#646464',
       primary: '#42C467',
       error: '#DB2F2F',
+      warning: '#FFA726',
     },
     header: {
       background: '#42C467',
@@ -46,6 +47,7 @@ export const ThemeStyles = {
       inherit: '#646464',
       primary: '#90CAF9',
       error: '#D53B36',
+      warning: '#FFA726',
     },
     header: {
       background: '#3E3E3E',

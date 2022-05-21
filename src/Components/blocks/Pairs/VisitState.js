@@ -9,12 +9,12 @@ export const VISIT_STATES_COLORS = {
   [ThemeStyles.default.mode]: {
     [VISIT_STATES.wasOnPair]: ThemeStyles.default.button.primary,
     [VISIT_STATES.missedPair]: ThemeStyles.default.button.error,
-    [VISIT_STATES.onSickLeave]: ThemeStyles.default.button.primary,
+    [VISIT_STATES.onSickLeave]: ThemeStyles.default.button.warning,
   },
   [ThemeStyles.dark.mode]: {
     [VISIT_STATES.wasOnPair]: ThemeStyles.dark.button.primary,
     [VISIT_STATES.missedPair]: ThemeStyles.dark.button.error,
-    [VISIT_STATES.onSickLeave]: ThemeStyles.dark.button.primary,
+    [VISIT_STATES.onSickLeave]: ThemeStyles.dark.button.warning,
   },
 };
 
