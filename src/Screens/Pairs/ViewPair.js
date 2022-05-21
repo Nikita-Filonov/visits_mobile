@@ -40,7 +40,14 @@ const ViewPair = ({navigation, pair, userPairs, setUserPairStore}) => {
     <BackLayout
       title={pair.name}
       subtitle={getCurrentPairDate()}
-      fab={!checkUsersMode && <UserPairsFab />}
+      bottom={
+        !checkUsersMode && (
+          <React.Fragment>
+            <UserPairsFab />
+            <UserPairBottomSheet ref={userPairRef} />
+          </React.Fragment>
+        )
+      }
       backButton={
         checkUsersMode && (
           <Appbar.Action
@@ -85,7 +92,6 @@ const ViewPair = ({navigation, pair, userPairs, setUserPairStore}) => {
           keyExtractor={(_, index) => index.toString()}
         />
       )}
-      <UserPairBottomSheet ref={userPairRef} />
     </BackLayout>
   );
 };

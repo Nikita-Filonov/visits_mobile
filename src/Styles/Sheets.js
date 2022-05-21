@@ -1,4 +1,5 @@
 import {Dimensions, StyleSheet} from 'react-native';
+import {BottomSheetItem} from '../Components/common/BottomSheets/BottomSheetItem';
 
 export const DefaultBottomSheetStyles = StyleSheet.create({
   container: {
@@ -16,5 +17,16 @@ export const DefaultBottomSheetStyles = StyleSheet.create({
     borderRadius: 5,
     alignSelf: 'center',
     marginBottom: 20,
+  },
+});
+
+export const BottomSheetItemStyles = StyleSheet.create({
+  container: {
+    elevation: 0,
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 17,
+    marginLeft: 30,
   },
 });
