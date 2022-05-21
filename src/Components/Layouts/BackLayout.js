@@ -13,13 +13,14 @@ export const BackLayout = ({
   navigation,
   header,
   actions,
+  backButton,
   wrapper = true,
   fab = null,
 }) => {
   return (
     <MainView header={header}>
       <AppBar header={header}>
-        <AppBarBack navigation={navigation} header={header} />
+        {backButton || <AppBarBack navigation={navigation} header={header} />}
         <Appbar.Content title={title} color={'#FFFFFF'} subtitle={subtitle} />
         {actions && actions.map((a, index) => <View key={index}>{a}</View>)}
       </AppBar>

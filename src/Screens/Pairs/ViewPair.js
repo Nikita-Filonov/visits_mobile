@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {BackLayout} from '../../Components/Layouts/BackLayout';
 import {useUserPairs} from '../../Providers/Pairs/UserPairsProvider';
@@ -12,6 +12,7 @@ import {getCurrentPairDate} from '../../utils/Helpers/Formatters';
 
 const ViewPair = ({pair, userPairs}) => {
   const {load, getUserPairs} = useUserPairs();
+  const [checkUsersMode, setCheckUsersMode] = useState(false);
 
   useEffect(() => {
     (async () => pair?.id && (await getUserPairs(pair?.id)))();
@@ -19,18 +20,34 @@ const ViewPair = ({pair, userPairs}) => {
 
   const onRefresh = async () => await getUserPairs(pair?.id);
 
+  const onCheckUsersMode = () => setCheckUsersMode(!checkUsersMode);
+
   return (
     <BackLayout
       title={pair.name}
       subtitle={getCurrentPairDate()}
-      fab={<UserPairsFab />}
-      actions={[
-        <Appbar.Action
-          icon="account-multiple-check-outline"
-          color={'#FFFFFF'}
-        />,
-        <Appbar.Action icon="qrcode-scan" color={'#FFFFFF'} />,
-      ]}>
+      fab={!checkUsersMode && <UserPairsFab />}
+      backButton={
+        checkUsersMode && (
+          <Appbar.Action
+            icon="close"
+            color={'#FFFFFF'}
+            onPress={onCheckUsersMode}
+          />
+        )
+      }
+      actions={
+        checkUsersMode
+          ? [<Appbar.Action icon="check" color={'#FFFFFF'} />]
+          : [
+              <Appbar.Action
+                icon="account-multiple-check-outline"
+                color={'#FFFFFF'}
+                onPress={onCheckUsersMode}
+              />,
+              <Appbar.Action icon="qrcode-scan" color={'#FFFFFF'} />,
+            ]
+      }>
       {load ? (
         <Spinner />
       ) : (
