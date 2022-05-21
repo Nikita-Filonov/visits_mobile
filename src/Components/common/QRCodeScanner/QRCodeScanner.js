@@ -6,7 +6,7 @@ import {getCameraPermissions} from '../../../utils/Helpers/Permissions';
 import {CustomText} from '../CustomText';
 import {QRCodeScannerStyles} from '../../../Styles/Blocks';
 
-export const QRCodeScanner = ({setValue}) => {
+export const QRCodeScanner = ({value, setValue}) => {
   const [hasPermission, setHasPermission] = useState(true);
   const devices = useCameraDevices();
   const device = useMemo(() => devices.back, [devices]);
@@ -22,7 +22,11 @@ export const QRCodeScanner = ({setValue}) => {
     checkInverted: true,
   });
 
-  useEffect(() => setValue(barcodes), [barcodes]);
+  useEffect(() => {
+    barcodes.length > 0 &&
+      value[0]?.displayValue !== barcodes[0]?.displayValue &&
+      setValue(barcodes);
+  }, [barcodes, value]);
 
   return (
     <SafeAreaView style={QRCodeScannerStyles.container}>
