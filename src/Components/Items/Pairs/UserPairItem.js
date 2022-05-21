@@ -24,7 +24,7 @@ export const UserPairItem = ({userPair, checkUsersMode}) => {
         <CustomText>{userPair.user.email}</CustomText>
       </View>
       <View style={comp.flex} />
-      {checkUsersMode && <CustomCheckbox checked={false} />}
+      {checkUsersMode && <CustomCheckbox checked={true} />}
     </View>
   );
 };
