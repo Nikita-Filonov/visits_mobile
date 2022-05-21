@@ -186,3 +186,9 @@ export const PairItemStyle = StyleSheet.create({
     fontSize: 17,
   },
 });
+
+export const UserPairItemStyles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+  },
+});

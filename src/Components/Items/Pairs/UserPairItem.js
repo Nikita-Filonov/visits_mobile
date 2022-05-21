@@ -1,18 +1,30 @@
 import React from 'react';
 import {View} from 'react-native';
 import {CustomText} from '../../common/CustomText';
-import {PairItemStyle} from '../../../Styles/Items';
+import {PairItemStyle, UserPairItemStyles} from '../../../Styles/Items';
 import {useThemes} from '../../../Providers/ThemeProvider';
+import {CustomCheckbox} from '../../common/inputs/CustomCheckbox';
+import {comp} from '../../../Styles/Blocks';
 
-export const UserPairItem = ({userPair}) => {
+export const UserPairItem = ({userPair, checkUsersMode}) => {
   const {theme} = useThemes();
 
   return (
-    <View style={[{backgroundColor: theme.listItem}, PairItemStyle.container]}>
-      <CustomText style={PairItemStyle.title}>
-        {userPair.user.username}
-      </CustomText>
-      <CustomText>{userPair.user.email}</CustomText>
+    <View
+      style={[
+        {backgroundColor: theme.listItem},
+        PairItemStyle.container,
+        PairItemStyle.wrapper,
+        UserPairItemStyles.container,
+      ]}>
+      <View>
+        <CustomText style={PairItemStyle.title}>
+          {userPair.user.username}
+        </CustomText>
+        <CustomText>{userPair.user.email}</CustomText>
+      </View>
+      <View style={comp.flex} />
+      {checkUsersMode && <CustomCheckbox checked={false} />}
     </View>
   );
 };

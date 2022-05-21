@@ -56,7 +56,9 @@ const ViewPair = ({pair, userPairs}) => {
           refreshControl={
             <RefreshControl refreshing={false} onRefresh={onRefresh} />
           }
-          renderItem={({item}) => <UserPairItem userPair={item} />}
+          renderItem={({item}) => (
+            <UserPairItem userPair={item} checkUsersMode={checkUsersMode} />
+          )}
           ItemSeparatorComponent={ListSeparator}
           keyExtractor={(_, index) => index.toString()}
         />
