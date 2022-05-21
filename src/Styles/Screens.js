@@ -47,7 +47,6 @@ export const LPStyles = StyleSheet.create({
   alert: {
     marginBottom: 10,
   },
-
 });
 
 // Timers screen styles
@@ -96,7 +95,6 @@ export const CTStyles = StyleSheet.create({
     fontSize: 12,
   },
 });
-
 
 // Notifications settings styles
 export const NSStyles = StyleSheet.create({
@@ -198,7 +196,6 @@ export const GCStyles = StyleSheet.create({
   },
 });
 
-
 export const CreateTimerStyles = StyleSheet.create({
   inputWrapper: {
     marginBottom: 15,
@@ -222,7 +219,6 @@ export const PremiumsStyles = StyleSheet.create({
   },
 });
 
-
 export const ThemeSettingsStyles = StyleSheet.create({
   view: {
     width: 50,
@@ -234,5 +230,17 @@ export const ThemeSettingsStyles = StyleSheet.create({
   },
   list: {
     marginTop: 30,
+  },
+});
+
+export const MyQRCodeStyles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+  },
+  title: {
+    fontSize: 18,
+    marginBottom: 10,
   },
 });
