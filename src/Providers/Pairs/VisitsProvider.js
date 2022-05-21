@@ -10,7 +10,6 @@ const VisitsProvider = ({children}) => {
   const [request, setRequest] = useState(false);
 
   const createVisit = async (payload: Visit) => {
-    console.log(JSON.stringify(payload));
     setRequest(true);
     const {error, json} = await post('api/v1/visits', payload);
     !error && store.dispatch({type: SET_USER_PAIR_VISIT, payload: json});

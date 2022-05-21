@@ -16,7 +16,10 @@ const UserPairsProvider = ({children}) => {
     setLoad(false);
   };
 
-  const createUserPair = async (pairId: number, email: string): boolean => {
+  const createUserPair = async (
+    pairId: number,
+    email: string,
+  ): Promise<boolean> => {
     setRequest(true);
     const {error, json} = await post('api/v1/user-pairs', {pairId, email});
     !error && store.dispatch({type: SET_USER_PAIRS, payload: json});
