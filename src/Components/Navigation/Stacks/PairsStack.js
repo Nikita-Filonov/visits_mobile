@@ -7,7 +7,8 @@ import ViewPair from '../../../Screens/Pairs/ViewPair';
 import {PairsProvider} from '../../../Providers/Pairs/PairsProvider';
 import {UserPairsProvider} from '../../../Providers/Pairs/UserPairsProvider';
 import CreateUserPair from '../../../Screens/Pairs/UserPairs/CreateUserPair';
-import {ScanStudentQRCode} from '../../../Screens/Pairs/UserPairs/ScanStudentQRCode';
+import ScanStudentQRCode from '../../../Screens/Pairs/UserPairs/ScanStudentQRCode';
+import {VisitsProvider} from '../../../Providers/Pairs/VisitsProvider';
 
 const Stack = createStackNavigator();
 
@@ -36,7 +37,11 @@ export const PairsStack = () => {
           )}
         </Stack.Screen>
         <Stack.Screen name="ScanStudentQRCode" options={STACK_OPTIONS}>
-          {props => <ScanStudentQRCode {...props} />}
+          {props => (
+            <VisitsProvider>
+              <ScanStudentQRCode {...props} />
+            </VisitsProvider>
+          )}
         </Stack.Screen>
       </Stack.Navigator>
     </PairsProvider>

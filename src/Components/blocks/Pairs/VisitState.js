@@ -1,8 +1,9 @@
 import React, {useMemo} from 'react';
-import {ThemeStyles} from '../../../Providers/ThemeProvider';
+import {ThemeStyles, useThemes} from '../../../Providers/ThemeProvider';
 import {VISIT_STATES} from '../../../utils/Constants';
 import {CustomText} from '../../common/CustomText';
 import {useTranslation} from 'react-i18next';
+import type {Visit} from '../../../Models/Visits';
 
 export const VISIT_STATES_COLORS = {
   [ThemeStyles.default.mode]: {
@@ -17,16 +18,29 @@ export const VISIT_STATES_COLORS = {
   },
 };
 
-export const VisitState = ({visit}) => {
+type Props = {
+  visit: Visit,
+};
+
+export const VisitState = (props: Props) => {
+  const {theme} = useThemes();
   const {t} = useTranslation();
 
   const state = useMemo(
-    () => (visit ? t(`pairs.visits.state_${visit}`) : 'Не был отмечен'),
-    [visit],
+    () =>
+      props.visit.state
+        ? t(`pairs.visits.state_${props.visit.state}`)
+        : 'Не был отмечен',
+    [props.visit.state],
   );
 
   return (
-    <CustomText style={visit ? {color: VISIT_STATES_COLORS[visit]} : null}>
+    <CustomText
+      style={
+        props.visit.state
+          ? {color: VISIT_STATES_COLORS[theme?.mode][props.visit.state]}
+          : null
+      }>
       {state}
     </CustomText>
   );

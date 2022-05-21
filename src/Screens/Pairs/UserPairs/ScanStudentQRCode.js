@@ -1,33 +1,39 @@
 import React, {useEffect, useState} from 'react';
 import {QRCodeScanner} from '../../../Components/common/QRCodeScanner/QRCodeScanner';
-import {baseUrl} from '../../../utils/Links';
 import {useAlerts} from '../../../Providers/AlertsProvider';
 import {useNavigation} from '@react-navigation/native';
+import {connect} from 'react-redux';
+import {VISIT_STATES} from '../../../utils/Constants';
+import {parseStudentQRCode} from '../../../utils/Helpers/Validators';
+import {useVisits} from '../../../Providers/Pairs/VisitsProvider';
 
-export const ScanStudentQRCode = ({navigation}) => {
+const ScanStudentQRCode = ({navigation, pair}) => {
   const {setAlert} = useAlerts();
   const {isFocused} = useNavigation();
+  const {request, createVisit} = useVisits();
   const [qrCodes, setRQCodes] = useState([]);
 
-  const parseStudentQRCode = async (qrCodesFromVision: Array) => {
-    if (qrCodesFromVision.length === 0) {
-      return;
-    }
-
-    const url = qrCodesFromVision[0]?.displayValue;
-    if (!url.startsWith(baseUrl)) {
+  const createStudentVisit = async (qrCodesFromVision: Array) => {
+    const payload = await parseStudentQRCode(qrCodesFromVision);
+    if (!payload) {
       setAlert({message: 'Данный QR-код не валидный', level: 'error'});
       return;
     }
 
-    if (isFocused) {
-      navigation.goBack();
-    }
+    createVisit({
+      userId: payload.userId,
+      pairId: pair.id,
+      state: VISIT_STATES.wasOnPair,
+      when: new Date(),
+    }).then(() => isFocused && navigation.goBack());
   };
 
   useEffect(() => {
-    (async () => await parseStudentQRCode(qrCodes))();
+    (async () => qrCodes.length > 0 && (await createStudentVisit(qrCodes)))();
   }, [qrCodes]);
 
   return <QRCodeScanner value={qrCodes} setValue={setRQCodes} />;
 };
+
+const getState = state => ({pair: state.pairs.pair});
+export default connect(getState, null)(ScanStudentQRCode);
