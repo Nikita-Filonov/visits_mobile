@@ -19,6 +19,7 @@ import {
   TIMER_HISTORY_SCOPES,
 } from './permissions/Premium';
 import {baseUrl} from './Links';
+import {ThemeStyles} from '../Providers/ThemeProvider';
 
 export const itemsPerPage = 10;
 
@@ -315,4 +316,10 @@ export const DEFAULT_THEME_SETTINGS = {
   snackbar: {
     show: true,
   },
+};
+
+export const VISIT_STATES = {
+  wasOnPair: 1,
+  missedPair: 2,
+  onSickLeave: 3,
 };

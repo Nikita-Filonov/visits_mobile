@@ -2,7 +2,7 @@ import React, {useContext, useMemo} from 'react';
 import {useSelector} from 'react-redux';
 import {SET_THEME} from '../Redux/Settings/actionTypes';
 
-const ThemeStyles = {
+export const ThemeStyles = {
   default: {
     background: '#FFFFFF',
     text: '#454545',

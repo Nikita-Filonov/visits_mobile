@@ -5,6 +5,7 @@ import {PairItemStyle, UserPairItemStyles} from '../../../Styles/Items';
 import {useThemes} from '../../../Providers/ThemeProvider';
 import {CustomCheckbox} from '../../common/inputs/CustomCheckbox';
 import {comp} from '../../../Styles/Blocks';
+import {VisitState} from '../../blocks/Pairs/VisitState';
 
 export const UserPairItem = ({userPair, checkUsersMode}) => {
   const {theme} = useThemes();
@@ -24,6 +25,7 @@ export const UserPairItem = ({userPair, checkUsersMode}) => {
         <CustomText>{userPair.user.email}</CustomText>
       </View>
       <View style={comp.flex} />
+      <VisitState visit={userPair?.visit} />
       {checkUsersMode && <CustomCheckbox checked={true} />}
     </View>
   );
