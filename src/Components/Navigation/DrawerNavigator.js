@@ -5,6 +5,7 @@ import {DrawerHeader} from './DrawerHeader';
 import {DISABLE_SWIPE} from '../../utils/Constants';
 import {drawerOptions} from '../../utils/Utils';
 import {PairsStack} from './Stacks/PairsStack';
+import {MyQRCodeStack} from './Stacks/MyQRCodeStack';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -18,6 +19,11 @@ export const DrawerNavigator = ({store}) => (
       name="Pairs"
       options={({route}) => drawerOptions({route}, DISABLE_SWIPE.timers)}>
       {props => <PairsStack {...props} />}
+    </Stack.Screen>
+    <Stack.Screen
+      name="MyQRCode"
+      options={({route}) => drawerOptions({route}, DISABLE_SWIPE.timers)}>
+      {props => <MyQRCodeStack {...props} />}
     </Stack.Screen>
   </Drawer.Navigator>
 );

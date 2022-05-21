@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
 import {comp, DrawerHeaderStyles} from '../../Styles/Blocks';
 import {Divider} from 'react-native-elements';
@@ -16,7 +16,7 @@ export const DrawerHeader = ({navigation}) => {
   const {theme, changeTheme} = useThemes();
   const {setConfirmModal} = useAlerts();
   const {user, onLogout} = useAuth();
-  const {name} = useRoute();
+  const [route, setRoute] = useState('Pairs');
 
   const logout = async () =>
     setConfirmModal({
@@ -25,6 +25,7 @@ export const DrawerHeader = ({navigation}) => {
     });
 
   const navigate = screen => _ => {
+    setRoute(screen);
     navigation.navigate(screen);
     navigation.closeDrawer();
   };
@@ -56,7 +57,7 @@ export const DrawerHeader = ({navigation}) => {
           iconName={'calendar-check-outline'}
           iconType={'material-community'}
           onPress={navigate('Pairs')}
-          selected={name === 'Pairs'}
+          selected={route === 'Pairs'}
         />
         <DrawerItem
           title={'Группы'}
@@ -68,7 +69,8 @@ export const DrawerHeader = ({navigation}) => {
           title={'Мой QR-код'}
           iconName={'qrcode-scan'}
           iconType={'material-community'}
-          onPress={navigate('QRCode')}
+          onPress={navigate('MyQRCode')}
+          selected={route === 'MyQRCode'}
         />
         <Divider />
         <DrawerItem
