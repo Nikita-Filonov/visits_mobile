@@ -5,11 +5,13 @@ import {store} from '../../../index';
 import {SET_PAIR, SET_PAIRS} from '../../Redux/Pairs/actionTypes';
 import type {Pair} from '../../Models/Pairs';
 import {navigate} from '../../Components/Navigation/RootNavigation';
+import {useAlerts} from '../AlertsProvider';
 
 const PairsContext = React.createContext(null);
 
 const PairsProvider = ({children}) => {
   const {token} = useAuth();
+  const {setAlert} = useAlerts();
   const [load, setLoad] = useState(true);
   const [request, setRequest] = useState(false);
 
@@ -32,6 +34,11 @@ const PairsProvider = ({children}) => {
       store.dispatch({type: SET_PAIRS, payload: json});
       store.dispatch({type: SET_PAIR, payload: json});
       navigate('ViewPair', {isCreation: true});
+    } else {
+      setAlert({
+        message: 'Ошибка при создании пары. Проверьте корректность полей',
+        level: 'error',
+      });
     }
     setRequest(false);
   };
