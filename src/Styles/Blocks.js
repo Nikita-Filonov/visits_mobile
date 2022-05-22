@@ -377,3 +377,10 @@ export const QRCodeScannerStyles = StyleSheet.create({
     borderWidth: 5,
   },
 });
+
+export const UserPairsFabStyles = StyleSheet.create({
+  container: {
+    paddingRight: 16,
+    paddingBottom: 36,
+  },
+});
