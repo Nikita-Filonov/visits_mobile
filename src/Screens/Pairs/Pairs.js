@@ -10,9 +10,12 @@ import PairItem from '../../Components/Items/Pairs/PairItem';
 import {ListSeparator} from '../../Components/Common/ListSeparator';
 import {SearchTextField} from '../../Components/Common/Inputs/SearchTextField';
 import {comp} from '../../Styles/Blocks';
+import {usePermissions} from '../../Providers/PermissionsProvider';
+import {PAIR_PERMISSIONS} from '../../Utils/Helpers/Permissions';
 
 const Pairs = ({navigation, pairs}) => {
   const {load, getPairs} = usePairs();
+  const {isAllowed} = usePermissions();
   const [search, setSearch] = useState('');
 
   const onCreate = () => navigation.navigate('CreatePair');
@@ -46,7 +49,9 @@ const Pairs = ({navigation, pairs}) => {
           keyExtractor={(_, index) => index.toString()}
         />
       )}
-      <CustomFab onPress={onCreate} withoutWrapper={true} />
+      {isAllowed([PAIR_PERMISSIONS.create]) && (
+        <CustomFab onPress={onCreate} withoutWrapper={true} />
+      )}
     </DrawerLayout>
   );
 };
