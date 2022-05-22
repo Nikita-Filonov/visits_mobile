@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {View} from 'react-native';
 import {comp, DrawerHeaderStyles} from '../../Styles/Blocks';
 import {Divider} from 'react-native-elements';
@@ -9,13 +9,15 @@ import {useThemes} from '../../Providers/ThemeProvider';
 import {DrawerItem} from '../common/DrawerItem';
 import {useTranslation} from 'react-i18next';
 import {CustomText} from '../common/CustomText';
-import {useRoute} from '@react-navigation/native';
+import {usePermissions} from '../../Providers/PermissionsProvider';
+import {GROUP_PERMISSIONS} from '../../utils/Helpers/Permissions';
 
 export const DrawerHeader = ({navigation}) => {
   const {t} = useTranslation();
   const {theme, changeTheme} = useThemes();
   const {setConfirmModal} = useAlerts();
   const {user, onLogout} = useAuth();
+  const {isAllowed} = usePermissions();
   const [route, setRoute] = useState('Pairs');
 
   const logout = async () =>
@@ -59,12 +61,14 @@ export const DrawerHeader = ({navigation}) => {
           onPress={navigate('Pairs')}
           selected={route === 'Pairs'}
         />
-        <DrawerItem
-          title={'Группы'}
-          iconName={'people-outline'}
-          iconType={'material'}
-          onPress={navigate('Groups')}
-        />
+        {isAllowed([GROUP_PERMISSIONS.view, GROUP_PERMISSIONS.create]) && (
+          <DrawerItem
+            title={'Группы'}
+            iconName={'people-outline'}
+            iconType={'material'}
+            onPress={navigate('Groups')}
+          />
+        )}
         <DrawerItem
           title={'Мой QR-код'}
           iconName={'qrcode-scan'}

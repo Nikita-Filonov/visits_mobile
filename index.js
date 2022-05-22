@@ -13,6 +13,7 @@ import {AlertProvider} from './src/Providers/AlertsProvider';
 import {AuthProvider} from './src/Providers/AuthProvider';
 import {SettingsProvider} from './src/Providers/SettingsProvider';
 import {ThemeProvider} from './src/Providers/ThemeProvider';
+import {PermissionsProvider} from './src/Providers/PermissionsProvider';
 
 export const store = createStore(reducer);
 
@@ -22,9 +23,11 @@ const Root = () => (
       <ThemeProvider store={store}>
         <AuthProvider>
           <SettingsProvider store={store}>
-            <PaperProvider>
-              <App store={store} />
-            </PaperProvider>
+            <PermissionsProvider>
+              <PaperProvider>
+                <App store={store} />
+              </PaperProvider>
+            </PermissionsProvider>
           </SettingsProvider>
         </AuthProvider>
       </ThemeProvider>
