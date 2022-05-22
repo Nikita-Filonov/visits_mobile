@@ -8,6 +8,7 @@ import {usePairs} from '../../Providers/Pairs/PairsProvider';
 import {PAIRS_INITIAL_STATE} from '../../Redux/Pairs/initialState';
 import {TimePicker} from '../../Components/Common/Inputs/TimePicker';
 import type {Pair} from '../../Models/Pairs';
+import {formatToApiAcceptableTime} from '../../Utils/Helpers/Formatters';
 
 type Props = {
   navigation: any,
@@ -25,14 +26,22 @@ const CreatePair = (props: Props) => {
   };
 
   const onCreate = async () =>
-    await createPair({name: pair.name, room: pair.room});
+    await createPair({
+      name: pair.name,
+      room: pair.room,
+      startAt: formatToApiAcceptableTime(pair.startAt),
+      endAt: formatToApiAcceptableTime(pair.endAt),
+    });
 
   const onUpdate = async () => {
     await updateCharacter(pair.id, {username: pair.username});
     onBack();
   };
 
-  const onTime = key => time => setPairStore({...pair, [key]: time});
+  const onTime = key => time => {
+    console.log(time, key);
+    setPairStore({...pair, [key]: time});
+  };
 
   return (
     <ConfirmLayout
