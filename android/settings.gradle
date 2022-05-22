@@ -1,4 +1,4 @@
-rootProject.name = 'timer_lama_time'
+rootProject.name = 'visits_mobile'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
 

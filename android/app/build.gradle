@@ -160,10 +160,10 @@ android {
             keyPassword 'android'
         }
         release {
-            storeFile file('release.keystore')
-            storePassword 'Coool12345'
+            storeFile file('visits.keystore')
+            storePassword 'HelloFromMe'
             keyAlias 'alias'
-            keyPassword 'Coool12345'
+            keyPassword 'HelloFromMe'
         }
     }
     buildTypes {
