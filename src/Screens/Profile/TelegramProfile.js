@@ -7,7 +7,7 @@ import {TELEGRAM_BOT} from '../../utils/Constants';
 import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
 import {validateTelegramUsername} from '../../utils/Utils';
 import {CustomText} from '../../Components/common/CustomText';
-import {TextField} from '../../Components/common/inputs/TextField';
+import {TextField} from '../../Components/common/Inputs/TextField';
 
 export const TelegramProfile = ({navigation}) => {
   const {t} = useTranslation();

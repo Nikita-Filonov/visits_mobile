@@ -1,6 +1,6 @@
 import React, {useMemo, useState} from 'react';
 import {ConfirmLayout} from '../../../Components/Layouts/ConfirmLayout';
-import {TextField} from '../../../Components/common/inputs/TextField';
+import {TextField} from '../../../Components/common/Inputs/TextField';
 import {comp} from '../../../Styles/Blocks';
 import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 import {connect} from 'react-redux';

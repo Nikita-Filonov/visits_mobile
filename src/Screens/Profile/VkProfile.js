@@ -7,7 +7,7 @@ import {VK_GROUP_DIALOG} from '../../utils/Constants';
 import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
 import {validateVkId} from '../../utils/Utils';
 import {CustomText} from '../../Components/common/CustomText';
-import {TextField} from '../../Components/common/inputs/TextField';
+import {TextField} from '../../Components/common/Inputs/TextField';
 import {Link} from '../../Components/common/Link';
 
 export const VkProfile = ({navigation}) => {

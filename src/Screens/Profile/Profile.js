@@ -9,9 +9,9 @@ import {
   validateVkId,
 } from '../../utils/Utils';
 import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
-import {TextField} from '../../Components/common/inputs/TextField';
+import {TextField} from '../../Components/common/Inputs/TextField';
 import {comp} from '../../Styles/Blocks';
-import {TelegramTextField} from '../../Components/common/inputs/TelegramTextField';
+import {TelegramTextField} from '../../Components/common/Inputs/TelegramTextField';
 import {TelegramUserSyncStatus} from '../../Components/blocks/profile/TelegramUserSyncStatus';
 import {VkUserSyncStatus} from '../../Components/blocks/profile/VkUserSyncStatus';
 

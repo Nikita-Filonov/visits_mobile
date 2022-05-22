@@ -7,7 +7,7 @@ import {CustomText} from '../../Components/common/CustomText';
 import {post} from '../../utils/Api/Fetch';
 import {comp} from '../../Styles/Blocks';
 import {CustomButton} from '../../Components/common/CustomButton';
-import {TextField} from '../../Components/common/inputs/TextField';
+import {TextField} from '../../Components/common/Inputs/TextField';
 import {connect} from 'react-redux';
 
 const WAIT_SECONDS = 30;

@@ -3,7 +3,7 @@ import {TouchableOpacity, View} from 'react-native';
 import {CustomText} from '../../common/CustomText';
 import {PairItemStyle, UserPairItemStyles} from '../../../Styles/Items';
 import {useThemes} from '../../../Providers/ThemeProvider';
-import {CustomCheckbox} from '../../common/inputs/CustomCheckbox';
+import {CustomCheckbox} from '../../common/Inputs/CustomCheckbox';
 import {comp} from '../../../Styles/Blocks';
 import {VisitState} from '../../blocks/Pairs/VisitState';
 
