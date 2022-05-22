@@ -1,11 +1,11 @@
 import React from 'react';
 import type {Visit} from '../../../Models/Visits';
 import {View} from 'react-native';
-import {CustomText} from '../../common/CustomText';
+import {CustomText} from '../../Common/CustomText';
 import {PairItemStyle, UserPairItemStyles} from '../../../Styles/Items';
 import {useThemes} from '../../../Providers/ThemeProvider';
 import {formatVisitTime} from '../../../utils/Helpers/Formatters';
-import {VisitState} from '../../blocks/Pairs/VisitState';
+import {VisitState} from '../../Blocks/Pairs/VisitState';
 import {comp} from '../../../Styles/Blocks';
 
 type Props = {

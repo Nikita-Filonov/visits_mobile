@@ -9,11 +9,11 @@ import {
   validateVkId,
 } from '../../utils/Utils';
 import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
-import {TextField} from '../../Components/common/Inputs/TextField';
+import {TextField} from '../../Components/Common/Inputs/TextField';
 import {comp} from '../../Styles/Blocks';
-import {TelegramTextField} from '../../Components/common/Inputs/TelegramTextField';
-import {TelegramUserSyncStatus} from '../../Components/blocks/profile/TelegramUserSyncStatus';
-import {VkUserSyncStatus} from '../../Components/blocks/profile/VkUserSyncStatus';
+import {TelegramTextField} from '../../Components/Common/Inputs/TelegramTextField';
+import {TelegramUserSyncStatus} from '../../Components/Blocks/profile/TelegramUserSyncStatus';
+import {VkUserSyncStatus} from '../../Components/Blocks/profile/VkUserSyncStatus';
 
 export const Profile = () => {
   const {t} = useTranslation();

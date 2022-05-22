@@ -2,7 +2,7 @@ import React from 'react';
 import {TextField} from './TextField';
 import {TextInput} from 'react-native-paper';
 import {comp} from '../../../Styles/Blocks';
-import {Touchable} from '../../blocks/Touchable';
+import {Touchable} from '../../Blocks/Touchable';
 
 export const TelegramTextField = ({
   value,

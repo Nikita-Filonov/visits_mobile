@@ -1,9 +1,15 @@
 import React, {useState} from 'react';
 import {TextField} from './TextField';
 import {TextInput} from 'react-native-paper';
-import {Touchable} from '../../blocks/Touchable';
+import {Touchable} from '../../Blocks/Touchable';
 
-export const PasswordTextField = ({value, onChangeText, label, style, error}) => {
+export const PasswordTextField = ({
+  value,
+  onChangeText,
+  label,
+  style,
+  error,
+}) => {
   const [secure, setSecure] = useState(true);
 
   const onSecure = () => setSecure(!secure);
@@ -18,10 +24,13 @@ export const PasswordTextField = ({value, onChangeText, label, style, error}) =>
       style={style}
       right={
         <TextInput.Icon
-          name={() => <Touchable
-            action={onSecure}
-            name={secure ? 'lock-outline' : 'lock-open-outline'} type={'material-community'}
-          />}
+          name={() => (
+            <Touchable
+              action={onSecure}
+              name={secure ? 'lock-outline' : 'lock-open-outline'}
+              type={'material-community'}
+            />
+          )}
         />
       }
     />

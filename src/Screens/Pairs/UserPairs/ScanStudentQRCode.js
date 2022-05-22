@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {QRCodeScanner} from '../../../Components/common/QRCodeScanner/QRCodeScanner';
+import {QRCodeScanner} from '../../../Components/Common/QRCodeScanner/QRCodeScanner';
 import {useAlerts} from '../../../Providers/AlertsProvider';
 import {useNavigation} from '@react-navigation/native';
 import {connect} from 'react-redux';

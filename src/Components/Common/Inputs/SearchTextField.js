@@ -2,7 +2,7 @@ import React from 'react';
 import {TextField} from './TextField';
 import {useTranslation} from 'react-i18next';
 import {TextInput} from 'react-native-paper';
-import {Touchable} from '../../blocks/Touchable';
+import {Touchable} from '../../Blocks/Touchable';
 
 export const SearchTextField = ({search, setSearch, placeholder, style}) => {
   const {t} = useTranslation();
@@ -15,9 +15,19 @@ export const SearchTextField = ({search, setSearch, placeholder, style}) => {
       onChangeText={setSearch}
       label={t('common.search')}
       placeholder={placeholder}
-      right={search.length > 0 && <TextInput.Icon
-        name={() => <Touchable action={onClear} name={'close'} type={'material-community'}/>}
-      />}
+      right={
+        search.length > 0 && (
+          <TextInput.Icon
+            name={() => (
+              <Touchable
+                action={onClear}
+                name={'close'}
+                type={'material-community'}
+              />
+            )}
+          />
+        )
+      }
       style={style}
     />
   );

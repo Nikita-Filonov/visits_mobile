@@ -2,15 +2,15 @@ import React, {useEffect, useRef, useState} from 'react';
 import {connect} from 'react-redux';
 import {BackLayout} from '../../Components/Layouts/BackLayout';
 import {useUserPairs} from '../../Providers/Pairs/UserPairsProvider';
-import {UserPairsFab} from '../../Components/common/Fabs/UserPairsFab';
+import {UserPairsFab} from '../../Components/Common/Fabs/UserPairsFab';
 import {FlatList, RefreshControl} from 'react-native';
 import {UserPairItem} from '../../Components/Items/Pairs/UserPairItem';
-import {ListSeparator} from '../../Components/common/ListSeparator';
-import {Spinner} from '../../Components/common/Spinner';
+import {ListSeparator} from '../../Components/Common/ListSeparator';
+import {Spinner} from '../../Components/Common/Spinner';
 import {Appbar} from 'react-native-paper';
 import {getCurrentPairDate} from '../../utils/Helpers/Formatters';
 import {getCameraPermissions} from '../../utils/Helpers/Permissions';
-import UserPairBottomSheet from '../../Components/common/BottomSheets/UserPairBottomSheet';
+import UserPairBottomSheet from '../../Components/Common/BottomSheets/UserPairBottomSheet';
 import {setUserPair} from '../../Redux/Pairs/pairsActions';
 
 const ViewPair = ({navigation, pair, userPairs, setUserPairStore}) => {

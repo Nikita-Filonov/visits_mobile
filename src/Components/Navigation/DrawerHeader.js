@@ -4,11 +4,11 @@ import {comp, DrawerHeaderStyles} from '../../Styles/Blocks';
 import {Divider} from 'react-native-elements';
 import {useAuth} from '../../Providers/AuthProvider';
 import {useAlerts} from '../../Providers/AlertsProvider';
-import {Touchable} from '../blocks/Touchable';
+import {Touchable} from '../Blocks/Touchable';
 import {useThemes} from '../../Providers/ThemeProvider';
-import {DrawerItem} from '../common/DrawerItem';
+import {DrawerItem} from '../Common/DrawerItem';
 import {useTranslation} from 'react-i18next';
-import {CustomText} from '../common/CustomText';
+import {CustomText} from '../Common/CustomText';
 import {usePermissions} from '../../Providers/PermissionsProvider';
 import {
   GROUP_PERMISSIONS,

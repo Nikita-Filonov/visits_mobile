@@ -1,11 +1,11 @@
 import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
-import {CustomText} from '../../common/CustomText';
+import {CustomText} from '../../Common/CustomText';
 import {PairItemStyle, UserPairItemStyles} from '../../../Styles/Items';
 import {useThemes} from '../../../Providers/ThemeProvider';
-import {CustomCheckbox} from '../../common/Inputs/CustomCheckbox';
+import {CustomCheckbox} from '../../Common/Inputs/CustomCheckbox';
 import {comp} from '../../../Styles/Blocks';
-import {VisitState} from '../../blocks/Pairs/VisitState';
+import {VisitState} from '../../Blocks/Pairs/VisitState';
 
 export const UserPairItem = ({userPair, checkUsersMode, openUserSheet}) => {
   const {theme} = useThemes();

@@ -1,6 +1,6 @@
 import React from 'react';
 import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
-import {TextField} from '../../Components/common/Inputs/TextField';
+import {TextField} from '../../Components/Common/Inputs/TextField';
 import {comp} from '../../Styles/Blocks';
 import {connect} from 'react-redux';
 import {setPair} from '../../Redux/Pairs/pairsActions';

@@ -3,13 +3,13 @@ import {ScrollView, View} from 'react-native';
 import {comp} from '../../Styles/Blocks';
 import {LPStyles} from '../../Styles/Screens';
 import {useAuth} from '../../Providers/AuthProvider';
-import {CustomText} from '../../Components/common/CustomText';
-import {TextField} from '../../Components/common/Inputs/TextField';
+import {CustomText} from '../../Components/Common/CustomText';
+import {TextField} from '../../Components/Common/Inputs/TextField';
 import {useTranslation} from 'react-i18next';
-import {PasswordTextField} from '../../Components/common/Inputs/PasswordTextField';
-import {CustomButton} from '../../Components/common/CustomButton';
+import {PasswordTextField} from '../../Components/Common/Inputs/PasswordTextField';
+import {CustomButton} from '../../Components/Common/CustomButton';
 import {post} from '../../utils/Api/Fetch';
-import {AlertMessage} from '../../Components/common/AlertMessage';
+import {AlertMessage} from '../../Components/Common/AlertMessage';
 import {BackLayout} from '../../Components/Layouts/BackLayout';
 
 export const Login = ({navigation}) => {

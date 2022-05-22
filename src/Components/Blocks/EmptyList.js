@@ -3,7 +3,7 @@ import {Image, View} from 'react-native';
 import {baseUrl} from '../../utils/Links';
 import {ListEmptyStyles} from '../../Styles/Blocks';
 import {useTranslation} from 'react-i18next';
-import {CustomText} from '../common/CustomText';
+import {CustomText} from '../Common/CustomText';
 
 export const EmptyList = ({
   text,

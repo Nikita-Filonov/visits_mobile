@@ -1,6 +1,6 @@
 import React from 'react';
 import {comp} from '../../../Styles/Blocks';
-import {Touchable} from '../../blocks/Touchable';
+import {Touchable} from '../../Blocks/Touchable';
 import {Menu} from 'react-native-paper';
 import {useThemes} from '../../../Providers/ThemeProvider';
 

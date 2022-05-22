@@ -6,9 +6,9 @@ import {Trans, useTranslation} from 'react-i18next';
 import {VK_GROUP_DIALOG} from '../../utils/Constants';
 import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
 import {validateVkId} from '../../utils/Utils';
-import {CustomText} from '../../Components/common/CustomText';
-import {TextField} from '../../Components/common/Inputs/TextField';
-import {Link} from '../../Components/common/Link';
+import {CustomText} from '../../Components/Common/CustomText';
+import {TextField} from '../../Components/Common/Inputs/TextField';
+import {Link} from '../../Components/Common/Link';
 
 export const VkProfile = ({navigation}) => {
   const {t} = useTranslation();

@@ -6,7 +6,7 @@ import {enableScreens} from 'react-native-screens';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Loader} from './src/Components/blocks/Loader';
+import {Loader} from './src/Components/Blocks/Loader';
 import {useAuth} from './src/Providers/AuthProvider';
 import {LoginStack} from './src/Components/Navigation/Stacks/LoginStack';
 import {STACK_OPTIONS} from './src/utils/Constants';

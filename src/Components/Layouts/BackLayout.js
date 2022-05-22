@@ -1,8 +1,8 @@
 import React from 'react';
 import {MainView} from './MainView';
 import {Appbar} from 'react-native-paper';
-import {AppBarBack} from '../common/AppBarBack';
-import {AppBar} from '../common/AppBar';
+import {AppBarBack} from '../Common/AppBarBack';
+import {AppBar} from '../Common/AppBar';
 import {View} from 'react-native';
 import {comp} from '../../Styles/Blocks';
 

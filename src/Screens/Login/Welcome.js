@@ -4,8 +4,8 @@ import {comp} from '../../Styles/Blocks';
 import {baseUrl} from '../../utils/Links';
 import {WStyles} from '../../Styles/Screens';
 import {MainView} from '../../Components/Layouts/MainView';
-import {CustomButton} from '../../Components/common/CustomButton';
-import {CustomText} from '../../Components/common/CustomText';
+import {CustomButton} from '../../Components/Common/CustomButton';
+import {CustomText} from '../../Components/Common/CustomText';
 import {useTranslation} from 'react-i18next';
 
 export const Welcome = ({navigation}) => {

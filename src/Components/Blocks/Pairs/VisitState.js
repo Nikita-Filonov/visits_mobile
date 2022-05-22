@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import {ThemeStyles, useThemes} from '../../../Providers/ThemeProvider';
 import {VISIT_STATES} from '../../../utils/Constants';
-import {CustomText} from '../../common/CustomText';
+import {CustomText} from '../../Common/CustomText';
 import {useTranslation} from 'react-i18next';
 import type {Visit} from '../../../Models/Visits';
 

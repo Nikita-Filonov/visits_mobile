@@ -1,11 +1,11 @@
 import React from 'react';
 import {DrawerLayout} from '../../Components/Layouts/DrawerLayout';
-import {CustomFab} from '../../Components/common/Fabs/CustomFab';
+import {CustomFab} from '../../Components/Common/Fabs/CustomFab';
 import {connect} from 'react-redux';
 import {FlatList, RefreshControl} from 'react-native';
-import {Spinner} from '../../Components/common/Spinner';
+import {Spinner} from '../../Components/Common/Spinner';
 import PairItem from '../../Components/Items/Pairs/PairItem';
-import {ListSeparator} from '../../Components/common/ListSeparator';
+import {ListSeparator} from '../../Components/Common/ListSeparator';
 import {useGroups} from '../../Providers/Groups/GroupsProvider';
 
 const Groups = ({navigation, groups}) => {
