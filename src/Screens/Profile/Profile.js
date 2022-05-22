@@ -11,9 +11,6 @@ import {
 import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
 import {TextField} from '../../Components/Common/Inputs/TextField';
 import {comp} from '../../Styles/Blocks';
-import {TelegramTextField} from '../../Components/Common/Inputs/TelegramTextField';
-import {TelegramUserSyncStatus} from '../../Components/Blocks/profile/TelegramUserSyncStatus';
-import {VkUserSyncStatus} from '../../Components/Blocks/profile/VkUserSyncStatus';
 
 export const Profile = () => {
   const {t} = useTranslation();
@@ -57,24 +54,6 @@ export const Profile = () => {
       vk_id: vkId ? vkId : null,
     });
 
-  const deleteVkProfile = async () =>
-    setConfirmModal({
-      action: async () => await updateUser({vk_id: null}),
-      content: {
-        ...t('profile.userProfile.deleteVkProfileModal'),
-        confirmButton: t('common.delete'),
-      },
-    });
-
-  const deleteTelegramProfile = async () =>
-    setConfirmModal({
-      action: async () => await updateUser({telegram_username: null}),
-      content: {
-        ...t('profile.userProfile.deleteTelegramProfileModal'),
-        confirmButton: t('common.delete'),
-      },
-    });
-
   return (
     <ConfirmLayout
       loading={request}
@@ -95,24 +74,6 @@ export const Profile = () => {
           onChangeText={setUsername}
           label={t('registration.username')}
         />
-        {user.telegram_username && (
-          <TelegramTextField
-            value={telegramUsername}
-            onChangeText={setTelegramUsername}
-            onDelete={deleteTelegramProfile}
-            label={t('profile.telegram.usernameInputLabel')}
-            sync={<TelegramUserSyncStatus />}
-          />
-        )}
-        {user.vk_id && (
-          <TelegramTextField
-            value={vkId.toString()}
-            onChangeText={setVkId}
-            onDelete={deleteVkProfile}
-            label={t('profile.vk.idInputLabel')}
-            sync={<VkUserSyncStatus />}
-          />
-        )}
       </ScrollView>
     </ConfirmLayout>
   );
