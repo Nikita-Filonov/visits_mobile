@@ -13,7 +13,7 @@ export const BackLayout = ({
   title,
   subtitle,
   navigation,
-  header,
+  header = true,
   actions,
   backButton,
   wrapper = true,

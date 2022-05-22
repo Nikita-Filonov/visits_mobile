@@ -14,6 +14,7 @@ import {
 } from '../../../Utils/Helpers/Permissions';
 import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 import {useAuth} from '../../../Providers/AuthProvider';
+import {USER_PAIR_VISITS_ROUTE, VIEW_PAIR_ROUTE} from '../../../Utils/Routes';
 
 const PairItem = ({pair, setPairStore}) => {
   const {theme} = useThemes();
@@ -24,12 +25,13 @@ const PairItem = ({pair, setPairStore}) => {
   const onView = useCallback(async () => {
     if (isAllowed(VIEW_PAIR_AS_INSTRUCTOR)) {
       setPairStore(pair);
-      navigate('ViewPair', {isCreation: false});
+      navigate(VIEW_PAIR_ROUTE, {isCreation: false});
       return;
     }
 
     if (isAllowed(VIEW_PAIR_AS_LERNER)) {
-      (await getUserPairs(pair.id, user.id)) && navigate('UserPairVisits');
+      (await getUserPairs(pair.id, user.id)) &&
+        navigate(USER_PAIR_VISITS_ROUTE);
     }
   }, [pair, setPairStore]);
 
