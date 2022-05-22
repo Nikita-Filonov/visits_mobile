@@ -1,5 +1,5 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react';
-import {get} from '../utils/Api/Fetch';
+import {get} from '../Utils/Api/Fetch';
 import {useAuth} from './AuthProvider';
 
 const PermissionsContext = React.createContext(null);

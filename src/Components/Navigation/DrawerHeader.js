@@ -13,7 +13,7 @@ import {usePermissions} from '../../Providers/PermissionsProvider';
 import {
   GROUP_PERMISSIONS,
   SELF_QR_CODE_PERMISSIONS,
-} from '../../utils/Helpers/Permissions';
+} from '../../Utils/Helpers/Permissions';
 
 export const DrawerHeader = ({navigation}) => {
   const {t} = useTranslation();

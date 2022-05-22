@@ -1,16 +1,16 @@
 import React from 'react';
 import {TextInput} from 'react-native-paper';
-import {Touchable} from '../Touchable';
-import {TextField} from '../../common/inputs/TextField';
 import {useTranslation} from 'react-i18next';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from 'moment';
 import TextInputMask from 'react-native-masked-text/lib/text-input-mask';
-import {PICKER_DATE_FORMAT, PICKER_TIME_FORMAT} from '../../../utils/Constants';
-import {useTimerPickers} from '../../../utils/hooks/TimerHooks';
+import {PICKER_DATE_FORMAT, PICKER_TIME_FORMAT} from '../../../Utils/Constants';
+import {useTimerPickers} from '../../../Utils/hooks/TimerHooks';
 import {CreateTimerStyles} from '../../../styles/Screens';
+import {Touchable} from '../../Blocks/Touchable';
+import {TextField} from './TextField';
 
-export const TimerTimePicker = ({value, onChange}) => {
+export const TimePicker = ({value, onChange}) => {
   const {t} = useTranslation();
   const {picker, error, onChangePickerText, onPicker, onOpenPicker} =
     useTimerPickers(onChange);

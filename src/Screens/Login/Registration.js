@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {ScrollView, View} from 'react-native';
 import {comp} from '../../Styles/Blocks';
 import {LPStyles} from '../../Styles/Screens';
-import {post} from '../../utils/Api/Fetch';
+import {post} from '../../Utils/Api/Fetch';
 import {CustomText} from '../../Components/Common/CustomText';
 import {CustomButton} from '../../Components/Common/CustomButton';
 import {TextField} from '../../Components/Common/Inputs/TextField';

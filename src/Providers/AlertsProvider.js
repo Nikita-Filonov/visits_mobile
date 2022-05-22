@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {Snackbar} from 'react-native-paper';
 import {Alert} from 'react-native';
-import I18n from '../utils/Locales/i18n';
+import I18n from '../Utils/Locales/i18n';
 import {useTranslation} from 'react-i18next';
 import {useSelector} from 'react-redux';
 

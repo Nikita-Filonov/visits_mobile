@@ -8,7 +8,7 @@ import {TextField} from '../../Components/Common/Inputs/TextField';
 import {useTranslation} from 'react-i18next';
 import {PasswordTextField} from '../../Components/Common/Inputs/PasswordTextField';
 import {CustomButton} from '../../Components/Common/CustomButton';
-import {post} from '../../utils/Api/Fetch';
+import {post} from '../../Utils/Api/Fetch';
 import {AlertMessage} from '../../Components/Common/AlertMessage';
 import {BackLayout} from '../../Components/Layouts/BackLayout';
 

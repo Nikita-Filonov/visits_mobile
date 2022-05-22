@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import {CustomText} from '../../Common/CustomText';
 import {useThemes} from '../../../Providers/ThemeProvider';
-import {formatPairTime} from '../../../utils/Helpers/Formatters';
+import {formatPairTime} from '../../../Utils/Helpers/Formatters';
 import {PairItemStyle} from '../../../Styles/Items';
 import {navigate} from '../../Navigation/RootNavigation';
 import {connect} from 'react-redux';
@@ -11,7 +11,7 @@ import {usePermissions} from '../../../Providers/PermissionsProvider';
 import {
   VIEW_PAIR_AS_INSTRUCTOR,
   VIEW_PAIR_AS_LERNER,
-} from '../../../utils/Helpers/Permissions';
+} from '../../../Utils/Helpers/Permissions';
 import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 import {useAuth} from '../../../Providers/AuthProvider';
 

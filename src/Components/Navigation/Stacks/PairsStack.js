@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {STACK_OPTIONS} from '../../../utils/Constants';
+import {STACK_OPTIONS} from '../../../Utils/Constants';
 import Pairs from '../../../Screens/Pairs/Pairs';
 import CreatePair from '../../../Screens/Pairs/CreatePair';
 import ViewPair from '../../../Screens/Pairs/ViewPair';
@@ -16,7 +16,7 @@ import {
   SCAN_STUDENT_QR_CODE_ROUTE,
   USER_PAIRS_ROUTE,
   VIEW_PAIR_ROUTE,
-} from '../../../utils/Routes';
+} from '../../../Utils/Routes';
 
 const Stack = createStackNavigator();
 

@@ -2,8 +2,8 @@ import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
 import {DrawerHeader} from './DrawerHeader';
-import {DISABLE_SWIPE} from '../../utils/Constants';
-import {drawerOptions} from '../../utils/Utils';
+import {DISABLE_SWIPE} from '../../Utils/Constants';
+import {drawerOptions} from '../../Utils/Utils';
 import {PairsStack} from './Stacks/PairsStack';
 import {SelfQRCodeStack} from './Stacks/SelfQRCodeStack';
 

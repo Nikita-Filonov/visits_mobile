@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {STACK_OPTIONS} from '../../../utils/Constants';
+import {STACK_OPTIONS} from '../../../Utils/Constants';
 import Groups from '../../../Screens/groups/Groups';
 import {GroupsProvider} from '../../../Providers/groups/GroupsProvider';
 import {CreateGroup} from '../../../Screens/groups/CreateGroup';

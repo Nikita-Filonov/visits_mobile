@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {get, post} from '../../utils/Api/Fetch';
+import {get, post} from '../../Utils/Api/Fetch';
 import {useAuth} from '../AuthProvider';
 import {store} from '../../../index';
 import {SET_PAIR, SET_PAIRS} from '../../Redux/Pairs/actionTypes';

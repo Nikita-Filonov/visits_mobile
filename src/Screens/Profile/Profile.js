@@ -7,7 +7,7 @@ import {
   validateEmail,
   validateTelegramUsername,
   validateVkId,
-} from '../../utils/Utils';
+} from '../../Utils/Utils';
 import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
 import {TextField} from '../../Components/Common/Inputs/TextField';
 import {comp} from '../../Styles/Blocks';

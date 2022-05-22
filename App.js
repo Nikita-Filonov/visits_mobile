@@ -9,7 +9,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Loader} from './src/Components/Blocks/Loader';
 import {useAuth} from './src/Providers/AuthProvider';
 import {LoginStack} from './src/Components/Navigation/Stacks/LoginStack';
-import {STACK_OPTIONS} from './src/utils/Constants';
+import {STACK_OPTIONS} from './src/Utils/Constants';
 import {navigationRef} from './src/Components/Navigation/RootNavigation';
 import {setupDefaultGroup, setupReduxStore} from './src/Redux/Setup';
 import {DrawerNavigator} from './src/Components/Navigation/DrawerNavigator';

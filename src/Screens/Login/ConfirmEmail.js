@@ -4,7 +4,7 @@ import {useAuth} from '../../Providers/AuthProvider';
 import {useAlerts} from '../../Providers/AlertsProvider';
 import {Trans, useTranslation} from 'react-i18next';
 import {CustomText} from '../../Components/Common/CustomText';
-import {post} from '../../utils/Api/Fetch';
+import {post} from '../../Utils/Api/Fetch';
 import {comp} from '../../Styles/Blocks';
 import {CustomButton} from '../../Components/Common/CustomButton';
 import {TextField} from '../../Components/Common/Inputs/TextField';

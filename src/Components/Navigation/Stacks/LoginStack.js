@@ -3,7 +3,7 @@ import {Welcome} from '../../../Screens/Login/Welcome';
 import {Login} from '../../../Screens/Login/Login';
 import Registration from '../../../Screens/Login/Registration';
 import {createStackNavigator} from '@react-navigation/stack';
-import {STACK_OPTIONS} from '../../../utils/Constants';
+import {STACK_OPTIONS} from '../../../Utils/Constants';
 import ConfirmEmail from '../../../Screens/Login/ConfirmEmail';
 
 const Stack = createStackNavigator();

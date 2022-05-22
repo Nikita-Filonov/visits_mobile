@@ -2,7 +2,7 @@ import React from 'react';
 import {TextField} from './TextField';
 import {useTranslation} from 'react-i18next';
 import {comp} from '../../../Styles/Blocks';
-import {normalizeNotify} from '../../../utils/Utils';
+import {normalizeNotify} from '../../../Utils/Utils';
 
 export const NotificationTextField = ({
   count,

@@ -6,7 +6,7 @@ import {
   GROUP_SETTINGS,
   MEMBER,
   ROLE,
-} from './permissions/Groups';
+} from './Permissions/Groups';
 import {
   EVENT_NOTIFICATIONS_SCOPES,
   EVENT_SCOPES,
@@ -17,7 +17,7 @@ import {
   GROUPS_SCOPES,
   MONSTER_SCOPES,
   TIMER_HISTORY_SCOPES,
-} from './permissions/Premium';
+} from './Permissions/Premium';
 import {baseUrl} from './Links';
 import {ThemeStyles} from '../Providers/ThemeProvider';
 

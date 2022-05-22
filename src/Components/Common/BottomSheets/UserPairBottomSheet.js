@@ -5,7 +5,7 @@ import {BottomSheetItem} from './BottomSheetItem';
 import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 import {connect} from 'react-redux';
 import {UserPair} from '../../../Models/UserPair';
-import {VISIT_STATES} from '../../../utils/Constants';
+import {VISIT_STATES} from '../../../Utils/Constants';
 import {navigate} from '../../Navigation/RootNavigation';
 
 type Props = {

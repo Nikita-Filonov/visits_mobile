@@ -4,7 +4,7 @@ import QRCode from 'react-native-qrcode-svg';
 import {useAuth} from '../../Providers/AuthProvider';
 import {View} from 'react-native';
 import {CustomText} from '../../Components/Common/CustomText';
-import {baseUrl} from '../../utils/Links';
+import {baseUrl} from '../../Utils/Links';
 import {MyQRCodeStyles} from '../../Styles/Screens';
 
 export const SelfQRCode = ({navigation}) => {

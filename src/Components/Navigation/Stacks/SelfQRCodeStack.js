@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {STACK_OPTIONS} from '../../../utils/Constants';
+import {STACK_OPTIONS} from '../../../Utils/Constants';
 import {SelfQRCode} from '../../../Screens/SelfQRCode/SelfQRCode';
 
 const Stack = createStackNavigator();

@@ -7,8 +7,8 @@ import {
   THEME_BACKUP,
   TIMERS_COMMENT_SHOWN_BACKUP,
   TIMERS_SORT_BACKUP,
-} from '../utils/Constants';
-import {get} from '../utils/Api/Fetch';
+} from '../Utils/Constants';
+import {get} from '../Utils/Api/Fetch';
 import {SET_GROUP} from './Groups/actionTypes';
 import {navigate} from '../Components/Navigation/RootNavigation';
 import {SET_THEME} from './Settings/actionTypes';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, View} from 'react-native';
 import {comp} from '../../Styles/Blocks';
-import {baseUrl} from '../../utils/Links';
+import {baseUrl} from '../../Utils/Links';
 import {WStyles} from '../../Styles/Screens';
 import {MainView} from '../../Components/Layouts/MainView';
 import {CustomButton} from '../../Components/Common/CustomButton';

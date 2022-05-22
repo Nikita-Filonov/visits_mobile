@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {get, post} from '../../utils/Api/Fetch';
+import {get, post} from '../../Utils/Api/Fetch';
 import {store} from '../../../index';
 import {
   SET_USER_PAIR,

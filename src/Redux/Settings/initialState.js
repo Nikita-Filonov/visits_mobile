@@ -1,4 +1,4 @@
-import {DEFAULT_THEME_SETTINGS} from '../../utils/Constants';
+import {DEFAULT_THEME_SETTINGS} from '../../Utils/Constants';
 
 export const SETTINGS_INITIAL_STATE = {
   monster: {name: '', delta: '', image: '', editMode: false},

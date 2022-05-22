@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, View} from 'react-native';
-import {baseUrl} from '../../utils/Links';
+import {baseUrl} from '../../Utils/Links';
 import {ListEmptyStyles} from '../../Styles/Blocks';
 import {useTranslation} from 'react-i18next';
 import {CustomText} from '../Common/CustomText';

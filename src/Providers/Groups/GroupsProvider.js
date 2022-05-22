@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {get} from '../../utils/Api/Fetch';
+import {get} from '../../Utils/Api/Fetch';
 import {store} from '../../../index';
 import {SET_GROUPS} from '../../Redux/Groups/actionTypes';
 

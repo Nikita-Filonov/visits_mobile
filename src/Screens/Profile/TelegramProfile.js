@@ -3,9 +3,9 @@ import {Linking} from 'react-native';
 import {comp} from '../../Styles/Blocks';
 import {useAuth} from '../../Providers/AuthProvider';
 import {useTranslation} from 'react-i18next';
-import {TELEGRAM_BOT} from '../../utils/Constants';
+import {TELEGRAM_BOT} from '../../Utils/Constants';
 import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
-import {validateTelegramUsername} from '../../utils/Utils';
+import {validateTelegramUsername} from '../../Utils/Utils';
 import {CustomText} from '../../Components/Common/CustomText';
 import {TextField} from '../../Components/Common/Inputs/TextField';
 

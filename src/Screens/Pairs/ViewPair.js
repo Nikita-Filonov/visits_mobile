@@ -8,8 +8,8 @@ import {UserPairItem} from '../../Components/Items/Pairs/UserPairItem';
 import {ListSeparator} from '../../Components/Common/ListSeparator';
 import {Spinner} from '../../Components/Common/Spinner';
 import {Appbar} from 'react-native-paper';
-import {getCurrentPairDate} from '../../utils/Helpers/Formatters';
-import {getCameraPermissions} from '../../utils/Helpers/Permissions';
+import {getCurrentPairDate} from '../../Utils/Helpers/Formatters';
+import {getCameraPermissions} from '../../Utils/Helpers/Permissions';
 import UserPairBottomSheet from '../../Components/Common/BottomSheets/UserPairBottomSheet';
 import {setUserPair} from '../../Redux/Pairs/pairsActions';
 

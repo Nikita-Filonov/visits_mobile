@@ -3,8 +3,8 @@ import {QRCodeScanner} from '../../../Components/Common/QRCodeScanner/QRCodeScan
 import {useAlerts} from '../../../Providers/AlertsProvider';
 import {useNavigation} from '@react-navigation/native';
 import {connect} from 'react-redux';
-import {VISIT_STATES} from '../../../utils/Constants';
-import {parseStudentQRCode} from '../../../utils/Helpers/Validators';
+import {VISIT_STATES} from '../../../Utils/Constants';
+import {parseStudentQRCode} from '../../../Utils/Helpers/Validators';
 import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 
 const ScanStudentQRCode = ({navigation, pair}) => {

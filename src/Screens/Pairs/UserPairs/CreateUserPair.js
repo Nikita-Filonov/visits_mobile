@@ -4,7 +4,7 @@ import {TextField} from '../../../Components/Common/Inputs/TextField';
 import {comp} from '../../../Styles/Blocks';
 import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 import {connect} from 'react-redux';
-import {validateEmail} from '../../../utils/Utils';
+import {validateEmail} from '../../../Utils/Utils';
 
 const CreateUserPair = ({navigation, pair}) => {
   const {request, createUserPair} = useUserPairs();

@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
 import {BarcodeFormat, useScanBarcodes} from 'vision-camera-code-scanner';
-import {getCameraPermissions} from '../../../utils/Helpers/Permissions';
+import {getCameraPermissions} from '../../../Utils/Helpers/Permissions';
 import {CustomText} from '../CustomText';
 import {QRCodeScannerStyles} from '../../../Styles/Blocks';
 import {CustomFab} from '../Fabs/CustomFab';

@@ -5,7 +5,7 @@ import {CustomText} from '../../Components/Common/CustomText';
 import {comp} from '../../Styles/Blocks';
 import {DataGrid} from '../../Components/Common/DataGrid/DataGrid';
 import {usePremiums} from '../../Providers/PremiumsProvider';
-import {PremiumAccessesColumns} from '../../utils/grids/PremiumAccessesColumns';
+import {PremiumAccessesColumns} from '../../Utils/grids/PremiumAccessesColumns';
 import {RefreshControl, ScrollView} from 'react-native';
 import {Spinner} from '../../Components/Common/Spinner';
 
