@@ -167,6 +167,7 @@ export const PairItemStyle = StyleSheet.create({
     borderRadius: 3,
     paddingHorizontal: 10,
     elevation: 1.5,
+    alignItems: 'center',
   },
   wrapper: {
     flexDirection: 'row',

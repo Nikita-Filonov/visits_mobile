@@ -15,6 +15,8 @@ import {
 import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 import {useAuth} from '../../../Providers/AuthProvider';
 import {USER_PAIR_VISITS_ROUTE, VIEW_PAIR_ROUTE} from '../../../Utils/Routes';
+import PairItemMenu from '../../Common/Menus/Pairs/PairItemMenu';
+import {comp} from '../../../Styles/Blocks';
 
 const PairItem = ({pair, setPairStore}) => {
   const {theme} = useThemes();
@@ -38,27 +40,28 @@ const PairItem = ({pair, setPairStore}) => {
   return (
     <TouchableOpacity
       onPress={onView}
-      style={[{backgroundColor: theme.listItem}, PairItemStyle.container]}>
-      <View style={PairItemStyle.wrapper}>
-        <View style={PairItemStyle.timeWrapper}>
-          <CustomText style={PairItemStyle.title}>
-            {pair.startAt ? formatPairTime(pair.startAt) : '--:--'}
-          </CustomText>
-          <CustomText>
-            {pair.startAt ? formatPairTime(pair.endAt) : '--:--'}
-          </CustomText>
-        </View>
-        <View
-          style={[
-            {backgroundColor: theme.button.primary},
-            PairItemStyle.divider,
-          ]}
-        />
-        <View style={PairItemStyle.nameWrapper}>
-          <CustomText style={PairItemStyle.title}>{pair.name}</CustomText>
-          <CustomText>{pair.room}</CustomText>
-        </View>
+      style={[
+        {backgroundColor: theme.listItem},
+        PairItemStyle.container,
+        PairItemStyle.wrapper,
+      ]}>
+      <View style={PairItemStyle.timeWrapper}>
+        <CustomText style={PairItemStyle.title}>
+          {pair.startAt ? formatPairTime(pair.startAt) : '--:--'}
+        </CustomText>
+        <CustomText>
+          {pair.startAt ? formatPairTime(pair.endAt) : '--:--'}
+        </CustomText>
       </View>
+      <View
+        style={[{backgroundColor: theme.button.primary}, PairItemStyle.divider]}
+      />
+      <View style={PairItemStyle.nameWrapper}>
+        <CustomText style={PairItemStyle.title}>{pair.name}</CustomText>
+        <CustomText>{pair.room}</CustomText>
+      </View>
+      <View style={comp.flex} />
+      <PairItemMenu />
     </TouchableOpacity>
   );
 };
