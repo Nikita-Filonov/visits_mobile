@@ -7,7 +7,6 @@ import {connect} from 'react-redux';
 import {UserPair} from '../../../Models/UserPair';
 import {VISIT_STATES} from '../../../utils/Constants';
 import {navigate} from '../../Navigation/RootNavigation';
-import {VIEW_PAIR_ROUTE} from '../../../utils/Routes';
 
 type Props = {
   userPair: UserPair,
@@ -30,7 +29,7 @@ const UserPairBottomSheet = forwardRef((props: Props, ref) => {
   };
 
   const onViewVisits = async () => {
-    navigate('UserPairVisits', {from: VIEW_PAIR_ROUTE});
+    navigate('UserPairVisits');
     await onClose();
   };
 

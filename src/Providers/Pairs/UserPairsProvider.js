@@ -17,11 +17,15 @@ const UserPairsProvider = ({children}) => {
   const [load, setLoad] = useState(true);
   const [request, setRequest] = useState(false);
 
-  console.log(1111);
-
-  const getUserPairs = async (pairId: number, userId: number = null) => {
+  const getUserPairs = async (
+    pairId: number,
+    userId: number = null,
+  ): Promise<boolean> => {
     setLoad(true);
-    const {error, json} = await get('api/v1/user-pairs', {pairId, userId});
+    const {error, json} = await get(
+      'api/v1/user-pairs',
+      userId ? {pairId, userId} : {pairId},
+    );
     if (error) {
       setAlert({message: 'Ошибка при загрузке пользователей', level: 'error'});
       return;
@@ -31,6 +35,7 @@ const UserPairsProvider = ({children}) => {
       ? json[0] && store.dispatch({type: SET_USER_PAIR, payload: json[0]})
       : store.dispatch({type: SET_USER_PAIRS, payload: json});
     setLoad(false);
+    return true;
   };
 
   const createUserPair = async (

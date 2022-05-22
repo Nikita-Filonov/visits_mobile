@@ -12,7 +12,6 @@ import {
   VIEW_PAIR_AS_INSTRUCTOR,
   VIEW_PAIR_AS_LERNER,
 } from '../../../utils/Helpers/Permissions';
-import {PAIRS_ROUTE} from '../../../utils/Routes';
 import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 import {useAuth} from '../../../Providers/AuthProvider';
 
@@ -30,8 +29,7 @@ const PairItem = ({pair, setPairStore}) => {
     }
 
     if (isAllowed(VIEW_PAIR_AS_LERNER)) {
-      await getUserPairs(pair.id, user.id);
-      navigate('UserPairVisits', {from: PAIRS_ROUTE});
+      (await getUserPairs(pair.id, user.id)) && navigate('UserPairVisits');
     }
   }, [pair, setPairStore]);
 
