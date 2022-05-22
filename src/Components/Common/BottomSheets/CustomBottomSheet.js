@@ -5,7 +5,7 @@ import {View} from 'react-native';
 import {useThemes} from '../../../Providers/ThemeProvider';
 
 export const CustomBottomSheet = React.forwardRef(
-  ({children, snapPoints}, ref) => {
+  ({children, snapPoints, height}, ref) => {
     const {theme} = useThemes();
 
     return (
@@ -20,6 +20,7 @@ export const CustomBottomSheet = React.forwardRef(
             style={[
               DefaultBottomSheetStyles.container,
               {backgroundColor: theme.listItem, borderColor: theme.background},
+              height ? {height} : {},
             ]}>
             <View
               style={[

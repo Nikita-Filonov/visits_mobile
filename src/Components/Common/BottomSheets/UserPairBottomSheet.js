@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react';
+import React, {forwardRef, useMemo} from 'react';
 import {Dimensions} from 'react-native';
 import {CustomBottomSheet} from './CustomBottomSheet';
 import {BottomSheetItem} from './BottomSheetItem';
@@ -15,6 +15,11 @@ type Props = {
 const UserPairBottomSheet = forwardRef((props: Props, ref) => {
   const {userPair} = props;
   const {createVisit} = useUserPairs();
+
+  const bottomSheerHeight = useMemo(
+    () => Dimensions.get('window').height / 3,
+    [],
+  );
 
   const onClose = async () => ref.current.snapTo(2);
 
@@ -36,7 +41,8 @@ const UserPairBottomSheet = forwardRef((props: Props, ref) => {
   return (
     <CustomBottomSheet
       ref={ref}
-      snapPoints={[Dimensions.get('window').height / 3, 200, 0]}>
+      height={bottomSheerHeight}
+      snapPoints={[bottomSheerHeight, 200, 0]}>
       <BottomSheetItem
         title={'Отметить пропуск'}
         iconName={'account-remove-outline'}
