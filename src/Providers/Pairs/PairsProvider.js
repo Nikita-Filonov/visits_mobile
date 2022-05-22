@@ -27,6 +27,7 @@ const PairsProvider = ({children}) => {
   const createPair = async (pair: Pair) => {
     setRequest(true);
     const {error, json} = await post('api/v1/pairs', pair);
+    console.log(json);
     if (!error) {
       store.dispatch({type: SET_PAIRS, payload: json});
       store.dispatch({type: SET_PAIR, payload: json});

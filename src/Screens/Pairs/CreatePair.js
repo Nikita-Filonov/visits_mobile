@@ -6,8 +6,17 @@ import {connect} from 'react-redux';
 import {setPair} from '../../Redux/Pairs/pairsActions';
 import {usePairs} from '../../Providers/Pairs/PairsProvider';
 import {PAIRS_INITIAL_STATE} from '../../Redux/Pairs/initialState';
+import {TimePicker} from '../../Components/Common/Inputs/TimePicker';
+import type {Pair} from '../../Models/Pairs';
 
-const CreatePair = ({navigation, pair, setPairStore}) => {
+type Props = {
+  navigation: any,
+  pair: Pair,
+  setPairStore: () => void,
+};
+
+const CreatePair = (props: Props) => {
+  const {navigation, pair, setPairStore} = props;
   const {request, createPair, updateCharacter} = usePairs();
 
   const onBack = () => {
@@ -23,6 +32,8 @@ const CreatePair = ({navigation, pair, setPairStore}) => {
     onBack();
   };
 
+  const onTime = key => time => setPairStore({...pair, [key]: time});
+
   return (
     <ConfirmLayout
       title={pair.editMode ? 'Изменить пару' : 'Новый пара'}
@@ -32,14 +43,24 @@ const CreatePair = ({navigation, pair, setPairStore}) => {
       <TextField
         label={'Название пары'}
         style={comp.input}
-        value={pair.username}
+        value={pair.name}
         onChangeText={name => setPairStore({...pair, name})}
       />
       <TextField
         label={'Аудитория'}
         style={comp.input}
-        value={pair.username}
+        value={pair.room}
         onChangeText={room => setPairStore({...pair, room})}
+      />
+      <TimePicker
+        label={'Начало пары'}
+        value={pair.startAt}
+        onChange={onTime('startAt')}
+      />
+      <TimePicker
+        label={'Конец пары'}
+        value={pair.endAt}
+        onChange={onTime('endAt')}
       />
     </ConfirmLayout>
   );

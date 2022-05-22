@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const parseStudentQRCode = async (
   qrCodesFromVision: Array,
 ): boolean | Object => {
@@ -19,3 +21,6 @@ export const parseStudentQRCode = async (
 
   return payload;
 };
+
+export const isDateTimeValid = (datetime, format = 'DD/MM/YYYY HH:mm:ss') =>
+  moment(datetime, format, true).isValid();

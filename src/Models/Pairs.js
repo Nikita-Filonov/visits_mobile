@@ -1,7 +1,8 @@
 export type Pair = {
   id?: number,
-  title: string,
+  name: string,
   room: string,
   startAt?: string,
   endAt?: string,
+  editMode?: boolean,
 };

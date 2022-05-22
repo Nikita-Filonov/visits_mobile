@@ -196,7 +196,7 @@ export const GCStyles = StyleSheet.create({
   },
 });
 
-export const CreateTimerStyles = StyleSheet.create({
+export const CreatePairStyles = StyleSheet.create({
   inputWrapper: {
     marginBottom: 15,
   },

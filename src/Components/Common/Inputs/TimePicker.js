@@ -1,19 +1,17 @@
 import React from 'react';
 import {TextInput} from 'react-native-paper';
-import {useTranslation} from 'react-i18next';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from 'moment';
 import TextInputMask from 'react-native-masked-text/lib/text-input-mask';
 import {PICKER_DATE_FORMAT, PICKER_TIME_FORMAT} from '../../../Utils/Constants';
-import {useTimerPickers} from '../../../Utils/hooks/TimerHooks';
-import {CreateTimerStyles} from '../../../styles/Screens';
 import {Touchable} from '../../Blocks/Touchable';
 import {TextField} from './TextField';
+import {useDatetimePicker} from '../../../Utils/Hooks/DatetimePickerHook';
+import {comp} from '../../../Styles/Blocks';
 
-export const TimePicker = ({value, onChange}) => {
-  const {t} = useTranslation();
+export const TimePicker = ({value, onChange, label}) => {
   const {picker, error, onChangePickerText, onPicker, onOpenPicker} =
-    useTimerPickers(onChange);
+    useDatetimePicker(onChange);
 
   const onChangeTimeText = async text =>
     await onChangePickerText(value, text, `${PICKER_DATE_FORMAT} ${text}`);
@@ -22,10 +20,10 @@ export const TimePicker = ({value, onChange}) => {
     <React.Fragment>
       <TextField
         error={error}
-        style={CreateTimerStyles.inputWrapper}
+        style={comp.input}
         value={value ? moment(value).format(PICKER_TIME_FORMAT) : value}
         onChangeText={onChangeTimeText}
-        label={t('timers.createTimerModal.killedInputLabel_time')}
+        label={label}
         placeholder={PICKER_TIME_FORMAT}
         right={
           <TextInput.Icon
