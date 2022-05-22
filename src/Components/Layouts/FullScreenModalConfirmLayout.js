@@ -4,7 +4,7 @@ import {Appbar} from 'react-native-paper';
 import {useThemes} from '../../Providers/ThemeProvider';
 import {ActivityIndicator, View} from 'react-native';
 import {Icon} from 'react-native-elements';
-import {AppBar} from '../common/AppBar';
+import {AppBar} from '../Common/AppBar';
 import {comp} from '../../Styles/Blocks';
 
 export const FullScreenModalConfirmLayout = ({

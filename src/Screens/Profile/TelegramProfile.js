@@ -6,8 +6,8 @@ import {useTranslation} from 'react-i18next';
 import {TELEGRAM_BOT} from '../../utils/Constants';
 import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
 import {validateTelegramUsername} from '../../utils/Utils';
-import {CustomText} from '../../Components/common/CustomText';
-import {TextField} from '../../Components/common/Inputs/TextField';
+import {CustomText} from '../../Components/Common/CustomText';
+import {TextField} from '../../Components/Common/Inputs/TextField';
 
 export const TelegramProfile = ({navigation}) => {
   const {t} = useTranslation();

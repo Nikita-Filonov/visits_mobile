@@ -11,7 +11,6 @@ import {Provider as PaperProvider} from 'react-native-paper';
 import reducer from './src/Redux/Reducers';
 import {AlertProvider} from './src/Providers/AlertsProvider';
 import {AuthProvider} from './src/Providers/AuthProvider';
-import {SettingsProvider} from './src/Providers/SettingsProvider';
 import {ThemeProvider} from './src/Providers/ThemeProvider';
 import {PermissionsProvider} from './src/Providers/PermissionsProvider';
 
@@ -22,13 +21,11 @@ const Root = () => (
     <AlertProvider>
       <ThemeProvider store={store}>
         <AuthProvider>
-          <SettingsProvider store={store}>
-            <PermissionsProvider>
-              <PaperProvider>
-                <App store={store} />
-              </PaperProvider>
-            </PermissionsProvider>
-          </SettingsProvider>
+          <PermissionsProvider>
+            <PaperProvider>
+              <App store={store} />
+            </PaperProvider>
+          </PermissionsProvider>
         </AuthProvider>
       </ThemeProvider>
     </AlertProvider>

@@ -14,7 +14,7 @@
         <item name="android:textColorPrimary">#777777</item>
         <item name="android:textColorSecondaryInverse">#202123</item>
         <item name="colorControlHighlight">#A1A1A1</item>
-        <item name="colorControlActivated">#2979FF</item>
+        <item name="colorControlActivated">#42C467</item>
         <item name="android:textColorPrimary">#797979</item>
         <item name="android:calendarTextColor">#FFFFFF</item>
         <item name="dialogCornerRadius">12dp</item>
@@ -24,7 +24,7 @@
         <item name="android:headerBackground">#FFFFFF</item>
         <item name="android:numbersTextColor">#202123</item>
         <item name="android:numbersInnerTextColor">#838383</item>
-        <item name="android:numbersSelectorColor">#2979FF</item>
+        <item name="android:numbersSelectorColor">#42C467</item>
         <item name="android:numbersBackgroundColor">#F3F3F3</item>
         <item name="android:amPmTextColor">#9c27b0</item>
         <item name="android:colorControlActivated">#FFFFFF</item>

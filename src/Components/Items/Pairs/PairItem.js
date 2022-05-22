@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {TouchableOpacity, View} from 'react-native';
-import {CustomText} from '../../common/CustomText';
+import {CustomText} from '../../Common/CustomText';
 import {useThemes} from '../../../Providers/ThemeProvider';
 import {formatPairTime} from '../../../utils/Helpers/Formatters';
 import {PairItemStyle} from '../../../Styles/Items';

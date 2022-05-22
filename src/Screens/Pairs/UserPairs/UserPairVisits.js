@@ -6,7 +6,7 @@ import {FlatList, RefreshControl} from 'react-native';
 import {connect} from 'react-redux';
 import {Visit} from '../../../Models/Visits';
 import {PairVisitItem} from '../../../Components/Items/Pairs/PairVisitItem';
-import {ListSeparator} from '../../../Components/common/ListSeparator';
+import {ListSeparator} from '../../../Components/Common/ListSeparator';
 
 type Props = {
   userPair: UserPair,

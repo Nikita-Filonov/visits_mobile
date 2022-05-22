@@ -1,6 +1,6 @@
 import React from 'react';
 import {MainView} from './MainView';
-import {AppBar} from '../common/AppBar';
+import {AppBar} from '../Common/AppBar';
 import {Appbar} from 'react-native-paper';
 import {Icon} from 'react-native-elements';
 import {comp} from '../../Styles/Blocks';

@@ -3,7 +3,7 @@ import {DrawerLayout} from '../../Components/Layouts/DrawerLayout';
 import QRCode from 'react-native-qrcode-svg';
 import {useAuth} from '../../Providers/AuthProvider';
 import {View} from 'react-native';
-import {CustomText} from '../../Components/common/CustomText';
+import {CustomText} from '../../Components/Common/CustomText';
 import {baseUrl} from '../../utils/Links';
 import {MyQRCodeStyles} from '../../Styles/Screens';
 

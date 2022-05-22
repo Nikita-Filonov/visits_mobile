@@ -3,11 +3,11 @@ import {BackLayout} from '../../Components/Layouts/BackLayout';
 import {useAuth} from '../../Providers/AuthProvider';
 import {useAlerts} from '../../Providers/AlertsProvider';
 import {Trans, useTranslation} from 'react-i18next';
-import {CustomText} from '../../Components/common/CustomText';
+import {CustomText} from '../../Components/Common/CustomText';
 import {post} from '../../utils/Api/Fetch';
 import {comp} from '../../Styles/Blocks';
-import {CustomButton} from '../../Components/common/CustomButton';
-import {TextField} from '../../Components/common/Inputs/TextField';
+import {CustomButton} from '../../Components/Common/CustomButton';
+import {TextField} from '../../Components/Common/Inputs/TextField';
 import {connect} from 'react-redux';
 
 const WAIT_SECONDS = 30;

@@ -1,14 +1,15 @@
 import React, {useMemo, useState} from 'react';
 import {DrawerLayout} from '../../Components/Layouts/DrawerLayout';
-import {CustomFab} from '../../Components/common/Fabs/CustomFab';
+import {CustomFab} from '../../Components/Common/Fabs/CustomFab';
 import {connect} from 'react-redux';
 import {ReduxStore} from '../../Models/Store';
 import {FlatList, RefreshControl} from 'react-native';
 import {usePairs} from '../../Providers/Pairs/PairsProvider';
-import {Spinner} from '../../Components/common/Spinner';
+import {Spinner} from '../../Components/Common/Spinner';
 import PairItem from '../../Components/Items/Pairs/PairItem';
-import {ListSeparator} from '../../Components/common/ListSeparator';
-import {SearchTextField} from '../../Components/common/Inputs/SearchTextField';
+import {ListSeparator} from '../../Components/Common/ListSeparator';
+import {SearchTextField} from '../../Components/Common/Inputs/SearchTextField';
+import {comp} from '../../Styles/Blocks';
 
 const Pairs = ({navigation, pairs}) => {
   const {load, getPairs} = usePairs();
@@ -35,6 +36,7 @@ const Pairs = ({navigation, pairs}) => {
         <Spinner />
       ) : (
         <FlatList
+          style={[comp.input]}
           data={pairsSearch}
           refreshControl={
             <RefreshControl refreshing={false} onRefresh={getPairs} />

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {ConfirmLayout} from '../../Components/Layouts/ConfirmLayout';
 import {useTranslation} from 'react-i18next';
 import {useAuth} from '../../Providers/AuthProvider';
-import {PasswordTextField} from '../../Components/common/Inputs/PasswordTextField';
+import {PasswordTextField} from '../../Components/Common/Inputs/PasswordTextField';
 
 export const ChangePassword = () => {
   const {t} = useTranslation();

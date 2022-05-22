@@ -1,5 +1,5 @@
 import {Dimensions, StyleSheet} from 'react-native';
-import {BottomSheetItem} from '../Components/common/BottomSheets/BottomSheetItem';
+import {BottomSheetItem} from '../Components/Common/BottomSheets/BottomSheetItem';
 
 export const DefaultBottomSheetStyles = StyleSheet.create({
   container: {
