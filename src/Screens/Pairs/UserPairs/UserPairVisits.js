@@ -28,7 +28,9 @@ const UserPairVisits = (props: Props) => {
     await getVisits(userPair.pair.id, userPair.user.id);
 
   return (
-    <BackLayout title={'Посещения'} subtitle={userPair.user.username}>
+    <BackLayout
+      title={'Посещения'}
+      subtitle={`${userPair.user.username}, ${userPair.user.email}`}>
       <FlatList
         refreshControl={
           <RefreshControl refreshing={false} onRefresh={onRefresh} />
