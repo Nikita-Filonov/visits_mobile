@@ -6,6 +6,7 @@ import {AppBar} from '../Common/AppBar';
 import {BackHandler, View} from 'react-native';
 import {comp} from '../../Styles/Blocks';
 import {useNavigation} from '@react-navigation/native';
+import {useThemes} from '../../Providers/ThemeProvider';
 
 export const BackLayout = ({
   children,
@@ -19,6 +20,7 @@ export const BackLayout = ({
   bottom = null,
   onBack,
 }) => {
+  const {theme} = useThemes();
   const {isFocused} = useNavigation();
 
   const onSafeBack = () => isFocused() && onBack();
@@ -42,7 +44,11 @@ export const BackLayout = ({
         {backButton || (
           <AppBarBack navigation={navigation} header={header} onBack={onBack} />
         )}
-        <Appbar.Content title={title} color={'#FFFFFF'} subtitle={subtitle} />
+        <Appbar.Content
+          title={title}
+          color={header ? '#FFFFFF' : theme.text}
+          subtitle={subtitle}
+        />
         {actions && actions.map((a, index) => <View key={index}>{a}</View>)}
       </AppBar>
       <View style={wrapper ? [comp.viewContainer, comp.flex] : []}>

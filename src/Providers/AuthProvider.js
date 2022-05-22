@@ -1,8 +1,7 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import {SUPPORTED_ACTIONS, useAlerts} from './AlertsProvider';
-import {GoogleSignin} from '@react-native-community/google-signin';
-import {DEFAULT_USER, GROUP_BACKUP, TOKEN_BACKUP} from '../Utils/Constants';
+import {DEFAULT_USER, TOKEN_BACKUP} from '../Utils/Constants';
 import {get, patch, post} from '../Utils/Api/Fetch';
 import {useTranslation} from 'react-i18next';
 
@@ -63,8 +62,6 @@ const AuthProvider = ({children}) => {
   const onLogout = async () => {
     await AsyncStorage.removeItem(TOKEN_BACKUP);
     setToken(null);
-    await GoogleSignin.signOut();
-    await AsyncStorage.removeItem(GROUP_BACKUP);
   };
 
   const onLogin = async token => {

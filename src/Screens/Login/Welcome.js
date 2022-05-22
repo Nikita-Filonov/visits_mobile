@@ -20,7 +20,7 @@ export const Welcome = ({navigation}) => {
         <Image
           style={WStyles.image}
           source={{
-            uri: baseUrl + 'static/icons/timer-icon.png',
+            uri: baseUrl + 'static/logo.png',
             cache: 'force-cache',
           }}
         />
