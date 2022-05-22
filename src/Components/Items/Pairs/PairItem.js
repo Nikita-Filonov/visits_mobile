@@ -23,9 +23,9 @@ const PairItem = ({pair, setPairStore}) => {
       <View style={PairItemStyle.wrapper}>
         <View style={PairItemStyle.timeWrapper}>
           <CustomText style={PairItemStyle.title}>
-            {formatPairTime(pair.startAt, 'HH:mm:ss')}
+            {formatPairTime(pair.startAt)}
           </CustomText>
-          <CustomText>{formatPairTime(pair.endAt, 'HH:mm:ss')}</CustomText>
+          <CustomText>{formatPairTime(pair.endAt)}</CustomText>
         </View>
         <View
           style={[
