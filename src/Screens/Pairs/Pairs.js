@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo, useState} from 'react';
 import {DrawerLayout} from '../../Components/Layouts/DrawerLayout';
 import {CustomFab} from '../../Components/common/Fabs/CustomFab';
 import {connect} from 'react-redux';
@@ -8,19 +8,34 @@ import {usePairs} from '../../Providers/Pairs/PairsProvider';
 import {Spinner} from '../../Components/common/Spinner';
 import PairItem from '../../Components/Items/Pairs/PairItem';
 import {ListSeparator} from '../../Components/common/ListSeparator';
+import {SearchTextField} from '../../Components/common/Inputs/SearchTextField';
 
 const Pairs = ({navigation, pairs}) => {
   const {load, getPairs} = usePairs();
+  const [search, setSearch] = useState('');
 
   const onCreate = () => navigation.navigate('CreatePair');
 
+  const pairsSearch = useMemo(
+    () =>
+      pairs.filter(pair =>
+        pair.name.toLowerCase().includes(search.toLowerCase()),
+      ),
+    [pairs, search],
+  );
+
   return (
     <DrawerLayout title={'Пары'} navigation={navigation}>
+      <SearchTextField
+        search={search}
+        setSearch={setSearch}
+        placeholder={'Поиск по названию пары'}
+      />
       {load ? (
         <Spinner />
       ) : (
         <FlatList
-          data={pairs}
+          data={pairsSearch}
           refreshControl={
             <RefreshControl refreshing={false} onRefresh={getPairs} />
           }
