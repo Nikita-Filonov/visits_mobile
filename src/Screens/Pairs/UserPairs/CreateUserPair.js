@@ -22,7 +22,7 @@ const CreateUserPair = ({navigation, pair}) => {
       disabled={isEmailValid}
       loading={request}>
       <TextField
-        label={'Электронный адрес'}
+        label={'Электронный адрес или Фамилия Имя'}
         style={comp.input}
         value={email}
         onChangeText={setEmail}
