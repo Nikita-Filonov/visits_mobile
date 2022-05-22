@@ -7,7 +7,7 @@ import {CustomText} from '../../Components/common/CustomText';
 import {baseUrl} from '../../utils/Links';
 import {MyQRCodeStyles} from '../../Styles/Screens';
 
-export const MyQRCode = ({navigation}) => {
+export const SelfQRCode = ({navigation}) => {
   const {user} = useAuth();
   const payload = useMemo(() => JSON.stringify({userId: user.id}), [user.id]);
 

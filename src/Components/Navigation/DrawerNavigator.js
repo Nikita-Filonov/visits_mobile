@@ -5,7 +5,7 @@ import {DrawerHeader} from './DrawerHeader';
 import {DISABLE_SWIPE} from '../../utils/Constants';
 import {drawerOptions} from '../../utils/Utils';
 import {PairsStack} from './Stacks/PairsStack';
-import {MyQRCodeStack} from './Stacks/MyQRCodeStack';
+import {SelfQRCodeStack} from './Stacks/SelfQRCodeStack';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -23,7 +23,7 @@ export const DrawerNavigator = ({store}) => (
     <Stack.Screen
       name="MyQRCode"
       options={({route}) => drawerOptions({route}, DISABLE_SWIPE.timers)}>
-      {props => <MyQRCodeStack {...props} />}
+      {props => <SelfQRCodeStack {...props} />}
     </Stack.Screen>
   </Drawer.Navigator>
 );
