@@ -2,22 +2,34 @@ import React, {useContext, useState} from 'react';
 import {get, post} from '../../utils/Api/Fetch';
 import {store} from '../../../index';
 import {
+  SET_USER_PAIR,
   SET_USER_PAIR_VISIT,
   SET_USER_PAIRS,
   SET_VISITS,
 } from '../../Redux/Pairs/actionTypes';
 import {Visit} from '../../Models/Visits';
+import {useAlerts} from '../AlertsProvider';
 
 const UserPairsContext = React.createContext(null);
 
 const UserPairsProvider = ({children}) => {
+  const {setAlert} = useAlerts();
   const [load, setLoad] = useState(true);
   const [request, setRequest] = useState(false);
 
-  const getUserPairs = async (pairId: number) => {
+  console.log(1111);
+
+  const getUserPairs = async (pairId: number, userId: number = null) => {
     setLoad(true);
-    const {error, json} = await get('api/v1/user-pairs', {pairId});
-    !error && store.dispatch({type: SET_USER_PAIRS, payload: json});
+    const {error, json} = await get('api/v1/user-pairs', {pairId, userId});
+    if (error) {
+      setAlert({message: 'Ошибка при загрузке пользователей', level: 'error'});
+      return;
+    }
+
+    userId
+      ? json[0] && store.dispatch({type: SET_USER_PAIR, payload: json[0]})
+      : store.dispatch({type: SET_USER_PAIRS, payload: json});
     setLoad(false);
   };
 

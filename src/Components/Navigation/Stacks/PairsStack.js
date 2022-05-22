@@ -9,6 +9,14 @@ import {UserPairsProvider} from '../../../Providers/Pairs/UserPairsProvider';
 import CreateUserPair from '../../../Screens/Pairs/UserPairs/CreateUserPair';
 import ScanStudentQRCode from '../../../Screens/Pairs/UserPairs/ScanStudentQRCode';
 import UserPairVisits from '../../../Screens/Pairs/UserPairs/UserPairVisits';
+import {
+  CREATE_PAIR_ROUTE,
+  CREATE_USER_PAIR_ROUTE,
+  PAIRS_ROUTE,
+  USER_PAIR_VISITS_ROUTE,
+  USER_PAIRS_ROUTE,
+  VIEW_PAIR_ROUTE,
+} from '../../../utils/Routes';
 
 const Stack = createStackNavigator();
 
@@ -16,34 +24,38 @@ export const PairsStack = () => {
   return (
     <PairsProvider>
       <Stack.Navigator>
-        <Stack.Screen name="Pairs" options={STACK_OPTIONS}>
-          {props => <Pairs {...props} />}
+        <Stack.Screen name={PAIRS_ROUTE} options={STACK_OPTIONS}>
+          {props => (
+            <UserPairsProvider>
+              <Pairs {...props} />
+            </UserPairsProvider>
+          )}
         </Stack.Screen>
-        <Stack.Screen name="CreatePair" options={STACK_OPTIONS}>
+        <Stack.Screen name={CREATE_PAIR_ROUTE} options={STACK_OPTIONS}>
           {props => <CreatePair {...props} />}
         </Stack.Screen>
-        <Stack.Screen name="ViewPair" options={STACK_OPTIONS}>
+        <Stack.Screen name={VIEW_PAIR_ROUTE} options={STACK_OPTIONS}>
           {props => (
             <UserPairsProvider>
               <ViewPair {...props} />
             </UserPairsProvider>
           )}
         </Stack.Screen>
-        <Stack.Screen name="CreateUserPair" options={STACK_OPTIONS}>
+        <Stack.Screen name={CREATE_USER_PAIR_ROUTE} options={STACK_OPTIONS}>
           {props => (
             <UserPairsProvider>
               <CreateUserPair {...props} />
             </UserPairsProvider>
           )}
         </Stack.Screen>
-        <Stack.Screen name="ScanStudentQRCode" options={STACK_OPTIONS}>
+        <Stack.Screen name={USER_PAIR_VISITS_ROUTE} options={STACK_OPTIONS}>
           {props => (
             <UserPairsProvider>
               <ScanStudentQRCode {...props} />
             </UserPairsProvider>
           )}
         </Stack.Screen>
-        <Stack.Screen name="UserPairVisits" options={STACK_OPTIONS}>
+        <Stack.Screen name={USER_PAIRS_ROUTE} options={STACK_OPTIONS}>
           {props => (
             <UserPairsProvider>
               <UserPairVisits {...props} />

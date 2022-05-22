@@ -7,13 +7,32 @@ import {PairItemStyle} from '../../../Styles/Items';
 import {navigate} from '../../Navigation/RootNavigation';
 import {connect} from 'react-redux';
 import {setPair} from '../../../Redux/Pairs/pairsActions';
+import {usePermissions} from '../../../Providers/PermissionsProvider';
+import {
+  VIEW_PAIR_AS_INSTRUCTOR,
+  VIEW_PAIR_AS_LERNER,
+} from '../../../utils/Helpers/Permissions';
+import {PAIRS_ROUTE} from '../../../utils/Routes';
+import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
+import {useAuth} from '../../../Providers/AuthProvider';
 
 const PairItem = ({pair, setPairStore}) => {
   const {theme} = useThemes();
+  const {user} = useAuth();
+  const {isAllowed} = usePermissions();
+  const {getUserPairs} = useUserPairs();
 
   const onView = useCallback(async () => {
-    setPairStore(pair);
-    navigate('ViewPair', {isCreation: false});
+    if (isAllowed(VIEW_PAIR_AS_INSTRUCTOR)) {
+      setPairStore(pair);
+      navigate('ViewPair', {isCreation: false});
+      return;
+    }
+
+    if (isAllowed(VIEW_PAIR_AS_LERNER)) {
+      await getUserPairs(pair.id, user.id);
+      navigate('UserPairVisits', {from: PAIRS_ROUTE});
+    }
   }, [pair, setPairStore]);
 
   return (

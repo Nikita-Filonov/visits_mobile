@@ -17,3 +17,25 @@ export const GROUP_PERMISSIONS = {
   create: 'Create.Group',
   view: 'View.Group',
 };
+
+export const USER_PAIR_PERMISSIONS = {
+  view: 'View.UserPair',
+  create: 'Create.UserPair',
+  update: 'Update.UserPair',
+};
+
+export const VISIT_PERMISSIONS = {
+  view: 'View.Visit',
+};
+
+export const VIEW_PAIR_AS_INSTRUCTOR = [
+  PAIR_PERMISSIONS.view,
+  USER_PAIR_PERMISSIONS.view,
+  USER_PAIR_PERMISSIONS.create,
+  USER_PAIR_PERMISSIONS.update,
+];
+
+export const VIEW_PAIR_AS_LERNER = [
+  USER_PAIR_PERMISSIONS.view,
+  VISIT_PERMISSIONS.view,
+];

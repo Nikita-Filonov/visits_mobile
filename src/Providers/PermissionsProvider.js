@@ -25,7 +25,7 @@ const PermissionsProvider = ({children}) => {
         return;
       }
 
-      return actions?.some(a => safePermissions.includes(a));
+      return actions?.every(a => safePermissions.includes(a));
     },
     [permissions],
   );
