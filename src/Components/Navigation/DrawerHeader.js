@@ -81,6 +81,11 @@ export const DrawerHeader = ({navigation}) => {
             selected={route === 'MyQRCode'}
           />
         )}
+        <DrawerItem
+          title={'Профиль'}
+          iconName={'person-outline'}
+          iconType={'material'}
+        />
         <Divider />
         <DrawerItem
           title={t('components.drawer.logout')}
