@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {TouchableOpacity} from 'react-native';
-import {SelectModal} from '../modals/SelectModal';
+import {SelectModal} from '../Modals/SelectModal';
 import {TextField} from './TextField';
 import {comp} from '../../../Styles/Blocks';
 
