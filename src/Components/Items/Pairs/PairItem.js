@@ -20,7 +20,7 @@ const PairItem = ({pair, setPairStore}) => {
   const {theme} = useThemes();
   const {user} = useAuth();
   const {isAllowed} = usePermissions();
-  const {getUserPairs} = useUserPairs();
+  const {getUserPairForLearner} = useUserPairs();
 
   const onView = useCallback(async () => {
     if (isAllowed(VIEW_PAIR_AS_INSTRUCTOR)) {
@@ -30,7 +30,7 @@ const PairItem = ({pair, setPairStore}) => {
     }
 
     if (isAllowed(VIEW_PAIR_AS_LERNER)) {
-      (await getUserPairs(pair.id, user.id)) &&
+      (await getUserPairForLearner(pair.id, user.id)) &&
         navigate(USER_PAIR_VISITS_ROUTE);
     }
   }, [pair, setPairStore]);
