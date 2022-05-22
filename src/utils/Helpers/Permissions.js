@@ -28,6 +28,10 @@ export const VISIT_PERMISSIONS = {
   view: 'View.Visit',
 };
 
+export const SELF_QR_CODE_PERMISSIONS = {
+  view: 'View.SelfQRCode',
+};
+
 export const VIEW_PAIR_AS_INSTRUCTOR = [
   PAIR_PERMISSIONS.view,
   USER_PAIR_PERMISSIONS.view,

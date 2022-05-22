@@ -28,6 +28,7 @@ const UserPairsProvider = ({children}) => {
     );
     if (error) {
       setAlert({message: 'Ошибка при загрузке пользователей', level: 'error'});
+      setLoad(false);
       return;
     }
 

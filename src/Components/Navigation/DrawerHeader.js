@@ -10,7 +10,10 @@ import {DrawerItem} from '../common/DrawerItem';
 import {useTranslation} from 'react-i18next';
 import {CustomText} from '../common/CustomText';
 import {usePermissions} from '../../Providers/PermissionsProvider';
-import {GROUP_PERMISSIONS} from '../../utils/Helpers/Permissions';
+import {
+  GROUP_PERMISSIONS,
+  SELF_QR_CODE_PERMISSIONS,
+} from '../../utils/Helpers/Permissions';
 
 export const DrawerHeader = ({navigation}) => {
   const {t} = useTranslation();
@@ -69,13 +72,15 @@ export const DrawerHeader = ({navigation}) => {
             onPress={navigate('Groups')}
           />
         )}
-        <DrawerItem
-          title={'Мой QR-код'}
-          iconName={'qrcode-scan'}
-          iconType={'material-community'}
-          onPress={navigate('MyQRCode')}
-          selected={route === 'MyQRCode'}
-        />
+        {isAllowed([SELF_QR_CODE_PERMISSIONS.view]) && (
+          <DrawerItem
+            title={'Мой QR-код'}
+            iconName={'qrcode-scan'}
+            iconType={'material-community'}
+            onPress={navigate('MyQRCode')}
+            selected={route === 'MyQRCode'}
+          />
+        )}
         <Divider />
         <DrawerItem
           title={t('components.drawer.logout')}
