@@ -45,6 +45,11 @@ export const comp = StyleSheet.create({
     right: 0,
     bottom: 36,
   },
+  fabLeft: {
+    position: 'absolute',
+    left: 0,
+    bottom: 36,
+  },
   centeredContainer: {
     justifyContent: 'center',
     alignItems: 'center',

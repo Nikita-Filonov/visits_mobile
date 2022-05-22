@@ -5,6 +5,8 @@ import {BarcodeFormat, useScanBarcodes} from 'vision-camera-code-scanner';
 import {getCameraPermissions} from '../../../utils/Helpers/Permissions';
 import {CustomText} from '../CustomText';
 import {QRCodeScannerStyles} from '../../../Styles/Blocks';
+import {CustomFab} from '../Fabs/CustomFab';
+import {goBack} from '../../Navigation/RootNavigation';
 
 export const QRCodeScanner = ({value, setValue}) => {
   const [hasPermission, setHasPermission] = useState(true);
@@ -46,6 +48,12 @@ export const QRCodeScanner = ({value, setValue}) => {
             Отсканируйте QR-код
           </CustomText>
           <View style={QRCodeScannerStyles.target} />
+          <CustomFab
+            onPress={goBack}
+            withoutWrapper={true}
+            orientation={'left'}
+            icon={'arrow-left'}
+          />
         </View>
       )}
     </SafeAreaView>

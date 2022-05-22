@@ -13,7 +13,7 @@ import {
   CREATE_PAIR_ROUTE,
   CREATE_USER_PAIR_ROUTE,
   PAIRS_ROUTE,
-  USER_PAIR_VISITS_ROUTE,
+  SCAN_STUDENT_QR_CODE_ROUTE,
   USER_PAIRS_ROUTE,
   VIEW_PAIR_ROUTE,
 } from '../../../utils/Routes';
@@ -48,7 +48,7 @@ export const PairsStack = () => {
             </UserPairsProvider>
           )}
         </Stack.Screen>
-        <Stack.Screen name={USER_PAIR_VISITS_ROUTE} options={STACK_OPTIONS}>
+        <Stack.Screen name={SCAN_STUDENT_QR_CODE_ROUTE} options={STACK_OPTIONS}>
           {props => (
             <UserPairsProvider>
               <ScanStudentQRCode {...props} />

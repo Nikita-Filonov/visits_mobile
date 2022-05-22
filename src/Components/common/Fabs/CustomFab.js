@@ -3,19 +3,24 @@ import {comp} from '../../../Styles/Blocks';
 import {FAB} from 'react-native-paper';
 import {useThemes} from '../../../Providers/ThemeProvider';
 
-export const CustomFab = ({onPress, withoutWrapper = false}) => {
+export const CustomFab = ({
+  onPress,
+  withoutWrapper = false,
+  orientation = 'right',
+  icon,
+}) => {
   const {theme} = useThemes();
 
   return (
     <FAB
       style={[
-        comp.fab,
-        {
-          backgroundColor: theme.button.primary,
-          marginRight: withoutWrapper ? 16 : 0,
-        },
+        orientation === 'right' ? comp.fab : comp.fabLeft,
+        orientation === 'right'
+          ? {marginRight: withoutWrapper ? 16 : 0}
+          : {marginLeft: withoutWrapper ? 16 : 0},
+        {backgroundColor: theme.button.primary},
       ]}
-      icon="plus"
+      icon={icon || 'plus'}
       color={'white'}
       onPress={onPress}
     />

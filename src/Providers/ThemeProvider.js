@@ -45,7 +45,7 @@ export const ThemeStyles = {
     disabled: '#B0B0B0',
     button: {
       inherit: '#646464',
-      primary: '#90CAF9',
+      primary: '#5FC47C',
       error: '#D53B36',
       warning: '#FFA726',
     },
