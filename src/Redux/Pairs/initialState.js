@@ -9,4 +9,5 @@ export const PAIRS_INITIAL_STATE = {
   pairs: [],
   userPairs: [],
   userPair: {},
+  visits: [],
 };

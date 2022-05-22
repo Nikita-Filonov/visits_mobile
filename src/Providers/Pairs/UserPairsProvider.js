@@ -4,6 +4,7 @@ import {store} from '../../../index';
 import {
   SET_USER_PAIR_VISIT,
   SET_USER_PAIRS,
+  SET_VISITS,
 } from '../../Redux/Pairs/actionTypes';
 import {Visit} from '../../Models/Visits';
 
@@ -39,6 +40,13 @@ const UserPairsProvider = ({children}) => {
     setRequest(false);
   };
 
+  const getVisits = async (pairId: number, userId: number) => {
+    setLoad(true);
+    const {error, json} = await get('api/v1/visits', {pairId, userId});
+    !error && store.dispatch({type: SET_VISITS, payload: json});
+    setLoad(false);
+  };
+
   return (
     <UserPairsContext.Provider
       value={{
@@ -47,6 +55,7 @@ const UserPairsProvider = ({children}) => {
         getUserPairs,
         createUserPair,
         createVisit,
+        getVisits,
       }}>
       {children}
     </UserPairsContext.Provider>

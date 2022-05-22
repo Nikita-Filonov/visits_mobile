@@ -5,6 +5,7 @@ import {
   SET_USER_PAIR,
   SET_USER_PAIR_VISIT,
   SET_USER_PAIRS,
+  SET_VISITS,
 } from './actionTypes';
 
 export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
@@ -37,6 +38,8 @@ export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
 
       return {...state, userPairs};
     }
+    case SET_VISITS:
+      return {...state, visits: action.payload};
     default:
       return state;
   }
