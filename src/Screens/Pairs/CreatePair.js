@@ -38,10 +38,7 @@ const CreatePair = (props: Props) => {
     onBack();
   };
 
-  const onTime = key => time => {
-    console.log(time, key);
-    setPairStore({...pair, [key]: time});
-  };
+  const onTime = key => time => setPairStore({...pair, [key]: time});
 
   return (
     <ConfirmLayout

@@ -12,8 +12,10 @@ import {getCurrentPairDate} from '../../Utils/Helpers/Formatters';
 import {getCameraPermissions} from '../../Utils/Helpers/Permissions';
 import UserPairBottomSheet from '../../Components/Common/BottomSheets/UserPairBottomSheet';
 import {setUserPair} from '../../Redux/Pairs/pairsActions';
+import {goBack, navigate} from '../../Components/Navigation/RootNavigation';
 
-const ViewPair = ({navigation, pair, userPairs, setUserPairStore}) => {
+const ViewPair = ({route, navigation, pair, userPairs, setUserPairStore}) => {
+  const {isCreation} = route.params;
   const userPairRef = useRef(null);
   const {load, getUserPairs} = useUserPairs();
   const [checkUsersMode, setCheckUsersMode] = useState(false);
@@ -36,10 +38,13 @@ const ViewPair = ({navigation, pair, userPairs, setUserPairStore}) => {
     userPairRef.current.snapTo(0);
   };
 
+  const onBack = () => (isCreation ? navigate('Pairs') : goBack());
+
   return (
     <BackLayout
       title={pair.name}
       subtitle={getCurrentPairDate()}
+      onBack={onBack}
       bottom={
         !checkUsersMode && (
           <React.Fragment>

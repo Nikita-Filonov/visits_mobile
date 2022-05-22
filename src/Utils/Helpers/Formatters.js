@@ -9,4 +9,4 @@ export const formatVisitTime = time =>
   moment(time, undefined, 'ru').format('D MMMM YYYY, HH:mm, dddd');
 
 export const formatToApiAcceptableTime = time =>
-  moment(time).format('HH:mm:ss');
+  time ? moment(time).format('HH:mm:ss') : null;
