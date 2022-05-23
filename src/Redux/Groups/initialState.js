@@ -1,4 +1,8 @@
 export const GROUPS_INITIAL_STATE = {
-  group: {title: '', members: [], roles: []},
+  group: {
+    id: null,
+    name: '',
+    editMode: false,
+  },
   groups: [],
 };

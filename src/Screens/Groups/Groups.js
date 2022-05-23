@@ -24,7 +24,7 @@ const Groups = ({navigation, groups}) => {
             <RefreshControl refreshing={false} onRefresh={getGroups} />
           }
           ItemSeparatorComponent={ListSeparator}
-          renderItem={({item}) => <GroupItem pair={item} />}
+          renderItem={({item}) => <GroupItem group={item} />}
           keyExtractor={(_, index) => index.toString()}
         />
       )}
