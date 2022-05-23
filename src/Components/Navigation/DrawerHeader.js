@@ -70,6 +70,7 @@ export const DrawerHeader = ({navigation}) => {
             iconName={'people-outline'}
             iconType={'material'}
             onPress={navigate('Groups')}
+            selected={route === 'Groups'}
           />
         )}
         {isAllowed([SELF_QR_CODE_PERMISSIONS.view]) && (
