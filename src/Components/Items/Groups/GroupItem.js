@@ -4,20 +4,23 @@ import {TouchableOpacity, View} from 'react-native';
 import {PairItemStyle} from '../../../Styles/Items';
 import {CustomText} from '../../Common/CustomText';
 import {navigate} from '../../Navigation/RootNavigation';
-import {VIEW_PAIR_ROUTE} from '../../../Utils/Routes';
 import {useThemes} from '../../../Providers/ThemeProvider';
 import GroupItemMenu from '../../Common/Menus/Groups/GroupItemMenu';
 import {comp} from '../../../Styles/Blocks';
+import {connect} from 'react-redux';
+import {setGroup} from '../../../Redux/Groups/groupsActions';
 
 type Props = {
   group: Group,
+  setGroupStore: (group: Group) => void,
 };
-export const GroupItem = (props: Props) => {
-  const {group} = props;
+const GroupItem = (props: Props) => {
+  const {group, setGroupStore} = props;
   const {theme} = useThemes();
 
   const onView = () => {
-    navigate(VIEW_PAIR_ROUTE, {isCreation: false});
+    setGroupStore(group);
+    navigate('ViewGroup', {isCreation: false});
   };
 
   return (
@@ -34,3 +37,5 @@ export const GroupItem = (props: Props) => {
     </TouchableOpacity>
   );
 };
+
+export default connect(null, {setGroupStore: setGroup})(GroupItem);

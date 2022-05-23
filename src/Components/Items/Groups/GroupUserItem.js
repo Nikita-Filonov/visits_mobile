@@ -5,9 +5,9 @@ import {CustomText} from '../../Common/CustomText';
 import {navigate} from '../../Navigation/RootNavigation';
 import {VIEW_PAIR_ROUTE} from '../../../Utils/Routes';
 import {useThemes} from '../../../Providers/ThemeProvider';
-import GroupItemMenu from '../../Common/Menus/Groups/GroupItemMenu';
 import {comp} from '../../../Styles/Blocks';
 import type {GroupUser} from '../../../Models/GroupUser';
+import {GroupUserItemMenu} from '../../Common/Menus/Groups/GroupUserItemMenu';
 
 type Props = {
   groupUser: GroupUser,
@@ -36,7 +36,7 @@ export const GroupUserItem = (props: Props) => {
         <CustomText>{groupUser.user.email}</CustomText>
       </View>
       <View style={comp.flex} />
-      <GroupItemMenu group={group} />
+      <GroupUserItemMenu groupUser={groupUser} />
     </TouchableOpacity>
   );
 };

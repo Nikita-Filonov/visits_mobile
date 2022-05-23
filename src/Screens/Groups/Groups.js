@@ -6,7 +6,7 @@ import {FlatList, RefreshControl} from 'react-native';
 import {Spinner} from '../../Components/Common/Spinner';
 import {ListSeparator} from '../../Components/Common/ListSeparator';
 import {useGroups} from '../../Providers/Groups/GroupsProvider';
-import {GroupItem} from '../../Components/Items/Groups/GroupItem';
+import GroupItem from '../../Components/Items/Groups/GroupItem';
 
 const Groups = ({navigation, groups}) => {
   const {load, getGroups} = useGroups();

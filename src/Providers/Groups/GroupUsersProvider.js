@@ -48,9 +48,6 @@ const GroupUsersProvider = ({children}) => {
         request,
         getGroupUsers,
         createUserPair,
-        createVisit,
-        getVisits,
-        getUserPairForLearner,
         deleteUserPair,
       }}>
       {children}

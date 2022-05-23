@@ -22,6 +22,12 @@ export const GROUP_PERMISSIONS = {
   delete: 'Delete.Group',
 };
 
+export const GROUP_USER_PERMISSIONS = {
+  create: 'Create.GroupUser',
+  view: 'View.GroupUser',
+  delete: 'Delete.GroupUser',
+};
+
 export const USER_PAIR_PERMISSIONS = {
   view: 'View.UserPair',
   create: 'Create.UserPair',
