@@ -24,7 +24,10 @@ const ViewGroup = ({route, group, groupUsers}) => {
   const onCreate = () => navigate('CreateGroupUser');
 
   return (
-    <BackLayout title={group.name} onBack={onBack}>
+    <BackLayout
+      title={group.name}
+      subtitle={`Всего студентов: ${groupUsers?.length}`}
+      onBack={onBack}>
       {load ? (
         <Spinner />
       ) : (
