@@ -44,5 +44,5 @@ const CreateGroup = (props: Props) => {
   );
 };
 
-const getState = state => ({pair: state.pairs.pair});
+const getState = state => ({group: state.groups.group});
 export default connect(getState, {setGroupStore: setGroup})(CreateGroup);

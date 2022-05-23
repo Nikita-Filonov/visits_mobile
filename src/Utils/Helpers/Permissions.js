@@ -18,6 +18,8 @@ export const PAIR_PERMISSIONS = {
 export const GROUP_PERMISSIONS = {
   create: 'Create.Group',
   view: 'View.Group',
+  update: 'Update.Group',
+  delete: 'Delete.Group',
 };
 
 export const USER_PAIR_PERMISSIONS = {

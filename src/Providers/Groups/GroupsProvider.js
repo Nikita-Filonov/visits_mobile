@@ -1,11 +1,15 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {get} from '../../Utils/Api/Fetch';
+import {get, post} from '../../Utils/Api/Fetch';
 import {store} from '../../../index';
-import {SET_GROUPS} from '../../Redux/Groups/actionTypes';
+import {SET_GROUP, SET_GROUPS} from '../../Redux/Groups/actionTypes';
+import type {Group} from '../../Models/Group';
+import {navigate} from '../../Components/Navigation/RootNavigation';
+import {useAlerts} from '../AlertsProvider';
 
 const GroupsContext = React.createContext(null);
 
 const GroupsProvider = ({children}) => {
+  const {setAlert} = useAlerts();
   const [load, setLoad] = useState(true);
   const [request, setRequest] = useState(false);
 
@@ -20,12 +24,29 @@ const GroupsProvider = ({children}) => {
     setLoad(false);
   };
 
+  const createGroup = async (group: Group) => {
+    setRequest(true);
+    const {error, json} = await post('api/v1/groups', group);
+    if (!error) {
+      store.dispatch({type: SET_GROUPS, payload: json});
+      store.dispatch({type: SET_GROUP, payload: json});
+      navigate('ViewGroup', {isCreation: true});
+    } else {
+      setAlert({
+        message: 'Ошибка при создании группы. Проверьте корректность полей',
+        level: 'error',
+      });
+    }
+    setRequest(false);
+  };
+
   return (
     <GroupsContext.Provider
       value={{
         load,
         request,
         getGroups,
+        createGroup,
       }}>
       {children}
     </GroupsContext.Provider>
