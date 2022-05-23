@@ -8,6 +8,10 @@ const PermissionsProvider = ({children}) => {
   const {token} = useAuth();
   const [permissions, setPermissions] = useState([]);
 
+  // TODO добавить удаление, обновление пар
+  // TODO добавить удаление юзера из пары
+  // TODO сделать группы
+  // TODO добавить баллы к спосещениям
   useEffect(() => {
     (async () => token && (await getMyPermissions()))();
   }, [token]);

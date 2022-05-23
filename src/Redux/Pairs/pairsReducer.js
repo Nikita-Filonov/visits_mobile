@@ -1,5 +1,6 @@
 import {PAIRS_INITIAL_STATE} from './initialState';
 import {
+  DELETE_PAIR,
   SET_PAIR,
   SET_PAIRS,
   SET_USER_PAIR,
@@ -40,6 +41,10 @@ export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
     }
     case SET_VISITS:
       return {...state, visits: action.payload};
+    case DELETE_PAIR: {
+      const {pairId} = action.payload;
+      return {...state, pairs: state.pairs.filter(pair => pair.id !== pairId)};
+    }
     default:
       return state;
   }

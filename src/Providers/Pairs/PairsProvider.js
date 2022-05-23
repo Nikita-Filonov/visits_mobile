@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {get, post} from '../../Utils/Api/Fetch';
+import {get, patch, post, remove} from '../../Utils/Api/Fetch';
 import {useAuth} from '../AuthProvider';
 import {store} from '../../../index';
-import {SET_PAIR, SET_PAIRS} from '../../Redux/Pairs/actionTypes';
+import {DELETE_PAIR, SET_PAIR, SET_PAIRS} from '../../Redux/Pairs/actionTypes';
 import type {Pair} from '../../Models/Pairs';
 import {navigate} from '../../Components/Navigation/RootNavigation';
 import {useAlerts} from '../AlertsProvider';
@@ -43,6 +43,23 @@ const PairsProvider = ({children}) => {
     setRequest(false);
   };
 
+  const deletePair = async (pairId: number) => {
+    setRequest(true);
+    const {error} = await remove(`api/v1/pairs/${pairId}`);
+    if (!error) {
+      store.dispatch({type: DELETE_PAIR, payload: {pairId}});
+      setAlert({message: 'Пара успешно удалена', level: 'success'});
+    }
+    setRequest(false);
+  };
+
+  const updatePair = async (pairId: number, pair: Pair) => {
+    setRequest(true);
+    const {error} = await patch(`api/v1/pairs/${pairId}`, pair);
+    !error && store.dispatch({type: DELETE_PAIR, payload: {pairId}});
+    setRequest(false);
+  };
+
   return (
     <PairsContext.Provider
       value={{
@@ -50,6 +67,8 @@ const PairsProvider = ({children}) => {
         request,
         getPairs,
         createPair,
+        deletePair,
+        updatePair,
       }}>
       {children}
     </PairsContext.Provider>

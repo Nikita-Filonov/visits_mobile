@@ -61,7 +61,7 @@ const PairItem = ({pair, setPairStore}) => {
         <CustomText>{pair.room}</CustomText>
       </View>
       <View style={comp.flex} />
-      <PairItemMenu />
+      <PairItemMenu pair={pair} />
     </TouchableOpacity>
   );
 };
