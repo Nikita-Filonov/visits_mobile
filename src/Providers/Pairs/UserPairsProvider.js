@@ -1,19 +1,22 @@
 import React, {useContext, useState} from 'react';
-import {get, post} from '../../Utils/Api/Fetch';
+import {get, post, remove} from '../../Utils/Api/Fetch';
 import {store} from '../../../index';
 import {
+  DELETE_USER_PAIR,
   SET_USER_PAIR,
   SET_USER_PAIR_VISIT,
   SET_USER_PAIRS,
   SET_VISITS,
 } from '../../Redux/Pairs/actionTypes';
 import {Visit} from '../../Models/Visits';
+import {useAlerts} from '../AlertsProvider';
 
 const UserPairsContext = React.createContext(null);
 
 const UserPairsProvider = ({children}) => {
   const [load, setLoad] = useState(true);
   const [request, setRequest] = useState(false);
+  const {setAlert} = useAlerts();
 
   const getUserPairs = async (pairId: number) => {
     setLoad(true);
@@ -46,6 +49,16 @@ const UserPairsProvider = ({children}) => {
     return error;
   };
 
+  const deleteUserPair = async (userPairId: number) => {
+    setRequest(true);
+    const {error} = await remove(`api/v1/user-pairs/${userPairId}`);
+    if (!error) {
+      store.dispatch({type: DELETE_USER_PAIR, payload: {userPairId}});
+      setAlert({message: 'Студент успешно удален', level: 'success'});
+    }
+    setRequest(false);
+  };
+
   const createVisit = async (payload: Visit) => {
     setRequest(true);
     const {error, json} = await post('api/v1/visits', payload);
@@ -70,6 +83,7 @@ const UserPairsProvider = ({children}) => {
         createVisit,
         getVisits,
         getUserPairForLearner,
+        deleteUserPair,
       }}>
       {children}
     </UserPairsContext.Provider>

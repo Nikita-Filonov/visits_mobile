@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import {UserPair} from '../../../Models/UserPair';
 import {VISIT_STATES} from '../../../Utils/Constants';
 import {navigate} from '../../Navigation/RootNavigation';
+import {useAlerts} from '../../../Providers/AlertsProvider';
 
 type Props = {
   userPair: UserPair,
@@ -14,7 +15,8 @@ type Props = {
 
 const UserPairBottomSheet = forwardRef((props: Props, ref) => {
   const {userPair} = props;
-  const {createVisit} = useUserPairs();
+  const {createVisit, deleteUserPair} = useUserPairs();
+  const {setConfirmModal} = useAlerts();
 
   const bottomSheerHeight = useMemo(
     () => Dimensions.get('window').height / 3,
@@ -38,6 +40,21 @@ const UserPairBottomSheet = forwardRef((props: Props, ref) => {
     await onClose();
   };
 
+  const onDelete = async () =>
+    setConfirmModal({
+      action: async () => {
+        await deleteUserPair(userPair.id);
+        await onClose();
+      },
+      modal: true,
+      content: {
+        title: 'Удалить студента',
+        description:
+          'Вы действительно хотите удалить студента из пары? Отменить это действие будет невозможно',
+        confirmButton: 'Удалить',
+      },
+    });
+
   return (
     <CustomBottomSheet
       ref={ref}
@@ -58,7 +75,11 @@ const UserPairBottomSheet = forwardRef((props: Props, ref) => {
         iconName={'format-list-checks'}
         onPress={onViewVisits}
       />
-      <BottomSheetItem title={'Удалить из пары'} iconName={'delete-outline'} />
+      <BottomSheetItem
+        title={'Удалить из пары'}
+        iconName={'delete-outline'}
+        onPress={onDelete}
+      />
     </CustomBottomSheet>
   );
 });
