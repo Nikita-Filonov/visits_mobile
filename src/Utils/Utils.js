@@ -3,12 +3,6 @@ import {LOCALE_BACKUP, STACK_OPTIONS, SUPPORTED_LOCALES} from './Constants';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 
-export function validateEmail(email) {
-  const re =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
-}
-
 export const getDeviceLanguage = async () => {
   const deviceLanguage =
     Platform.OS === 'ios'

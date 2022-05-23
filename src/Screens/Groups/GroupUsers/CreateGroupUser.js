@@ -14,10 +14,10 @@ type Props = {
 const CreateGroupUser = (props: Props) => {
   const {navigation, group} = props;
   const {request, createGroupUser} = useGroupUsers();
-  const [email, setEmail] = useState('');
+  const [emailOrUsername, setEmailOrUsername] = useState('');
 
   const onCreate = async () =>
-    !(await createGroupUser(group.id, email)) && navigation.goBack();
+    !(await createGroupUser(group.id, emailOrUsername)) && navigation.goBack();
 
   return (
     <ConfirmLayout
@@ -27,8 +27,8 @@ const CreateGroupUser = (props: Props) => {
       <TextField
         label={'Электронный адрес или Фамилия Имя'}
         style={comp.input}
-        value={email}
-        onChangeText={setEmail}
+        value={emailOrUsername}
+        onChangeText={setEmailOrUsername}
       />
     </ConfirmLayout>
   );

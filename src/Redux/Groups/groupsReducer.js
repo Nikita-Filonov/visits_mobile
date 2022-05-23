@@ -12,8 +12,13 @@ export const groupsReducer = (state = GROUPS_INITIAL_STATE, action) => {
 
       return {...state, groups: action.payload};
     }
-    case SET_GROUP_USERS:
+    case SET_GROUP_USERS: {
+      if (action.payload?.id) {
+        return {...state, groupUsers: [...state.groupUsers, action.payload]};
+      }
+
       return {...state, groupUsers: action.payload};
+    }
     default:
       return state;
   }
