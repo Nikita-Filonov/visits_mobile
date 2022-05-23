@@ -10,6 +10,7 @@ import {
 } from '../../Redux/Pairs/actionTypes';
 import {Visit} from '../../Models/Visits';
 import {useAlerts} from '../AlertsProvider';
+import {getEmailOrUsername} from '../../Utils/Helpers/Validators';
 
 const UserPairsContext = React.createContext(null);
 
@@ -39,10 +40,14 @@ const UserPairsProvider = ({children}) => {
 
   const createUserPair = async (
     pairId: number,
-    email: string,
+    emailOrUsername: string,
   ): Promise<boolean> => {
     setRequest(true);
-    const {error, json} = await post('api/v1/user-pairs', {pairId, email});
+
+    const payload = await getEmailOrUsername(emailOrUsername);
+
+    const {error, json} = await post('api/v1/user-pairs', {pairId, ...payload});
+
     !error && store.dispatch({type: SET_USER_PAIRS, payload: json});
     setRequest(false);
 

@@ -7,10 +7,10 @@ import {connect} from 'react-redux';
 
 const CreateUserPair = ({navigation, pair}) => {
   const {request, createUserPair} = useUserPairs();
-  const [email, setEmail] = useState('');
+  const [emailOrUsername, setEmailOrUsername] = useState('');
 
   const onCreate = async () =>
-    !(await createUserPair(pair.id, email)) && navigation.goBack();
+    !(await createUserPair(pair.id, emailOrUsername)) && navigation.goBack();
 
   return (
     <ConfirmLayout
@@ -20,8 +20,8 @@ const CreateUserPair = ({navigation, pair}) => {
       <TextField
         label={'Электронный адрес или Фамилия Имя'}
         style={comp.input}
-        value={email}
-        onChangeText={setEmail}
+        value={emailOrUsername}
+        onChangeText={setEmailOrUsername}
       />
     </ConfirmLayout>
   );
