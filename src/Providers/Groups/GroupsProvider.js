@@ -1,7 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {get, post} from '../../Utils/Api/Fetch';
+import {get, patch, post, remove} from '../../Utils/Api/Fetch';
 import {store} from '../../../index';
-import {SET_GROUP, SET_GROUPS} from '../../Redux/Groups/actionTypes';
+import {
+  DELETE_GROUP,
+  SET_GROUP,
+  SET_GROUPS,
+  UPDATE_GROUP,
+} from '../../Redux/Groups/actionTypes';
 import type {Group} from '../../Models/Group';
 import {navigate} from '../../Components/Navigation/RootNavigation';
 import {useAlerts} from '../AlertsProvider';
@@ -40,6 +45,26 @@ const GroupsProvider = ({children}) => {
     setRequest(false);
   };
 
+  const deleteGroup = async (groupId: number) => {
+    setRequest(true);
+    const {error} = await remove(`api/v1/groups/${groupId}`);
+    if (!error) {
+      store.dispatch({type: DELETE_GROUP, payload: {groupId}});
+      setAlert({message: 'Группа успешно удалена', level: 'success'});
+    }
+    setRequest(false);
+  };
+
+  const updateGroup = async (groupId: number, group: Group) => {
+    setRequest(true);
+    const {error, json} = await patch(`api/v1/groups/${groupId}`, group);
+    if (!error) {
+      store.dispatch({type: UPDATE_GROUP, payload: {groupId, group: json}});
+      setAlert({message: 'Группа успешно обновлена', level: 'success'});
+    }
+    setRequest(false);
+  };
+
   return (
     <GroupsContext.Provider
       value={{
@@ -47,6 +72,8 @@ const GroupsProvider = ({children}) => {
         request,
         getGroups,
         createGroup,
+        deleteGroup,
+        updateGroup,
       }}>
       {children}
     </GroupsContext.Provider>
