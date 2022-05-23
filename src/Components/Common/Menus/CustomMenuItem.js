@@ -10,7 +10,11 @@ export const CustomMenuItem = ({title, onPress, disabled, color}) => {
       disabled={disabled}
       onPress={onPress}
       title={title}
-      titleStyle={{color: color || theme.text}}
+      titleStyle={
+        disabled
+          ? {color: theme.listItemSelected}
+          : {color: color || theme.text}
+      }
     />
   );
 };

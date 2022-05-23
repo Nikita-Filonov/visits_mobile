@@ -11,6 +11,8 @@ export const getCameraPermissions = async () => {
 export const PAIR_PERMISSIONS = {
   create: 'Create.Pair',
   view: 'View.Pair',
+  update: 'Update.Pair',
+  delete: 'Delete.Pair',
 };
 
 export const GROUP_PERMISSIONS = {
