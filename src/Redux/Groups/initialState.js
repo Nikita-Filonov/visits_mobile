@@ -5,4 +5,5 @@ export const GROUPS_INITIAL_STATE = {
     editMode: false,
   },
   groups: [],
+  groupUsers: [],
 };

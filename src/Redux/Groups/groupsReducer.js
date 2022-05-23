@@ -1,5 +1,5 @@
 import {GROUPS_INITIAL_STATE} from './initialState';
-import {SET_GROUP, SET_GROUPS} from './actionTypes';
+import {SET_GROUP, SET_GROUP_USERS, SET_GROUPS} from './actionTypes';
 
 export const groupsReducer = (state = GROUPS_INITIAL_STATE, action) => {
   switch (action.type) {
@@ -12,6 +12,8 @@ export const groupsReducer = (state = GROUPS_INITIAL_STATE, action) => {
 
       return {...state, groups: action.payload};
     }
+    case SET_GROUP_USERS:
+      return {...state, groupUsers: action.payload};
     default:
       return state;
   }
