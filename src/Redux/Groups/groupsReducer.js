@@ -1,5 +1,10 @@
 import {GROUPS_INITIAL_STATE} from './initialState';
-import {SET_GROUP, SET_GROUP_USERS, SET_GROUPS} from './actionTypes';
+import {
+  DELETE_GROUP_USER,
+  SET_GROUP,
+  SET_GROUP_USERS,
+  SET_GROUPS,
+} from './actionTypes';
 
 export const groupsReducer = (state = GROUPS_INITIAL_STATE, action) => {
   switch (action.type) {
@@ -18,6 +23,15 @@ export const groupsReducer = (state = GROUPS_INITIAL_STATE, action) => {
       }
 
       return {...state, groupUsers: action.payload};
+    }
+    case DELETE_GROUP_USER: {
+      const {groupUserId} = action.payload;
+      return {
+        ...state,
+        groupUsers: state.groupUsers.filter(
+          groupUser => groupUser.id !== groupUserId,
+        ),
+      };
     }
     default:
       return state;

@@ -1,9 +1,7 @@
 import React from 'react';
-import {TouchableOpacity, View} from 'react-native';
+import {View} from 'react-native';
 import {PairItemStyle} from '../../../Styles/Items';
 import {CustomText} from '../../Common/CustomText';
-import {navigate} from '../../Navigation/RootNavigation';
-import {VIEW_PAIR_ROUTE} from '../../../Utils/Routes';
 import {useThemes} from '../../../Providers/ThemeProvider';
 import {comp} from '../../../Styles/Blocks';
 import type {GroupUser} from '../../../Models/GroupUser';
@@ -17,13 +15,8 @@ export const GroupUserItem = (props: Props) => {
   const {groupUser} = props;
   const {theme} = useThemes();
 
-  const onView = () => {
-    navigate(VIEW_PAIR_ROUTE, {isCreation: false});
-  };
-
   return (
-    <TouchableOpacity
-      onPress={onView}
+    <View
       style={[
         {backgroundColor: theme.listItem},
         PairItemStyle.container,
@@ -37,6 +30,6 @@ export const GroupUserItem = (props: Props) => {
       </View>
       <View style={comp.flex} />
       <GroupUserItemMenu groupUser={groupUser} />
-    </TouchableOpacity>
+    </View>
   );
 };

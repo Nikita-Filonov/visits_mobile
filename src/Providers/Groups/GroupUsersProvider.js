@@ -1,9 +1,11 @@
 import React, {useContext, useState} from 'react';
 import {get, post, remove} from '../../Utils/Api/Fetch';
 import {store} from '../../../index';
-import {DELETE_USER_PAIR} from '../../Redux/Pairs/actionTypes';
 import {useAlerts} from '../AlertsProvider';
-import {SET_GROUP_USERS} from '../../Redux/Groups/actionTypes';
+import {
+  DELETE_GROUP_USER,
+  SET_GROUP_USERS,
+} from '../../Redux/Groups/actionTypes';
 import {getEmailOrUsername} from '../../Utils/Helpers/Validators';
 
 const GroupUsersContext = React.createContext(null);
@@ -32,17 +34,22 @@ const GroupUsersProvider = ({children}) => {
       ...payload,
     });
 
-    !error && store.dispatch({type: SET_GROUP_USERS, payload: json});
+    !error
+      ? store.dispatch({type: SET_GROUP_USERS, payload: json})
+      : setAlert({
+          message: `Пользователь "${emailOrUsername}" не найден`,
+          level: 'error',
+        });
     setRequest(false);
 
     return error;
   };
 
-  const deleteUserPair = async (userPairId: number) => {
+  const deleteGroupUser = async (groupUserId: number) => {
     setRequest(true);
-    const {error} = await remove(`api/v1/user-pairs/${userPairId}`);
+    const {error} = await remove(`api/v1/group-users/${groupUserId}`);
     if (!error) {
-      store.dispatch({type: DELETE_USER_PAIR, payload: {userPairId}});
+      store.dispatch({type: DELETE_GROUP_USER, payload: {groupUserId}});
       setAlert({message: 'Студент успешно удален', level: 'success'});
     }
     setRequest(false);
@@ -55,7 +62,7 @@ const GroupUsersProvider = ({children}) => {
         request,
         getGroupUsers,
         createGroupUser,
-        deleteUserPair,
+        deleteGroupUser,
       }}>
       {children}
     </GroupUsersContext.Provider>
