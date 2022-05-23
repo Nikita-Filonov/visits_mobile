@@ -7,6 +7,7 @@ import {
   SET_USER_PAIR_VISIT,
   SET_USER_PAIRS,
   SET_VISITS,
+  UPDATE_PAIR,
 } from './actionTypes';
 
 export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
@@ -44,6 +45,13 @@ export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
     case DELETE_PAIR: {
       const {pairId} = action.payload;
       return {...state, pairs: state.pairs.filter(pair => pair.id !== pairId)};
+    }
+    case UPDATE_PAIR: {
+      const {pairId, pair} = action.payload;
+      return {
+        ...state,
+        pairs: state.pairs.map(p => (p.id === pairId ? pair : p)),
+      };
     }
     default:
       return state;

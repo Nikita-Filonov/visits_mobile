@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {TextInput} from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from 'moment';
@@ -16,12 +16,17 @@ export const TimePicker = ({value, onChange, label}) => {
   const onChangeTimeText = async text =>
     await onChangePickerText(value, text, `${PICKER_DATE_FORMAT} ${text}`);
 
+  const nativeTime = useMemo(
+    () => (value ? moment(value, PICKER_TIME_FORMAT) : null),
+    [value],
+  );
+
   return (
     <React.Fragment>
       <TextField
         error={error}
         style={comp.input}
-        value={value ? moment(value).format(PICKER_TIME_FORMAT) : value}
+        value={value ? nativeTime.format(PICKER_TIME_FORMAT) : value}
         onChangeText={onChangeTimeText}
         label={label}
         placeholder={PICKER_TIME_FORMAT}
@@ -49,7 +54,7 @@ export const TimePicker = ({value, onChange, label}) => {
           is24Hour={true}
           display="default"
           mode={'time'}
-          value={value || new Date()}
+          value={nativeTime ? nativeTime.toDate() : new Date()}
           onChange={onPicker}
         />
       )}

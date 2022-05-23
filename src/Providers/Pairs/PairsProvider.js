@@ -2,7 +2,12 @@ import React, {useContext, useEffect, useState} from 'react';
 import {get, patch, post, remove} from '../../Utils/Api/Fetch';
 import {useAuth} from '../AuthProvider';
 import {store} from '../../../index';
-import {DELETE_PAIR, SET_PAIR, SET_PAIRS} from '../../Redux/Pairs/actionTypes';
+import {
+  DELETE_PAIR,
+  SET_PAIR,
+  SET_PAIRS,
+  UPDATE_PAIR,
+} from '../../Redux/Pairs/actionTypes';
 import type {Pair} from '../../Models/Pairs';
 import {navigate} from '../../Components/Navigation/RootNavigation';
 import {useAlerts} from '../AlertsProvider';
@@ -55,8 +60,11 @@ const PairsProvider = ({children}) => {
 
   const updatePair = async (pairId: number, pair: Pair) => {
     setRequest(true);
-    const {error} = await patch(`api/v1/pairs/${pairId}`, pair);
-    !error && store.dispatch({type: DELETE_PAIR, payload: {pairId}});
+    const {error, json} = await patch(`api/v1/pairs/${pairId}`, pair);
+    if (!error) {
+      store.dispatch({type: UPDATE_PAIR, payload: {pairId, pair: json}});
+      setAlert({message: 'Пара успешно обновлена', level: 'success'});
+    }
     setRequest(false);
   };
 

@@ -5,8 +5,10 @@ import {connect} from 'react-redux';
 import {useThemes} from '../../../../Providers/ThemeProvider';
 import {useAlerts} from '../../../../Providers/AlertsProvider';
 import {usePairs} from '../../../../Providers/Pairs/PairsProvider';
+import {setPair} from '../../../../Redux/Pairs/pairsActions';
+import {navigate} from '../../../Navigation/RootNavigation';
 
-const PairItemMenu = ({pair}) => {
+const PairItemMenu = ({pair, setPairStore}) => {
   const [menu, setMenu] = useState(false);
   const {theme} = useThemes();
   const {setConfirmModal} = useAlerts();
@@ -14,8 +16,10 @@ const PairItemMenu = ({pair}) => {
 
   const onClose = () => setMenu(false);
 
-  const onSafeDrop = async () => {
+  const onEdit = async () => {
     onClose();
+    setPairStore({...pair, editMode: true});
+    navigate('CreatePair');
   };
 
   const onDelete = async () => {
@@ -34,7 +38,7 @@ const PairItemMenu = ({pair}) => {
 
   return (
     <CustomMenu menu={menu} setMenu={setMenu} color={theme.text}>
-      <CustomMenuItem onPress={onSafeDrop} title={'Изменить'} />
+      <CustomMenuItem onPress={onEdit} title={'Изменить'} />
       <CustomMenuItem
         onPress={onDelete}
         title={'Удалить'}
@@ -44,4 +48,4 @@ const PairItemMenu = ({pair}) => {
   );
 };
 
-export default connect(null, null)(PairItemMenu);
+export default connect(null, {setPairStore: setPair})(PairItemMenu);
