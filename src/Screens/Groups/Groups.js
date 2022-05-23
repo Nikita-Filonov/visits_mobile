@@ -4,9 +4,9 @@ import {CustomFab} from '../../Components/Common/Fabs/CustomFab';
 import {connect} from 'react-redux';
 import {FlatList, RefreshControl} from 'react-native';
 import {Spinner} from '../../Components/Common/Spinner';
-import PairItem from '../../Components/Items/Pairs/PairItem';
 import {ListSeparator} from '../../Components/Common/ListSeparator';
 import {useGroups} from '../../Providers/Groups/GroupsProvider';
+import {GroupItem} from '../../Components/Items/Groups/GroupItem';
 
 const Groups = ({navigation, groups}) => {
   const {load, getGroups} = useGroups();
@@ -24,7 +24,7 @@ const Groups = ({navigation, groups}) => {
             <RefreshControl refreshing={false} onRefresh={getGroups} />
           }
           ItemSeparatorComponent={ListSeparator}
-          renderItem={({item}) => <PairItem pair={item} />}
+          renderItem={({item}) => <GroupItem pair={item} />}
           keyExtractor={(_, index) => index.toString()}
         />
       )}
