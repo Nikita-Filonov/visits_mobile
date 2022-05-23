@@ -6,6 +6,7 @@ import {GroupsProvider} from '../../../Providers/Groups/GroupsProvider';
 import CreateGroup from '../../../Screens/Groups/CreateGroup';
 import ViewGroup from '../../../Screens/Groups/ViewGroup';
 import {GroupUsersProvider} from '../../../Providers/Groups/GroupUsersProvider';
+import CreateGroupUser from '../../../Screens/Groups/GroupUsers/CreateGroupUser';
 
 const Stack = createStackNavigator();
 
@@ -19,10 +20,17 @@ export const GroupsStack = ({store}) => {
         <Stack.Screen name="CreateGroup" options={STACK_OPTIONS}>
           {props => <CreateGroup {...props} />}
         </Stack.Screen>
-        <Stack.Screen name="ViewGroup">
+        <Stack.Screen name="ViewGroup" options={STACK_OPTIONS}>
           {props => (
             <GroupUsersProvider>
               <ViewGroup {...props} />
+            </GroupUsersProvider>
+          )}
+        </Stack.Screen>
+        <Stack.Screen name="CreateGroupUser" options={STACK_OPTIONS}>
+          {props => (
+            <GroupUsersProvider>
+              <CreateGroupUser {...props} />
             </GroupUsersProvider>
           )}
         </Stack.Screen>
