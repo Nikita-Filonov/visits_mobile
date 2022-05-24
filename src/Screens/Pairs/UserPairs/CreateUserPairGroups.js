@@ -8,6 +8,8 @@ import UserPairGroupItem from '../../../Components/Items/Pairs/UserPairGroupItem
 import {ListSeparator} from '../../../Components/Common/ListSeparator';
 import {Spinner} from '../../../Components/Common/Spinner';
 import type {Pair} from '../../../Models/Pairs';
+import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
+import {goBack} from '../../../Components/Navigation/RootNavigation';
 
 type Props = {
   pair: Pair,
@@ -17,6 +19,7 @@ type Props = {
 const CreateUserPairGroups = (props: Props) => {
   const {pair, groups} = props;
   const {load, getGroups} = useGroups();
+  const {request, createUserPairGroups} = useUserPairs();
   const [selectedGroups, setSelectedGroups] = useState([]);
 
   useEffect(() => {
@@ -33,12 +36,14 @@ const CreateUserPairGroups = (props: Props) => {
       ? setSelectedGroups(selectedGroups.filter(g => g !== groupId))
       : setSelectedGroups([...selectedGroups, groupId]);
 
-  const onCreate = async () => {};
+  const onCreate = async () =>
+    createUserPairGroups(pair.id, selectedGroups).then(() => goBack());
 
   return (
     <ConfirmLayout
       title={'Добавить группу студентов'}
       onConfirm={onCreate}
+      loading={request}
       disabled={isDisabled}>
       {load ? (
         <Spinner />

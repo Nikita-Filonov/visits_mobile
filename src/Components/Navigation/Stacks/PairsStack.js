@@ -66,9 +66,11 @@ export const PairsStack = () => {
         </Stack.Screen>
         <Stack.Screen name="CreateUserPairGroups" options={STACK_OPTIONS}>
           {props => (
-            <GroupsProvider>
-              <CreateUserPairGroups {...props} />
-            </GroupsProvider>
+            <UserPairsProvider>
+              <GroupsProvider>
+                <CreateUserPairGroups {...props} />
+              </GroupsProvider>
+            </UserPairsProvider>
           )}
         </Stack.Screen>
       </Stack.Navigator>

@@ -6,6 +6,7 @@ import {
   SET_USER_PAIR,
   SET_USER_PAIR_VISIT,
   SET_USER_PAIRS,
+  SET_USER_PAIRS_GROUP,
   SET_VISITS,
 } from '../../Redux/Pairs/actionTypes';
 import {Visit} from '../../Models/Visits';
@@ -54,6 +55,19 @@ const UserPairsProvider = ({children}) => {
     return error;
   };
 
+  const createUserPairGroups = async (
+    pairId: number,
+    groups: Array<number>,
+  ) => {
+    setRequest(true);
+    const {error, json} = await post('api/v1/user-pairs/groups', {
+      pairId,
+      groups,
+    });
+    !error && store.dispatch({type: SET_USER_PAIRS_GROUP, payload: json});
+    setRequest(false);
+  };
+
   const deleteUserPair = async (userPairId: number) => {
     setRequest(true);
     const {error} = await remove(`api/v1/user-pairs/${userPairId}`);
@@ -89,6 +103,7 @@ const UserPairsProvider = ({children}) => {
         getVisits,
         getUserPairForLearner,
         deleteUserPair,
+        createUserPairGroups,
       }}>
       {children}
     </UserPairsContext.Provider>

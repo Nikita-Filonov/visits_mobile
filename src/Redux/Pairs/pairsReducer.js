@@ -7,6 +7,7 @@ import {
   SET_USER_PAIR,
   SET_USER_PAIR_VISIT,
   SET_USER_PAIRS,
+  SET_USER_PAIRS_GROUP,
   SET_VISITS,
   UPDATE_PAIR,
 } from './actionTypes';
@@ -63,6 +64,8 @@ export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
         ),
       };
     }
+    case SET_USER_PAIRS_GROUP:
+      return {...state, userPairs: [...state.userPairs, ...action.payload]};
     default:
       return state;
   }
