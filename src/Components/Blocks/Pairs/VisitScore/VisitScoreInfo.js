@@ -9,6 +9,7 @@ import {connect} from 'react-redux';
 import type {Pair} from '../../../../Models/Pairs';
 import type {Visit} from '../../../../Models/Visits';
 import {getVisitsScore} from '../../../../Utils/Helpers/Pair';
+import {CustomText} from '../../../Common/CustomText';
 
 type Props = {
   pair: Pair,
@@ -30,6 +31,10 @@ const VisitScoreInfo = (props: Props) => {
   const onSickLeave = useMemo(
     () => getVisitsScore(visits, VISIT_STATES.onSickLeave, pair.sickScore),
     [pair.sickScore, visits],
+  );
+  const sumOfScores = useMemo(
+    () => missedPair.score + wasOnPair.score + onSickLeave.score,
+    [missedPair.score, onSickLeave.score, wasOnPair.score],
   );
 
   const isShown = useMemo(
@@ -65,6 +70,10 @@ const VisitScoreInfo = (props: Props) => {
           }
         />
       )}
+      <HorizontalDivider />
+      <CustomText style={{fontSize: 17}}>
+        Всего баллов: {sumOfScores}
+      </CustomText>
     </View>
   );
 };
