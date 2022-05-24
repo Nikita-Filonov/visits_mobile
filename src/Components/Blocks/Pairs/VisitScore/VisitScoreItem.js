@@ -3,12 +3,20 @@ import {View} from 'react-native';
 import {CustomText} from '../../../Common/CustomText';
 import {comp} from '../../../../Styles/Blocks';
 
-export const VisitScoreItem = ({stateColor}) => {
+type Props = {
+  stateColor: string,
+  title: string,
+  subtitle: string,
+};
+
+export const VisitScoreItem = (props: Props) => {
+  const {stateColor, title, subtitle} = props;
+
   return (
     <View style={{flexDirection: 'row', alignItems: 'center'}}>
       <View>
-        <CustomText style={{fontSize: 17}}>Баллы за посещения: 1</CustomText>
-        <CustomText>Всего пропусков: 5</CustomText>
+        <CustomText style={{fontSize: 17}}>{title}</CustomText>
+        <CustomText>{subtitle}</CustomText>
       </View>
       <View style={comp.flex} />
       <View

@@ -8,7 +8,7 @@ import {Visit} from '../../../Models/Visits';
 import {PairVisitItem} from '../../../Components/Items/Pairs/PairVisitItem';
 import {ListSeparator} from '../../../Components/Common/ListSeparator';
 import {comp} from '../../../Styles/Blocks';
-import {VisitScoreInfo} from '../../../Components/Blocks/Pairs/VisitScore/VisitScoreInfo';
+import VisitScoreInfo from '../../../Components/Blocks/Pairs/VisitScore/VisitScoreInfo';
 
 type Props = {
   userPair: UserPair,
