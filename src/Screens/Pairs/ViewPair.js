@@ -13,6 +13,7 @@ import {getCameraPermissions} from '../../Utils/Helpers/Permissions';
 import UserPairBottomSheet from '../../Components/Common/BottomSheets/UserPairBottomSheet';
 import {setUserPair} from '../../Redux/Pairs/pairsActions';
 import {goBack, navigate} from '../../Components/Navigation/RootNavigation';
+import {EmptyList} from '../../Components/Blocks/EmptyList';
 
 const ViewPair = ({route, navigation, pair, userPairs, setUserPairStore}) => {
   const {isCreation} = route.params;
@@ -91,6 +92,14 @@ const ViewPair = ({route, navigation, pair, userPairs, setUserPairStore}) => {
               userPair={item}
               checkUsersMode={checkUsersMode}
               openUserSheet={openUserSheet}
+            />
+          )}
+          ListEmptyComponent={() => (
+            <EmptyList
+              title={'В паре пока нет студентов'}
+              description={
+                'Нажмите на плюсик, чтобы добавить студента или отсканируйте QR-код'
+              }
             />
           )}
           ItemSeparatorComponent={ListSeparator}

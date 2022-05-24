@@ -10,6 +10,7 @@ import {ListSeparator} from '../../../Components/Common/ListSeparator';
 import {comp} from '../../../Styles/Blocks';
 import VisitScoreInfo from '../../../Components/Blocks/Pairs/VisitScore/VisitScoreInfo';
 import {Spinner} from '../../../Components/Common/Spinner';
+import {EmptyList} from '../../../Components/Blocks/EmptyList';
 
 type Props = {
   userPair: UserPair,
@@ -38,7 +39,7 @@ const UserPairVisits = (props: Props) => {
         <Spinner />
       ) : (
         <React.Fragment>
-          <VisitScoreInfo />
+          {visits.length > 0 && <VisitScoreInfo />}
           <FlatList
             style={comp.input}
             refreshControl={
@@ -47,6 +48,14 @@ const UserPairVisits = (props: Props) => {
             data={visits}
             renderItem={({item}) => <PairVisitItem visit={item} />}
             keyExtractor={(item, index) => index.toString()}
+            ListEmptyComponent={() => (
+              <EmptyList
+                title={'У студента пока нет посещений'}
+                description={
+                  'Посещения появятся, когда вы отметите студента на паре'
+                }
+              />
+            )}
             ItemSeparatorComponent={ListSeparator}
           />
         </React.Fragment>

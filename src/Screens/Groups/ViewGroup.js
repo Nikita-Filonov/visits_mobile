@@ -8,6 +8,7 @@ import {goBack, navigate} from '../../Components/Navigation/RootNavigation';
 import {useGroupUsers} from '../../Providers/Groups/GroupUsersProvider';
 import {GroupUserItem} from '../../Components/Items/Groups/GroupUserItem';
 import {CustomFab} from '../../Components/Common/Fabs/CustomFab';
+import {EmptyList} from '../../Components/Blocks/EmptyList';
 
 const ViewGroup = ({route, group, groupUsers}) => {
   const {isCreation} = route.params;
@@ -38,6 +39,12 @@ const ViewGroup = ({route, group, groupUsers}) => {
           }
           renderItem={({item}) => <GroupUserItem groupUser={item} />}
           ItemSeparatorComponent={ListSeparator}
+          ListEmptyComponent={() => (
+            <EmptyList
+              title={'В группе пока нет студентов'}
+              description={'Нажмите на плюсик, чтобы добавить студента'}
+            />
+          )}
           keyExtractor={(_, index) => index.toString()}
         />
       )}
