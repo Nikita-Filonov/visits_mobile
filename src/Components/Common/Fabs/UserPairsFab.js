@@ -12,7 +12,7 @@ export const UserPairsFab = () => {
   const onOpen = () => setOpen(!open);
 
   const onCreateUserPair = () => navigate('CreateUserPair');
-  const onCreateUserPairGroup = () => navigate('CreateUserPairGroup');
+  const onCreateUserPairGroup = () => navigate('CreateUserPairGroups');
 
   return (
     <FAB.Group

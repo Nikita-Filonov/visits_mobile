@@ -15,9 +15,10 @@ import {
   PAIRS_ROUTE,
   SCAN_STUDENT_QR_CODE_ROUTE,
   USER_PAIR_VISITS_ROUTE,
-  USER_PAIRS_ROUTE,
   VIEW_PAIR_ROUTE,
 } from '../../../Utils/Routes';
+import {GroupsProvider} from '../../../Providers/Groups/GroupsProvider';
+import CreateUserPairGroups from '../../../Screens/Pairs/UserPairs/CreateUserPairGroups';
 
 const Stack = createStackNavigator();
 
@@ -61,6 +62,13 @@ export const PairsStack = () => {
             <UserPairsProvider>
               <UserPairVisits {...props} />
             </UserPairsProvider>
+          )}
+        </Stack.Screen>
+        <Stack.Screen name="CreateUserPairGroups" options={STACK_OPTIONS}>
+          {props => (
+            <GroupsProvider>
+              <CreateUserPairGroups {...props} />
+            </GroupsProvider>
           )}
         </Stack.Screen>
       </Stack.Navigator>
