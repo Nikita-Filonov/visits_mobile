@@ -48,7 +48,12 @@ const Pairs = ({navigation, pairs}) => {
           ItemSeparatorComponent={ListSeparator}
           renderItem={({item}) => <PairItem pair={item} />}
           ListEmptyComponent={() => (
-            <EmptyList search={search} entities={pairsSearch} />
+            <EmptyList
+              title={'Тут пока нет пар'}
+              description={'Нажмите на плюсик, чтобы создать пару'}
+              search={search}
+              entities={pairsSearch}
+            />
           )}
           keyExtractor={(_, index) => index.toString()}
         />
