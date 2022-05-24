@@ -7,6 +7,8 @@ import {connect} from 'react-redux';
 import {Visit} from '../../../Models/Visits';
 import {PairVisitItem} from '../../../Components/Items/Pairs/PairVisitItem';
 import {ListSeparator} from '../../../Components/Common/ListSeparator';
+import {comp} from '../../../Styles/Blocks';
+import {VisitScoreInfo} from '../../../Components/Blocks/Pairs/VisitScore/VisitScoreInfo';
 
 type Props = {
   userPair: UserPair,
@@ -31,7 +33,9 @@ const UserPairVisits = (props: Props) => {
     <BackLayout
       title={'Посещения'}
       subtitle={`${userPair.user.username}, ${userPair.user.email}`}>
+      <VisitScoreInfo />
       <FlatList
+        style={comp.input}
         refreshControl={
           <RefreshControl refreshing={false} onRefresh={onRefresh} />
         }
