@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {Group} from '../../../Models/Group';
 import {TouchableOpacity, View} from 'react-native';
 import {PairItemStyle} from '../../../Styles/Items';
@@ -10,16 +10,23 @@ import {CustomCheckbox} from '../../Common/Inputs/CustomCheckbox';
 
 type Props = {
   group: Group,
+  selectedGroups: Array<number>,
+  onSelectGroup: (groupId: number, isSelected: boolean) => void,
 };
 const UserPairGroupItem = (props: Props) => {
-  const {group} = props;
+  const {group, selectedGroups, onSelectGroup} = props;
   const {theme} = useThemes();
 
-  const onView = () => {};
+  const isSelected = useMemo(
+    () => selectedGroups.indexOf(group.id) !== -1,
+    [selectedGroups, group],
+  );
+
+  const onSelect = async () => await onSelectGroup(group.id, isSelected);
 
   return (
     <TouchableOpacity
-      onPress={onView}
+      onPress={onSelect}
       style={[
         {backgroundColor: theme.listItem},
         PairItemStyle.container,
@@ -27,7 +34,7 @@ const UserPairGroupItem = (props: Props) => {
       ]}>
       <CustomText style={PairItemStyle.title}>{group.name}</CustomText>
       <View style={comp.flex} />
-      <CustomCheckbox />
+      <CustomCheckbox checked={isSelected} onPress={onSelect} />
     </TouchableOpacity>
   );
 };
