@@ -1,22 +1,14 @@
-import React, {useCallback, useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
-import {SUPPORTED_ACTIONS, useAlerts} from './AlertsProvider';
 import {DEFAULT_USER, TOKEN_BACKUP} from '../Utils/Constants';
-import {get, patch, post} from '../Utils/Api/Fetch';
-import {useTranslation} from 'react-i18next';
+import {get} from '../Utils/Api/Fetch';
 
 const AuthContext = React.createContext(null);
 
 const AuthProvider = ({children}) => {
   const userApi = 'api/v1/user';
-  const {setAlert, successTemplate} = useAlerts();
-  const {t} = useTranslation();
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(DEFAULT_USER);
-  const [request, setRequest] = useState(false);
-  const [errors, setErrors] = useState({});
-
-  const USER = t('components.alerts.instances.user');
 
   useEffect(() => {
     (async () => {
@@ -31,32 +23,6 @@ const AuthProvider = ({children}) => {
     code === 401 && (await onLogout());
     !error && !isLazy && setUser(json);
     return {error, json};
-  };
-
-  const updateUser = useCallback(
-    async payload => {
-      setRequest(true);
-      const {error, json} = await patch(userApi, payload);
-      !error && setUser(json);
-      setAlert(
-        error ? json : successTemplate(USER, SUPPORTED_ACTIONS.update_male),
-      );
-      setRequest(false);
-      return {error, json};
-    },
-    [token],
-  );
-
-  const changePassword = async payload => {
-    setRequest(true);
-    const {error, json} = await post('api/v1/change-password/', payload);
-    if (!error) {
-      setAlert(json);
-      setErrors({});
-    } else {
-      setErrors(json);
-    }
-    setRequest(false);
   };
 
   const onLogout = async () => {
@@ -74,14 +40,10 @@ const AuthProvider = ({children}) => {
       value={{
         user,
         token,
-        errors,
-        request,
         setUser,
         onLogin,
         onLogout,
         getUser,
-        updateUser,
-        changePassword,
       }}>
       {children}
     </AuthContext.Provider>
