@@ -10,6 +10,7 @@ import type {Pair} from '../../../../Models/Pairs';
 import type {Visit} from '../../../../Models/Visits';
 import {getVisitsScore} from '../../../../Utils/Helpers/Pair';
 import {CustomText} from '../../../Common/CustomText';
+import {VisitScoreInfoStyles} from '../../../../Styles/Blocks';
 
 type Props = {
   pair: Pair,
@@ -44,7 +45,10 @@ const VisitScoreInfo = (props: Props) => {
 
   return !isShown ? null : (
     <View
-      style={{backgroundColor: theme.listItem, padding: 12, borderRadius: 4}}>
+      style={[
+        {backgroundColor: theme.listItem},
+        VisitScoreInfoStyles.container,
+      ]}>
       {pair.visitScore && (
         <VisitScoreItem
           title={`Баллы за посещения: ${wasOnPair.score}`}
@@ -71,7 +75,7 @@ const VisitScoreInfo = (props: Props) => {
         />
       )}
       <HorizontalDivider />
-      <CustomText style={{fontSize: 17}}>
+      <CustomText style={VisitScoreInfoStyles.resultTitle}>
         Всего баллов: {sumOfScores}
       </CustomText>
     </View>

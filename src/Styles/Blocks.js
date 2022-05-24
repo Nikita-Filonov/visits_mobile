@@ -384,3 +384,28 @@ export const UserPairsFabStyles = StyleSheet.create({
     paddingBottom: 36,
   },
 });
+
+export const VisitScoreItemStyles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 17,
+  },
+  scoreDot: {
+    width: 20,
+    height: 20,
+    borderRadius: 15,
+  },
+});
+
+export const VisitScoreInfoStyles = StyleSheet.create({
+  container: {
+    padding: 12,
+    borderRadius: 4,
+  },
+  resultTitle: {
+    fontSize: 17,
+  },
+});
