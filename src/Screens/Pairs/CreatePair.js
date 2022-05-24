@@ -73,21 +73,27 @@ const CreatePair = (props: Props) => {
             keyboardType={'decimal-pad'}
             label={'Балы за посещение'}
             value={pair?.visitScore?.toString()}
-            onChangeText={visitScore => setPairStore({...pair, visitScore})}
+            onChangeText={visitScore =>
+              setPairStore({...pair, visitScore: visitScore || null})
+            }
           />
           <TextField
             keyboardType={'decimal-pad'}
             label={'Баллы за пропуск'}
             style={comp.input}
             value={pair?.missedScore?.toString()}
-            onChangeText={missedScore => setPairStore({...pair, missedScore})}
+            onChangeText={missedScore =>
+              setPairStore({...pair, missedScore: missedScore || null})
+            }
           />
           <TextField
             keyboardType={'decimal-pad'}
             label={'Баллы за больничный'}
             style={comp.input}
             value={pair?.sickScore?.toString()}
-            onChangeText={sickScore => setPairStore({...pair, sickScore})}
+            onChangeText={sickScore =>
+              setPairStore({...pair, sickScore: sickScore || null})
+            }
           />
         </React.Fragment>
       )}

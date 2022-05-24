@@ -9,6 +9,7 @@ import {PairVisitItem} from '../../../Components/Items/Pairs/PairVisitItem';
 import {ListSeparator} from '../../../Components/Common/ListSeparator';
 import {comp} from '../../../Styles/Blocks';
 import VisitScoreInfo from '../../../Components/Blocks/Pairs/VisitScore/VisitScoreInfo';
+import {Spinner} from '../../../Components/Common/Spinner';
 
 type Props = {
   userPair: UserPair,
@@ -17,7 +18,7 @@ type Props = {
 
 const UserPairVisits = (props: Props) => {
   const {userPair, visits} = props;
-  const {getVisits} = useUserPairs();
+  const {load, getVisits} = useUserPairs();
 
   useEffect(() => {
     (async () =>
@@ -33,17 +34,23 @@ const UserPairVisits = (props: Props) => {
     <BackLayout
       title={'Посещения'}
       subtitle={`${userPair.user.username}, ${userPair.user.email}`}>
-      <VisitScoreInfo />
-      <FlatList
-        style={comp.input}
-        refreshControl={
-          <RefreshControl refreshing={false} onRefresh={onRefresh} />
-        }
-        data={visits}
-        renderItem={({item}) => <PairVisitItem visit={item} />}
-        keyExtractor={(item, index) => index.toString()}
-        ItemSeparatorComponent={ListSeparator}
-      />
+      {load ? (
+        <Spinner />
+      ) : (
+        <React.Fragment>
+          <VisitScoreInfo />
+          <FlatList
+            style={comp.input}
+            refreshControl={
+              <RefreshControl refreshing={false} onRefresh={onRefresh} />
+            }
+            data={visits}
+            renderItem={({item}) => <PairVisitItem visit={item} />}
+            keyExtractor={(item, index) => index.toString()}
+            ItemSeparatorComponent={ListSeparator}
+          />
+        </React.Fragment>
+      )}
     </BackLayout>
   );
 };
