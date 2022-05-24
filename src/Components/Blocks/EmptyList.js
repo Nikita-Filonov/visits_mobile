@@ -5,12 +5,15 @@ import {ListEmptyStyles} from '../../Styles/Blocks';
 import {useTranslation} from 'react-i18next';
 import {CustomText} from '../Common/CustomText';
 
-export const EmptyList = ({
-  text,
-  description = null,
-  entities = null,
-  search = null,
-}) => {
+type Props = {
+  title: string,
+  description?: string,
+  entities?: Array<Object>,
+  search?: string,
+};
+
+export const EmptyList = (props: Props) => {
+  const {title, description, entities, search} = props;
   const {t} = useTranslation();
 
   return (
@@ -26,7 +29,7 @@ export const EmptyList = ({
         <CustomText style={ListEmptyStyles.title}>
           {entities?.length === 0 && search?.length > 0
             ? t('components.emptyLists.emptySearch.text')
-            : text}
+            : title}
         </CustomText>
         {(description || entities) && (
           <CustomText style={ListEmptyStyles.subtitle}>

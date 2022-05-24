@@ -35,7 +35,7 @@ const PairItem = ({pair, setPairStore}) => {
       (await getUserPairForLearner(pair.id, user.id)) &&
         navigate(USER_PAIR_VISITS_ROUTE);
     }
-  }, [pair, setPairStore]);
+  }, [getUserPairForLearner, isAllowed, pair, setPairStore, user.id]);
 
   return (
     <TouchableOpacity
