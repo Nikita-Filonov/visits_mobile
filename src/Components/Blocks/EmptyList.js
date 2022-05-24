@@ -17,7 +17,7 @@ export const EmptyList = ({
     <View style={ListEmptyStyles.container}>
       <Image
         source={{
-          uri: baseUrl + 'static/images/empty_list.png',
+          uri: baseUrl + 'static/empty.png',
           cache: 'force-cache',
         }}
         style={ListEmptyStyles.image}

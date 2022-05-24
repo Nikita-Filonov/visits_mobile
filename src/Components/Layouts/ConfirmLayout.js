@@ -2,7 +2,7 @@ import React from 'react';
 import {MainView} from './MainView';
 import {Appbar} from 'react-native-paper';
 import {AppBarBack} from '../Common/AppBarBack';
-import {ActivityIndicator, View} from 'react-native';
+import {ActivityIndicator, ScrollView, View} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {AppBar} from '../Common/AppBar';
 import {comp} from '../../Styles/Blocks';
@@ -13,6 +13,7 @@ export const ConfirmLayout = ({
   loading,
   onConfirm,
   onBack,
+  scroll,
   actions,
   disabled,
 }) => {
@@ -35,7 +36,13 @@ export const ConfirmLayout = ({
           }
         />
       </AppBar>
-      <View style={[comp.viewContainer, comp.flex]}>{children}</View>
+      {scroll ? (
+        <ScrollView style={[comp.viewContainer, comp.flex]}>
+          {children}
+        </ScrollView>
+      ) : (
+        <View style={[comp.viewContainer, comp.flex]}>{children}</View>
+      )}
     </MainView>
   );
 };

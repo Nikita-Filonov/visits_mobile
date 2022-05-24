@@ -8,6 +8,7 @@ import {usePairs} from '../../Providers/Pairs/PairsProvider';
 import {PAIRS_INITIAL_STATE} from '../../Redux/Pairs/initialState';
 import {TimePicker} from '../../Components/Common/Inputs/TimePicker';
 import type {Pair} from '../../Models/Pairs';
+import {HorizontalDivider} from '../../Components/Common/HorizontalDivider';
 
 type Props = {
   navigation: any,
@@ -32,13 +33,7 @@ const CreatePair = (props: Props) => {
       endAt: pair.endAt,
     });
 
-  const onUpdate = async () =>
-    updatePair(pair.id, {
-      name: pair.name,
-      room: pair.room,
-      startAt: pair.startAt,
-      endAt: pair.endAt,
-    }).then(() => onBack());
+  const onUpdate = async () => updatePair(pair.id, pair).then(() => onBack());
 
   const onTime = key => time => setPairStore({...pair, [key]: time});
 
@@ -47,6 +42,7 @@ const CreatePair = (props: Props) => {
       title={pair.editMode ? 'Изменить пару' : 'Новый пара'}
       loading={request}
       onBack={onBack}
+      scroll={true}
       onConfirm={pair.editMode ? onUpdate : onCreate}>
       <TextField
         label={'Название пары'}
@@ -70,6 +66,31 @@ const CreatePair = (props: Props) => {
         value={pair.endAt}
         onChange={onTime('endAt')}
       />
+      {pair.editMode && (
+        <React.Fragment>
+          <HorizontalDivider />
+          <TextField
+            keyboardType={'decimal-pad'}
+            label={'Балы за посещение'}
+            value={pair?.visitScore?.toString()}
+            onChangeText={visitScore => setPairStore({...pair, visitScore})}
+          />
+          <TextField
+            keyboardType={'decimal-pad'}
+            label={'Баллы за пропуск'}
+            style={comp.input}
+            value={pair?.missedScore?.toString()}
+            onChangeText={missedScore => setPairStore({...pair, missedScore})}
+          />
+          <TextField
+            keyboardType={'decimal-pad'}
+            label={'Баллы за больничный'}
+            style={comp.input}
+            value={pair?.sickScore?.toString()}
+            onChangeText={sickScore => setPairStore({...pair, sickScore})}
+          />
+        </React.Fragment>
+      )}
     </ConfirmLayout>
   );
 };

@@ -4,5 +4,8 @@ export type Pair = {
   room: string,
   startAt?: string,
   endAt?: string,
+  visitScore?: number,
+  missedScore?: number,
+  sickScore?: number,
   editMode?: boolean,
 };

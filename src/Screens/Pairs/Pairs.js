@@ -12,6 +12,7 @@ import {SearchTextField} from '../../Components/Common/Inputs/SearchTextField';
 import {comp} from '../../Styles/Blocks';
 import {usePermissions} from '../../Providers/PermissionsProvider';
 import {PAIR_PERMISSIONS} from '../../Utils/Helpers/Permissions';
+import {EmptyList} from '../../Components/Blocks/EmptyList';
 
 const Pairs = ({navigation, pairs}) => {
   const {load, getPairs} = usePairs();
@@ -46,6 +47,9 @@ const Pairs = ({navigation, pairs}) => {
           }
           ItemSeparatorComponent={ListSeparator}
           renderItem={({item}) => <PairItem pair={item} />}
+          ListEmptyComponent={() => (
+            <EmptyList search={search} entities={pairsSearch} />
+          )}
           keyExtractor={(_, index) => index.toString()}
         />
       )}
