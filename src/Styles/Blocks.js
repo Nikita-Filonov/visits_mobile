@@ -159,80 +159,6 @@ export const loader = StyleSheet.create({
   },
 });
 
-// Google auth styles
-export const GAStyles = StyleSheet.create({
-  text: {
-    textAlign: 'center',
-    fontFamily: 'IBMPlexSans-Regular',
-    marginTop: '5%',
-  },
-  container: {
-    borderRadius: 30,
-    overflow: 'hidden',
-    width: 40,
-    alignSelf: 'center',
-    marginTop: '5%',
-  },
-  wrapper: {
-    width: 40,
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 30,
-  },
-  image: {
-    width: 30,
-    height: 30,
-  },
-});
-
-// Under timer comment styles
-export const UTCStyles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  text: {
-    marginBottom: 10,
-    marginHorizontal: 10,
-    fontSize: 15,
-    flex: 6,
-    flexWrap: 'wrap',
-  },
-  close: {
-    marginRight: 10,
-  },
-});
-
-export const pagination = StyleSheet.create({
-  page: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-  },
-  container: {
-    marginBottom: '5%',
-    marginTop: 5,
-    flexDirection: 'row',
-  },
-  arrowsSeparator: {
-    width: 7,
-  },
-  itemSeparator: {
-    width: 5,
-  },
-  list: {
-    alignSelf: 'center',
-  },
-  listContainer: {
-    flexGrow: 1,
-    justifyContent: 'center',
-  },
-});
-
 export const AlertMessageStyles = StyleSheet.create({
   container: {
     width: '100%',
@@ -300,56 +226,6 @@ export const DrawerHeaderStyles = StyleSheet.create({
   },
   divider: {
     marginBottom: 10,
-  },
-});
-
-export const GroupSectionHeaderStyles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderRadius: 6,
-  },
-  title: {
-    fontSize: 17,
-    marginVertical: 15,
-    marginLeft: 15,
-  },
-});
-
-export const DataGridStyles = StyleSheet.create({
-  headerContainer: {
-    flexDirection: 'row',
-    flex: 1,
-    marginTop: 10,
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
-    borderLeftWidth: 0.3,
-    borderRightWidth: 0.3,
-    borderTopWidth: 0.3,
-  },
-  headerWrapper: {
-    padding: 5,
-    paddingLeft: 10,
-  },
-  rowContainer: {
-    flexDirection: 'row',
-    flex: 1,
-    borderTopWidth: 0.3,
-    borderLeftWidth: 0.3,
-    borderRightWidth: 0.3,
-  },
-  rowWrapper: {
-    padding: 5,
-    paddingLeft: 10,
-    justifyContent: 'center',
-  },
-  footerContainer: {
-    height: 5,
-    borderBottomWidth: 0.3,
-    borderLeftWidth: 0.3,
-    borderRightWidth: 0.3,
-    borderBottomLeftRadius: 5,
-    borderBottomRightRadius: 5,
   },
 });
 
