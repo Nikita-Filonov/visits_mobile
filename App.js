@@ -19,9 +19,6 @@ enableScreens();
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-// TODO стоит сдлеать либо отдельный скрин, либо на этом же сделать мод для отмечания стдентов
-// TODO отмечать студентов можно только во время пары
-// TODO при отмечании пользователя создавать visit
 export const App = ({store}) => {
   const {token} = useAuth();
   const [loader, setLoader] = useState(true);

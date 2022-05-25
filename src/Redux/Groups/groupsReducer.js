@@ -20,11 +20,11 @@ export const groupsReducer = (state = GROUPS_INITIAL_STATE, action) => {
       return {...state, groups: action.payload};
     }
     case SET_GROUP_USERS: {
-      if (action.payload?.id) {
-        return {...state, groupUsers: [...state.groupUsers, action.payload]};
-      }
-
-      return {...state, groupUsers: action.payload};
+      const groupUsers = [...state.groupUsers, ...action.payload].filter(
+        (value, index, self) =>
+          index === self.findIndex(groupUser => groupUser.id === value.id),
+      );
+      return {...state, groupUsers};
     }
     case DELETE_GROUP_USER: {
       const {groupUserId} = action.payload;

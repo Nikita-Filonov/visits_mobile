@@ -49,8 +49,6 @@ export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
       return {...state, pairs: state.pairs.filter(pair => pair.id !== pairId)};
     }
     case UPDATE_PAIR: {
-      // TODO переписать на множественное добавление
-      // TODO при добавлении убирать дупликаты
       const {pairId, pair} = action.payload;
       return {
         ...state,
