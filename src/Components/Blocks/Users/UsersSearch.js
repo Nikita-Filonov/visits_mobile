@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {useAuth} from '../../../Providers/AuthProvider';
-import {FlatList} from 'react-native';
 import type {User} from '../../../Models/User';
 import {UsersSearchTextField} from '../../Common/Inputs/UsersSearchTextField';
 import {SearchUserItem} from '../../Items/Users/SearchUserItem';
 import {EmptyList} from '../EmptyList';
 import {ListSeparator} from '../../Common/ListSeparator';
 import {comp} from '../../../Styles/Blocks';
+import {CustomFlatList} from '../../Common/CustomFlatList';
 
 type Props = {
   selectedUsers: User[],
@@ -52,7 +52,7 @@ export const UsersSearch = (props: Props) => {
         onChangeText={setEmailOrUsername}
       />
       {users.length > 0 || emailOrUsername.length > 0 ? (
-        <FlatList
+        <CustomFlatList
           style={comp.input}
           removeClippedSubviews={true}
           data={users}
@@ -63,19 +63,19 @@ export const UsersSearch = (props: Props) => {
               onSelectUser={onSelectUser}
             />
           )}
-          ListEmptyComponent={() => (
+          ListEmptyComponent={
             <EmptyList
               title={'Нет результатов'}
               description={
                 'Ксожалению мы не смогли найти студента по вашему запросу'
               }
             />
-          )}
+          }
           ItemSeparatorComponent={ListSeparator}
           keyExtractor={(item, index) => index.toString()}
         />
       ) : (
-        <FlatList
+        <CustomFlatList
           style={comp.input}
           removeClippedSubviews={true}
           data={selectedUsers}
@@ -87,12 +87,12 @@ export const UsersSearch = (props: Props) => {
             />
           )}
           ItemSeparatorComponent={ListSeparator}
-          ListEmptyComponent={() => (
+          ListEmptyComponent={
             <EmptyList
               title={'Нет выбранных пользователей'}
               description={'Начните вводить ФИО или почту студента'}
             />
-          )}
+          }
           keyExtractor={(item, index) => index.toString()}
         />
       )}

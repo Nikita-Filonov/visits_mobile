@@ -2,11 +2,11 @@ import React from 'react';
 import {FlatList} from 'react-native';
 
 type Props = {
-  style: Array | Object,
+  style?: Array | Object,
   data: Array,
-  refreshControl: React.ReactNode,
-  ItemSeparatorComponent: React.ReactNode,
-  ListEmptyComponent: React.ReactNode,
+  refreshControl?: React.ReactNode,
+  ItemSeparatorComponent?: React.ReactNode,
+  ListEmptyComponent?: React.ReactNode,
   renderItem: () => void,
   keyExtractor: () => void,
 };

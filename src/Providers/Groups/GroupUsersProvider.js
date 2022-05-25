@@ -26,17 +26,9 @@ const GroupUsersProvider = ({children}) => {
     users: Array<number>,
   ): Promise<boolean> => {
     setRequest(true);
-    const {error, json} = await post('api/v1/group-users', {
-      groupId,
-      ...payload,
-    });
+    const {error, json} = await post('api/v1/group-users', {groupId, users});
 
-    !error
-      ? store.dispatch({type: SET_GROUP_USERS, payload: json})
-      : setAlert({
-          message: `Пользователь "${emailOrUsername}" не найден`,
-          level: 'error',
-        });
+    !error && store.dispatch({type: SET_GROUP_USERS, payload: json});
     setRequest(false);
 
     return error;
