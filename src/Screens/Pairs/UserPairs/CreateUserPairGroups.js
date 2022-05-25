@@ -3,13 +3,14 @@ import {ConfirmLayout} from '../../../Components/Layouts/ConfirmLayout';
 import {connect} from 'react-redux';
 import {useGroups} from '../../../Providers/Groups/GroupsProvider';
 import type {Group} from '../../../Models/Group';
-import {FlatList} from 'react-native';
 import UserPairGroupItem from '../../../Components/Items/Pairs/UserPairGroupItem';
 import {ListSeparator} from '../../../Components/Common/ListSeparator';
 import {Spinner} from '../../../Components/Common/Spinner';
 import type {Pair} from '../../../Models/Pairs';
 import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 import {goBack} from '../../../Components/Navigation/RootNavigation';
+import {CustomFlatList} from '../../../Components/Common/CustomFlatList';
+import {EmptyList} from '../../../Components/Blocks/EmptyList';
 
 type Props = {
   pair: Pair,
@@ -48,7 +49,7 @@ const CreateUserPairGroups = (props: Props) => {
       {load ? (
         <Spinner />
       ) : (
-        <FlatList
+        <CustomFlatList
           data={groups}
           renderItem={({item}) => (
             <UserPairGroupItem
@@ -57,6 +58,14 @@ const CreateUserPairGroups = (props: Props) => {
               onSelectGroup={onSelectGroup}
             />
           )}
+          ListEmptyComponent={
+            <EmptyList
+              title={'Тут пока нет групп на выбор'}
+              description={
+                'Перейдите в раздел "Группы", чтобы создать новую группу'
+              }
+            />
+          }
           ItemSeparatorComponent={ListSeparator}
           keyExtractor={(_, index) => index.toString()}
         />

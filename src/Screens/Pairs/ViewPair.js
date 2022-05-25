@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {BackLayout} from '../../Components/Layouts/BackLayout';
 import {useUserPairs} from '../../Providers/Pairs/UserPairsProvider';
 import {UserPairsFab} from '../../Components/Common/Fabs/UserPairsFab';
-import {FlatList, RefreshControl} from 'react-native';
+import {RefreshControl} from 'react-native';
 import {UserPairItem} from '../../Components/Items/Pairs/UserPairItem';
 import {ListSeparator} from '../../Components/Common/ListSeparator';
 import {Spinner} from '../../Components/Common/Spinner';
@@ -14,6 +14,7 @@ import UserPairBottomSheet from '../../Components/Common/BottomSheets/UserPairBo
 import {setUserPair} from '../../Redux/Pairs/pairsActions';
 import {goBack, navigate} from '../../Components/Navigation/RootNavigation';
 import {EmptyList} from '../../Components/Blocks/EmptyList';
+import {CustomFlatList} from '../../Components/Common/CustomFlatList';
 
 const ViewPair = ({route, navigation, pair, userPairs, setUserPairStore}) => {
   const {isCreation} = route.params;
@@ -60,7 +61,7 @@ const ViewPair = ({route, navigation, pair, userPairs, setUserPairStore}) => {
       {load ? (
         <Spinner />
       ) : (
-        <FlatList
+        <CustomFlatList
           data={userPairs}
           refreshControl={
             <RefreshControl refreshing={false} onRefresh={onRefresh} />
@@ -68,14 +69,14 @@ const ViewPair = ({route, navigation, pair, userPairs, setUserPairStore}) => {
           renderItem={({item}) => (
             <UserPairItem userPair={item} openUserSheet={openUserSheet} />
           )}
-          ListEmptyComponent={() => (
+          ListEmptyComponent={
             <EmptyList
               title={'В паре пока нет студентов'}
               description={
                 'Нажмите на плюсик, чтобы добавить студента или отсканируйте QR-код'
               }
             />
-          )}
+          }
           ItemSeparatorComponent={ListSeparator}
           keyExtractor={(_, index) => index.toString()}
         />

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {BackLayout} from '../../../Components/Layouts/BackLayout';
 import {UserPair} from '../../../Models/UserPair';
 import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
-import {FlatList, RefreshControl} from 'react-native';
+import {RefreshControl} from 'react-native';
 import {connect} from 'react-redux';
 import {Visit} from '../../../Models/Visits';
 import {PairVisitItem} from '../../../Components/Items/Pairs/PairVisitItem';
@@ -11,6 +11,7 @@ import {comp} from '../../../Styles/Blocks';
 import VisitScoreInfo from '../../../Components/Blocks/Pairs/VisitScore/VisitScoreInfo';
 import {Spinner} from '../../../Components/Common/Spinner';
 import {EmptyList} from '../../../Components/Blocks/EmptyList';
+import {CustomFlatList} from '../../../Components/Common/CustomFlatList';
 
 type Props = {
   userPair: UserPair,
@@ -40,7 +41,7 @@ const UserPairVisits = (props: Props) => {
       ) : (
         <React.Fragment>
           {visits.length > 0 && <VisitScoreInfo />}
-          <FlatList
+          <CustomFlatList
             style={comp.input}
             refreshControl={
               <RefreshControl refreshing={false} onRefresh={onRefresh} />
@@ -48,14 +49,14 @@ const UserPairVisits = (props: Props) => {
             data={visits}
             renderItem={({item}) => <PairVisitItem visit={item} />}
             keyExtractor={(item, index) => index.toString()}
-            ListEmptyComponent={() => (
+            ListEmptyComponent={
               <EmptyList
                 title={'У студента пока нет посещений'}
                 description={
                   'Посещения появятся, когда вы отметите студента на паре'
                 }
               />
-            )}
+            }
             ItemSeparatorComponent={ListSeparator}
           />
         </React.Fragment>
