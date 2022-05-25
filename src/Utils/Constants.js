@@ -71,7 +71,7 @@ export const DISABLE_SWIPE = {
 };
 
 export const DEFAULT_THEME_SETTINGS = {
-  themeMode: 'dark',
+  themeMode: 'default',
   snackbar: {
     show: true,
   },

@@ -77,8 +77,8 @@ const ThemeProvider = ({children, store}) => {
       colors: {
         primary: theme?.button?.primary,
         underlineColor: 'transparent',
-        text: theme.text,
-        placeholder: theme.text,
+        text: theme?.text,
+        placeholder: theme?.text,
       },
     }),
     [theme],

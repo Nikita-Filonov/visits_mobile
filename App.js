@@ -11,7 +11,7 @@ import {useAuth} from './src/Providers/AuthProvider';
 import {LoginStack} from './src/Components/Navigation/Stacks/LoginStack';
 import {STACK_OPTIONS} from './src/Utils/Constants';
 import {navigationRef} from './src/Components/Navigation/RootNavigation';
-import {setupDefaultGroup, setupReduxStore} from './src/Redux/Setup';
+import {setupReduxStore} from './src/Redux/Setup';
 import {DrawerNavigator} from './src/Components/Navigation/DrawerNavigator';
 
 enableScreens();
@@ -28,7 +28,6 @@ export const App = ({store}) => {
   }, []);
 
   const onLoadApp = async () => {
-    await setupDefaultGroup(store);
     await setupReduxStore(store);
     setLoader(false);
   };
