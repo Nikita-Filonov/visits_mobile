@@ -71,7 +71,7 @@ const CreatePair = (props: Props) => {
           <HorizontalDivider />
           <TextField
             keyboardType={'decimal-pad'}
-            label={'Балы за посещение'}
+            label={'Баллы за посещение'}
             value={pair?.visitScore?.toString()}
             onChangeText={visitScore =>
               setPairStore({...pair, visitScore: visitScore || null})
