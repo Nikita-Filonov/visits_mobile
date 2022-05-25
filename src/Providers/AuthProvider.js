@@ -44,9 +44,9 @@ const AuthProvider = ({children}) => {
     setToken(null);
   };
 
-  const onLogin = async token => {
-    setToken(token);
-    await AsyncStorage.setItem(TOKEN_BACKUP, token);
+  const onLogin = async (authToken: string) => {
+    setToken(authToken);
+    await AsyncStorage.setItem(TOKEN_BACKUP, authToken);
   };
 
   return (
