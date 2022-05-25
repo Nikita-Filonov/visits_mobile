@@ -3,7 +3,7 @@ import {DrawerLayout} from '../../Components/Layouts/DrawerLayout';
 import {CustomFab} from '../../Components/Common/Fabs/CustomFab';
 import {connect} from 'react-redux';
 import {ReduxStore} from '../../Models/Store';
-import {FlatList, RefreshControl} from 'react-native';
+import {RefreshControl} from 'react-native';
 import {usePairs} from '../../Providers/Pairs/PairsProvider';
 import {Spinner} from '../../Components/Common/Spinner';
 import PairItem from '../../Components/Items/Pairs/PairItem';
@@ -13,6 +13,7 @@ import {comp} from '../../Styles/Blocks';
 import {usePermissions} from '../../Providers/PermissionsProvider';
 import {PAIR_PERMISSIONS} from '../../Utils/Helpers/Permissions';
 import {EmptyList} from '../../Components/Blocks/EmptyList';
+import {CustomFlatList} from '../../Components/Common/CustomFlatList';
 
 const Pairs = ({navigation, pairs}) => {
   const {load, getPairs} = usePairs();
@@ -39,7 +40,7 @@ const Pairs = ({navigation, pairs}) => {
       {load ? (
         <Spinner />
       ) : (
-        <FlatList
+        <CustomFlatList
           style={[comp.input]}
           data={pairsSearch}
           refreshControl={
@@ -47,14 +48,14 @@ const Pairs = ({navigation, pairs}) => {
           }
           ItemSeparatorComponent={ListSeparator}
           renderItem={({item}) => <PairItem pair={item} />}
-          ListEmptyComponent={() => (
+          ListEmptyComponent={
             <EmptyList
               title={'Тут пока нет пар'}
               description={'Нажмите на плюсик, чтобы создать пару'}
               search={search}
               entities={pairsSearch}
             />
-          )}
+          }
           keyExtractor={(_, index) => index.toString()}
         />
       )}
