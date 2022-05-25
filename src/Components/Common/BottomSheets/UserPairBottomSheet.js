@@ -19,7 +19,7 @@ const UserPairBottomSheet = forwardRef((props: Props, ref) => {
   const {setConfirmModal} = useAlerts();
 
   const bottomSheerHeight = useMemo(
-    () => Dimensions.get('window').height / 3,
+    () => Dimensions.get('window').height / 2.45,
     [],
   );
 
@@ -60,6 +60,11 @@ const UserPairBottomSheet = forwardRef((props: Props, ref) => {
       ref={ref}
       height={bottomSheerHeight}
       snapPoints={[bottomSheerHeight, 200, 0]}>
+      <BottomSheetItem
+        title={'Был на паре'}
+        iconName={'account-check-outline'}
+        onPress={onSetVisit(VISIT_STATES.wasOnPair)}
+      />
       <BottomSheetItem
         title={'Отметить пропуск'}
         iconName={'account-remove-outline'}
