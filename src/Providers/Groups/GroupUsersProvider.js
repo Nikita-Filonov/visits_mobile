@@ -6,7 +6,6 @@ import {
   DELETE_GROUP_USER,
   SET_GROUP_USERS,
 } from '../../Redux/Groups/actionTypes';
-import {getEmailOrUsername} from '../../Utils/Helpers/Validators';
 
 const GroupUsersContext = React.createContext(null);
 
@@ -24,11 +23,9 @@ const GroupUsersProvider = ({children}) => {
 
   const createGroupUser = async (
     groupId: number,
-    emailOrUsername: string,
+    users: Array<number>,
   ): Promise<boolean> => {
     setRequest(true);
-    const payload = await getEmailOrUsername(emailOrUsername);
-
     const {error, json} = await post('api/v1/group-users', {
       groupId,
       ...payload,

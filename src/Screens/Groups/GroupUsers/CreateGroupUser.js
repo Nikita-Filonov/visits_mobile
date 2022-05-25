@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import {ConfirmLayout} from '../../../Components/Layouts/ConfirmLayout';
-import {TextField} from '../../../Components/Common/Inputs/TextField';
-import {comp} from '../../../Styles/Blocks';
 import {connect} from 'react-redux';
 import type {Group} from '../../../Models/Group';
 import {useGroupUsers} from '../../../Providers/Groups/GroupUsersProvider';
+import {UsersSearch} from '../../../Components/Blocks/Users/UsersSearch';
 
 type Props = {
   navigation: any,
@@ -14,21 +13,22 @@ type Props = {
 const CreateGroupUser = (props: Props) => {
   const {navigation, group} = props;
   const {request, createGroupUser} = useGroupUsers();
-  const [emailOrUsername, setEmailOrUsername] = useState('');
+  const [selectedUsers, setSelectedUsers] = useState([]);
 
   const onCreate = async () =>
-    !(await createGroupUser(group.id, emailOrUsername)) && navigation.goBack();
+    !(await createGroupUser(
+      group.id,
+      selectedUsers.map(user => user.id),
+    )) && navigation.goBack();
 
   return (
     <ConfirmLayout
-      title={'Добавить студента'}
+      title={'Добавить студентов'}
       onConfirm={onCreate}
       loading={request}>
-      <TextField
-        label={'Электронный адрес или Фамилия Имя'}
-        style={comp.input}
-        value={emailOrUsername}
-        onChangeText={setEmailOrUsername}
+      <UsersSearch
+        selectedUsers={selectedUsers}
+        setSelectedUsers={setSelectedUsers}
       />
     </ConfirmLayout>
   );

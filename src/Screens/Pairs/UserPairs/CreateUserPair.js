@@ -16,7 +16,7 @@ const CreateUserPair = ({navigation, pair}) => {
 
   return (
     <ConfirmLayout
-      title={'Добавить студента'}
+      title={'Добавить студентов'}
       onConfirm={onCreate}
       loading={request}>
       <UsersSearch
