@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import {DEFAULT_USER, TOKEN_BACKUP} from '../Utils/Constants';
 import {get} from '../Utils/Api/Fetch';
+import type {User} from '../Models/User';
 
 const AuthContext = React.createContext(null);
 
@@ -25,6 +26,19 @@ const AuthProvider = ({children}) => {
     return {error, json};
   };
 
+  const getUsersQuery = async (
+    email: string,
+    username: string,
+    limit: number = 10,
+  ): Promise<User> => {
+    const {error, json} = await get(`${userApi}/query`, {
+      limit,
+      email,
+      username,
+    });
+    return error ? [] : json;
+  };
+
   const onLogout = async () => {
     await AsyncStorage.removeItem(TOKEN_BACKUP);
     setToken(null);
@@ -44,6 +58,7 @@ const AuthProvider = ({children}) => {
         onLogin,
         onLogout,
         getUser,
+        getUsersQuery,
       }}>
       {children}
     </AuthContext.Provider>

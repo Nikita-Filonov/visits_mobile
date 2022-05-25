@@ -25,11 +25,11 @@ export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
     case SET_USER_PAIR:
       return {...state, userPair: action.payload};
     case SET_USER_PAIRS: {
-      if (action.payload?.id) {
-        return {...state, userPairs: [...state.userPairs, action.payload]};
-      }
-
-      return {...state, userPairs: action.payload};
+      const userPairs = [...state.userPairs, ...action.payload].filter(
+        (value, index, self) =>
+          index === self.findIndex(userPair => userPair.id === value.id),
+      );
+      return {...state, userPairs};
     }
     case SET_USER_PAIR_VISIT: {
       const {userId} = action.payload;
@@ -49,6 +49,8 @@ export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
       return {...state, pairs: state.pairs.filter(pair => pair.id !== pairId)};
     }
     case UPDATE_PAIR: {
+      // TODO переписать на множественное добавление
+      // TODO при добавлении убирать дупликаты
       const {pairId, pair} = action.payload;
       return {
         ...state,

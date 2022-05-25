@@ -1,29 +1,21 @@
 import React, {useState} from 'react';
 import {ConfirmLayout} from '../../../Components/Layouts/ConfirmLayout';
-import {TextField} from '../../../Components/Common/Inputs/TextField';
-import {comp} from '../../../Styles/Blocks';
 import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 import {connect} from 'react-redux';
 
 const CreateUserPair = ({navigation, pair}) => {
   const {request, createUserPair} = useUserPairs();
-  const [emailOrUsername, setEmailOrUsername] = useState('');
+  const [selectedUsers, setSelectedUsers] = useState([]);
 
   const onCreate = async () =>
-    !(await createUserPair(pair.id, emailOrUsername)) && navigation.goBack();
+    !(await createUserPair(pair.id, selectedUsers)) && navigation.goBack();
 
   return (
     <ConfirmLayout
       title={'Добавить студента'}
       onConfirm={onCreate}
-      loading={request}>
-      <TextField
-        label={'Электронный адрес или Фамилия Имя'}
-        style={comp.input}
-        value={emailOrUsername}
-        onChangeText={setEmailOrUsername}
-      />
-    </ConfirmLayout>
+      loading={request}
+    />
   );
 };
 
