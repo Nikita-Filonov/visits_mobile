@@ -23,7 +23,9 @@ const ConfirmEmail = ({user}) => {
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => setEmail(user?.email), [user?.email]);
-  useEffect(() => seconds === 0 && clearInterval(interval.current), [seconds]);
+  useEffect(() => {
+    seconds === 0 && clearInterval(interval.current);
+  }, [seconds]);
 
   useEffect(() => {
     if (!disabled) {

@@ -11,6 +11,7 @@ import {PasswordTextField} from '../../Components/Common/Inputs/PasswordTextFiel
 import {BackLayout} from '../../Components/Layouts/BackLayout';
 import {connect} from 'react-redux';
 import {setUser} from '../../Redux/Users/usersActions';
+import {AlertMessage} from '../../Components/Common/AlertMessage';
 
 const Registration = ({navigation, setUser}) => {
   const {t} = useTranslation();
@@ -19,14 +20,14 @@ const Registration = ({navigation, setUser}) => {
   const [password1, setP1] = useState('');
   const [password2, setP2] = useState('');
   const [request, setRequest] = useState(false);
-  const [error, setError] = useState({});
+  const [alert, setAlert] = useState(false);
 
   const createUser = async () => {
     setRequest(true);
     const payload = {username, email, password2, password: password1};
-    const {error, json} = await post('api/v1/registration/', payload, false);
+    const {error, json} = await post('api/v1/user/', payload, false);
     if (error) {
-      setError(json);
+      setAlert(error);
     } else {
       setUser(json);
       navigation.navigate('ConfirmEmail');
@@ -41,12 +42,20 @@ const Registration = ({navigation, setUser}) => {
       header={false}>
       <ScrollView>
         <CustomText style={LPStyles.title}>Visits</CustomText>
+        {alert && (
+          <AlertMessage
+            level={'error'}
+            message={
+              'Произошла ошибка. Попробуйте проверить правильность данных'
+            }
+            style={LPStyles.alert}
+          />
+        )}
         <TextField
           value={username}
           onChangeText={setUsername}
           label={t('registration.username')}
           placeholder={'MyGameUsername'}
-          error={error?.username && error.username.join('\n')}
         />
         <TextField
           style={comp.input}
@@ -54,21 +63,18 @@ const Registration = ({navigation, setUser}) => {
           onChangeText={setEmail}
           label={t('login.email')}
           placeholder={'my.email@gmail.com'}
-          error={error?.email && error.email.join('\n')}
         />
         <PasswordTextField
           style={comp.input}
           value={password1}
           onChangeText={setP1}
           label={t('login.password')}
-          error={error?.password && error.password.join('\n')}
         />
         <PasswordTextField
           style={comp.input}
           value={password2}
           onChangeText={setP2}
           label={t('profile.changePassword.confirmThePassword')}
-          error={error?.password2 && error.password2.join('\n')}
         />
         <CustomButton
           loading={request}
