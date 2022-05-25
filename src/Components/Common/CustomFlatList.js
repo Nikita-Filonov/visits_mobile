@@ -23,7 +23,12 @@ export const CustomFlatList = (props: Props) => {
   } = props;
 
   return data.length === 0 ? (
-    ListEmptyComponent
+    <FlatList
+      data={[]}
+      renderItem={_ => null}
+      refreshControl={refreshControl}
+      ListHeaderComponent={ListEmptyComponent}
+    />
   ) : (
     <FlatList
       keyboardDismissMode={'handled'}
@@ -31,6 +36,7 @@ export const CustomFlatList = (props: Props) => {
       data={data}
       refreshControl={refreshControl}
       ItemSeparatorComponent={ItemSeparatorComponent}
+      ListEmptyComponent={ListEmptyComponent}
       renderItem={renderItem}
       keyExtractor={keyExtractor}
     />

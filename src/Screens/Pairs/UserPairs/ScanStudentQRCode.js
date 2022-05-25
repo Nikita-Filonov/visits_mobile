@@ -10,7 +10,7 @@ import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 const ScanStudentQRCode = ({navigation, pair}) => {
   const {setAlert} = useAlerts();
   const {isFocused} = useNavigation();
-  const {request, createVisit} = useUserPairs();
+  const {createVisit} = useUserPairs();
   const [qrCodes, setRQCodes] = useState([]);
 
   const createStudentVisit = async (qrCodesFromVision: Array) => {
