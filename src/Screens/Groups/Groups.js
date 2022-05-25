@@ -11,12 +11,17 @@ import {SearchTextField} from '../../Components/Common/Inputs/SearchTextField';
 import {comp} from '../../Styles/Blocks';
 import {EmptyList} from '../../Components/Blocks/EmptyList';
 import {CustomFlatList} from '../../Components/Common/CustomFlatList';
+import {GROUPS_INITIAL_STATE} from '../../Redux/Groups/initialState';
+import {setGroup} from '../../Redux/Groups/groupsActions';
 
-const Groups = ({navigation, groups}) => {
+const Groups = ({navigation, groups, setGroupStore}) => {
   const {load, getGroups} = useGroups();
   const [search, setSearch] = useState('');
 
-  const onCreate = () => navigation.navigate('CreateGroup');
+  const onCreate = () => {
+    setGroupStore(GROUPS_INITIAL_STATE.group);
+    navigation.navigate('CreateGroup');
+  };
 
   const groupsSearch = useMemo(
     () =>
@@ -61,4 +66,4 @@ const Groups = ({navigation, groups}) => {
 };
 
 const getState = state => ({groups: state.groups.groups});
-export default connect(getState, null)(Groups);
+export default connect(getState, {setGroupStore: setGroup})(Groups);

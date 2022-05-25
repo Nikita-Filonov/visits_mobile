@@ -14,13 +14,18 @@ import {usePermissions} from '../../Providers/PermissionsProvider';
 import {PAIR_PERMISSIONS} from '../../Utils/Helpers/Permissions';
 import {EmptyList} from '../../Components/Blocks/EmptyList';
 import {CustomFlatList} from '../../Components/Common/CustomFlatList';
+import {setPair} from '../../Redux/Pairs/pairsActions';
+import {PAIRS_INITIAL_STATE} from '../../Redux/Pairs/initialState';
 
-const Pairs = ({navigation, pairs}) => {
+const Pairs = ({navigation, pairs, setPairStore}) => {
   const {load, getPairs} = usePairs();
   const {isAllowed} = usePermissions();
   const [search, setSearch] = useState('');
 
-  const onCreate = () => navigation.navigate('CreatePair');
+  const onCreate = () => {
+    setPairStore(PAIRS_INITIAL_STATE.pair);
+    navigation.navigate('CreatePair');
+  };
 
   const pairsSearch = useMemo(
     () =>
@@ -67,4 +72,4 @@ const Pairs = ({navigation, pairs}) => {
 };
 
 const getState = (state: ReduxStore) => ({pairs: state.pairs.pairs});
-export default connect(getState, null)(Pairs);
+export default connect(getState, {setPairStore: setPair})(Pairs);

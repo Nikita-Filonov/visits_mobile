@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {BackLayout} from '../../Components/Layouts/BackLayout';
-import {FlatList, RefreshControl} from 'react-native';
+import {RefreshControl} from 'react-native';
 import {ListSeparator} from '../../Components/Common/ListSeparator';
 import {Spinner} from '../../Components/Common/Spinner';
 import {goBack, navigate} from '../../Components/Navigation/RootNavigation';
@@ -9,6 +9,7 @@ import {useGroupUsers} from '../../Providers/Groups/GroupUsersProvider';
 import {GroupUserItem} from '../../Components/Items/Groups/GroupUserItem';
 import {CustomFab} from '../../Components/Common/Fabs/CustomFab';
 import {EmptyList} from '../../Components/Blocks/EmptyList';
+import {CustomFlatList} from '../../Components/Common/CustomFlatList';
 
 const ViewGroup = ({route, group, groupUsers}) => {
   const {isCreation} = route.params;
@@ -32,19 +33,19 @@ const ViewGroup = ({route, group, groupUsers}) => {
       {load ? (
         <Spinner />
       ) : (
-        <FlatList
+        <CustomFlatList
           data={groupUsers}
           refreshControl={
             <RefreshControl refreshing={false} onRefresh={onRefresh} />
           }
           renderItem={({item}) => <GroupUserItem groupUser={item} />}
           ItemSeparatorComponent={ListSeparator}
-          ListEmptyComponent={() => (
+          ListEmptyComponent={
             <EmptyList
               title={'В группе пока нет студентов'}
               description={'Нажмите на плюсик, чтобы добавить студента'}
             />
-          )}
+          }
           keyExtractor={(_, index) => index.toString()}
         />
       )}
