@@ -2,7 +2,7 @@ import React, {useMemo, useState} from 'react';
 import {DrawerLayout} from '../../Components/Layouts/DrawerLayout';
 import {CustomFab} from '../../Components/Common/Fabs/CustomFab';
 import {connect} from 'react-redux';
-import {FlatList, RefreshControl} from 'react-native';
+import {RefreshControl} from 'react-native';
 import {Spinner} from '../../Components/Common/Spinner';
 import {ListSeparator} from '../../Components/Common/ListSeparator';
 import {useGroups} from '../../Providers/Groups/GroupsProvider';
@@ -10,6 +10,7 @@ import GroupItem from '../../Components/Items/Groups/GroupItem';
 import {SearchTextField} from '../../Components/Common/Inputs/SearchTextField';
 import {comp} from '../../Styles/Blocks';
 import {EmptyList} from '../../Components/Blocks/EmptyList';
+import {CustomFlatList} from '../../Components/Common/CustomFlatList';
 
 const Groups = ({navigation, groups}) => {
   const {load, getGroups} = useGroups();
@@ -35,7 +36,7 @@ const Groups = ({navigation, groups}) => {
       {load ? (
         <Spinner />
       ) : (
-        <FlatList
+        <CustomFlatList
           style={comp.input}
           data={groupsSearch}
           refreshControl={
@@ -43,14 +44,14 @@ const Groups = ({navigation, groups}) => {
           }
           ItemSeparatorComponent={ListSeparator}
           renderItem={({item}) => <GroupItem group={item} />}
-          ListEmptyComponent={() => (
+          ListEmptyComponent={
             <EmptyList
               title={'Тут пока нет групп'}
               description={'Нажмите на плюсик, чтобы создать группу'}
               search={search}
               entities={groupsSearch}
             />
-          )}
+          }
           keyExtractor={(_, index) => index.toString()}
         />
       )}
