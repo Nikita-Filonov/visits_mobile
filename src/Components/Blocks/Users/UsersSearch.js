@@ -54,6 +54,7 @@ export const UsersSearch = (props: Props) => {
       {users.length > 0 || emailOrUsername.length > 0 ? (
         <FlatList
           style={comp.input}
+          removeClippedSubviews={true}
           data={users}
           renderItem={({item}) => (
             <SearchUserItem
@@ -76,6 +77,7 @@ export const UsersSearch = (props: Props) => {
       ) : (
         <FlatList
           style={comp.input}
+          removeClippedSubviews={true}
           data={selectedUsers}
           renderItem={({item}) => (
             <SearchUserItem

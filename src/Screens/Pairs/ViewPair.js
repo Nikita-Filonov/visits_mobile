@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {connect} from 'react-redux';
 import {BackLayout} from '../../Components/Layouts/BackLayout';
 import {useUserPairs} from '../../Providers/Pairs/UserPairsProvider';
@@ -19,7 +19,6 @@ const ViewPair = ({route, navigation, pair, userPairs, setUserPairStore}) => {
   const {isCreation} = route.params;
   const userPairRef = useRef(null);
   const {load, getUserPairs} = useUserPairs();
-  const [checkUsersMode, setCheckUsersMode] = useState(false);
 
   useEffect(() => {
     (async () => pair?.id && (await getUserPairs(pair?.id)))();
@@ -27,7 +26,6 @@ const ViewPair = ({route, navigation, pair, userPairs, setUserPairStore}) => {
 
   const onRefresh = async () => await getUserPairs(pair?.id);
 
-  const onCheckUsersMode = () => setCheckUsersMode(!checkUsersMode);
   const onScanStudentQRcCode = async () => {
     const granted = await getCameraPermissions();
     if (granted) {
@@ -47,38 +45,18 @@ const ViewPair = ({route, navigation, pair, userPairs, setUserPairStore}) => {
       subtitle={getCurrentPairDate()}
       onBack={onBack}
       bottom={
-        !checkUsersMode && (
-          <React.Fragment>
-            <UserPairsFab />
-            <UserPairBottomSheet ref={userPairRef} />
-          </React.Fragment>
-        )
+        <React.Fragment>
+          <UserPairsFab />
+          <UserPairBottomSheet ref={userPairRef} />
+        </React.Fragment>
       }
-      backButton={
-        checkUsersMode && (
-          <Appbar.Action
-            icon="close"
-            color={'#FFFFFF'}
-            onPress={onCheckUsersMode}
-          />
-        )
-      }
-      actions={
-        checkUsersMode
-          ? [<Appbar.Action icon="check" color={'#FFFFFF'} />]
-          : [
-              <Appbar.Action
-                icon="account-multiple-check-outline"
-                color={'#FFFFFF'}
-                onPress={onCheckUsersMode}
-              />,
-              <Appbar.Action
-                icon="qrcode-scan"
-                color={'#FFFFFF'}
-                onPress={onScanStudentQRcCode}
-              />,
-            ]
-      }>
+      actions={[
+        <Appbar.Action
+          icon="qrcode-scan"
+          color={'#FFFFFF'}
+          onPress={onScanStudentQRcCode}
+        />,
+      ]}>
       {load ? (
         <Spinner />
       ) : (
@@ -88,11 +66,7 @@ const ViewPair = ({route, navigation, pair, userPairs, setUserPairStore}) => {
             <RefreshControl refreshing={false} onRefresh={onRefresh} />
           }
           renderItem={({item}) => (
-            <UserPairItem
-              userPair={item}
-              checkUsersMode={checkUsersMode}
-              openUserSheet={openUserSheet}
-            />
+            <UserPairItem userPair={item} openUserSheet={openUserSheet} />
           )}
           ListEmptyComponent={() => (
             <EmptyList
