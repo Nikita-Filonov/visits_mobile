@@ -2,20 +2,28 @@ import React, {useState} from 'react';
 import {ConfirmLayout} from '../../../Components/Layouts/ConfirmLayout';
 import {useUserPairs} from '../../../Providers/Pairs/UserPairsProvider';
 import {connect} from 'react-redux';
+import {UsersSearch} from '../../../Components/Blocks/Users/UsersSearch';
 
 const CreateUserPair = ({navigation, pair}) => {
   const {request, createUserPair} = useUserPairs();
   const [selectedUsers, setSelectedUsers] = useState([]);
 
   const onCreate = async () =>
-    !(await createUserPair(pair.id, selectedUsers)) && navigation.goBack();
+    !(await createUserPair(
+      pair.id,
+      selectedUsers.map(user => user.id),
+    )) && navigation.goBack();
 
   return (
     <ConfirmLayout
       title={'Добавить студента'}
       onConfirm={onCreate}
-      loading={request}
-    />
+      loading={request}>
+      <UsersSearch
+        selectedUsers={selectedUsers}
+        setSelectedUsers={setSelectedUsers}
+      />
+    </ConfirmLayout>
   );
 };
 

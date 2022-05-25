@@ -18,14 +18,13 @@ export const SearchUserItem = (props: Props) => {
   const {user, onSelectUser, onRemoveUser, mode} = props;
   const {theme} = useThemes();
 
-  const onSelect = async () => await onSelectUser(user);
+  const onSelect = async () => mode === 'select' && (await onSelectUser(user));
 
   const onRemove = async () => await onRemoveUser(user);
 
   return (
     <TouchableOpacity
       onPress={onSelect}
-      disabled={mode === 'view'}
       style={[
         {backgroundColor: theme.listItem},
         PairItemStyle.container,
@@ -36,12 +35,13 @@ export const SearchUserItem = (props: Props) => {
         <CustomText>{user.email}</CustomText>
       </View>
       <View style={comp.flex} />
-      <Touchable
-        name={'close'}
-        type={'material-community'}
-        action={onRemove}
-        disabled={mode === 'select'}
-      />
+      {mode === 'view' && (
+        <Touchable
+          name={'close'}
+          type={'material-community'}
+          action={onRemove}
+        />
+      )}
     </TouchableOpacity>
   );
 };

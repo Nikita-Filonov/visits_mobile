@@ -4,6 +4,9 @@ import {FlatList} from 'react-native';
 import type {User} from '../../../Models/User';
 import {UsersSearchTextField} from '../../Common/Inputs/UsersSearchTextField';
 import {SearchUserItem} from '../../Items/Users/SearchUserItem';
+import {EmptyList} from '../EmptyList';
+import {ListSeparator} from '../../Common/ListSeparator';
+import {comp} from '../../../Styles/Blocks';
 
 type Props = {
   selectedUsers: User[],
@@ -32,8 +35,6 @@ export const UsersSearch = (props: Props) => {
     return () => clearTimeout(timeout);
   }, [emailOrUsername]);
 
-  useEffect(() => console.log(users), [users]);
-
   const onSelectUser = async (user: User) => {
     setUsers([]);
     setEmailOrUsername('');
@@ -50,8 +51,9 @@ export const UsersSearch = (props: Props) => {
         value={emailOrUsername}
         onChangeText={setEmailOrUsername}
       />
-      {users.length > 0 ? (
+      {users.length > 0 || emailOrUsername.length > 0 ? (
         <FlatList
+          style={comp.input}
           data={users}
           renderItem={({item}) => (
             <SearchUserItem
@@ -60,16 +62,33 @@ export const UsersSearch = (props: Props) => {
               onSelectUser={onSelectUser}
             />
           )}
+          ListEmptyComponent={() => (
+            <EmptyList
+              title={'Нет результатов'}
+              description={
+                'Ксожалению мы не смогли найти студента по вашему запросу'
+              }
+            />
+          )}
+          ItemSeparatorComponent={ListSeparator}
           keyExtractor={(item, index) => index.toString()}
         />
       ) : (
         <FlatList
-          data={users}
+          style={comp.input}
+          data={selectedUsers}
           renderItem={({item}) => (
             <SearchUserItem
               user={item}
               mode={'view'}
               onRemoveUser={onRemoveUser}
+            />
+          )}
+          ItemSeparatorComponent={ListSeparator}
+          ListEmptyComponent={() => (
+            <EmptyList
+              title={'Нет выбранных пользователей'}
+              description={'Начните вводить ФИО или почту студента'}
             />
           )}
           keyExtractor={(item, index) => index.toString()}
