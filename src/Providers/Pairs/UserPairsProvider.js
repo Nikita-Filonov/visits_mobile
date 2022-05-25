@@ -45,7 +45,11 @@ const UserPairsProvider = ({children}) => {
     setRequest(true);
     const {error, json} = await post('api/v1/user-pairs', {pairId, users});
 
-    !error && store.dispatch({type: SET_USER_PAIRS, payload: json});
+    !error &&
+      store.dispatch({
+        type: SET_USER_PAIRS,
+        payload: {readyState: true, userPairs: json},
+      });
     setRequest(false);
 
     return error;

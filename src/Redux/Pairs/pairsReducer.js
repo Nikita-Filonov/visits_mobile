@@ -11,6 +11,7 @@ import {
   SET_VISITS,
   UPDATE_PAIR,
 } from './actionTypes';
+import {setUsersPairsState} from './Controllers';
 
 export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
   switch (action.type) {
@@ -24,13 +25,8 @@ export const pairsReducer = (state = PAIRS_INITIAL_STATE, action) => {
       return {...state, pair: action.payload};
     case SET_USER_PAIR:
       return {...state, userPair: action.payload};
-    case SET_USER_PAIRS: {
-      const userPairs = [...state.userPairs, ...action.payload].filter(
-        (value, index, self) =>
-          index === self.findIndex(userPair => userPair.id === value.id),
-      );
-      return {...state, userPairs};
-    }
+    case SET_USER_PAIRS:
+      return setUsersPairsState(state, action, 'userPairs');
     case SET_USER_PAIR_VISIT: {
       const {userId} = action.payload;
 

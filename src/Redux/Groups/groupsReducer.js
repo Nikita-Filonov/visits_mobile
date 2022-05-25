@@ -7,6 +7,7 @@ import {
   SET_GROUPS,
   UPDATE_GROUP,
 } from './actionTypes';
+import {setUsersPairsState} from '../Pairs/Controllers';
 
 export const groupsReducer = (state = GROUPS_INITIAL_STATE, action) => {
   switch (action.type) {
@@ -19,13 +20,8 @@ export const groupsReducer = (state = GROUPS_INITIAL_STATE, action) => {
 
       return {...state, groups: action.payload};
     }
-    case SET_GROUP_USERS: {
-      const groupUsers = [...state.groupUsers, ...action.payload].filter(
-        (value, index, self) =>
-          index === self.findIndex(groupUser => groupUser.id === value.id),
-      );
-      return {...state, groupUsers};
-    }
+    case SET_GROUP_USERS:
+      return setUsersPairsState(state, action, 'groupUsers');
     case DELETE_GROUP_USER: {
       const {groupUserId} = action.payload;
       return {

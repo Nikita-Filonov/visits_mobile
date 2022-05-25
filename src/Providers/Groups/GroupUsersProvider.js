@@ -28,7 +28,11 @@ const GroupUsersProvider = ({children}) => {
     setRequest(true);
     const {error, json} = await post('api/v1/group-users', {groupId, users});
 
-    !error && store.dispatch({type: SET_GROUP_USERS, payload: json});
+    !error &&
+      store.dispatch({
+        type: SET_GROUP_USERS,
+        payload: {readyState: true, groupUsers: json},
+      });
     setRequest(false);
 
     return error;
