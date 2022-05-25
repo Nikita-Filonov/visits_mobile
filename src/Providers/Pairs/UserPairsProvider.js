@@ -6,7 +6,6 @@ import {
   SET_USER_PAIR,
   SET_USER_PAIR_VISIT,
   SET_USER_PAIRS,
-  SET_USER_PAIRS_GROUP,
   SET_VISITS,
 } from '../../Redux/Pairs/actionTypes';
 import {Visit} from '../../Models/Visits';
@@ -64,7 +63,11 @@ const UserPairsProvider = ({children}) => {
       pairId,
       groups,
     });
-    !error && store.dispatch({type: SET_USER_PAIRS_GROUP, payload: json});
+    !error &&
+      store.dispatch({
+        type: SET_USER_PAIRS,
+        payload: {readyState: true, userPairs: json},
+      });
     setRequest(false);
   };
 
