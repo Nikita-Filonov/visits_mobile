@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {useAuth} from '../../../../Providers/AuthProvider';
-import {FlatList, View} from 'react-native';
-import {CustomText} from '../../../Common/CustomText';
-import type {User} from '../../../../Models/User';
-import {UsersSearchTextField} from '../../../Common/Inputs/UsersSearchTextField';
+import {useAuth} from '../../../Providers/AuthProvider';
+import {FlatList} from 'react-native';
+import type {User} from '../../../Models/User';
+import {UsersSearchTextField} from '../../Common/Inputs/UsersSearchTextField';
+import {SearchUserItem} from '../../Items/Users/SearchUserItem';
 
 type Props = {
   selectedUsers: User[],
@@ -54,9 +54,11 @@ export const UsersSearch = (props: Props) => {
         <FlatList
           data={users}
           renderItem={({item}) => (
-            <View>
-              <CustomText>{item.username}</CustomText>
-            </View>
+            <SearchUserItem
+              user={item}
+              mode={'select'}
+              onSelectUser={onSelectUser}
+            />
           )}
           keyExtractor={(item, index) => index.toString()}
         />
@@ -64,9 +66,11 @@ export const UsersSearch = (props: Props) => {
         <FlatList
           data={users}
           renderItem={({item}) => (
-            <View>
-              <CustomText>{item.username}</CustomText>
-            </View>
+            <SearchUserItem
+              user={item}
+              mode={'view'}
+              onRemoveUser={onRemoveUser}
+            />
           )}
           keyExtractor={(item, index) => index.toString()}
         />
