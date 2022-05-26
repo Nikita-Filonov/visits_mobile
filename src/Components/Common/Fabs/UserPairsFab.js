@@ -32,7 +32,7 @@ export const UserPairsFab = () => {
             <Icon name={'email-outline'} type={'material-community'} />
           ),
           onPress: onCreateUserPair,
-          label: 'Добавить по почте',
+          label: 'Добавить по почте или по ФИО',
         },
       ]}
       onStateChange={state => setOpen(state.open)}
