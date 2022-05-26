@@ -24,6 +24,7 @@ export const CustomFlatList = (props: Props) => {
 
   return data.length === 0 ? (
     <FlatList
+      keyboardDismissMode={'handled'}
       data={[]}
       renderItem={_ => null}
       refreshControl={refreshControl}
