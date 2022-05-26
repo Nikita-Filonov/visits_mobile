@@ -1,1 +1,1 @@
-export const baseUrl = 'https://api-visits.herokuapp.com/';
+export const baseUrl = 'https://mobile-visits-api.herokuapp.com/';
