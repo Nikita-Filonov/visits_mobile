@@ -38,7 +38,10 @@ const ViewPair = ({route, navigation, pair, userPairs, setUserPairStore}) => {
     userPairRef.current.snapTo(0);
   };
 
-  const onBack = () => (isCreation ? navigate('Pairs') : goBack());
+  const onBack = () => {
+    isCreation ? navigate('Pairs') : goBack();
+    return true;
+  };
 
   return (
     <BackLayout

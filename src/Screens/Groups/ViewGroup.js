@@ -21,7 +21,10 @@ const ViewGroup = ({route, group, groupUsers}) => {
 
   const onRefresh = async () => await getGroupUsers(group?.id);
 
-  const onBack = () => (isCreation ? navigate('Groups') : goBack());
+  const onBack = () => {
+    isCreation ? navigate('Groups') : goBack();
+    return true;
+  };
 
   const onCreate = () => navigate('CreateGroupUser');
 
