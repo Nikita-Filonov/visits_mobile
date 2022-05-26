@@ -16,7 +16,7 @@ export const DrawerItem = ({
   const {theme} = useThemes();
 
   const selectedColor = useMemo(
-    () => (selected ? (theme.dark ? theme.listItem : '#C1FFD3') : null),
+    () => (selected ? (theme.dark ? theme.listItem : '#B7CEFF') : null),
     [selected, theme.dark, theme.listItem],
   );
 

@@ -16,12 +16,12 @@ export const ThemeStyles = {
     disabled: '#B0B0B0',
     button: {
       inherit: '#646464',
-      primary: '#42C467',
+      primary: '#4B6EB9',
       error: '#DB2F2F',
       warning: '#FFA726',
     },
     header: {
-      background: '#42C467',
+      background: '#4B6EB9',
     },
     colors: {
       primary: '#0288D1',

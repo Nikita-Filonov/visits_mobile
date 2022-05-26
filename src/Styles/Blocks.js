@@ -1,4 +1,5 @@
 import {Dimensions, StyleSheet} from 'react-native';
+import {ThemeStyles} from '../Providers/ThemeProvider';
 
 export const comp = StyleSheet.create({
   header: {
@@ -143,7 +144,7 @@ export const loader = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#42C467',
+    backgroundColor: ThemeStyles.default.button.primary,
     flexDirection: 'row',
     justifyContent: 'center',
   },
