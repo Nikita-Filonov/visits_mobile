@@ -1,12 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {useAuth} from '../../../Providers/AuthProvider';
 import type {User} from '../../../Models/User';
 import {UsersSearchTextField} from '../../Common/Inputs/UsersSearchTextField';
 import {SearchUserItem} from '../../Items/Users/SearchUserItem';
 import {EmptyList} from '../EmptyList';
-import {ListSeparator} from '../../Common/ListSeparator';
-import {comp} from '../../../Styles/Blocks';
-import {CustomFlatList} from '../../Common/CustomFlatList';
+import {View} from 'react-native';
 
 type Props = {
   selectedUsers: User[],
@@ -44,6 +42,15 @@ export const UsersSearch = (props: Props) => {
   const onRemoveUser = async (user: User) =>
     setSelectedUsers(selectedUsers.filter(u => u.id !== user.id));
 
+  const isSelecting = useMemo(
+    () => users.length > 0 || emailOrUsername.length > 0,
+    [emailOrUsername.length, users.length],
+  );
+  const safeUsers = useMemo(
+    () => (isSelecting ? users : selectedUsers),
+    [isSelecting, selectedUsers, users],
+  );
+
   return (
     <React.Fragment>
       <UsersSearchTextField
@@ -51,51 +58,30 @@ export const UsersSearch = (props: Props) => {
         value={emailOrUsername}
         onChangeText={setEmailOrUsername}
       />
-      {users.length > 0 || emailOrUsername.length > 0 ? (
-        <CustomFlatList
-          style={comp.input}
-          removeClippedSubviews={true}
-          data={users}
-          renderItem={({item}) => (
+      <View>
+        {safeUsers.length === 0 ? (
+          <EmptyList
+            title={
+              isSelecting ? 'Нет результатов' : 'Нет выбранных пользователей'
+            }
+            description={
+              isSelecting
+                ? 'Ксожалению мы не смогли найти студента по вашему запросу'
+                : 'Начните вводить ФИО или почту студента'
+            }
+          />
+        ) : (
+          safeUsers.map(user => (
             <SearchUserItem
-              user={item}
-              mode={'select'}
+              key={user.id}
+              user={user}
+              mode={isSelecting ? 'select' : 'view'}
               onSelectUser={onSelectUser}
-            />
-          )}
-          ListEmptyComponent={
-            <EmptyList
-              title={'Нет результатов'}
-              description={
-                'Ксожалению мы не смогли найти студента по вашему запросу'
-              }
-            />
-          }
-          ItemSeparatorComponent={ListSeparator}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      ) : (
-        <CustomFlatList
-          style={comp.input}
-          removeClippedSubviews={true}
-          data={selectedUsers}
-          renderItem={({item}) => (
-            <SearchUserItem
-              user={item}
-              mode={'view'}
               onRemoveUser={onRemoveUser}
             />
-          )}
-          ItemSeparatorComponent={ListSeparator}
-          ListEmptyComponent={
-            <EmptyList
-              title={'Нет выбранных пользователей'}
-              description={'Начните вводить ФИО или почту студента'}
-            />
-          }
-          keyExtractor={(item, index) => index.toString()}
-        />
-      )}
+          ))
+        )}
+      </View>
     </React.Fragment>
   );
 };
