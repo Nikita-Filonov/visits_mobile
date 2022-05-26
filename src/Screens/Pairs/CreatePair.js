@@ -9,6 +9,7 @@ import {PAIRS_INITIAL_STATE} from '../../Redux/Pairs/initialState';
 import {TimePicker} from '../../Components/Common/Inputs/TimePicker';
 import type {Pair} from '../../Models/Pairs';
 import {HorizontalDivider} from '../../Components/Common/HorizontalDivider';
+import {formatToApiAcceptableTime} from '../../Utils/Helpers/Formatters';
 
 type Props = {
   navigation: any,
@@ -29,11 +30,16 @@ const CreatePair = (props: Props) => {
     await createPair({
       name: pair.name,
       room: pair.room,
-      startAt: pair.startAt,
-      endAt: pair.endAt,
+      startAt: formatToApiAcceptableTime(pair.startAt),
+      endAt: formatToApiAcceptableTime(pair.endAt),
     });
 
-  const onUpdate = async () => updatePair(pair.id, pair).then(() => onBack());
+  const onUpdate = async () =>
+    updatePair(pair.id, {
+      ...pair,
+      startAt: formatToApiAcceptableTime(pair.startAt),
+      endAt: formatToApiAcceptableTime(pair.endAt),
+    }).then(() => onBack());
 
   const onTime = key => time => setPairStore({...pair, [key]: time});
 
