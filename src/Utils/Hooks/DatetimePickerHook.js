@@ -16,13 +16,16 @@ export const useDatetimePicker = onChange => {
     timestamp && onChange(new Date(timestamp));
   };
 
-  const onChangePickerText = useCallback(async (value, text, format) => {
-    const safeDateTime = moment(value || new Date()).format(format);
-    const isValid = isDateTimeValid(safeDateTime);
-    setError(!isValid);
-    const datetime = moment(safeDateTime, PICKER_DATETIME_FORMAT).toDate();
-    isValid && onChange(datetime);
-  }, []);
+  const onChangePickerText = useCallback(
+    async (value: Date, text: string, format: string) => {
+      const safeDateTime = moment(value || new Date()).format(format);
+      const isValid = isDateTimeValid(safeDateTime);
+      setError(!isValid);
+      const datetime = moment(safeDateTime, PICKER_DATETIME_FORMAT).toDate();
+      isValid && onChange(datetime);
+    },
+    [],
+  );
 
   return {error, picker, onPicker, onChangePickerText, onOpenPicker};
 };

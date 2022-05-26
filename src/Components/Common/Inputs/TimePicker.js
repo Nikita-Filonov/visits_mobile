@@ -13,13 +13,13 @@ export const TimePicker = ({value, onChange, label}) => {
   const {picker, error, onChangePickerText, onPicker, onOpenPicker} =
     useDatetimePicker(onChange);
 
-  const onChangeTimeText = async text =>
-    await onChangePickerText(value, text, `${PICKER_DATE_FORMAT} ${text}`);
-
   const nativeTime = useMemo(
     () => (value ? moment(value, PICKER_TIME_FORMAT) : null),
     [value],
   );
+
+  const onChangeTimeText = async text =>
+    await onChangePickerText(nativeTime, text, `${PICKER_DATE_FORMAT} ${text}`);
 
   return (
     <React.Fragment>
